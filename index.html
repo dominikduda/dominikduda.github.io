@@ -1,0 +1,1348 @@
+  <html>
+    <head>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+      <style>
+  i {
+    font-size: 100;
+  }
+  img {
+    width: 33%;
+    height: 55%;
+  }
+  .chart {
+    height: 1920px;
+  }
+  .chart_title {
+  }
+  body {
+    margin: 0px
+  }
+  .overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    max-width: 200px;
+  }
+  .down-arrow-container {
+    height: 10%;
+    margin-left: 20px;
+    position: fixed;
+    bottom: 1%;
+    left: 0;
+    max-width: 600px;
+  }
+  .down-arrow-content {
+    position: relative;
+    text-align: center;
+    top: 0;
+    opacity: 0.04;
+    max-width: 200px;
+  }
+  .down-arrow-content:hover {
+    opacity: 1;
+  }
+  .up-arrow-container {
+    height: 10%;
+    margin-left: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 600px;
+  }
+  .up-arrow-content {
+    position: relative;
+    text-align: center;
+    top: 0%;
+    opacity: 0.04;
+    max-width: 200px;
+  }
+  .up-arrow-content:hover {
+    opacity: 1;
+  }
+  .overlay-content {
+    position: relative;
+    text-align: center;
+    top: 10%;
+    opacity: 0.04;
+    max-width: 200px;
+    z-index: 2;
+  }
+  .overlay-content:hover {
+    opacity: 1;
+  }
+  .chart-link {
+    background-color: blue;
+    color: white;
+    margin-left: 20px;
+    margin-top: 0px;
+    max-width: 100px;
+    height: 15px;
+    cursor: pointer;
+  }
+  .chart-link:hover {
+    color: red;
+  }
+  body {
+    // overflow: hidden;
+  }
+      </style>
+      <script>
+        (() => {
+          window.list = ["^DJT", "^SPX", "^DAX", "TLT.US", "LIT.US", "ARKG.US", "PBD.US", "DRIV.US", "ACES.US", "BUG.US", "IYE.US", "BATT.US", "XME.US", "AIQ.US", "SMH.US", "------", "CDR", "HUGE", "PLUG.US", "LTHM.US", "CDNA.US", "VRTX.US", "TWST.US", "REGN.US", "PACB.US", "NTLA.US", "EXAS.US", "TDOC.US", "PBE.US", "CRSP.US", "TSLA.US", "NVDA.US", "DIS.US", "MSFT.US", "AAPL.US", "PEP.US", "INTC.US", "AMZN.US", "KO.US", "BAC.US", "V.US", "SBUX.US", "ADBE.US", "FDX.US", "PYPL.US", "MCD.US", "BYND.US", "EDIT.US", "CCJ.US", "WFC.US", "------", "XAUUSD", "------", "ZEC.V", "DOGE.V", "XMR.V", "ETH.V", "AMPL.V", "BTCUSD", "------", "eurusd", "gbpusd", "audcad", "audchf", "audjpy", "audnzd", "audusd", "cadchf", "cadjpy", "chfjpy", "chfsgd", "euraud", "eurchf", "eurgbp", "eurjpy", "eurnzd", "gbpaud", "gbpchf", "gbpjpy", "gbpnzd", "nzdcad", "nzdchf", "nzdjpy", "nzdusd", "usdcad", "usdchf", "usdjpy"];
+          window.current_index = 0;
+        })()
+      </script>
+    </head>
+    <body>
+    <script >
+      (
+        () => {
+            setTimeout('window.location.reload()', 120000);
+        }
+      )()
+    </script>
+      <div class="grid-container">
+<div class='grid-item divider' style='visibility: hidden' id=^DJT>^DJT</div><img src="https://stooq.com/c/?s=^DJT&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=^DJT&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=^DJT&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=^SPX>^SPX</div><img src="https://stooq.com/c/?s=^SPX&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=^SPX&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=^SPX&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=^DAX>^DAX</div><img src="https://stooq.com/c/?s=^DAX&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=^DAX&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=^DAX&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=TLT.US>TLT.US</div><img src="https://stooq.com/c/?s=TLT.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=TLT.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=TLT.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=LIT.US>LIT.US</div><img src="https://stooq.com/c/?s=LIT.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=LIT.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=LIT.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=ARKG.US>ARKG.US</div><img src="https://stooq.com/c/?s=ARKG.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=ARKG.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=ARKG.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=PBD.US>PBD.US</div><img src="https://stooq.com/c/?s=PBD.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PBD.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PBD.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=DRIV.US>DRIV.US</div><img src="https://stooq.com/c/?s=DRIV.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=DRIV.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=DRIV.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=ACES.US>ACES.US</div><img src="https://stooq.com/c/?s=ACES.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=ACES.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=ACES.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=BUG.US>BUG.US</div><img src="https://stooq.com/c/?s=BUG.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=BUG.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=BUG.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=IYE.US>IYE.US</div><img src="https://stooq.com/c/?s=IYE.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=IYE.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=IYE.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=BATT.US>BATT.US</div><img src="https://stooq.com/c/?s=BATT.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=BATT.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=BATT.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=XME.US>XME.US</div><img src="https://stooq.com/c/?s=XME.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=XME.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=XME.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=AIQ.US>AIQ.US</div><img src="https://stooq.com/c/?s=AIQ.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=AIQ.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=AIQ.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=SMH.US>SMH.US</div><img src="https://stooq.com/c/?s=SMH.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=SMH.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=SMH.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=------>------</div><img src="https://stooq.com/c/?s=------&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=------&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=------&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=CDR>CDR</div><img src="https://stooq.com/c/?s=CDR&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=CDR&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=CDR&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=HUGE>HUGE</div><img src="https://stooq.com/c/?s=HUGE&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=HUGE&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=HUGE&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=PLUG.US>PLUG.US</div><img src="https://stooq.com/c/?s=PLUG.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PLUG.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PLUG.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=LTHM.US>LTHM.US</div><img src="https://stooq.com/c/?s=LTHM.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=LTHM.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=LTHM.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=CDNA.US>CDNA.US</div><img src="https://stooq.com/c/?s=CDNA.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=CDNA.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=CDNA.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=VRTX.US>VRTX.US</div><img src="https://stooq.com/c/?s=VRTX.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=VRTX.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=VRTX.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=TWST.US>TWST.US</div><img src="https://stooq.com/c/?s=TWST.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=TWST.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=TWST.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=REGN.US>REGN.US</div><img src="https://stooq.com/c/?s=REGN.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=REGN.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=REGN.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=PACB.US>PACB.US</div><img src="https://stooq.com/c/?s=PACB.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PACB.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PACB.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=NTLA.US>NTLA.US</div><img src="https://stooq.com/c/?s=NTLA.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=NTLA.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=NTLA.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=EXAS.US>EXAS.US</div><img src="https://stooq.com/c/?s=EXAS.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=EXAS.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=EXAS.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=TDOC.US>TDOC.US</div><img src="https://stooq.com/c/?s=TDOC.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=TDOC.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=TDOC.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=PBE.US>PBE.US</div><img src="https://stooq.com/c/?s=PBE.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PBE.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PBE.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=CRSP.US>CRSP.US</div><img src="https://stooq.com/c/?s=CRSP.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=CRSP.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=CRSP.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=TSLA.US>TSLA.US</div><img src="https://stooq.com/c/?s=TSLA.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=TSLA.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=TSLA.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=NVDA.US>NVDA.US</div><img src="https://stooq.com/c/?s=NVDA.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=NVDA.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=NVDA.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=DIS.US>DIS.US</div><img src="https://stooq.com/c/?s=DIS.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=DIS.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=DIS.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=MSFT.US>MSFT.US</div><img src="https://stooq.com/c/?s=MSFT.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=MSFT.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=MSFT.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=AAPL.US>AAPL.US</div><img src="https://stooq.com/c/?s=AAPL.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=AAPL.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=AAPL.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=PEP.US>PEP.US</div><img src="https://stooq.com/c/?s=PEP.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PEP.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PEP.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=INTC.US>INTC.US</div><img src="https://stooq.com/c/?s=INTC.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=INTC.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=INTC.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=AMZN.US>AMZN.US</div><img src="https://stooq.com/c/?s=AMZN.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=AMZN.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=AMZN.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=KO.US>KO.US</div><img src="https://stooq.com/c/?s=KO.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=KO.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=KO.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=BAC.US>BAC.US</div><img src="https://stooq.com/c/?s=BAC.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=BAC.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=BAC.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=V.US>V.US</div><img src="https://stooq.com/c/?s=V.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=V.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=V.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=SBUX.US>SBUX.US</div><img src="https://stooq.com/c/?s=SBUX.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=SBUX.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=SBUX.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=ADBE.US>ADBE.US</div><img src="https://stooq.com/c/?s=ADBE.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=ADBE.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=ADBE.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=FDX.US>FDX.US</div><img src="https://stooq.com/c/?s=FDX.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=FDX.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=FDX.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=PYPL.US>PYPL.US</div><img src="https://stooq.com/c/?s=PYPL.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PYPL.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=PYPL.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=MCD.US>MCD.US</div><img src="https://stooq.com/c/?s=MCD.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=MCD.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=MCD.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=BYND.US>BYND.US</div><img src="https://stooq.com/c/?s=BYND.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=BYND.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=BYND.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=EDIT.US>EDIT.US</div><img src="https://stooq.com/c/?s=EDIT.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=EDIT.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=EDIT.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=CCJ.US>CCJ.US</div><img src="https://stooq.com/c/?s=CCJ.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=CCJ.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=CCJ.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=WFC.US>WFC.US</div><img src="https://stooq.com/c/?s=WFC.US&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=WFC.US&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=WFC.US&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=------>------</div><img src="https://stooq.com/c/?s=------&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=------&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=------&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=XAUUSD>XAUUSD</div><img src="https://stooq.com/c/?s=XAUUSD&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=XAUUSD&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=XAUUSD&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=------>------</div><img src="https://stooq.com/c/?s=------&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=------&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=------&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=ZEC.V>ZEC.V</div><img src="https://stooq.com/c/?s=ZEC.V&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=ZEC.V&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=ZEC.V&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=DOGE.V>DOGE.V</div><img src="https://stooq.com/c/?s=DOGE.V&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=DOGE.V&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=DOGE.V&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=XMR.V>XMR.V</div><img src="https://stooq.com/c/?s=XMR.V&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=XMR.V&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=XMR.V&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=ETH.V>ETH.V</div><img src="https://stooq.com/c/?s=ETH.V&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=ETH.V&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=ETH.V&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=AMPL.V>AMPL.V</div><img src="https://stooq.com/c/?s=AMPL.V&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=AMPL.V&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=AMPL.V&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=BTCUSD>BTCUSD</div><img src="https://stooq.com/c/?s=BTCUSD&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=BTCUSD&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=BTCUSD&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=------>------</div><img src="https://stooq.com/c/?s=------&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=------&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=------&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=eurusd>eurusd</div><img src="https://stooq.com/c/?s=eurusd&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=eurusd&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=eurusd&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=gbpusd>gbpusd</div><img src="https://stooq.com/c/?s=gbpusd&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=gbpusd&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=gbpusd&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=audcad>audcad</div><img src="https://stooq.com/c/?s=audcad&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=audcad&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=audcad&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=audchf>audchf</div><img src="https://stooq.com/c/?s=audchf&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=audchf&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=audchf&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=audjpy>audjpy</div><img src="https://stooq.com/c/?s=audjpy&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=audjpy&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=audjpy&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=audnzd>audnzd</div><img src="https://stooq.com/c/?s=audnzd&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=audnzd&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=audnzd&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=audusd>audusd</div><img src="https://stooq.com/c/?s=audusd&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=audusd&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=audusd&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=cadchf>cadchf</div><img src="https://stooq.com/c/?s=cadchf&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=cadchf&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=cadchf&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=cadjpy>cadjpy</div><img src="https://stooq.com/c/?s=cadjpy&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=cadjpy&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=cadjpy&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=chfjpy>chfjpy</div><img src="https://stooq.com/c/?s=chfjpy&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=chfjpy&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=chfjpy&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=chfsgd>chfsgd</div><img src="https://stooq.com/c/?s=chfsgd&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=chfsgd&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=chfsgd&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=euraud>euraud</div><img src="https://stooq.com/c/?s=euraud&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=euraud&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=euraud&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=eurchf>eurchf</div><img src="https://stooq.com/c/?s=eurchf&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=eurchf&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=eurchf&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=eurgbp>eurgbp</div><img src="https://stooq.com/c/?s=eurgbp&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=eurgbp&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=eurgbp&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=eurjpy>eurjpy</div><img src="https://stooq.com/c/?s=eurjpy&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=eurjpy&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=eurjpy&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=eurnzd>eurnzd</div><img src="https://stooq.com/c/?s=eurnzd&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=eurnzd&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=eurnzd&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=gbpaud>gbpaud</div><img src="https://stooq.com/c/?s=gbpaud&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=gbpaud&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=gbpaud&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=gbpchf>gbpchf</div><img src="https://stooq.com/c/?s=gbpchf&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=gbpchf&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=gbpchf&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=gbpjpy>gbpjpy</div><img src="https://stooq.com/c/?s=gbpjpy&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=gbpjpy&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=gbpjpy&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=gbpnzd>gbpnzd</div><img src="https://stooq.com/c/?s=gbpnzd&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=gbpnzd&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=gbpnzd&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=nzdcad>nzdcad</div><img src="https://stooq.com/c/?s=nzdcad&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=nzdcad&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=nzdcad&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=nzdchf>nzdchf</div><img src="https://stooq.com/c/?s=nzdchf&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=nzdchf&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=nzdchf&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=nzdjpy>nzdjpy</div><img src="https://stooq.com/c/?s=nzdjpy&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=nzdjpy&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=nzdjpy&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=nzdusd>nzdusd</div><img src="https://stooq.com/c/?s=nzdusd&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=nzdusd&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=nzdusd&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=usdcad>usdcad</div><img src="https://stooq.com/c/?s=usdcad&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=usdcad&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=usdcad&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=usdchf>usdchf</div><img src="https://stooq.com/c/?s=usdchf&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=usdchf&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=usdchf&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=usdjpy>usdjpy</div><img src="https://stooq.com/c/?s=usdjpy&c=5m&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=usdjpy&c=10y&t=c&a=lg&b&g"/>
+<img src="https://stooq.com/c/?s=usdjpy&c=30y&t=c&a=lg&b&g"/>
+<hr><hr><hr><hr><hr><div class="overlay"><div class="up-arrow-container"><div class="up-arrow-content"><div
+  onClick="(function() {
+    if (window.current_index > 0) {
+      document.getElementById(window.list[window.current_index - 1]).scrollIntoView()
+      window.current_index = window.current_index - 1
+    }
+  })()"
+>
+  <i class="fas fa-angle-up" ></i>
+</div>
+</div></div><div class="overlay-content"><div
+  class="chart-link"
+  tabindex="-1"
+  id="^DJT"
+  onClick="(function() {
+    document.getElementById('^DJT').scrollIntoView()
+    window.current_index = window.list.indexOf('^DJT')
+  })()"
+>
+  <span>^DJT</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="^SPX"
+  onClick="(function() {
+    document.getElementById('^SPX').scrollIntoView()
+    window.current_index = window.list.indexOf('^SPX')
+  })()"
+>
+  <span>^SPX</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="^DAX"
+  onClick="(function() {
+    document.getElementById('^DAX').scrollIntoView()
+    window.current_index = window.list.indexOf('^DAX')
+  })()"
+>
+  <span>^DAX</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="TLT.US"
+  onClick="(function() {
+    document.getElementById('TLT.US').scrollIntoView()
+    window.current_index = window.list.indexOf('TLT.US')
+  })()"
+>
+  <span>TLT.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="LIT.US"
+  onClick="(function() {
+    document.getElementById('LIT.US').scrollIntoView()
+    window.current_index = window.list.indexOf('LIT.US')
+  })()"
+>
+  <span>LIT.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="ARKG.US"
+  onClick="(function() {
+    document.getElementById('ARKG.US').scrollIntoView()
+    window.current_index = window.list.indexOf('ARKG.US')
+  })()"
+>
+  <span>ARKG.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="PBD.US"
+  onClick="(function() {
+    document.getElementById('PBD.US').scrollIntoView()
+    window.current_index = window.list.indexOf('PBD.US')
+  })()"
+>
+  <span>PBD.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="DRIV.US"
+  onClick="(function() {
+    document.getElementById('DRIV.US').scrollIntoView()
+    window.current_index = window.list.indexOf('DRIV.US')
+  })()"
+>
+  <span>DRIV.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="ACES.US"
+  onClick="(function() {
+    document.getElementById('ACES.US').scrollIntoView()
+    window.current_index = window.list.indexOf('ACES.US')
+  })()"
+>
+  <span>ACES.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="BUG.US"
+  onClick="(function() {
+    document.getElementById('BUG.US').scrollIntoView()
+    window.current_index = window.list.indexOf('BUG.US')
+  })()"
+>
+  <span>BUG.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="IYE.US"
+  onClick="(function() {
+    document.getElementById('IYE.US').scrollIntoView()
+    window.current_index = window.list.indexOf('IYE.US')
+  })()"
+>
+  <span>IYE.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="BATT.US"
+  onClick="(function() {
+    document.getElementById('BATT.US').scrollIntoView()
+    window.current_index = window.list.indexOf('BATT.US')
+  })()"
+>
+  <span>BATT.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="XME.US"
+  onClick="(function() {
+    document.getElementById('XME.US').scrollIntoView()
+    window.current_index = window.list.indexOf('XME.US')
+  })()"
+>
+  <span>XME.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="AIQ.US"
+  onClick="(function() {
+    document.getElementById('AIQ.US').scrollIntoView()
+    window.current_index = window.list.indexOf('AIQ.US')
+  })()"
+>
+  <span>AIQ.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="SMH.US"
+  onClick="(function() {
+    document.getElementById('SMH.US').scrollIntoView()
+    window.current_index = window.list.indexOf('SMH.US')
+  })()"
+>
+  <span>SMH.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="------"
+  onClick="(function() {
+    document.getElementById('------').scrollIntoView()
+    window.current_index = window.list.indexOf('------')
+  })()"
+>
+  <span>------</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="CDR"
+  onClick="(function() {
+    document.getElementById('CDR').scrollIntoView()
+    window.current_index = window.list.indexOf('CDR')
+  })()"
+>
+  <span>CDR</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="HUGE"
+  onClick="(function() {
+    document.getElementById('HUGE').scrollIntoView()
+    window.current_index = window.list.indexOf('HUGE')
+  })()"
+>
+  <span>HUGE</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="PLUG.US"
+  onClick="(function() {
+    document.getElementById('PLUG.US').scrollIntoView()
+    window.current_index = window.list.indexOf('PLUG.US')
+  })()"
+>
+  <span>PLUG.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="LTHM.US"
+  onClick="(function() {
+    document.getElementById('LTHM.US').scrollIntoView()
+    window.current_index = window.list.indexOf('LTHM.US')
+  })()"
+>
+  <span>LTHM.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="CDNA.US"
+  onClick="(function() {
+    document.getElementById('CDNA.US').scrollIntoView()
+    window.current_index = window.list.indexOf('CDNA.US')
+  })()"
+>
+  <span>CDNA.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="VRTX.US"
+  onClick="(function() {
+    document.getElementById('VRTX.US').scrollIntoView()
+    window.current_index = window.list.indexOf('VRTX.US')
+  })()"
+>
+  <span>VRTX.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="TWST.US"
+  onClick="(function() {
+    document.getElementById('TWST.US').scrollIntoView()
+    window.current_index = window.list.indexOf('TWST.US')
+  })()"
+>
+  <span>TWST.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="REGN.US"
+  onClick="(function() {
+    document.getElementById('REGN.US').scrollIntoView()
+    window.current_index = window.list.indexOf('REGN.US')
+  })()"
+>
+  <span>REGN.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="PACB.US"
+  onClick="(function() {
+    document.getElementById('PACB.US').scrollIntoView()
+    window.current_index = window.list.indexOf('PACB.US')
+  })()"
+>
+  <span>PACB.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="NTLA.US"
+  onClick="(function() {
+    document.getElementById('NTLA.US').scrollIntoView()
+    window.current_index = window.list.indexOf('NTLA.US')
+  })()"
+>
+  <span>NTLA.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="EXAS.US"
+  onClick="(function() {
+    document.getElementById('EXAS.US').scrollIntoView()
+    window.current_index = window.list.indexOf('EXAS.US')
+  })()"
+>
+  <span>EXAS.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="TDOC.US"
+  onClick="(function() {
+    document.getElementById('TDOC.US').scrollIntoView()
+    window.current_index = window.list.indexOf('TDOC.US')
+  })()"
+>
+  <span>TDOC.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="PBE.US"
+  onClick="(function() {
+    document.getElementById('PBE.US').scrollIntoView()
+    window.current_index = window.list.indexOf('PBE.US')
+  })()"
+>
+  <span>PBE.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="CRSP.US"
+  onClick="(function() {
+    document.getElementById('CRSP.US').scrollIntoView()
+    window.current_index = window.list.indexOf('CRSP.US')
+  })()"
+>
+  <span>CRSP.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="TSLA.US"
+  onClick="(function() {
+    document.getElementById('TSLA.US').scrollIntoView()
+    window.current_index = window.list.indexOf('TSLA.US')
+  })()"
+>
+  <span>TSLA.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="NVDA.US"
+  onClick="(function() {
+    document.getElementById('NVDA.US').scrollIntoView()
+    window.current_index = window.list.indexOf('NVDA.US')
+  })()"
+>
+  <span>NVDA.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="DIS.US"
+  onClick="(function() {
+    document.getElementById('DIS.US').scrollIntoView()
+    window.current_index = window.list.indexOf('DIS.US')
+  })()"
+>
+  <span>DIS.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="MSFT.US"
+  onClick="(function() {
+    document.getElementById('MSFT.US').scrollIntoView()
+    window.current_index = window.list.indexOf('MSFT.US')
+  })()"
+>
+  <span>MSFT.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="AAPL.US"
+  onClick="(function() {
+    document.getElementById('AAPL.US').scrollIntoView()
+    window.current_index = window.list.indexOf('AAPL.US')
+  })()"
+>
+  <span>AAPL.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="PEP.US"
+  onClick="(function() {
+    document.getElementById('PEP.US').scrollIntoView()
+    window.current_index = window.list.indexOf('PEP.US')
+  })()"
+>
+  <span>PEP.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="INTC.US"
+  onClick="(function() {
+    document.getElementById('INTC.US').scrollIntoView()
+    window.current_index = window.list.indexOf('INTC.US')
+  })()"
+>
+  <span>INTC.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="AMZN.US"
+  onClick="(function() {
+    document.getElementById('AMZN.US').scrollIntoView()
+    window.current_index = window.list.indexOf('AMZN.US')
+  })()"
+>
+  <span>AMZN.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="KO.US"
+  onClick="(function() {
+    document.getElementById('KO.US').scrollIntoView()
+    window.current_index = window.list.indexOf('KO.US')
+  })()"
+>
+  <span>KO.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="BAC.US"
+  onClick="(function() {
+    document.getElementById('BAC.US').scrollIntoView()
+    window.current_index = window.list.indexOf('BAC.US')
+  })()"
+>
+  <span>BAC.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="V.US"
+  onClick="(function() {
+    document.getElementById('V.US').scrollIntoView()
+    window.current_index = window.list.indexOf('V.US')
+  })()"
+>
+  <span>V.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="SBUX.US"
+  onClick="(function() {
+    document.getElementById('SBUX.US').scrollIntoView()
+    window.current_index = window.list.indexOf('SBUX.US')
+  })()"
+>
+  <span>SBUX.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="ADBE.US"
+  onClick="(function() {
+    document.getElementById('ADBE.US').scrollIntoView()
+    window.current_index = window.list.indexOf('ADBE.US')
+  })()"
+>
+  <span>ADBE.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="FDX.US"
+  onClick="(function() {
+    document.getElementById('FDX.US').scrollIntoView()
+    window.current_index = window.list.indexOf('FDX.US')
+  })()"
+>
+  <span>FDX.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="PYPL.US"
+  onClick="(function() {
+    document.getElementById('PYPL.US').scrollIntoView()
+    window.current_index = window.list.indexOf('PYPL.US')
+  })()"
+>
+  <span>PYPL.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="MCD.US"
+  onClick="(function() {
+    document.getElementById('MCD.US').scrollIntoView()
+    window.current_index = window.list.indexOf('MCD.US')
+  })()"
+>
+  <span>MCD.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="BYND.US"
+  onClick="(function() {
+    document.getElementById('BYND.US').scrollIntoView()
+    window.current_index = window.list.indexOf('BYND.US')
+  })()"
+>
+  <span>BYND.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="EDIT.US"
+  onClick="(function() {
+    document.getElementById('EDIT.US').scrollIntoView()
+    window.current_index = window.list.indexOf('EDIT.US')
+  })()"
+>
+  <span>EDIT.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="CCJ.US"
+  onClick="(function() {
+    document.getElementById('CCJ.US').scrollIntoView()
+    window.current_index = window.list.indexOf('CCJ.US')
+  })()"
+>
+  <span>CCJ.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="WFC.US"
+  onClick="(function() {
+    document.getElementById('WFC.US').scrollIntoView()
+    window.current_index = window.list.indexOf('WFC.US')
+  })()"
+>
+  <span>WFC.US</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="------"
+  onClick="(function() {
+    document.getElementById('------').scrollIntoView()
+    window.current_index = window.list.indexOf('------')
+  })()"
+>
+  <span>------</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="XAUUSD"
+  onClick="(function() {
+    document.getElementById('XAUUSD').scrollIntoView()
+    window.current_index = window.list.indexOf('XAUUSD')
+  })()"
+>
+  <span>XAUUSD</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="------"
+  onClick="(function() {
+    document.getElementById('------').scrollIntoView()
+    window.current_index = window.list.indexOf('------')
+  })()"
+>
+  <span>------</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="ZEC.V"
+  onClick="(function() {
+    document.getElementById('ZEC.V').scrollIntoView()
+    window.current_index = window.list.indexOf('ZEC.V')
+  })()"
+>
+  <span>ZEC.V</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="DOGE.V"
+  onClick="(function() {
+    document.getElementById('DOGE.V').scrollIntoView()
+    window.current_index = window.list.indexOf('DOGE.V')
+  })()"
+>
+  <span>DOGE.V</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="XMR.V"
+  onClick="(function() {
+    document.getElementById('XMR.V').scrollIntoView()
+    window.current_index = window.list.indexOf('XMR.V')
+  })()"
+>
+  <span>XMR.V</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="ETH.V"
+  onClick="(function() {
+    document.getElementById('ETH.V').scrollIntoView()
+    window.current_index = window.list.indexOf('ETH.V')
+  })()"
+>
+  <span>ETH.V</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="AMPL.V"
+  onClick="(function() {
+    document.getElementById('AMPL.V').scrollIntoView()
+    window.current_index = window.list.indexOf('AMPL.V')
+  })()"
+>
+  <span>AMPL.V</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="BTCUSD"
+  onClick="(function() {
+    document.getElementById('BTCUSD').scrollIntoView()
+    window.current_index = window.list.indexOf('BTCUSD')
+  })()"
+>
+  <span>BTCUSD</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="------"
+  onClick="(function() {
+    document.getElementById('------').scrollIntoView()
+    window.current_index = window.list.indexOf('------')
+  })()"
+>
+  <span>------</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="eurusd"
+  onClick="(function() {
+    document.getElementById('eurusd').scrollIntoView()
+    window.current_index = window.list.indexOf('eurusd')
+  })()"
+>
+  <span>eurusd</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="gbpusd"
+  onClick="(function() {
+    document.getElementById('gbpusd').scrollIntoView()
+    window.current_index = window.list.indexOf('gbpusd')
+  })()"
+>
+  <span>gbpusd</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="audcad"
+  onClick="(function() {
+    document.getElementById('audcad').scrollIntoView()
+    window.current_index = window.list.indexOf('audcad')
+  })()"
+>
+  <span>audcad</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="audchf"
+  onClick="(function() {
+    document.getElementById('audchf').scrollIntoView()
+    window.current_index = window.list.indexOf('audchf')
+  })()"
+>
+  <span>audchf</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="audjpy"
+  onClick="(function() {
+    document.getElementById('audjpy').scrollIntoView()
+    window.current_index = window.list.indexOf('audjpy')
+  })()"
+>
+  <span>audjpy</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="audnzd"
+  onClick="(function() {
+    document.getElementById('audnzd').scrollIntoView()
+    window.current_index = window.list.indexOf('audnzd')
+  })()"
+>
+  <span>audnzd</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="audusd"
+  onClick="(function() {
+    document.getElementById('audusd').scrollIntoView()
+    window.current_index = window.list.indexOf('audusd')
+  })()"
+>
+  <span>audusd</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="cadchf"
+  onClick="(function() {
+    document.getElementById('cadchf').scrollIntoView()
+    window.current_index = window.list.indexOf('cadchf')
+  })()"
+>
+  <span>cadchf</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="cadjpy"
+  onClick="(function() {
+    document.getElementById('cadjpy').scrollIntoView()
+    window.current_index = window.list.indexOf('cadjpy')
+  })()"
+>
+  <span>cadjpy</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="chfjpy"
+  onClick="(function() {
+    document.getElementById('chfjpy').scrollIntoView()
+    window.current_index = window.list.indexOf('chfjpy')
+  })()"
+>
+  <span>chfjpy</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="chfsgd"
+  onClick="(function() {
+    document.getElementById('chfsgd').scrollIntoView()
+    window.current_index = window.list.indexOf('chfsgd')
+  })()"
+>
+  <span>chfsgd</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="euraud"
+  onClick="(function() {
+    document.getElementById('euraud').scrollIntoView()
+    window.current_index = window.list.indexOf('euraud')
+  })()"
+>
+  <span>euraud</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="eurchf"
+  onClick="(function() {
+    document.getElementById('eurchf').scrollIntoView()
+    window.current_index = window.list.indexOf('eurchf')
+  })()"
+>
+  <span>eurchf</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="eurgbp"
+  onClick="(function() {
+    document.getElementById('eurgbp').scrollIntoView()
+    window.current_index = window.list.indexOf('eurgbp')
+  })()"
+>
+  <span>eurgbp</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="eurjpy"
+  onClick="(function() {
+    document.getElementById('eurjpy').scrollIntoView()
+    window.current_index = window.list.indexOf('eurjpy')
+  })()"
+>
+  <span>eurjpy</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="eurnzd"
+  onClick="(function() {
+    document.getElementById('eurnzd').scrollIntoView()
+    window.current_index = window.list.indexOf('eurnzd')
+  })()"
+>
+  <span>eurnzd</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="gbpaud"
+  onClick="(function() {
+    document.getElementById('gbpaud').scrollIntoView()
+    window.current_index = window.list.indexOf('gbpaud')
+  })()"
+>
+  <span>gbpaud</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="gbpchf"
+  onClick="(function() {
+    document.getElementById('gbpchf').scrollIntoView()
+    window.current_index = window.list.indexOf('gbpchf')
+  })()"
+>
+  <span>gbpchf</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="gbpjpy"
+  onClick="(function() {
+    document.getElementById('gbpjpy').scrollIntoView()
+    window.current_index = window.list.indexOf('gbpjpy')
+  })()"
+>
+  <span>gbpjpy</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="gbpnzd"
+  onClick="(function() {
+    document.getElementById('gbpnzd').scrollIntoView()
+    window.current_index = window.list.indexOf('gbpnzd')
+  })()"
+>
+  <span>gbpnzd</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="nzdcad"
+  onClick="(function() {
+    document.getElementById('nzdcad').scrollIntoView()
+    window.current_index = window.list.indexOf('nzdcad')
+  })()"
+>
+  <span>nzdcad</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="nzdchf"
+  onClick="(function() {
+    document.getElementById('nzdchf').scrollIntoView()
+    window.current_index = window.list.indexOf('nzdchf')
+  })()"
+>
+  <span>nzdchf</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="nzdjpy"
+  onClick="(function() {
+    document.getElementById('nzdjpy').scrollIntoView()
+    window.current_index = window.list.indexOf('nzdjpy')
+  })()"
+>
+  <span>nzdjpy</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="nzdusd"
+  onClick="(function() {
+    document.getElementById('nzdusd').scrollIntoView()
+    window.current_index = window.list.indexOf('nzdusd')
+  })()"
+>
+  <span>nzdusd</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="usdcad"
+  onClick="(function() {
+    document.getElementById('usdcad').scrollIntoView()
+    window.current_index = window.list.indexOf('usdcad')
+  })()"
+>
+  <span>usdcad</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="usdchf"
+  onClick="(function() {
+    document.getElementById('usdchf').scrollIntoView()
+    window.current_index = window.list.indexOf('usdchf')
+  })()"
+>
+  <span>usdchf</span>
+</div>
+<div
+  class="chart-link"
+  tabindex="-1"
+  id="usdjpy"
+  onClick="(function() {
+    document.getElementById('usdjpy').scrollIntoView()
+    window.current_index = window.list.indexOf('usdjpy')
+  })()"
+>
+  <span>usdjpy</span>
+</div>
+</div><div class="down-arrow-container"><div class="down-arrow-content"><div
+  onClick="(function() {
+    if (window.current_index + 1 < window.list.length) {
+      document.getElementById(window.list[window.current_index + 1]).scrollIntoView()
+      window.current_index = window.current_index + 1
+    }
+  })()"
+>
+  <i class="fas fa-angle-down" ></i>
+</div>
+</div></div></div>    </div>
+  </body>
+</html>
