@@ -101,7 +101,7 @@ output << <<~PAGE_TOP
   }
   img {
     width: auto;
-    height: 70%;
+    flex: 100;
   }
   .chart {
     height: 1920px;
