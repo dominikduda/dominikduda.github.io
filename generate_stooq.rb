@@ -100,8 +100,8 @@ output << <<~PAGE_TOP
     font-size: 100;
   }
   img {
-    width: 33%;
-    height: 55%;
+    width: auto;
+    height: 70%;
   }
   .chart {
     height: 1920px;
@@ -121,17 +121,17 @@ output << <<~PAGE_TOP
     max-width: 200px;
   }
   .down-arrow-container {
-    height: 10%;
-    margin-left: 20px;
+    height: 20px;
+    margin-left: 70px;
     position: fixed;
-    bottom: 1%;
+    top: 0;
     left: 0;
     max-width: 600px;
   }
   .down-arrow-content {
     position: relative;
     text-align: center;
-    top: 0;
+    top: -20px;
     opacity: 0.04;
     max-width: 200px;
   }
@@ -139,7 +139,7 @@ output << <<~PAGE_TOP
     opacity: 1;
   }
   .up-arrow-container {
-    height: 10%;
+    height: 20px;
     margin-left: 20px;
     position: fixed;
     top: 0;
@@ -149,7 +149,7 @@ output << <<~PAGE_TOP
   .up-arrow-content {
     position: relative;
     text-align: center;
-    top: 0%;
+    top: -20px;
     opacity: 0.04;
     max-width: 200px;
   }
@@ -159,7 +159,7 @@ output << <<~PAGE_TOP
   .overlay-content {
     position: relative;
     text-align: center;
-    top: 10%;
+    top: 50px;
     opacity: 0.04;
     max-width: 200px;
     z-index: 2;
@@ -178,6 +178,11 @@ output << <<~PAGE_TOP
   }
   .chart-link:hover {
     color: red;
+  }
+  .chart-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
   }
   body {
     // overflow: hidden;
@@ -232,9 +237,11 @@ menu_html <<  up_arr
 menu_html << '<div class="overlay-content">'
 CHARTS.each do |market_id|
   output << "<div class='grid-item divider' style='visibility: hidden' id=#{market_id}>" + market_id + '</div>'
+    output << "<div class='chart-wrapper'>"
   TIMEFRAMES.each do |timeframe|
     output << chart(market_id, timeframe)
   end
+    output << "</div>"
   output << '<hr><hr><hr><hr><hr>'
   first_divider_id = market_id + TIMEFRAMES.first
   menu_html << <<~MENU
@@ -283,4 +290,4 @@ output << <<~PAGE_BOTTOM
   </html>
 PAGE_BOTTOM
 
-File.write('./Desktop/watcher.html', output)
+File.write('./index.html', output)
