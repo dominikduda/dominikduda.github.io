@@ -87,7 +87,7 @@ CHARTS = [
   'usdchf',
   'usdjpy',
 ].freeze
-TIMEFRAMES = %w[5m 10y 30y].freeze
+TIMEFRAMES = %w[5m 2y 10y 30y 100y].freeze
 CHART_RENDER_DELAY_INCREMENT = 2000
 
 output = ''
