@@ -98,7 +98,7 @@ output << <<~PAGE_TOP
     <head>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
       <style>
-  i {
+  .arrow {
     font-size: 80;
     cursor: pointer;
     background-color: yellow;
@@ -140,6 +140,24 @@ output << <<~PAGE_TOP
   .down-arrow-content:hover {
     opacity: 1;
   }
+  .down-arrow-content{animation: 2s ease-out 0s 1 FadeIn;}
+  @keyframes FadeIn {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  .down-arrow-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
+  @keyframes FadeIn {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
   .up-arrow-container {
     height: 20px;
     margin-left: 20px;
@@ -157,6 +175,24 @@ output << <<~PAGE_TOP
   .up-arrow-content:hover {
     opacity: 1;
   }
+  .up-arrow-content{animation: 2s ease-out 0s 1 FadeIn;}
+  @keyframes FadeIn {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  .up-arrow-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
+  @keyframes FadeIn {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
   .overlay-content {
     display: flex;
     flex-wrap: wrap;
@@ -170,6 +206,24 @@ output << <<~PAGE_TOP
   }
   .overlay-content:hover {
     opacity: 1;
+  }
+  .overlay-content{animation: 2s ease-out 0s 1 FadeIn;}
+  @keyframes FadeIn {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  .overlay-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
+  @keyframes FadeIn {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
   }
   .chart-link {
     background-color: blue;
@@ -233,7 +287,7 @@ up_arr << <<~UP_ARROW
       }
     })()"
   >
-    <i class="arrow">&#8593;</i>
+    <div class="arrow">&#8593;</div>
   </div>
 UP_ARROW
 up_arr << '</div>'
@@ -277,7 +331,7 @@ down_arr << <<~DOWN_ARROW
       }
     })()"
   >
-    <i class="arrow">&#8595;</i>
+    <div class="arrow">&#8595;</div>
   </div>
 DOWN_ARROW
 down_arr << '</div>'
