@@ -45,6 +45,8 @@ CHARTS = [
   'FDX.US',
   'PYPL.US',
   'MCD.US',
+  'SELB.US',
+  'OSCR.US',
   'BYND.US',
   'EDIT.US',
   'CCJ.US',
@@ -112,13 +114,12 @@ output << <<~PAGE_TOP
     margin: 0px
   }
   .overlay {
-    height: 100%;
-    width: 100%;
+    height: 80%;
+    width: auto;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    max-width: 200px;
   }
   .down-arrow-container {
     height: 20px;
@@ -157,12 +158,15 @@ output << <<~PAGE_TOP
     opacity: 1;
   }
   .overlay-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     position: relative;
     text-align: center;
     top: 50px;
     opacity: 0.04;
-    max-width: 200px;
     z-index: 2;
+    height: 100%;
   }
   .overlay-content:hover {
     opacity: 1;
@@ -170,7 +174,8 @@ output << <<~PAGE_TOP
   .chart-link {
     background-color: blue;
     color: white;
-    margin-left: 20px;
+    margin-left: 0px;
+    width: 80px;
     margin-top: 0px;
     max-width: 100px;
     height: 15px;
