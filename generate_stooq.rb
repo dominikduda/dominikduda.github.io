@@ -99,7 +99,9 @@ output << <<~PAGE_TOP
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
       <style>
   i {
-    font-size: 100;
+    font-size: 80;
+    cursor: pointer;
+    background-color: yellow;
   }
   img {
     width: auto;
@@ -132,8 +134,7 @@ output << <<~PAGE_TOP
   .down-arrow-content {
     position: relative;
     text-align: center;
-    top: -20px;
-    opacity: 0.04;
+    opacity: 0.00;
     max-width: 200px;
   }
   .down-arrow-content:hover {
@@ -150,8 +151,7 @@ output << <<~PAGE_TOP
   .up-arrow-content {
     position: relative;
     text-align: center;
-    top: -20px;
-    opacity: 0.04;
+    opacity: 0.00;
     max-width: 200px;
   }
   .up-arrow-content:hover {
@@ -163,8 +163,8 @@ output << <<~PAGE_TOP
     flex-direction: column;
     position: relative;
     text-align: center;
-    top: 50px;
-    opacity: 0.04;
+    top: 92px;
+    opacity: 0.00;
     z-index: 2;
     height: 100%;
   }
@@ -174,12 +174,14 @@ output << <<~PAGE_TOP
   .chart-link {
     background-color: blue;
     color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin-left: 0px;
-    width: 80px;
     margin-top: 0px;
-    max-width: 100px;
-    height: 15px;
     cursor: pointer;
+    font-size: 20px;
   }
   .chart-link:hover {
     color: red;
@@ -231,7 +233,7 @@ up_arr << <<~UP_ARROW
       }
     })()"
   >
-    <i class="fas fa-angle-up" ></i>
+    <i class="arrow">&#8593;</i>
   </div>
 UP_ARROW
 up_arr << '</div>'
@@ -275,7 +277,7 @@ down_arr << <<~DOWN_ARROW
       }
     })()"
   >
-    <i class="fas fa-angle-down" ></i>
+    <i class="arrow">&#8595;</i>
   </div>
 DOWN_ARROW
 down_arr << '</div>'

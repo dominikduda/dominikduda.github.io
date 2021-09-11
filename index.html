@@ -3,7 +3,9 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
       <style>
   i {
-    font-size: 100;
+    font-size: 80;
+    cursor: pointer;
+    background-color: yellow;
   }
   img {
     width: auto;
@@ -36,8 +38,7 @@
   .down-arrow-content {
     position: relative;
     text-align: center;
-    top: -20px;
-    opacity: 0.04;
+    opacity: 0.00;
     max-width: 200px;
   }
   .down-arrow-content:hover {
@@ -54,8 +55,7 @@
   .up-arrow-content {
     position: relative;
     text-align: center;
-    top: -20px;
-    opacity: 0.04;
+    opacity: 0.00;
     max-width: 200px;
   }
   .up-arrow-content:hover {
@@ -67,8 +67,8 @@
     flex-direction: column;
     position: relative;
     text-align: center;
-    top: 50px;
-    opacity: 0.04;
+    top: 92px;
+    opacity: 0.00;
     z-index: 2;
     height: 100%;
   }
@@ -78,12 +78,14 @@
   .chart-link {
     background-color: blue;
     color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin-left: 0px;
-    width: 80px;
     margin-top: 0px;
-    max-width: 100px;
-    height: 15px;
     cursor: pointer;
+    font-size: 20px;
   }
   .chart-link:hover {
     color: red;
@@ -566,7 +568,7 @@
     }
   })()"
 >
-  <i class="fas fa-angle-up" ></i>
+  <i class="arrow">&#8593;</i>
 </div>
 </div></div><div class="overlay-content"><div
   class="chart-link"
@@ -1555,7 +1557,7 @@
     }
   })()"
 >
-  <i class="fas fa-angle-down" ></i>
+  <i class="arrow">&#8595;</i>
 </div>
 </div></div></div>    </div>
   </body>
