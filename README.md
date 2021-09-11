@@ -1,5 +1,7 @@
 # The static page with stooq charts and menu.
 
+### [See for yourself](https://dominikduda.github.io/)
+
 If you want to generate such a static page for yourself:
 
 1. Edit `generate_stooq.rb`
