@@ -204,7 +204,7 @@ output << <<~PAGE_TOP
     <script >
       (
         () => {
-            setTimeout('window.location.reload()', 120000);
+            setTimeout('window.location.reload()', 300000);
         }
       )()
     </script>

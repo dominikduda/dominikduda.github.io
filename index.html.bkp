@@ -67,10 +67,10 @@
     flex-direction: column;
     position: relative;
     text-align: center;
+    height: 100%;
     top: 50px;
     opacity: 0.04;
     z-index: 2;
-    height: 100%;
   }
   .overlay-content:hover {
     opacity: 1;
@@ -78,8 +78,8 @@
   .chart-link {
     background-color: blue;
     color: white;
-    margin-left: 0px;
     width: 80px;
+    margin-left: 0px;
     margin-top: 0px;
     max-width: 100px;
     height: 15px;
@@ -99,7 +99,7 @@
       </style>
       <script>
         (() => {
-          window.list = ["^DJT", "^SPX", "^DAX", "TLT.US", "LIT.US", "ARKG.US", "PBD.US", "DRIV.US", "ACES.US", "BUG.US", "IYE.US", "BATT.US", "XME.US", "AIQ.US", "SMH.US", "------", "CDR", "HUGE", "PLUG.US", "LTHM.US", "CDNA.US", "VRTX.US", "TWST.US", "REGN.US", "PACB.US", "NTLA.US", "EXAS.US", "TDOC.US", "PBE.US", "CRSP.US", "TSLA.US", "NVDA.US", "DIS.US", "MSFT.US", "AAPL.US", "PEP.US", "INTC.US", "AMZN.US", "KO.US", "BAC.US", "V.US", "SBUX.US", "ADBE.US", "FDX.US", "PYPL.US", "MCD.US", "SELB.US", "OSCR.US", "BYND.US", "EDIT.US", "CCJ.US", "WFC.US", "------", "XAUUSD", "------", "ZEC.V", "DOGE.V", "XMR.V", "ETH.V", "AMPL.V", "BTCUSD", "------", "eurusd", "gbpusd", "audcad", "audchf", "audjpy", "audnzd", "audusd", "cadchf", "cadjpy", "chfjpy", "chfsgd", "euraud", "eurchf", "eurgbp", "eurjpy", "eurnzd", "gbpaud", "gbpchf", "gbpjpy", "gbpnzd", "nzdcad", "nzdchf", "nzdjpy", "nzdusd", "usdcad", "usdchf", "usdjpy"];
+          window.list = ["^DJT", "^SPX", "^DAX", "TLT.US", "LIT.US", "ARKG.US", "PBD.US", "DRIV.US", "ACES.US", "BUG.US", "IYE.US", "BATT.US", "XME.US", "AIQ.US", "SMH.US", "------", "CDR", "HUGE", "PLUG.US", "LTHM.US", "CDNA.US", "VRTX.US", "TWST.US", "REGN.US", "PACB.US", "NTLA.US", "EXAS.US", "TDOC.US", "PBE.US", "CRSP.US", "TSLA.US", "NVDA.US", "DIS.US", "MSFT.US", "AAPL.US", "PEP.US", "INTC.US", "AMZN.US", "KO.US", "BAC.US", "V.US", "SBUX.US", "ADBE.US", "FDX.US", "PYPL.US", "MCD.US", "BYND.US", "EDIT.US", "CCJ.US", "WFC.US", "------", "XAUUSD", "------", "ZEC.V", "DOGE.V", "XMR.V", "ETH.V", "AMPL.V", "BTCUSD", "------", "eurusd", "gbpusd", "audcad", "audchf", "audjpy", "audnzd", "audusd", "cadchf", "cadjpy", "chfjpy", "chfsgd", "euraud", "eurchf", "eurgbp", "eurjpy", "eurnzd", "gbpaud", "gbpchf", "gbpjpy", "gbpnzd", "nzdcad", "nzdchf", "nzdjpy", "nzdusd", "usdcad", "usdchf", "usdjpy"];
           window.current_index = 0;
         })()
       </script>
@@ -108,7 +108,7 @@
     <script >
       (
         () => {
-            setTimeout('window.location.reload()', 300000);
+            setTimeout('window.location.reload()', 120000);
         }
       )()
     </script>
@@ -343,16 +343,6 @@
 <img src="https://stooq.com/c/?s=MCD.US&c=10y&t=c&a=lg&b&g"/>
 <img src="https://stooq.com/c/?s=MCD.US&c=30y&t=c&a=lg&b&g"/>
 <img src="https://stooq.com/c/?s=MCD.US&c=100y&t=c&a=lg&b&g"/>
-</div><hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=SELB.US>SELB.US</div><div class='chart-wrapper'><img src="https://stooq.com/c/?s=SELB.US&c=5m&t=c&a=lg&b&g"/>
-<img src="https://stooq.com/c/?s=SELB.US&c=2y&t=c&a=lg&b&g"/>
-<img src="https://stooq.com/c/?s=SELB.US&c=10y&t=c&a=lg&b&g"/>
-<img src="https://stooq.com/c/?s=SELB.US&c=30y&t=c&a=lg&b&g"/>
-<img src="https://stooq.com/c/?s=SELB.US&c=100y&t=c&a=lg&b&g"/>
-</div><hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=OSCR.US>OSCR.US</div><div class='chart-wrapper'><img src="https://stooq.com/c/?s=OSCR.US&c=5m&t=c&a=lg&b&g"/>
-<img src="https://stooq.com/c/?s=OSCR.US&c=2y&t=c&a=lg&b&g"/>
-<img src="https://stooq.com/c/?s=OSCR.US&c=10y&t=c&a=lg&b&g"/>
-<img src="https://stooq.com/c/?s=OSCR.US&c=30y&t=c&a=lg&b&g"/>
-<img src="https://stooq.com/c/?s=OSCR.US&c=100y&t=c&a=lg&b&g"/>
 </div><hr><hr><hr><hr><hr><div class='grid-item divider' style='visibility: hidden' id=BYND.US>BYND.US</div><div class='chart-wrapper'><img src="https://stooq.com/c/?s=BYND.US&c=5m&t=c&a=lg&b&g"/>
 <img src="https://stooq.com/c/?s=BYND.US&c=2y&t=c&a=lg&b&g"/>
 <img src="https://stooq.com/c/?s=BYND.US&c=10y&t=c&a=lg&b&g"/>
@@ -1073,28 +1063,6 @@
   })()"
 >
   <span>MCD.US</span>
-</div>
-<div
-  class="chart-link"
-  tabindex="-1"
-  id="SELB.US"
-  onClick="(function() {
-    document.getElementById('SELB.US').scrollIntoView()
-    window.current_index = window.list.indexOf('SELB.US')
-  })()"
->
-  <span>SELB.US</span>
-</div>
-<div
-  class="chart-link"
-  tabindex="-1"
-  id="OSCR.US"
-  onClick="(function() {
-    document.getElementById('OSCR.US').scrollIntoView()
-    window.current_index = window.list.indexOf('OSCR.US')
-  })()"
->
-  <span>OSCR.US</span>
 </div>
 <div
   class="chart-link"
