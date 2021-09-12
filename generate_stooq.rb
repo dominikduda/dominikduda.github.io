@@ -112,6 +112,7 @@ output << <<~PAGE_TOP
           }
           onResize();
           window.myCustomOnResize = onResize;
+          document.addEventListener('scroll', onResize);
           window.addEventListener('resize', onResize);
   #{'  '}
           let drawing = false;
