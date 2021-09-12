@@ -1,7 +1,77 @@
   <html>
     <head>
+    <script>
+    setTimeout(() => {
+      const canvas = document.getElementById("canvas");
+      const parentDiv = document.getElementById("parentDiv");
+      const ctx = canvas.getContext("2d");
+
+      const onResize = () => {
+        let cw = canvas.width = parentDiv.clientWidth,
+          cx = cw / 2;
+        let ch = canvas.height = parentDiv.clientHeight,
+          cy = ch / 2;
+        ctx.strokeStyle = "#FF0000";
+        ctx.lineWidth = 2;
+      }
+      onResize();
+      window.myCustomOnResize = onResize;
+      window.addEventListener('resize', onResize);
+
+      let drawing = false;
+
+      // a function to detect the mouse position
+      function oMousePos(element, evt) {
+            var ClientRect = element.getBoundingClientRect();
+                 return { //objeto
+                   x: Math.round(evt.clientX - ClientRect.left),
+                   y: Math.round(evt.clientY - ClientRect.top)
+                 }
+      }
+
+      parentDiv.addEventListener('mousedown', function(evt) {
+            drawing = true; // you can draw now
+             let m = oMousePos(parentDiv, evt);
+             ctx.beginPath();
+             ctx.moveTo(m.x,m.y);
+      }, false);
+
+        parentDiv.addEventListener('mouseup', function(evt) {
+            drawing = false; // you can't draw anymore
+
+      }, false);
+        parentDiv.addEventListener('mouseleave', function(evt) {
+            drawing = false; // you can't draw anymore
+
+      }, false);
+
+        parentDiv.addEventListener("mousemove", function(evt) {
+            if (drawing) {
+              let m = oMousePos(parentDiv, evt);
+              ctx.lineTo(m.x, m.y);
+              ctx.stroke();
+            }
+      }, false);
+    }, 200)
+    </script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
       <style>
+canvas {
+    width:100%;
+    height:100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+}
+#parentDiv {
+    width:100%;
+    height:100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+}
+
+canvas {pointer-events:none;}
   .arrow {
     font-size: 80;
     cursor: pointer;
@@ -23,7 +93,7 @@
     height: 80%;
     width: auto;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     top: 0;
     left: 0;
   }
@@ -105,7 +175,7 @@
     text-align: center;
     top: 92px;
     opacity: 0.00;
-    z-index: 2;
+    z-index: 5;
     height: 100%;
   }
   .overlay-content:hover {
@@ -169,7 +239,7 @@
       )()
     </script>
       <div class="grid-container">
-<div class='grid-item divider' style='visibility: hidden' id=^DJT>^DJT</div><div class='chart-wrapper'><img src="https://stooq.com/c/?s=^DJT&c=5m&t=c&a=lg&b&g"/>
+<div id='parentDiv'><canvas id='canvas'></canvas></div><div class='grid-item divider' style='visibility: hidden' id=^DJT>^DJT</div><div class='chart-wrapper'><img src="https://stooq.com/c/?s=^DJT&c=5m&t=c&a=lg&b&g"/>
 <img src="https://stooq.com/c/?s=^DJT&c=2y&t=c&a=lg&b&g"/>
 <img src="https://stooq.com/c/?s=^DJT&c=10y&t=c&a=lg&b&g"/>
 <img src="https://stooq.com/c/?s=^DJT&c=30y&t=c&a=lg&b&g"/>
