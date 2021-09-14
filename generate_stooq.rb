@@ -90,6 +90,7 @@ CHARTS = [
   'usdjpy'
 ].freeze
 TIMEFRAMES = %w[5m 2y 10y 30y 100y].freeze
+AUTO_RELOAD_INTERVAL_MS = 300000
 CHART_RENDER_DELAY_INCREMENT = 2000
 
 output = ''
@@ -153,6 +154,53 @@ output << <<~PAGE_TOP
         </script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
           <style>
+.timer {
+  z-index: 1;
+  margin-left: 15px;
+  margin-top: 50px;
+  position: fixed;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  animation-name: spin;
+  animation-duration: #{AUTO_RELOAD_INTERVAL_MS}ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border-radius: 50%;
+  border: solid;
+  opacity: 1;
+}
+
+.timerdot {
+  animation-name: morph;
+  animation-duration: #{AUTO_RELOAD_INTERVAL_MS}ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  margin-top: 11px;
+  margin-left: 11px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@keyframes morph {
+    from {
+        background-color: green;
+    }
+    to {
+        background-color: red;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(45deg);
+    }
+    to {
+        transform:rotate(405deg);
+    }
+}
     canvas {
         width:100%;
         height:100%;
@@ -331,7 +379,7 @@ output << <<~PAGE_TOP
         <script >
           (
             () => {
-                setTimeout('window.location.reload()', 300000);
+                setTimeout('window.location.reload()', #{AUTO_RELOAD_INTERVAL_MS});
             }
           )()
         </script>
@@ -367,6 +415,11 @@ menu_html = ''
 menu_html << '<div class="overlay">'
 menu_html << up_arr
 menu_html << '<div class="overlay-content">'
+output << <<~SPINNER
+<div class="timer">
+  <div class="timerdot"></div>
+</div>
+SPINNER
 output << "<div id='parentDiv'>"
 
 output << "<canvas id='canvas'></canvas>"
