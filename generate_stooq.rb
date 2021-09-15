@@ -98,6 +98,9 @@ output << <<~PAGE_TOP
           <html>
             <head>
             <script>
+            window.watcherOnImageError = (img) => {
+              img.src = "https://raw.githubusercontent.com/dominikduda/dominikduda.github.io/master/grandma.png";
+            }
   #{'  '}
   #{'  '}
 
@@ -581,7 +584,7 @@ $next_chart_render_delay = 0
 
 def chart(market_id, timeframe)
   <<~CHART
-    <img src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g"/>
+    <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g"/>
   CHART
 end
 
