@@ -121,6 +121,7 @@ output << <<~PAGE_TOP
             window.addEventListener('load', () => {
               document.body.classList.remove('no-scroll')
               window.scroll(0, getCookie('scrollPosition'))
+              document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
             })
             document.addEventListener('scroll', saveScrollPos);
   #{'  '}
@@ -179,8 +180,92 @@ output << <<~PAGE_TOP
               }, false);
             }, 200)
             </script>
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
               <style>
+
+
+.loaderWrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+.fade-out {
+  animation: fade 1s;
+  -webkit-animation: fade 1s;
+  -moz-animation: fade 1s;
+  opacity: 0;
+}
+
+/* Animate opacity */
+@keyframes fade {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
+@-moz-keyframes fade {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
+@-webkit-keyframes fade {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
+
+
+
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+.loader {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(30,22,141, 0.2);
+  border-right: 1.1em solid rgba(30,22,141, 0.2);
+  border-bottom: 1.1em solid rgba(30,22,141, 0.2);
+  border-left: 1.1em solid #1e168d;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
     .timer {
       z-index: 1;
       margin-left: 15px;
@@ -410,6 +495,9 @@ output << <<~PAGE_TOP
                 }
               )()
             </script>
+            <div class='loaderWrapper'>
+              <div class='loader'>Loading...</div>
+              </div>
               <div class="grid-container">
 PAGE_TOP
 
