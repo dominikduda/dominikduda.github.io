@@ -30,9 +30,11 @@ function setCookie(name,value,days = 9999) {
             }
             history.scrollRestoration = "manual"
             window.addEventListener('load', () => {
-              document.body.classList.remove('no-scroll')
-              window.scroll(0, getCookie('scrollPosition'))
-              document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
+              setTimeout(() => {
+                document.body.classList.remove('no-scroll')
+                window.scroll(0, getCookie('scrollPosition'))
+                document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
+              }, 1000)
             })
             document.addEventListener('scroll', saveScrollPos);
             window.watcherSetCookie = setCookie;
