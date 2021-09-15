@@ -124,6 +124,21 @@ output << <<~PAGE_TOP
               document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
             })
             document.addEventListener('scroll', saveScrollPos);
+            window.watcherSetCookie = setCookie;
+            window.watcherGetCookie = getCookie;
+
+
+
+      if (window.watcherGetCookie('mode') == 'dark') {
+        console.log('dark mode enabled')
+        const element = document.getElementsByTagName('html')[0];
+        element.classList.add('darkMode');
+        window.watcherSetCookie('mode', 'dark')
+        }
+
+
+
+
   #{'  '}
   #{'  '}
             setTimeout(() => {
@@ -182,6 +197,10 @@ output << <<~PAGE_TOP
             </script>
               <style>
 
+.darkMode {
+  filter: invert(1);
+  background-color: white;
+}
 
 .loaderWrapper {
   position: fixed;
@@ -334,6 +353,13 @@ output << <<~PAGE_TOP
             cursor: pointer;
             background-color: yellow;
           }
+          .color-btn {
+            font-size: 15;
+            cursor: pointer;
+            background-color: yellow;
+            max-width: 40px;
+            overflow-wrap: anywhere;
+          }
           img {
             width: auto;
             flex: 100;
@@ -357,9 +383,49 @@ output << <<~PAGE_TOP
             top: 0;
             left: 0;
           }
+
+          .color-button-container {
+            height: 20px;
+            margin-left: 0px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            max-width: 600px;
+          }
+          .color-button-content {
+          font-size: 5;
+            position: relative;
+            text-align: center;
+            opacity: 0.00;
+            max-width: 200px;
+          }
+          .color-button-content:hover {
+            opacity: 1;
+          }
+          .color-button-content{animation: 2s ease-out 0s 1 FadeIn;}
+          @keyframes FadeIn {
+            0% {
+              opacity:1;
+            }
+            100% {
+              opacity:0;
+            }
+          }
+          .color-button-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
+          @keyframes FadeIn {
+            0% {
+              opacity:1;
+            }
+            100% {
+              opacity:0;
+            }
+          }
+
+
+
           .down-arrow-container {
             height: 20px;
-            margin-left: 70px;
+            margin-left: 135px;
             position: fixed;
             top: 0;
             left: 0;
@@ -394,7 +460,7 @@ output << <<~PAGE_TOP
           }
           .up-arrow-container {
             height: 20px;
-            margin-left: 20px;
+            margin-left: 85px;
             position: fixed;
             top: 0;
             left: 0;
@@ -579,9 +645,37 @@ down_arr << <<~DOWN_ARROW
 DOWN_ARROW
 down_arr << '</div>'
 down_arr << '</div>'
-
 menu_html << '</div>'
 menu_html << down_arr
+
+
+color_btn = ''
+color_btn << '<div class="color-button-container">'
+color_btn << '<div class="color-button-content">'
+color_btn << <<~COLOR_BTN
+  <div
+    onClick="(function() {
+      if (window.watcherGetCookie('mode') != 'dark') {
+        console.log('dark mode enabled')
+        const element = document.getElementsByTagName('html')[0];
+        element.classList.add('darkMode');
+        window.watcherSetCookie('mode', 'dark')
+      } else {
+        console.log('white mode enabled')
+        const element = document.getElementsByTagName('html')[0];
+        element.classList.remove('darkMode');
+        window.watcherSetCookie('mode', 'white')
+      }
+    })()"
+  >
+    <div class="color-btn">toggle colormode</div>
+  </div>
+COLOR_BTN
+color_btn << '</div>'
+color_btn << '</div>'
+menu_html << color_btn
+
+
 menu_html << '</div>'
 
 output << menu_html
