@@ -213,39 +213,17 @@ function setCookie(name,value,days = 9999) {
       animation-duration: 300000ms;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
-      border-radius: 50%;
-      border: solid;
-      opacity: 1;
-    }
-    
-    .timerdot {
-      animation-name: morph;
-      animation-duration: 300000ms;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      margin-top: 11px;
-      margin-left: 11px;
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    
-    @keyframes morph {
-        from {
-            background-color: green;
-        }
-        to {
-            background-color: red;
-        }
+      background-image: url('https://raw.githubusercontent.com/dominikduda/config_files/master/dd_logo_blue_bg.png');
+      background-size: auto 100%;
+      background-position: center;
     }
     
     @keyframes spin {
         from {
-            transform:rotate(45deg);
+            transform:rotate(0deg);
         }
         to {
-            transform:rotate(405deg);
+            transform:rotate(360deg);
         }
     }
         canvas {
@@ -482,7 +460,6 @@ function setCookie(name,value,days = 9999) {
               </div>
               <div class="grid-container">
 <div class="timer">
-  <div class="timerdot"></div>
 </div>
 <div id='parentDiv'><canvas id='canvas'></canvas></div><div class='grid-item divider' style='visibility: hidden' id=^DJT>^DJT</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=5m&t=c&a=lg&b&g"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=2y&t=c&a=lg&b&g"/>

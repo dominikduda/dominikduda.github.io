@@ -310,39 +310,17 @@ function setCookie(name,value,days = 9999) {
       animation-duration: #{AUTO_RELOAD_INTERVAL_MS}ms;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
-      border-radius: 50%;
-      border: solid;
-      opacity: 1;
-    }
-  #{'  '}
-    .timerdot {
-      animation-name: morph;
-      animation-duration: #{AUTO_RELOAD_INTERVAL_MS}ms;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      margin-top: 11px;
-      margin-left: 11px;
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-  #{'  '}
-    @keyframes morph {
-        from {
-            background-color: green;
-        }
-        to {
-            background-color: red;
-        }
+      background-image: url('https://raw.githubusercontent.com/dominikduda/config_files/master/dd_logo_blue_bg.png');
+      background-size: auto 100%;
+      background-position: center;
     }
   #{'  '}
     @keyframes spin {
         from {
-            transform:rotate(45deg);
+            transform:rotate(0deg);
         }
         to {
-            transform:rotate(405deg);
+            transform:rotate(360deg);
         }
     }
         canvas {
@@ -614,7 +592,6 @@ menu_html << up_arr
 menu_html << '<div class="overlay-content">'
 output << <<~SPINNER
   <div class="timer">
-    <div class="timerdot"></div>
   </div>
 SPINNER
 output << "<div id='parentDiv'>"
