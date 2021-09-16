@@ -583,6 +583,9 @@ PAGE_TOP
 $next_chart_render_delay = 0
 
 def chart(market_id, timeframe)
+  if market_id == '------'
+    return '<img src="https://raw.githubusercontent.com/dominikduda/dominikduda.github.io/master/candle.jpeg"/>'
+  end
   <<~CHART
     <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g"/>
   CHART
