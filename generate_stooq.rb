@@ -1,4 +1,4 @@
-TIMEFRAMES = %w[5m 2y 10y 30y 100y].freeze
+TIMEFRAMES = %w[5d 5m 2y 10y 30y 100y].freeze
 AUTO_RELOAD_INTERVAL_MS = 300000
 CHARTS = [
   '^DJT',
