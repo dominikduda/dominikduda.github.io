@@ -134,6 +134,7 @@ function setCookie(name,value,days = 9999) {
                 document.body.classList.remove('no-scroll')
                 window.scroll(0, getCookie('scrollPosition'))
                 document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
+                window.watcherLoaded = true;
               }, 1000)
             })
             document.addEventListener('scroll', saveScrollPos);
@@ -373,6 +374,28 @@ function setCookie(name,value,days = 9999) {
             z-index: 3;
             top: 0;
             left: 0;
+            opacity: 0;
+          }
+          .overlay:hover {
+            opacity: 1;
+          }
+          .overlay{animation: 2s ease-out 0s 1 FadeIn;}
+          @keyframes FadeIn {
+            0% {
+              opacity:1;
+            }
+            100% {
+              opacity:0;
+            }
+          }
+          .overlay:hover{animation: 0s ease-out 0s 1 FadeIn;}
+          @keyframes FadeIn {
+            0% {
+              opacity:1;
+            }
+            100% {
+              opacity:0;
+            }
           }
 
           .color-button-container {
@@ -384,32 +407,10 @@ function setCookie(name,value,days = 9999) {
             max-width: 600px;
           }
           .color-button-content {
-          font-size: 5;
+            font-size: 5;
             position: relative;
             text-align: center;
-            opacity: 0.00;
             max-width: 200px;
-          }
-          .color-button-content:hover {
-            opacity: 1;
-          }
-          .color-button-content{animation: 2s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
-          }
-          .color-button-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
           }
 
 
@@ -425,29 +426,7 @@ function setCookie(name,value,days = 9999) {
           .down-arrow-content {
             position: relative;
             text-align: center;
-            opacity: 0.00;
             max-width: 200px;
-          }
-          .down-arrow-content:hover {
-            opacity: 1;
-          }
-          .down-arrow-content{animation: 2s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
-          }
-          .down-arrow-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
           }
           .up-arrow-container {
             height: 20px;
@@ -460,29 +439,7 @@ function setCookie(name,value,days = 9999) {
           .up-arrow-content {
             position: relative;
             text-align: center;
-            opacity: 0.00;
             max-width: 200px;
-          }
-          .up-arrow-content:hover {
-            opacity: 1;
-          }
-          .up-arrow-content{animation: 2s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
-          }
-          .up-arrow-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
           }
           .overlay-content {
             display: flex;
@@ -491,30 +448,8 @@ function setCookie(name,value,days = 9999) {
             position: relative;
             text-align: center;
             top: 92px;
-            opacity: 0.00;
             z-index: 5;
             height: 100%;
-          }
-          .overlay-content:hover {
-            opacity: 1;
-          }
-          .overlay-content{animation: 2s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
-          }
-          .overlay-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
           }
           .chart-link {
             background-color: blue;
@@ -575,7 +510,7 @@ up_arr << '<div class="up-arrow-content">'
 up_arr << <<~UP_ARROW
   <div
     onClick="(function() {
-      if (window.current_index > 0) {
+      if (window.current_index > 0 && window.watcherLoaded) {
         document.getElementById(window.list[window.current_index - 1]).scrollIntoView()
         window.current_index = window.current_index - 1
       }
@@ -613,8 +548,10 @@ CHARTS.each do |market_id|
       tabindex="-1"
       id="#{market_id}"
       onClick="(function() {
-        document.getElementById('#{market_id}').scrollIntoView()
-        window.current_index = window.list.indexOf('#{market_id}')
+        if (window.watcherLoaded) {
+          document.getElementById('#{market_id}').scrollIntoView()
+          window.current_index = window.list.indexOf('#{market_id}')
+        }
       })()"
     >
       <span>#{market_id}</span>
@@ -627,7 +564,7 @@ down_arr << '<div class="down-arrow-content">'
 down_arr << <<~DOWN_ARROW
   <div
     onClick="(function() {
-      if (window.current_index + 1 < window.list.length) {
+      if (window.current_index + 1 < window.list.length && window.watcherLoaded) {
         document.getElementById(window.list[window.current_index + 1]).scrollIntoView()
         window.current_index = window.current_index + 1
       }
@@ -648,16 +585,18 @@ color_btn << '<div class="color-button-content">'
 color_btn << <<~COLOR_BTN
   <div
     onClick="(function() {
-      if (window.watcherGetCookie('mode') != 'dark') {
-        console.log('dark mode enabled')
-        const element = document.getElementsByTagName('html')[0];
-        element.classList.add('darkMode');
-        window.watcherSetCookie('mode', 'dark')
-      } else {
-        console.log('white mode enabled')
-        const element = document.getElementsByTagName('html')[0];
-        element.classList.remove('darkMode');
-        window.watcherSetCookie('mode', 'white')
+      if (window.watcherLoaded) {
+        if (window.watcherGetCookie('mode') != 'dark') {
+          console.log('dark mode enabled')
+          const element = document.getElementsByTagName('html')[0];
+          element.classList.add('darkMode');
+          window.watcherSetCookie('mode', 'dark')
+        } else {
+          console.log('white mode enabled')
+          const element = document.getElementsByTagName('html')[0];
+          element.classList.remove('darkMode');
+          window.watcherSetCookie('mode', 'white')
+        }
       }
     })()"
   >
@@ -667,7 +606,6 @@ COLOR_BTN
 color_btn << '</div>'
 color_btn << '</div>'
 menu_html << color_btn
-
 
 menu_html << '</div>'
 

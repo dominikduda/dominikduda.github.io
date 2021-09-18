@@ -37,6 +37,7 @@ function setCookie(name,value,days = 9999) {
                 document.body.classList.remove('no-scroll')
                 window.scroll(0, getCookie('scrollPosition'))
                 document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
+                window.watcherLoaded = true;
               }, 1000)
             })
             document.addEventListener('scroll', saveScrollPos);
@@ -276,6 +277,28 @@ function setCookie(name,value,days = 9999) {
             z-index: 3;
             top: 0;
             left: 0;
+            opacity: 0;
+          }
+          .overlay:hover {
+            opacity: 1;
+          }
+          .overlay{animation: 2s ease-out 0s 1 FadeIn;}
+          @keyframes FadeIn {
+            0% {
+              opacity:1;
+            }
+            100% {
+              opacity:0;
+            }
+          }
+          .overlay:hover{animation: 0s ease-out 0s 1 FadeIn;}
+          @keyframes FadeIn {
+            0% {
+              opacity:1;
+            }
+            100% {
+              opacity:0;
+            }
           }
 
           .color-button-container {
@@ -287,32 +310,10 @@ function setCookie(name,value,days = 9999) {
             max-width: 600px;
           }
           .color-button-content {
-          font-size: 5;
+            font-size: 5;
             position: relative;
             text-align: center;
-            opacity: 0.00;
             max-width: 200px;
-          }
-          .color-button-content:hover {
-            opacity: 1;
-          }
-          .color-button-content{animation: 2s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
-          }
-          .color-button-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
           }
 
 
@@ -328,29 +329,7 @@ function setCookie(name,value,days = 9999) {
           .down-arrow-content {
             position: relative;
             text-align: center;
-            opacity: 0.00;
             max-width: 200px;
-          }
-          .down-arrow-content:hover {
-            opacity: 1;
-          }
-          .down-arrow-content{animation: 2s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
-          }
-          .down-arrow-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
           }
           .up-arrow-container {
             height: 20px;
@@ -363,29 +342,7 @@ function setCookie(name,value,days = 9999) {
           .up-arrow-content {
             position: relative;
             text-align: center;
-            opacity: 0.00;
             max-width: 200px;
-          }
-          .up-arrow-content:hover {
-            opacity: 1;
-          }
-          .up-arrow-content{animation: 2s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
-          }
-          .up-arrow-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
           }
           .overlay-content {
             display: flex;
@@ -394,30 +351,8 @@ function setCookie(name,value,days = 9999) {
             position: relative;
             text-align: center;
             top: 92px;
-            opacity: 0.00;
             z-index: 5;
             height: 100%;
-          }
-          .overlay-content:hover {
-            opacity: 1;
-          }
-          .overlay-content{animation: 2s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
-          }
-          .overlay-content:hover{animation: 0s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
-            }
-            100% {
-              opacity:0;
-            }
           }
           .chart-link {
             background-color: blue;
@@ -973,7 +908,7 @@ function setCookie(name,value,days = 9999) {
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdjpy&c=100y&t=c&a=lg&b&g"/>
 </div><hr><hr><hr><hr><hr><div class="overlay"><div class="up-arrow-container"><div class="up-arrow-content"><div
   onClick="(function() {
-    if (window.current_index > 0) {
+    if (window.current_index > 0 && window.watcherLoaded) {
       document.getElementById(window.list[window.current_index - 1]).scrollIntoView()
       window.current_index = window.current_index - 1
     }
@@ -986,8 +921,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="^DJT"
   onClick="(function() {
-    document.getElementById('^DJT').scrollIntoView()
-    window.current_index = window.list.indexOf('^DJT')
+    if (window.watcherLoaded) {
+      document.getElementById('^DJT').scrollIntoView()
+      window.current_index = window.list.indexOf('^DJT')
+    }
   })()"
 >
   <span>^DJT</span>
@@ -997,8 +934,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="^SPX"
   onClick="(function() {
-    document.getElementById('^SPX').scrollIntoView()
-    window.current_index = window.list.indexOf('^SPX')
+    if (window.watcherLoaded) {
+      document.getElementById('^SPX').scrollIntoView()
+      window.current_index = window.list.indexOf('^SPX')
+    }
   })()"
 >
   <span>^SPX</span>
@@ -1008,8 +947,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="^DAX"
   onClick="(function() {
-    document.getElementById('^DAX').scrollIntoView()
-    window.current_index = window.list.indexOf('^DAX')
+    if (window.watcherLoaded) {
+      document.getElementById('^DAX').scrollIntoView()
+      window.current_index = window.list.indexOf('^DAX')
+    }
   })()"
 >
   <span>^DAX</span>
@@ -1019,8 +960,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="TLT.US"
   onClick="(function() {
-    document.getElementById('TLT.US').scrollIntoView()
-    window.current_index = window.list.indexOf('TLT.US')
+    if (window.watcherLoaded) {
+      document.getElementById('TLT.US').scrollIntoView()
+      window.current_index = window.list.indexOf('TLT.US')
+    }
   })()"
 >
   <span>TLT.US</span>
@@ -1030,8 +973,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="LIT.US"
   onClick="(function() {
-    document.getElementById('LIT.US').scrollIntoView()
-    window.current_index = window.list.indexOf('LIT.US')
+    if (window.watcherLoaded) {
+      document.getElementById('LIT.US').scrollIntoView()
+      window.current_index = window.list.indexOf('LIT.US')
+    }
   })()"
 >
   <span>LIT.US</span>
@@ -1041,8 +986,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="ARKG.US"
   onClick="(function() {
-    document.getElementById('ARKG.US').scrollIntoView()
-    window.current_index = window.list.indexOf('ARKG.US')
+    if (window.watcherLoaded) {
+      document.getElementById('ARKG.US').scrollIntoView()
+      window.current_index = window.list.indexOf('ARKG.US')
+    }
   })()"
 >
   <span>ARKG.US</span>
@@ -1052,8 +999,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="PBD.US"
   onClick="(function() {
-    document.getElementById('PBD.US').scrollIntoView()
-    window.current_index = window.list.indexOf('PBD.US')
+    if (window.watcherLoaded) {
+      document.getElementById('PBD.US').scrollIntoView()
+      window.current_index = window.list.indexOf('PBD.US')
+    }
   })()"
 >
   <span>PBD.US</span>
@@ -1063,8 +1012,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="DRIV.US"
   onClick="(function() {
-    document.getElementById('DRIV.US').scrollIntoView()
-    window.current_index = window.list.indexOf('DRIV.US')
+    if (window.watcherLoaded) {
+      document.getElementById('DRIV.US').scrollIntoView()
+      window.current_index = window.list.indexOf('DRIV.US')
+    }
   })()"
 >
   <span>DRIV.US</span>
@@ -1074,8 +1025,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="ACES.US"
   onClick="(function() {
-    document.getElementById('ACES.US').scrollIntoView()
-    window.current_index = window.list.indexOf('ACES.US')
+    if (window.watcherLoaded) {
+      document.getElementById('ACES.US').scrollIntoView()
+      window.current_index = window.list.indexOf('ACES.US')
+    }
   })()"
 >
   <span>ACES.US</span>
@@ -1085,8 +1038,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="BUG.US"
   onClick="(function() {
-    document.getElementById('BUG.US').scrollIntoView()
-    window.current_index = window.list.indexOf('BUG.US')
+    if (window.watcherLoaded) {
+      document.getElementById('BUG.US').scrollIntoView()
+      window.current_index = window.list.indexOf('BUG.US')
+    }
   })()"
 >
   <span>BUG.US</span>
@@ -1096,8 +1051,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="IYE.US"
   onClick="(function() {
-    document.getElementById('IYE.US').scrollIntoView()
-    window.current_index = window.list.indexOf('IYE.US')
+    if (window.watcherLoaded) {
+      document.getElementById('IYE.US').scrollIntoView()
+      window.current_index = window.list.indexOf('IYE.US')
+    }
   })()"
 >
   <span>IYE.US</span>
@@ -1107,8 +1064,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="BATT.US"
   onClick="(function() {
-    document.getElementById('BATT.US').scrollIntoView()
-    window.current_index = window.list.indexOf('BATT.US')
+    if (window.watcherLoaded) {
+      document.getElementById('BATT.US').scrollIntoView()
+      window.current_index = window.list.indexOf('BATT.US')
+    }
   })()"
 >
   <span>BATT.US</span>
@@ -1118,8 +1077,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="XME.US"
   onClick="(function() {
-    document.getElementById('XME.US').scrollIntoView()
-    window.current_index = window.list.indexOf('XME.US')
+    if (window.watcherLoaded) {
+      document.getElementById('XME.US').scrollIntoView()
+      window.current_index = window.list.indexOf('XME.US')
+    }
   })()"
 >
   <span>XME.US</span>
@@ -1129,8 +1090,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="AIQ.US"
   onClick="(function() {
-    document.getElementById('AIQ.US').scrollIntoView()
-    window.current_index = window.list.indexOf('AIQ.US')
+    if (window.watcherLoaded) {
+      document.getElementById('AIQ.US').scrollIntoView()
+      window.current_index = window.list.indexOf('AIQ.US')
+    }
   })()"
 >
   <span>AIQ.US</span>
@@ -1140,8 +1103,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="SMH.US"
   onClick="(function() {
-    document.getElementById('SMH.US').scrollIntoView()
-    window.current_index = window.list.indexOf('SMH.US')
+    if (window.watcherLoaded) {
+      document.getElementById('SMH.US').scrollIntoView()
+      window.current_index = window.list.indexOf('SMH.US')
+    }
   })()"
 >
   <span>SMH.US</span>
@@ -1151,8 +1116,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="------"
   onClick="(function() {
-    document.getElementById('------').scrollIntoView()
-    window.current_index = window.list.indexOf('------')
+    if (window.watcherLoaded) {
+      document.getElementById('------').scrollIntoView()
+      window.current_index = window.list.indexOf('------')
+    }
   })()"
 >
   <span>------</span>
@@ -1162,8 +1129,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="CDR"
   onClick="(function() {
-    document.getElementById('CDR').scrollIntoView()
-    window.current_index = window.list.indexOf('CDR')
+    if (window.watcherLoaded) {
+      document.getElementById('CDR').scrollIntoView()
+      window.current_index = window.list.indexOf('CDR')
+    }
   })()"
 >
   <span>CDR</span>
@@ -1173,8 +1142,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="HUGE"
   onClick="(function() {
-    document.getElementById('HUGE').scrollIntoView()
-    window.current_index = window.list.indexOf('HUGE')
+    if (window.watcherLoaded) {
+      document.getElementById('HUGE').scrollIntoView()
+      window.current_index = window.list.indexOf('HUGE')
+    }
   })()"
 >
   <span>HUGE</span>
@@ -1184,8 +1155,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="PLUG.US"
   onClick="(function() {
-    document.getElementById('PLUG.US').scrollIntoView()
-    window.current_index = window.list.indexOf('PLUG.US')
+    if (window.watcherLoaded) {
+      document.getElementById('PLUG.US').scrollIntoView()
+      window.current_index = window.list.indexOf('PLUG.US')
+    }
   })()"
 >
   <span>PLUG.US</span>
@@ -1195,8 +1168,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="LTHM.US"
   onClick="(function() {
-    document.getElementById('LTHM.US').scrollIntoView()
-    window.current_index = window.list.indexOf('LTHM.US')
+    if (window.watcherLoaded) {
+      document.getElementById('LTHM.US').scrollIntoView()
+      window.current_index = window.list.indexOf('LTHM.US')
+    }
   })()"
 >
   <span>LTHM.US</span>
@@ -1206,8 +1181,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="CDNA.US"
   onClick="(function() {
-    document.getElementById('CDNA.US').scrollIntoView()
-    window.current_index = window.list.indexOf('CDNA.US')
+    if (window.watcherLoaded) {
+      document.getElementById('CDNA.US').scrollIntoView()
+      window.current_index = window.list.indexOf('CDNA.US')
+    }
   })()"
 >
   <span>CDNA.US</span>
@@ -1217,8 +1194,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="VRTX.US"
   onClick="(function() {
-    document.getElementById('VRTX.US').scrollIntoView()
-    window.current_index = window.list.indexOf('VRTX.US')
+    if (window.watcherLoaded) {
+      document.getElementById('VRTX.US').scrollIntoView()
+      window.current_index = window.list.indexOf('VRTX.US')
+    }
   })()"
 >
   <span>VRTX.US</span>
@@ -1228,8 +1207,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="TWST.US"
   onClick="(function() {
-    document.getElementById('TWST.US').scrollIntoView()
-    window.current_index = window.list.indexOf('TWST.US')
+    if (window.watcherLoaded) {
+      document.getElementById('TWST.US').scrollIntoView()
+      window.current_index = window.list.indexOf('TWST.US')
+    }
   })()"
 >
   <span>TWST.US</span>
@@ -1239,8 +1220,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="REGN.US"
   onClick="(function() {
-    document.getElementById('REGN.US').scrollIntoView()
-    window.current_index = window.list.indexOf('REGN.US')
+    if (window.watcherLoaded) {
+      document.getElementById('REGN.US').scrollIntoView()
+      window.current_index = window.list.indexOf('REGN.US')
+    }
   })()"
 >
   <span>REGN.US</span>
@@ -1250,8 +1233,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="PACB.US"
   onClick="(function() {
-    document.getElementById('PACB.US').scrollIntoView()
-    window.current_index = window.list.indexOf('PACB.US')
+    if (window.watcherLoaded) {
+      document.getElementById('PACB.US').scrollIntoView()
+      window.current_index = window.list.indexOf('PACB.US')
+    }
   })()"
 >
   <span>PACB.US</span>
@@ -1261,8 +1246,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="NTLA.US"
   onClick="(function() {
-    document.getElementById('NTLA.US').scrollIntoView()
-    window.current_index = window.list.indexOf('NTLA.US')
+    if (window.watcherLoaded) {
+      document.getElementById('NTLA.US').scrollIntoView()
+      window.current_index = window.list.indexOf('NTLA.US')
+    }
   })()"
 >
   <span>NTLA.US</span>
@@ -1272,8 +1259,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="EXAS.US"
   onClick="(function() {
-    document.getElementById('EXAS.US').scrollIntoView()
-    window.current_index = window.list.indexOf('EXAS.US')
+    if (window.watcherLoaded) {
+      document.getElementById('EXAS.US').scrollIntoView()
+      window.current_index = window.list.indexOf('EXAS.US')
+    }
   })()"
 >
   <span>EXAS.US</span>
@@ -1283,8 +1272,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="TDOC.US"
   onClick="(function() {
-    document.getElementById('TDOC.US').scrollIntoView()
-    window.current_index = window.list.indexOf('TDOC.US')
+    if (window.watcherLoaded) {
+      document.getElementById('TDOC.US').scrollIntoView()
+      window.current_index = window.list.indexOf('TDOC.US')
+    }
   })()"
 >
   <span>TDOC.US</span>
@@ -1294,8 +1285,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="PBE.US"
   onClick="(function() {
-    document.getElementById('PBE.US').scrollIntoView()
-    window.current_index = window.list.indexOf('PBE.US')
+    if (window.watcherLoaded) {
+      document.getElementById('PBE.US').scrollIntoView()
+      window.current_index = window.list.indexOf('PBE.US')
+    }
   })()"
 >
   <span>PBE.US</span>
@@ -1305,8 +1298,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="CRSP.US"
   onClick="(function() {
-    document.getElementById('CRSP.US').scrollIntoView()
-    window.current_index = window.list.indexOf('CRSP.US')
+    if (window.watcherLoaded) {
+      document.getElementById('CRSP.US').scrollIntoView()
+      window.current_index = window.list.indexOf('CRSP.US')
+    }
   })()"
 >
   <span>CRSP.US</span>
@@ -1316,8 +1311,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="TSLA.US"
   onClick="(function() {
-    document.getElementById('TSLA.US').scrollIntoView()
-    window.current_index = window.list.indexOf('TSLA.US')
+    if (window.watcherLoaded) {
+      document.getElementById('TSLA.US').scrollIntoView()
+      window.current_index = window.list.indexOf('TSLA.US')
+    }
   })()"
 >
   <span>TSLA.US</span>
@@ -1327,8 +1324,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="NVDA.US"
   onClick="(function() {
-    document.getElementById('NVDA.US').scrollIntoView()
-    window.current_index = window.list.indexOf('NVDA.US')
+    if (window.watcherLoaded) {
+      document.getElementById('NVDA.US').scrollIntoView()
+      window.current_index = window.list.indexOf('NVDA.US')
+    }
   })()"
 >
   <span>NVDA.US</span>
@@ -1338,8 +1337,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="DIS.US"
   onClick="(function() {
-    document.getElementById('DIS.US').scrollIntoView()
-    window.current_index = window.list.indexOf('DIS.US')
+    if (window.watcherLoaded) {
+      document.getElementById('DIS.US').scrollIntoView()
+      window.current_index = window.list.indexOf('DIS.US')
+    }
   })()"
 >
   <span>DIS.US</span>
@@ -1349,8 +1350,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="MSFT.US"
   onClick="(function() {
-    document.getElementById('MSFT.US').scrollIntoView()
-    window.current_index = window.list.indexOf('MSFT.US')
+    if (window.watcherLoaded) {
+      document.getElementById('MSFT.US').scrollIntoView()
+      window.current_index = window.list.indexOf('MSFT.US')
+    }
   })()"
 >
   <span>MSFT.US</span>
@@ -1360,8 +1363,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="AAPL.US"
   onClick="(function() {
-    document.getElementById('AAPL.US').scrollIntoView()
-    window.current_index = window.list.indexOf('AAPL.US')
+    if (window.watcherLoaded) {
+      document.getElementById('AAPL.US').scrollIntoView()
+      window.current_index = window.list.indexOf('AAPL.US')
+    }
   })()"
 >
   <span>AAPL.US</span>
@@ -1371,8 +1376,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="PEP.US"
   onClick="(function() {
-    document.getElementById('PEP.US').scrollIntoView()
-    window.current_index = window.list.indexOf('PEP.US')
+    if (window.watcherLoaded) {
+      document.getElementById('PEP.US').scrollIntoView()
+      window.current_index = window.list.indexOf('PEP.US')
+    }
   })()"
 >
   <span>PEP.US</span>
@@ -1382,8 +1389,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="INTC.US"
   onClick="(function() {
-    document.getElementById('INTC.US').scrollIntoView()
-    window.current_index = window.list.indexOf('INTC.US')
+    if (window.watcherLoaded) {
+      document.getElementById('INTC.US').scrollIntoView()
+      window.current_index = window.list.indexOf('INTC.US')
+    }
   })()"
 >
   <span>INTC.US</span>
@@ -1393,8 +1402,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="AMZN.US"
   onClick="(function() {
-    document.getElementById('AMZN.US').scrollIntoView()
-    window.current_index = window.list.indexOf('AMZN.US')
+    if (window.watcherLoaded) {
+      document.getElementById('AMZN.US').scrollIntoView()
+      window.current_index = window.list.indexOf('AMZN.US')
+    }
   })()"
 >
   <span>AMZN.US</span>
@@ -1404,8 +1415,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="KO.US"
   onClick="(function() {
-    document.getElementById('KO.US').scrollIntoView()
-    window.current_index = window.list.indexOf('KO.US')
+    if (window.watcherLoaded) {
+      document.getElementById('KO.US').scrollIntoView()
+      window.current_index = window.list.indexOf('KO.US')
+    }
   })()"
 >
   <span>KO.US</span>
@@ -1415,8 +1428,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="BAC.US"
   onClick="(function() {
-    document.getElementById('BAC.US').scrollIntoView()
-    window.current_index = window.list.indexOf('BAC.US')
+    if (window.watcherLoaded) {
+      document.getElementById('BAC.US').scrollIntoView()
+      window.current_index = window.list.indexOf('BAC.US')
+    }
   })()"
 >
   <span>BAC.US</span>
@@ -1426,8 +1441,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="V.US"
   onClick="(function() {
-    document.getElementById('V.US').scrollIntoView()
-    window.current_index = window.list.indexOf('V.US')
+    if (window.watcherLoaded) {
+      document.getElementById('V.US').scrollIntoView()
+      window.current_index = window.list.indexOf('V.US')
+    }
   })()"
 >
   <span>V.US</span>
@@ -1437,8 +1454,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="SBUX.US"
   onClick="(function() {
-    document.getElementById('SBUX.US').scrollIntoView()
-    window.current_index = window.list.indexOf('SBUX.US')
+    if (window.watcherLoaded) {
+      document.getElementById('SBUX.US').scrollIntoView()
+      window.current_index = window.list.indexOf('SBUX.US')
+    }
   })()"
 >
   <span>SBUX.US</span>
@@ -1448,8 +1467,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="ADBE.US"
   onClick="(function() {
-    document.getElementById('ADBE.US').scrollIntoView()
-    window.current_index = window.list.indexOf('ADBE.US')
+    if (window.watcherLoaded) {
+      document.getElementById('ADBE.US').scrollIntoView()
+      window.current_index = window.list.indexOf('ADBE.US')
+    }
   })()"
 >
   <span>ADBE.US</span>
@@ -1459,8 +1480,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="FDX.US"
   onClick="(function() {
-    document.getElementById('FDX.US').scrollIntoView()
-    window.current_index = window.list.indexOf('FDX.US')
+    if (window.watcherLoaded) {
+      document.getElementById('FDX.US').scrollIntoView()
+      window.current_index = window.list.indexOf('FDX.US')
+    }
   })()"
 >
   <span>FDX.US</span>
@@ -1470,8 +1493,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="PYPL.US"
   onClick="(function() {
-    document.getElementById('PYPL.US').scrollIntoView()
-    window.current_index = window.list.indexOf('PYPL.US')
+    if (window.watcherLoaded) {
+      document.getElementById('PYPL.US').scrollIntoView()
+      window.current_index = window.list.indexOf('PYPL.US')
+    }
   })()"
 >
   <span>PYPL.US</span>
@@ -1481,8 +1506,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="MCD.US"
   onClick="(function() {
-    document.getElementById('MCD.US').scrollIntoView()
-    window.current_index = window.list.indexOf('MCD.US')
+    if (window.watcherLoaded) {
+      document.getElementById('MCD.US').scrollIntoView()
+      window.current_index = window.list.indexOf('MCD.US')
+    }
   })()"
 >
   <span>MCD.US</span>
@@ -1492,8 +1519,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="SELB.US"
   onClick="(function() {
-    document.getElementById('SELB.US').scrollIntoView()
-    window.current_index = window.list.indexOf('SELB.US')
+    if (window.watcherLoaded) {
+      document.getElementById('SELB.US').scrollIntoView()
+      window.current_index = window.list.indexOf('SELB.US')
+    }
   })()"
 >
   <span>SELB.US</span>
@@ -1503,8 +1532,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="OSCR.US"
   onClick="(function() {
-    document.getElementById('OSCR.US').scrollIntoView()
-    window.current_index = window.list.indexOf('OSCR.US')
+    if (window.watcherLoaded) {
+      document.getElementById('OSCR.US').scrollIntoView()
+      window.current_index = window.list.indexOf('OSCR.US')
+    }
   })()"
 >
   <span>OSCR.US</span>
@@ -1514,8 +1545,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="BYND.US"
   onClick="(function() {
-    document.getElementById('BYND.US').scrollIntoView()
-    window.current_index = window.list.indexOf('BYND.US')
+    if (window.watcherLoaded) {
+      document.getElementById('BYND.US').scrollIntoView()
+      window.current_index = window.list.indexOf('BYND.US')
+    }
   })()"
 >
   <span>BYND.US</span>
@@ -1525,8 +1558,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="EDIT.US"
   onClick="(function() {
-    document.getElementById('EDIT.US').scrollIntoView()
-    window.current_index = window.list.indexOf('EDIT.US')
+    if (window.watcherLoaded) {
+      document.getElementById('EDIT.US').scrollIntoView()
+      window.current_index = window.list.indexOf('EDIT.US')
+    }
   })()"
 >
   <span>EDIT.US</span>
@@ -1536,8 +1571,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="CCJ.US"
   onClick="(function() {
-    document.getElementById('CCJ.US').scrollIntoView()
-    window.current_index = window.list.indexOf('CCJ.US')
+    if (window.watcherLoaded) {
+      document.getElementById('CCJ.US').scrollIntoView()
+      window.current_index = window.list.indexOf('CCJ.US')
+    }
   })()"
 >
   <span>CCJ.US</span>
@@ -1547,8 +1584,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="WFC.US"
   onClick="(function() {
-    document.getElementById('WFC.US').scrollIntoView()
-    window.current_index = window.list.indexOf('WFC.US')
+    if (window.watcherLoaded) {
+      document.getElementById('WFC.US').scrollIntoView()
+      window.current_index = window.list.indexOf('WFC.US')
+    }
   })()"
 >
   <span>WFC.US</span>
@@ -1558,8 +1597,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="------"
   onClick="(function() {
-    document.getElementById('------').scrollIntoView()
-    window.current_index = window.list.indexOf('------')
+    if (window.watcherLoaded) {
+      document.getElementById('------').scrollIntoView()
+      window.current_index = window.list.indexOf('------')
+    }
   })()"
 >
   <span>------</span>
@@ -1569,8 +1610,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="XAUUSD"
   onClick="(function() {
-    document.getElementById('XAUUSD').scrollIntoView()
-    window.current_index = window.list.indexOf('XAUUSD')
+    if (window.watcherLoaded) {
+      document.getElementById('XAUUSD').scrollIntoView()
+      window.current_index = window.list.indexOf('XAUUSD')
+    }
   })()"
 >
   <span>XAUUSD</span>
@@ -1580,8 +1623,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="------"
   onClick="(function() {
-    document.getElementById('------').scrollIntoView()
-    window.current_index = window.list.indexOf('------')
+    if (window.watcherLoaded) {
+      document.getElementById('------').scrollIntoView()
+      window.current_index = window.list.indexOf('------')
+    }
   })()"
 >
   <span>------</span>
@@ -1591,8 +1636,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="ZEC.V"
   onClick="(function() {
-    document.getElementById('ZEC.V').scrollIntoView()
-    window.current_index = window.list.indexOf('ZEC.V')
+    if (window.watcherLoaded) {
+      document.getElementById('ZEC.V').scrollIntoView()
+      window.current_index = window.list.indexOf('ZEC.V')
+    }
   })()"
 >
   <span>ZEC.V</span>
@@ -1602,8 +1649,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="DOGE.V"
   onClick="(function() {
-    document.getElementById('DOGE.V').scrollIntoView()
-    window.current_index = window.list.indexOf('DOGE.V')
+    if (window.watcherLoaded) {
+      document.getElementById('DOGE.V').scrollIntoView()
+      window.current_index = window.list.indexOf('DOGE.V')
+    }
   })()"
 >
   <span>DOGE.V</span>
@@ -1613,8 +1662,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="XMR.V"
   onClick="(function() {
-    document.getElementById('XMR.V').scrollIntoView()
-    window.current_index = window.list.indexOf('XMR.V')
+    if (window.watcherLoaded) {
+      document.getElementById('XMR.V').scrollIntoView()
+      window.current_index = window.list.indexOf('XMR.V')
+    }
   })()"
 >
   <span>XMR.V</span>
@@ -1624,8 +1675,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="ETH.V"
   onClick="(function() {
-    document.getElementById('ETH.V').scrollIntoView()
-    window.current_index = window.list.indexOf('ETH.V')
+    if (window.watcherLoaded) {
+      document.getElementById('ETH.V').scrollIntoView()
+      window.current_index = window.list.indexOf('ETH.V')
+    }
   })()"
 >
   <span>ETH.V</span>
@@ -1635,8 +1688,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="AMPL.V"
   onClick="(function() {
-    document.getElementById('AMPL.V').scrollIntoView()
-    window.current_index = window.list.indexOf('AMPL.V')
+    if (window.watcherLoaded) {
+      document.getElementById('AMPL.V').scrollIntoView()
+      window.current_index = window.list.indexOf('AMPL.V')
+    }
   })()"
 >
   <span>AMPL.V</span>
@@ -1646,8 +1701,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="BTCUSD"
   onClick="(function() {
-    document.getElementById('BTCUSD').scrollIntoView()
-    window.current_index = window.list.indexOf('BTCUSD')
+    if (window.watcherLoaded) {
+      document.getElementById('BTCUSD').scrollIntoView()
+      window.current_index = window.list.indexOf('BTCUSD')
+    }
   })()"
 >
   <span>BTCUSD</span>
@@ -1657,8 +1714,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="------"
   onClick="(function() {
-    document.getElementById('------').scrollIntoView()
-    window.current_index = window.list.indexOf('------')
+    if (window.watcherLoaded) {
+      document.getElementById('------').scrollIntoView()
+      window.current_index = window.list.indexOf('------')
+    }
   })()"
 >
   <span>------</span>
@@ -1668,8 +1727,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="eurusd"
   onClick="(function() {
-    document.getElementById('eurusd').scrollIntoView()
-    window.current_index = window.list.indexOf('eurusd')
+    if (window.watcherLoaded) {
+      document.getElementById('eurusd').scrollIntoView()
+      window.current_index = window.list.indexOf('eurusd')
+    }
   })()"
 >
   <span>eurusd</span>
@@ -1679,8 +1740,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="gbpusd"
   onClick="(function() {
-    document.getElementById('gbpusd').scrollIntoView()
-    window.current_index = window.list.indexOf('gbpusd')
+    if (window.watcherLoaded) {
+      document.getElementById('gbpusd').scrollIntoView()
+      window.current_index = window.list.indexOf('gbpusd')
+    }
   })()"
 >
   <span>gbpusd</span>
@@ -1690,8 +1753,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="audcad"
   onClick="(function() {
-    document.getElementById('audcad').scrollIntoView()
-    window.current_index = window.list.indexOf('audcad')
+    if (window.watcherLoaded) {
+      document.getElementById('audcad').scrollIntoView()
+      window.current_index = window.list.indexOf('audcad')
+    }
   })()"
 >
   <span>audcad</span>
@@ -1701,8 +1766,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="audchf"
   onClick="(function() {
-    document.getElementById('audchf').scrollIntoView()
-    window.current_index = window.list.indexOf('audchf')
+    if (window.watcherLoaded) {
+      document.getElementById('audchf').scrollIntoView()
+      window.current_index = window.list.indexOf('audchf')
+    }
   })()"
 >
   <span>audchf</span>
@@ -1712,8 +1779,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="audjpy"
   onClick="(function() {
-    document.getElementById('audjpy').scrollIntoView()
-    window.current_index = window.list.indexOf('audjpy')
+    if (window.watcherLoaded) {
+      document.getElementById('audjpy').scrollIntoView()
+      window.current_index = window.list.indexOf('audjpy')
+    }
   })()"
 >
   <span>audjpy</span>
@@ -1723,8 +1792,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="audnzd"
   onClick="(function() {
-    document.getElementById('audnzd').scrollIntoView()
-    window.current_index = window.list.indexOf('audnzd')
+    if (window.watcherLoaded) {
+      document.getElementById('audnzd').scrollIntoView()
+      window.current_index = window.list.indexOf('audnzd')
+    }
   })()"
 >
   <span>audnzd</span>
@@ -1734,8 +1805,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="audusd"
   onClick="(function() {
-    document.getElementById('audusd').scrollIntoView()
-    window.current_index = window.list.indexOf('audusd')
+    if (window.watcherLoaded) {
+      document.getElementById('audusd').scrollIntoView()
+      window.current_index = window.list.indexOf('audusd')
+    }
   })()"
 >
   <span>audusd</span>
@@ -1745,8 +1818,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="cadchf"
   onClick="(function() {
-    document.getElementById('cadchf').scrollIntoView()
-    window.current_index = window.list.indexOf('cadchf')
+    if (window.watcherLoaded) {
+      document.getElementById('cadchf').scrollIntoView()
+      window.current_index = window.list.indexOf('cadchf')
+    }
   })()"
 >
   <span>cadchf</span>
@@ -1756,8 +1831,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="cadjpy"
   onClick="(function() {
-    document.getElementById('cadjpy').scrollIntoView()
-    window.current_index = window.list.indexOf('cadjpy')
+    if (window.watcherLoaded) {
+      document.getElementById('cadjpy').scrollIntoView()
+      window.current_index = window.list.indexOf('cadjpy')
+    }
   })()"
 >
   <span>cadjpy</span>
@@ -1767,8 +1844,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="chfjpy"
   onClick="(function() {
-    document.getElementById('chfjpy').scrollIntoView()
-    window.current_index = window.list.indexOf('chfjpy')
+    if (window.watcherLoaded) {
+      document.getElementById('chfjpy').scrollIntoView()
+      window.current_index = window.list.indexOf('chfjpy')
+    }
   })()"
 >
   <span>chfjpy</span>
@@ -1778,8 +1857,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="chfsgd"
   onClick="(function() {
-    document.getElementById('chfsgd').scrollIntoView()
-    window.current_index = window.list.indexOf('chfsgd')
+    if (window.watcherLoaded) {
+      document.getElementById('chfsgd').scrollIntoView()
+      window.current_index = window.list.indexOf('chfsgd')
+    }
   })()"
 >
   <span>chfsgd</span>
@@ -1789,8 +1870,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="euraud"
   onClick="(function() {
-    document.getElementById('euraud').scrollIntoView()
-    window.current_index = window.list.indexOf('euraud')
+    if (window.watcherLoaded) {
+      document.getElementById('euraud').scrollIntoView()
+      window.current_index = window.list.indexOf('euraud')
+    }
   })()"
 >
   <span>euraud</span>
@@ -1800,8 +1883,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="eurchf"
   onClick="(function() {
-    document.getElementById('eurchf').scrollIntoView()
-    window.current_index = window.list.indexOf('eurchf')
+    if (window.watcherLoaded) {
+      document.getElementById('eurchf').scrollIntoView()
+      window.current_index = window.list.indexOf('eurchf')
+    }
   })()"
 >
   <span>eurchf</span>
@@ -1811,8 +1896,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="eurgbp"
   onClick="(function() {
-    document.getElementById('eurgbp').scrollIntoView()
-    window.current_index = window.list.indexOf('eurgbp')
+    if (window.watcherLoaded) {
+      document.getElementById('eurgbp').scrollIntoView()
+      window.current_index = window.list.indexOf('eurgbp')
+    }
   })()"
 >
   <span>eurgbp</span>
@@ -1822,8 +1909,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="eurjpy"
   onClick="(function() {
-    document.getElementById('eurjpy').scrollIntoView()
-    window.current_index = window.list.indexOf('eurjpy')
+    if (window.watcherLoaded) {
+      document.getElementById('eurjpy').scrollIntoView()
+      window.current_index = window.list.indexOf('eurjpy')
+    }
   })()"
 >
   <span>eurjpy</span>
@@ -1833,8 +1922,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="eurnzd"
   onClick="(function() {
-    document.getElementById('eurnzd').scrollIntoView()
-    window.current_index = window.list.indexOf('eurnzd')
+    if (window.watcherLoaded) {
+      document.getElementById('eurnzd').scrollIntoView()
+      window.current_index = window.list.indexOf('eurnzd')
+    }
   })()"
 >
   <span>eurnzd</span>
@@ -1844,8 +1935,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="gbpaud"
   onClick="(function() {
-    document.getElementById('gbpaud').scrollIntoView()
-    window.current_index = window.list.indexOf('gbpaud')
+    if (window.watcherLoaded) {
+      document.getElementById('gbpaud').scrollIntoView()
+      window.current_index = window.list.indexOf('gbpaud')
+    }
   })()"
 >
   <span>gbpaud</span>
@@ -1855,8 +1948,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="gbpchf"
   onClick="(function() {
-    document.getElementById('gbpchf').scrollIntoView()
-    window.current_index = window.list.indexOf('gbpchf')
+    if (window.watcherLoaded) {
+      document.getElementById('gbpchf').scrollIntoView()
+      window.current_index = window.list.indexOf('gbpchf')
+    }
   })()"
 >
   <span>gbpchf</span>
@@ -1866,8 +1961,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="gbpjpy"
   onClick="(function() {
-    document.getElementById('gbpjpy').scrollIntoView()
-    window.current_index = window.list.indexOf('gbpjpy')
+    if (window.watcherLoaded) {
+      document.getElementById('gbpjpy').scrollIntoView()
+      window.current_index = window.list.indexOf('gbpjpy')
+    }
   })()"
 >
   <span>gbpjpy</span>
@@ -1877,8 +1974,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="gbpnzd"
   onClick="(function() {
-    document.getElementById('gbpnzd').scrollIntoView()
-    window.current_index = window.list.indexOf('gbpnzd')
+    if (window.watcherLoaded) {
+      document.getElementById('gbpnzd').scrollIntoView()
+      window.current_index = window.list.indexOf('gbpnzd')
+    }
   })()"
 >
   <span>gbpnzd</span>
@@ -1888,8 +1987,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="nzdcad"
   onClick="(function() {
-    document.getElementById('nzdcad').scrollIntoView()
-    window.current_index = window.list.indexOf('nzdcad')
+    if (window.watcherLoaded) {
+      document.getElementById('nzdcad').scrollIntoView()
+      window.current_index = window.list.indexOf('nzdcad')
+    }
   })()"
 >
   <span>nzdcad</span>
@@ -1899,8 +2000,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="nzdchf"
   onClick="(function() {
-    document.getElementById('nzdchf').scrollIntoView()
-    window.current_index = window.list.indexOf('nzdchf')
+    if (window.watcherLoaded) {
+      document.getElementById('nzdchf').scrollIntoView()
+      window.current_index = window.list.indexOf('nzdchf')
+    }
   })()"
 >
   <span>nzdchf</span>
@@ -1910,8 +2013,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="nzdjpy"
   onClick="(function() {
-    document.getElementById('nzdjpy').scrollIntoView()
-    window.current_index = window.list.indexOf('nzdjpy')
+    if (window.watcherLoaded) {
+      document.getElementById('nzdjpy').scrollIntoView()
+      window.current_index = window.list.indexOf('nzdjpy')
+    }
   })()"
 >
   <span>nzdjpy</span>
@@ -1921,8 +2026,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="nzdusd"
   onClick="(function() {
-    document.getElementById('nzdusd').scrollIntoView()
-    window.current_index = window.list.indexOf('nzdusd')
+    if (window.watcherLoaded) {
+      document.getElementById('nzdusd').scrollIntoView()
+      window.current_index = window.list.indexOf('nzdusd')
+    }
   })()"
 >
   <span>nzdusd</span>
@@ -1932,8 +2039,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="usdcad"
   onClick="(function() {
-    document.getElementById('usdcad').scrollIntoView()
-    window.current_index = window.list.indexOf('usdcad')
+    if (window.watcherLoaded) {
+      document.getElementById('usdcad').scrollIntoView()
+      window.current_index = window.list.indexOf('usdcad')
+    }
   })()"
 >
   <span>usdcad</span>
@@ -1943,8 +2052,10 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="usdchf"
   onClick="(function() {
-    document.getElementById('usdchf').scrollIntoView()
-    window.current_index = window.list.indexOf('usdchf')
+    if (window.watcherLoaded) {
+      document.getElementById('usdchf').scrollIntoView()
+      window.current_index = window.list.indexOf('usdchf')
+    }
   })()"
 >
   <span>usdchf</span>
@@ -1954,15 +2065,17 @@ function setCookie(name,value,days = 9999) {
   tabindex="-1"
   id="usdjpy"
   onClick="(function() {
-    document.getElementById('usdjpy').scrollIntoView()
-    window.current_index = window.list.indexOf('usdjpy')
+    if (window.watcherLoaded) {
+      document.getElementById('usdjpy').scrollIntoView()
+      window.current_index = window.list.indexOf('usdjpy')
+    }
   })()"
 >
   <span>usdjpy</span>
 </div>
 </div><div class="down-arrow-container"><div class="down-arrow-content"><div
   onClick="(function() {
-    if (window.current_index + 1 < window.list.length) {
+    if (window.current_index + 1 < window.list.length && window.watcherLoaded) {
       document.getElementById(window.list[window.current_index + 1]).scrollIntoView()
       window.current_index = window.current_index + 1
     }
@@ -1972,16 +2085,18 @@ function setCookie(name,value,days = 9999) {
 </div>
 </div></div><div class="color-button-container"><div class="color-button-content"><div
   onClick="(function() {
-    if (window.watcherGetCookie('mode') != 'dark') {
-      console.log('dark mode enabled')
-      const element = document.getElementsByTagName('html')[0];
-      element.classList.add('darkMode');
-      window.watcherSetCookie('mode', 'dark')
-    } else {
-      console.log('white mode enabled')
-      const element = document.getElementsByTagName('html')[0];
-      element.classList.remove('darkMode');
-      window.watcherSetCookie('mode', 'white')
+    if (window.watcherLoaded) {
+      if (window.watcherGetCookie('mode') != 'dark') {
+        console.log('dark mode enabled')
+        const element = document.getElementsByTagName('html')[0];
+        element.classList.add('darkMode');
+        window.watcherSetCookie('mode', 'dark')
+      } else {
+        console.log('white mode enabled')
+        const element = document.getElementsByTagName('html')[0];
+        element.classList.remove('darkMode');
+        window.watcherSetCookie('mode', 'white')
+      }
     }
   })()"
 >
