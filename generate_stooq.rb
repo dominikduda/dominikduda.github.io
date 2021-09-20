@@ -1,81 +1,92 @@
 TIMEFRAMES = %w[5d 5m 2y 10y 30y 100y].freeze
-AUTO_RELOAD_INTERVAL_MS = 300000
+AUTO_RELOAD_INTERVAL_MS = 300_000
 CHARTS = [
-  '-Indexes-',
-  '^DJT',
+  '-Indices-',
   '^SPX',
+  '^DJT',
   '^DAX',
+  'WIG',
+  'WIG20',
   '-ETFs-',
-  'TLT.US',
-  'LIT.US',
-  'ARKG.US',
-  'PBD.US',
-  'DRIV.US',
   'ACES.US',
-  'BUG.US',
-  'IYE.US',
-  'BATT.US',
-  'XME.US',
   'AIQ.US',
+  'ARKG.US',
+  'BATT.US',
+  'BUG.US',
+  'DRIV.US',
+  'IYE.US',
+  'LIT.US',
+  'PBD.US',
   'SMH.US',
+  'TLT.US',
+  'XME.US',
   '-Stocks-',
-  'CDR',
-  'HUGE',
-  'PLUG.US',
-  'LTHM.US',
-  'CDNA.US',
-  'VRTX.US',
-  'TWST.US',
-  'REGN.US',
-  'PACB.US',
-  'NTLA.US',
-  'EXAS.US',
-  'TDOC.US',
-  'PBE.US',
-  'CRSP.US',
-  'TSLA.US',
-  'NVDA.US',
-  'DIS.US',
-  'MSFT.US',
   'AAPL.US',
-  'PEP.US',
-  'INTC.US',
-  'AMZN.US',
-  'KO.US',
-  'BAC.US',
-  'V.US',
-  'SBUX.US',
   'ADBE.US',
-  'FDX.US',
-  'PYPL.US',
-  'MCD.US',
-  'SELB.US',
-  'OSCR.US',
+  'AMZN.US',
+  'BAC.US',
   'BYND.US',
-  'EDIT.US',
   'CCJ.US',
+  'CDNA.US',
+  'CDR',
+  'CRSP.US',
+  'DIS.US',
+  'EDIT.US',
+  'EXAS.US',
+  'FDX.US',
+  'HUGE',
+  'INTC.US',
+  'KO.US',
+  'LTHM.US',
+  'MCD.US',
+  'MSFT.US',
+  'NTLA.US',
+  'NVDA.US',
+  'OSCR.US',
+  'PACB.US',
+  'PBE.US',
+  'PEP.US',
+  'PLUG.US',
+  'PYPL.US',
+  'REGN.US',
+  'SBUX.US',
+  'SELB.US',
+  'TDOC.US',
+  'TSLA.US',
+  'TWST.US',
+  'V.US',
+  'VRTX.US',
   'WFC.US',
   '-Metals-',
+  'XAGUSD',
   'XAUUSD',
-  '-Crypto-',
-  'ZEC.V',
-  'DOGE.V',
-  'XMR.V',
-  'ETH.V',
+  'XPDUSD',
+  'XPTUSD',
+  '-Cryptos-',
   'AMPL.V',
+  'BNB.V',
   'BTCUSD',
-  '-Forex-',
+  'DOGE.V',
+  'ETH.V',
+  'SC.V',
+  'XLM.V',
+  'XMR.V',
+  'ZEC.V',
+  '-FX majors-',
+  'audusd',
   'eurusd',
   'gbpusd',
+  'usdcad',
+  'usdchf',
+  'usdjpy',
+  '-FX minors-',
   'audcad',
   'audchf',
   'audjpy',
   'audnzd',
-  'audusd',
   'cadchf',
   'cadjpy',
   'chfjpy',
-  'chfsgd',
   'euraud',
   'eurchf',
   'eurgbp',
@@ -89,593 +100,600 @@ CHARTS = [
   'nzdchf',
   'nzdjpy',
   'nzdusd',
-  'usdcad',
-  'usdchf',
-  'usdjpy'
+  '-FX exotics-',
+  'audsgd',
+  'chfsgd',
+  'eursgd',
+  'gbpsgd',
+  'nokjpy',
+  'sekjpy',
+  'sgdjpy',
+  'usdhkd',
+  'usdsgd'
 ].freeze
 CHART_RENDER_DELAY_INCREMENT = 2000
 
 output = ''
 output << <<~PAGE_TOP
-          <html>
-            <head>
-            <script>
-            window.watcherRefreshMenu = function() {
-              if (window.watcherGetCookie('marked_charts') == null) {
-                return
-              }
-              const els = document.getElementsByClassName('chart-link')
-              for (i = 0; i < els.length; i++) {
-                const el = els[i]
-                el.classList.remove('marked')
-                if (window.watcherGetCookie('marked_charts').includes(el.id)) {
-                  el.classList.add('marked')
-                }
-              }
-            }
-
-
-
-            window.watcherOnImageError = (img) => {
-              img.src = "https://raw.githubusercontent.com/dominikduda/dominikduda.github.io/master/grandma.png";
-            }
-  #{'  '}
-  #{'  '}
-
-function setCookie(name,value,days = 9999) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-}
-
-
-            function getCookie(name) {
-                var nameEQ = name + "=";
-                var ca = document.cookie.split(';');
-                for(var i=0;i < ca.length;i++) {
-                    var c = ca[i];
-                    while (c.charAt(0)==' ') c = c.substring(1,c.length);
-                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-                }
-                return null;
-            }
-            const saveScrollPos = () => {
-              setCookie('scrollPosition', window.pageYOffset)
-            }
-            history.scrollRestoration = "manual"
-
-
-
-            const highlightListItem = () => {
-              if (!window.watcherDividers || !window.watcherMenuElements) { return }
-              let current = "";
-              window.watcherDividers.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - window.innerHeight / 4) {
-                  current = section.getAttribute("id");
-                }
-              });
-
-              window.watcherMenuElements.forEach((li) => {
-                li.classList.remove("active");
-                if (li.id == current) {
-                  console.log(li.id)
-                  li.classList.add("active");
-                }
-              });
-              window.current_index = window.list.indexOf(current)
-              window.watcherLastSelectedChart = current;
-            }
-
-            document.addEventListener('scroll', highlightListItem);
-
-
-
-
-
-
-
-
-
-            window.addEventListener('load', () => {
-              setTimeout(() => {
-                highlightListItem()
-                document.body.classList.remove('no-scroll')
-                window.scroll(0, getCookie('scrollPosition'))
-                document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
-                window.watcherLoaded = true;
-              }, 500)
-            })
-            document.addEventListener('scroll', saveScrollPos);
-
-
-
-
-
-
-
-
-            window.watcherSetCookie = setCookie;
-            window.watcherGetCookie = getCookie;
-
-
-            const afterPageOpen = () => {
-              window.watcherDividers =  document.querySelectorAll(".divider");
-              window.watcherMenuElements =  document.querySelectorAll(".chart-link");
-              highlightListItem()
-              if (window.watcherGetCookie('mode') == 'dark') {
-                console.log('dark mode enabled')
-                const element = document.querySelector('.grid-container');
-                element.classList.add('darkMode');
-                window.watcherSetCookie('mode', 'dark')
-              }
-              if (!window.watcherGetCookie('marked_charts')) {
-                window.watcherSetCookie('marked_charts', '')
-              }
-              window.watcherRefreshMenu();
-            }
-
-            setTimeout(afterPageOpen,50)
-            setTimeout(afterPageOpen,100)
-            setTimeout(afterPageOpen,500)
-
-
-
-
-  #{'  '}
-  #{'  '}
-            setTimeout(() => {
-              const canvas = document.getElementById("canvas");
-              const parentDiv = document.getElementById("parentDiv");
-              const ctx = canvas.getContext("2d");
-      #{'  '}
-              const onResize = () => {
-                let cw = canvas.width = parentDiv.clientWidth,
-                  cx = cw / 2;
-                let ch = canvas.height = parentDiv.clientHeight,
-                  cy = ch / 2;
-                ctx.strokeStyle = "#FF0000";
-                ctx.lineWidth = 2;
-              }
-              onResize();
-              window.myCustomOnResize = onResize;
-              document.addEventListener('scroll', onResize);
-              window.addEventListener('resize', onResize);
-      #{'  '}
-              let drawing = false;
-      #{'  '}
-              // a function to detect the mouse position
-              function oMousePos(element, evt) {
-                    var ClientRect = element.getBoundingClientRect();
-                         return { //objeto
-                           x: Math.round(evt.clientX - ClientRect.left),
-                           y: Math.round(evt.clientY - ClientRect.top)
-                         }
-              }
-      #{'  '}
-              parentDiv.addEventListener('mousedown', function(evt) {
-                    drawing = true; // you can draw now
-                     let m = oMousePos(parentDiv, evt);
-                     ctx.beginPath();
-                     ctx.moveTo(m.x,m.y);
-              }, false);
-      #{'  '}
-                parentDiv.addEventListener('mouseup', function(evt) {
-                    drawing = false; // you can't draw anymore
-      #{'  '}
-              }, false);
-                parentDiv.addEventListener('mouseleave', function(evt) {
-                    drawing = false; // you can't draw anymore
-      #{'  '}
-              }, false);
-      #{'  '}
-                parentDiv.addEventListener("mousemove", function(evt) {
-                    if (drawing) {
-                      let m = oMousePos(parentDiv, evt);
-                      ctx.lineTo(m.x, m.y);
-                      ctx.stroke();
+              <html>
+                <head>
+                <script>
+                window.watcherRefreshMenu = function() {
+                  if (window.watcherGetCookie('marked_charts') == null) {
+                    return
+                  }
+                  const els = document.getElementsByClassName('chart-link')
+                  for (i = 0; i < els.length; i++) {
+                    const el = els[i]
+                    el.classList.remove('marked')
+                    if (window.watcherGetCookie('marked_charts').includes(el.id)) {
+                      el.classList.add('marked')
                     }
-              }, false);
-            }, 200)
-            </script>
-              <style>
-.active {
-  border-color: #99ed38 !important;
-}
-
-.divider {
-  text-align: center;
-  background-color: #005880;
-  color: white;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-size: 20px;
-}
-.divider-link {
-            background-color: #2f2751;
-            color: white;
-            border: solid 1px #131313;
-            padding-left: 5px;
-            padding-right: 5px;
-            padding-top: 8px;
-            padding-bottom: 8px;
-            margin-left: 0px;
-            margin-top: 0px;
-            cursor: pointer;
-            font-size: 20px;
-}
-.divider-link:hover {
-  color: #ffbf00;
-}
-
-.marked {
-  color: #009cff !important;
-}
-
-.marked:hover {
-  color: #ffbf00 !important;
-}
-
-.darkMode > .divider {
-  filter: invert(1);
-}
-
-.darkMode > .section-divider {
-  filter: invert(1);
-}
-
-.section-divider {
-  text-align: center;
-  color: white;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-size: 60px;
-  background-color: #00385f;
-}
-
-.darkMode {
-  filter: invert(1);
-  background-color: white;
-}
-
-.loaderWrapper {
-top: 40%;
-  z-index: 1;
-  position: fixed;
-  left: 0;
-  right: 0;
-}
-.fade-out {
-  animation: fade 1s;
-  -webkit-animation: fade 1s;
-  -moz-animation: fade 1s;
-  opacity: 0;
-}
-
-/* Animate opacity */
-@keyframes fade {
-  from { opacity: 1 }
-  to { opacity: 0 }
-}
-@-moz-keyframes fade {
-  from { opacity: 1 }
-  to { opacity: 0 }
-}
-@-webkit-keyframes fade {
-  from { opacity: 1 }
-  to { opacity: 0 }
-}
-
-
-
-
-.loader,
-.loader:after {
-  border-radius: 50%;
-  width: 10em;
-  height: 10em;
-}
-.loader {
-  margin: 60px auto;
-  font-size: 10px;
-  position: relative;
-  text-indent: -9999em;
-  border-top: 1.1em solid rgba(30,22,141, 0.2);
-  border-right: 1.1em solid rgba(30,22,141, 0.2);
-  border-bottom: 1.1em solid rgba(30,22,141, 0.2);
-  border-left: 1.1em solid #1e168d;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation: load8 1.1s infinite linear;
-  animation: load8 1.1s infinite linear;
-}
-@-webkit-keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .timer {
+                  }
+                }
+  #{'  '}
+  #{'  '}
+  #{'  '}
+                window.watcherOnImageError = (img) => {
+                  img.src = "https://raw.githubusercontent.com/dominikduda/dominikduda.github.io/master/grandma.png";
+                }
+      #{'  '}
+      #{'  '}
+  #{'  '}
+    function setCookie(name,value,days = 9999) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+  #{'  '}
+  #{'  '}
+                function getCookie(name) {
+                    var nameEQ = name + "=";
+                    var ca = document.cookie.split(';');
+                    for(var i=0;i < ca.length;i++) {
+                        var c = ca[i];
+                        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+                    }
+                    return null;
+                }
+                const saveScrollPos = () => {
+                  setCookie('scrollPosition', window.pageYOffset)
+                }
+                history.scrollRestoration = "manual"
+  #{'  '}
+  #{'  '}
+  #{'  '}
+                const highlightListItem = () => {
+                  if (!window.watcherDividers || !window.watcherMenuElements) { return }
+                  let current = "";
+                  window.watcherDividers.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - window.innerHeight / 4) {
+                      current = section.getAttribute("id");
+                    }
+                  });
+  #{'  '}
+                  window.watcherMenuElements.forEach((li) => {
+                    li.classList.remove("active");
+                    if (li.id == current) {
+                      console.log(li.id)
+                      li.classList.add("active");
+                    }
+                  });
+                  window.current_index = window.list.indexOf(current)
+                  window.watcherLastSelectedChart = current;
+                }
+  #{'  '}
+                document.addEventListener('scroll', highlightListItem);
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+                window.addEventListener('load', () => {
+                  setTimeout(() => {
+                    highlightListItem()
+                    document.body.classList.remove('no-scroll')
+                    window.scroll(0, getCookie('scrollPosition'))
+                    document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
+                    window.watcherLoaded = true;
+                  }, 500)
+                })
+                document.addEventListener('scroll', saveScrollPos);
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+                window.watcherSetCookie = setCookie;
+                window.watcherGetCookie = getCookie;
+  #{'  '}
+  #{'  '}
+                const afterPageOpen = () => {
+                  window.watcherDividers =  document.querySelectorAll(".divider");
+                  window.watcherMenuElements =  document.querySelectorAll(".chart-link");
+                  highlightListItem()
+                  if (window.watcherGetCookie('mode') == 'dark') {
+                    console.log('dark mode enabled')
+                    const element = document.querySelector('.grid-container');
+                    element.classList.add('darkMode');
+                    window.watcherSetCookie('mode', 'dark')
+                  }
+                  if (!window.watcherGetCookie('marked_charts')) {
+                    window.watcherSetCookie('marked_charts', '')
+                  }
+                  window.watcherRefreshMenu();
+                }
+  #{'  '}
+                setTimeout(afterPageOpen,50)
+                setTimeout(afterPageOpen,100)
+                setTimeout(afterPageOpen,500)
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+      #{'  '}
+      #{'  '}
+                setTimeout(() => {
+                  const canvas = document.getElementById("canvas");
+                  const parentDiv = document.getElementById("parentDiv");
+                  const ctx = canvas.getContext("2d");
+          #{'  '}
+                  const onResize = () => {
+                    let cw = canvas.width = parentDiv.clientWidth,
+                      cx = cw / 2;
+                    let ch = canvas.height = parentDiv.clientHeight,
+                      cy = ch / 2;
+                    ctx.strokeStyle = "#FF0000";
+                    ctx.lineWidth = 2;
+                  }
+                  onResize();
+                  window.myCustomOnResize = onResize;
+                  document.addEventListener('scroll', onResize);
+                  window.addEventListener('resize', onResize);
+          #{'  '}
+                  let drawing = false;
+          #{'  '}
+                  // a function to detect the mouse position
+                  function oMousePos(element, evt) {
+                        var ClientRect = element.getBoundingClientRect();
+                             return { //objeto
+                               x: Math.round(evt.clientX - ClientRect.left),
+                               y: Math.round(evt.clientY - ClientRect.top)
+                             }
+                  }
+          #{'  '}
+                  parentDiv.addEventListener('mousedown', function(evt) {
+                        drawing = true; // you can draw now
+                         let m = oMousePos(parentDiv, evt);
+                         ctx.beginPath();
+                         ctx.moveTo(m.x,m.y);
+                  }, false);
+          #{'  '}
+                    parentDiv.addEventListener('mouseup', function(evt) {
+                        drawing = false; // you can't draw anymore
+          #{'  '}
+                  }, false);
+                    parentDiv.addEventListener('mouseleave', function(evt) {
+                        drawing = false; // you can't draw anymore
+          #{'  '}
+                  }, false);
+          #{'  '}
+                    parentDiv.addEventListener("mousemove", function(evt) {
+                        if (drawing) {
+                          let m = oMousePos(parentDiv, evt);
+                          ctx.lineTo(m.x, m.y);
+                          ctx.stroke();
+                        }
+                  }, false);
+                }, 200)
+                </script>
+                  <style>
+    .active {
+      border-color: #99ed38 !important;
+    }
+  #{'  '}
+    .divider {
+      text-align: center;
+      background-color: #005880;
+      color: white;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      font-size: 20px;
+    }
+    .divider-link {
+                background-color: #2f2751;
+                color: white;
+                border: solid 1px #131313;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                margin-left: 0px;
+                margin-top: 0px;
+                cursor: pointer;
+                font-size: 20px;
+    }
+    .divider-link:hover {
+      color: #ffbf00;
+    }
+  #{'  '}
+    .marked {
+      color: #009cff !important;
+    }
+  #{'  '}
+    .marked:hover {
+      color: #ffbf00 !important;
+    }
+  #{'  '}
+    .darkMode > .divider {
+      filter: invert(1);
+    }
+  #{'  '}
+    .darkMode > .section-divider {
+      filter: invert(1);
+    }
+  #{'  '}
+    .section-divider {
+      text-align: center;
+      color: white;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      font-size: 60px;
+      background-color: #00385f;
+    }
+  #{'  '}
+    .darkMode {
+      filter: invert(1);
+      background-color: white;
+    }
+  #{'  '}
+    .loaderWrapper {
+    top: 40%;
       z-index: 1;
-      margin-left: 15px;
-      margin-top: 50px;
       position: fixed;
       left: 0;
-      width: 100px;
-      height: 100px;
-      animation-name: spin;
-      animation-duration: #{AUTO_RELOAD_INTERVAL_MS}ms;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      background-image: url('https://raw.githubusercontent.com/dominikduda/config_files/master/dd_logo_blue_bg.png');
-      background-size: auto 100%;
-      background-position: center;
+      right: 0;
+    }
+    .fade-out {
+      animation: fade 1s;
+      -webkit-animation: fade 1s;
+      -moz-animation: fade 1s;
+      opacity: 0;
     }
   #{'  '}
-    @keyframes spin {
-        from {
-            transform:rotate(0deg);
-        }
-        to {
-            transform:rotate(360deg);
-        }
+    /* Animate opacity */
+    @keyframes fade {
+      from { opacity: 1 }
+      to { opacity: 0 }
     }
-        canvas {
-            width:100%;
-            height:100%;
-            position: fixed;
-            z-index: 2;
-            top: 0;
-        }
-        #parentDiv {
-            width:100%;
-            height:100%;
-            position: fixed;
-            z-index: 2;
-            top: 0;
+    @-moz-keyframes fade {
+      from { opacity: 1 }
+      to { opacity: 0 }
+    }
+    @-webkit-keyframes fade {
+      from { opacity: 1 }
+      to { opacity: 0 }
+    }
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+    .loader,
+    .loader:after {
+      border-radius: 50%;
+      width: 10em;
+      height: 10em;
+    }
+    .loader {
+      margin: 60px auto;
+      font-size: 10px;
+      position: relative;
+      text-indent: -9999em;
+      border-top: 1.1em solid rgba(30,22,141, 0.2);
+      border-right: 1.1em solid rgba(30,22,141, 0.2);
+      border-bottom: 1.1em solid rgba(30,22,141, 0.2);
+      border-left: 1.1em solid #1e168d;
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-animation: load8 1.1s infinite linear;
+      animation: load8 1.1s infinite linear;
+    }
+    @-webkit-keyframes load8 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes load8 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+        .timer {
+          z-index: 1;
+          margin-left: 15px;
+          margin-top: 50px;
+          position: fixed;
+          left: 0;
+          width: 100px;
+          height: 100px;
+          animation-name: spin;
+          animation-duration: #{AUTO_RELOAD_INTERVAL_MS}ms;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+          background-image: url('https://raw.githubusercontent.com/dominikduda/config_files/master/dd_logo_blue_bg.png');
+          background-size: auto 100%;
+          background-position: center;
         }
       #{'  '}
-        canvas {pointer-events:none;}
-          .arrow {
-            min-width: 92px;
-            min-height: 92px;
-            font-size: 40;
-            cursor: pointer;
-            border: solid 1px #131313;
-            background-color: fdf86c;
-          }
-          .arrow:hover {
-            color: #ffbf00;
-          }
-
-          .color-btn {
-            min-width: 92px;
-            min-height: 92px;
-            border: solid 1px #131313;
-            font-size: 15;
-            cursor: pointer;
-            background-color: fdf86c;
-            max-width: 40px;
-            overflow-wrap: anywhere;
-          }
-          .color-btn:hover {
-            color: #ffbf00;
-          }
-
-          .fav-button-container {
-            height: 20px;
-            margin-left: 94px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            max-width: 600px;
-            max-width: 90px;
-            max-height: 90px;
-          }
-          .fav-button-content {
-            font-size: 5;
-            position: relative;
-            text-align: center;
-            max-width: 200px;
-          }
-          .fav-btn {
-            min-width: 92px;
-            min-height: 92px;
-            border: solid 1px #131313;
-            font-size: 15;
-            cursor: pointer;
-            background-color: fdf86c;
-            max-width: 40px;
-            overflow-wrap: anywhere;
-          }
-          .fav-btn:hover {
-            color: #ffbf00;
-          }
-
-          img {
-            width: auto;
-            flex: 100;
-            min-width: 800px;
-            min-height: 550px;
-          }
-          .clear-min-width {
-            min-width: 0px;
-            min-height: 0px;
-          }
-          .chart {
-            height: 1920px;
-          }
-          .chart_title {
-          }
-          .no-scroll {
-            overflow: hidden;
-          }
-          body {
-            margin: 0px;
-          }
-          .overlay {
-            height: 80%;
-            width: auto;
-            position: fixed;
-            z-index: 3;
-            top: 0;
-            left: 0;
-            opacity: 0;
-          }
-          .overlay:hover {
-            opacity: 1;
-          }
-          .overlay{animation: 2s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
+        @keyframes spin {
+            from {
+                transform:rotate(0deg);
             }
-            100% {
-              opacity:0;
+            to {
+                transform:rotate(360deg);
             }
-          }
-          .overlay:hover{animation: 0s ease-out 0s 1 FadeIn;}
-          @keyframes FadeIn {
-            0% {
-              opacity:1;
+        }
+            canvas {
+                width:100%;
+                height:100%;
+                position: fixed;
+                z-index: 2;
+                top: 0;
             }
-            100% {
-              opacity:0;
+            #parentDiv {
+                width:100%;
+                height:100%;
+                position: fixed;
+                z-index: 2;
+                top: 0;
             }
-          }
-
-          .color-button-container {
-            height: 20px;
-            margin-left: 0px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            max-width: 600px;
-            max-width: 90px;
-            max-height: 90px;
-          }
-          .color-button-content {
-            font-size: 5;
-            position: relative;
-            text-align: center;
-            max-width: 200px;
-          }
-
-
-
-          .down-arrow-container {
-            min-width: 90px;
-            min-height: 90px;
-            margin-left: 282px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            max-width: 90px;
-            max-height: 90px;
-          }
-          .down-arrow-content {
-            position: relative;
-            text-align: center;
-            max-width: 200px;
-          }
-          .up-arrow-container {
-            height: 20px;
-            height: 20px;
-            margin-left: 188px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            max-width: 90px;
-            max-height: 90px;
-          }
-          .up-arrow-content {
-            position: relative;
-            text-align: center;
-            max-width: 200px;
-          }
-          .overlay-content {
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-            position: relative;
-            text-align: center;
-            top: 94px;
-            z-index: 5;
-            height: 100%;
-          }
-          .chart-link {
-            background-color: #444055;
-            color: white;
-            border: solid 1px #131313;
-            padding-left: 5px;
-            padding-right: 5px;
-            padding-top: 8px;
-            padding-bottom: 8px;
-            margin-left: 0px;
-            margin-top: 0px;
-            cursor: pointer;
-            font-size: 20px;
-          }
-          .chart-link:hover {
-            color: #ffbf00;
-          }
-          .chart-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-          }
-              </style>
-              <script>
-                (() => {
-                  window.list = #{CHARTS};
-                  window.current_index = 0;
-                })()
-              </script>
-            </head>
-            <body class="no-scroll">
-            <script >
-              (
-                () => {
-                    setTimeout('window.location.reload()', #{AUTO_RELOAD_INTERVAL_MS});
+          #{'  '}
+            canvas {pointer-events:none;}
+              .arrow {
+                min-width: 92px;
+                min-height: 92px;
+                font-size: 40;
+                cursor: pointer;
+                border: solid 1px #131313;
+                background-color: fdf86c;
+              }
+              .arrow:hover {
+                color: #ffbf00;
+              }
+  #{'  '}
+              .color-btn {
+                min-width: 92px;
+                min-height: 92px;
+                border: solid 1px #131313;
+                font-size: 15;
+                cursor: pointer;
+                background-color: fdf86c;
+                max-width: 40px;
+                overflow-wrap: anywhere;
+              }
+              .color-btn:hover {
+                color: #ffbf00;
+              }
+  #{'  '}
+              .fav-button-container {
+                height: 20px;
+                margin-left: 94px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                max-width: 600px;
+                max-width: 90px;
+                max-height: 90px;
+              }
+              .fav-button-content {
+                font-size: 5;
+                position: relative;
+                text-align: center;
+                max-width: 200px;
+              }
+              .fav-btn {
+                min-width: 92px;
+                min-height: 92px;
+                border: solid 1px #131313;
+                font-size: 15;
+                cursor: pointer;
+                background-color: fdf86c;
+                max-width: 40px;
+                overflow-wrap: anywhere;
+              }
+              .fav-btn:hover {
+                color: #ffbf00;
+              }
+  #{'  '}
+              img {
+                width: auto;
+                flex: 100;
+                min-width: 800px;
+                min-height: 550px;
+              }
+              .clear-min-width {
+                min-width: 0px;
+                min-height: 0px;
+              }
+              .chart {
+                height: 1920px;
+              }
+              .chart_title {
+              }
+              .no-scroll {
+                overflow: hidden;
+              }
+              body {
+                margin: 0px;
+              }
+              .overlay {
+                height: 80%;
+                width: auto;
+                position: fixed;
+                z-index: 3;
+                top: 0;
+                left: 0;
+                opacity: 0;
+              }
+              .overlay:hover {
+                opacity: 1;
+              }
+              .overlay{animation: 2s ease-out 0s 1 FadeIn;}
+              @keyframes FadeIn {
+                0% {
+                  opacity:1;
                 }
-              )()
-            </script>
-            <div class='loaderWrapper'>
-              <div class='loader'>Loading...</div>
-              </div>
+                100% {
+                  opacity:0;
+                }
+              }
+              .overlay:hover{animation: 0s ease-out 0s 1 FadeIn;}
+              @keyframes FadeIn {
+                0% {
+                  opacity:1;
+                }
+                100% {
+                  opacity:0;
+                }
+              }
+  #{'  '}
+              .color-button-container {
+                height: 20px;
+                margin-left: 0px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                max-width: 600px;
+                max-width: 90px;
+                max-height: 90px;
+              }
+              .color-button-content {
+                font-size: 5;
+                position: relative;
+                text-align: center;
+                max-width: 200px;
+              }
+  #{'  '}
+  #{'  '}
+  #{'  '}
+              .down-arrow-container {
+                min-width: 90px;
+                min-height: 90px;
+                margin-left: 282px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                max-width: 90px;
+                max-height: 90px;
+              }
+              .down-arrow-content {
+                position: relative;
+                text-align: center;
+                max-width: 200px;
+              }
+              .up-arrow-container {
+                height: 20px;
+                height: 20px;
+                margin-left: 188px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                max-width: 90px;
+                max-height: 90px;
+              }
+              .up-arrow-content {
+                position: relative;
+                text-align: center;
+                max-width: 200px;
+              }
+              .overlay-content {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                position: relative;
+                text-align: center;
+                top: 94px;
+                z-index: 5;
+                height: 100%;
+              }
+              .chart-link {
+                background-color: #444055;
+                color: white;
+                border: solid 1px #131313;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                margin-left: 0px;
+                margin-top: 0px;
+                cursor: pointer;
+                font-size: 20px;
+              }
+              .chart-link:hover {
+                color: #ffbf00;
+              }
+              .chart-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+              }
+                  </style>
+                  <script>
+                    (() => {
+                      window.list = #{CHARTS};
+                      window.current_index = 0;
+                    })()
+                  </script>
+                </head>
+                <body class="no-scroll">
+                <script >
+                  (
+                    () => {
+                        setTimeout('window.location.reload()', #{AUTO_RELOAD_INTERVAL_MS});
+                    }
+                  )()
+                </script>
+                <div class='loaderWrapper'>
+                  <div class='loader'>Loading...</div>
+                  </div>
 PAGE_TOP
 
 $next_chart_render_delay = 0
@@ -705,11 +723,11 @@ output << '</div>'
 
 output << '<div class="grid-container">'
 CHARTS.each do |market_id|
-  if (market_id.include?('-'))
-    output << "<div class='grid-item section-divider' id=#{market_id}>" + market_id + '</div>'
-  else
-    output << "<div class='grid-item divider' id=#{market_id}>" + market_id + '</div>'
-  end
+  output << if market_id.include?('-')
+              "<div class='grid-item section-divider' id=#{market_id}>" + market_id + '</div>'
+            else
+              "<div class='grid-item divider' id=#{market_id}>" + market_id + '</div>'
+            end
   output << "<div class='chart-wrapper'>"
   TIMEFRAMES.each do |timeframe|
     output << chart(market_id, timeframe)
@@ -773,7 +791,6 @@ UP_ARROW
 up_arr << '</div>'
 up_arr << '</div>'
 menu_html << up_arr
-
 
 color_btn = ''
 color_btn << '<div class="color-button-container">'
