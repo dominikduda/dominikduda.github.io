@@ -200,11 +200,11 @@ output << <<~PAGE_TOP
   #{'  '}
                 window.addEventListener('load', () => {
                   setTimeout(() => {
-                    highlightListItem()
                     document.body.classList.remove('no-scroll')
                     window.scroll(0, getCookie('scrollPosition'))
                     document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
                     window.watcherLoaded = true;
+                    highlightListItem()
                   }, 500)
                 })
   #{'  '}
@@ -220,7 +220,6 @@ output << <<~PAGE_TOP
                 const afterPageOpen = () => {
                   window.watcherDividers =  document.querySelectorAll(".divider");
                   window.watcherMenuElements =  document.querySelectorAll(".chart-link");
-                  highlightListItem()
                   if (window.watcherGetCookie('mode') == 'dark') {
                     console.log('dark mode enabled')
                     const element = document.querySelector('.grid-container');
