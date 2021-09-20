@@ -302,6 +302,16 @@ output << <<~PAGE_TOP
                 }, 200)
                 </script>
                   <style>
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
     .active {
       border-color: #99ed38 !important;
     }
@@ -496,7 +506,7 @@ output << <<~PAGE_TOP
                 background-color: fdf86c;
               }
               .arrow:hover {
-                color: #ffbf00;
+                color: #005ef7;
               }
   #{'  '}
               .color-btn {
@@ -510,7 +520,7 @@ output << <<~PAGE_TOP
                 overflow-wrap: anywhere;
               }
               .color-btn:hover {
-                color: #ffbf00;
+                color: #005ef7;
               }
   #{'  '}
               .fav-button-container {
@@ -540,7 +550,7 @@ output << <<~PAGE_TOP
                 overflow-wrap: anywhere;
               }
               .fav-btn:hover {
-                color: #ffbf00;
+                color: #005ef7;
               }
   #{'  '}
               img {
@@ -683,7 +693,7 @@ output << <<~PAGE_TOP
                     })()
                   </script>
                 </head>
-                <body class="no-scroll">
+                <body class="no-scroll noselect">
                 <script >
                   (
                     () => {
@@ -737,7 +747,7 @@ CHARTS.each do |market_id|
   first_divider_id = market_id + TIMEFRAMES.first
   menu_html << <<~MENU
     <div
-      class="#{market_id.include?('-') ? 'divider-link' : 'chart-link'}"
+      class="#{market_id.include?('-') ? 'divider-link' : 'chart-link'} noselect"
       tabindex="-1"
       id="#{market_id}"
       onClick="(function() {
@@ -755,7 +765,7 @@ end
 output << '</div>'
 down_arr = ''
 down_arr << '<div class="down-arrow-container">'
-down_arr << '<div class="down-arrow-content">'
+down_arr << '<div class="down-arrow-content noselect">'
 down_arr << <<~DOWN_ARROW
   <div
     onClick="(function() {
@@ -775,7 +785,7 @@ menu_html << down_arr
 
 up_arr = ''
 up_arr << '<div class="up-arrow-container">'
-up_arr << '<div class="up-arrow-content">'
+up_arr << '<div class="up-arrow-content noselect">'
 up_arr << <<~UP_ARROW
   <div
     onClick="(function() {
@@ -794,7 +804,7 @@ menu_html << up_arr
 
 color_btn = ''
 color_btn << '<div class="color-button-container">'
-color_btn << '<div class="color-button-content">'
+color_btn << '<div class="color-button-content noselect">'
 color_btn << <<~COLOR_BTN
   <div
     onClick="(function() {
@@ -822,7 +832,7 @@ menu_html << color_btn
 
 fav_btn = ''
 fav_btn << '<div class="fav-button-container">'
-fav_btn << '<div class="fav-button-content">'
+fav_btn << '<div class="fav-button-content noselect">'
 fav_btn << <<~FAV_BTN
   <div
     onClick="(function() {
