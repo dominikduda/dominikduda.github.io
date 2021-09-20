@@ -325,6 +325,10 @@ function setCookie(name,value,days = 9999) {
   filter: invert(1);
 }
 
+.darkMode > .section-divider {
+  filter: invert(1);
+}
+
 .section-divider {
   text-align: center;
   color: white;
