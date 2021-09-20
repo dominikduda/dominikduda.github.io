@@ -258,8 +258,12 @@ function setCookie(name,value,days = 9999) {
   color: #ffbf00;
 }
 
-.divider-link .marked {
-  color: #009cff;
+.marked {
+  color: #009cff !important;
+}
+
+.marked:hover {
+  color: #ffbf00 !important;
 }
 
 .darkMode > .divider {
