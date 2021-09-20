@@ -344,6 +344,7 @@ function setCookie(name,value,days = 9999) {
 }
 
 .loaderWrapper {
+  z-index: 1;
   position: fixed;
   left: 0;
   right: 0;
