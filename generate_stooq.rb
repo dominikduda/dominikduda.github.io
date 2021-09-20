@@ -149,10 +149,6 @@ function setCookie(name,value,days = 9999) {
             history.scrollRestoration = "manual"
             window.addEventListener('load', () => {
               setTimeout(() => {
-                if (!window.watcherGetCookie('marked_charts')) {
-                  window.watcherSetCookie('marked_charts', '')
-                }
-                window.watcherRefreshMenu();
                 document.body.classList.remove('no-scroll')
                 window.scroll(0, getCookie('scrollPosition'))
                 document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
@@ -165,12 +161,18 @@ function setCookie(name,value,days = 9999) {
 
 
 
-      if (window.watcherGetCookie('mode') == 'dark') {
-        console.log('dark mode enabled')
-          const element = document.querySelector('.grid-container');
-          element.classList.add('darkMode');
-          window.watcherSetCookie('mode', 'dark')
-        }
+            setTimeout(() => {
+              if (window.watcherGetCookie('mode') == 'dark') {
+                console.log('dark mode enabled')
+                const element = document.querySelector('.grid-container');
+                element.classList.add('darkMode');
+                window.watcherSetCookie('mode', 'dark')
+              }
+              if (!window.watcherGetCookie('marked_charts')) {
+                window.watcherSetCookie('marked_charts', '')
+              }
+              window.watcherRefreshMenu();
+            },500)
 
 
 
