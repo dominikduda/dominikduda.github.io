@@ -167,9 +167,9 @@ function setCookie(name,value,days = 9999) {
 
       if (window.watcherGetCookie('mode') == 'dark') {
         console.log('dark mode enabled')
-        const element = document.getElementsByTagName('html')[0];
-        element.classList.add('darkMode');
-        window.watcherSetCookie('mode', 'dark')
+          const element = document.querySelector('.grid-container');
+          element.classList.add('darkMode');
+          window.watcherSetCookie('mode', 'dark')
         }
 
 
