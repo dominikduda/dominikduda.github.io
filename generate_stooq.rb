@@ -100,6 +100,22 @@ output << <<~PAGE_TOP
           <html>
             <head>
             <script>
+            window.watcherRefreshMenu = function() {
+              if (!window.watcherGetCookie('marked_charts')) {
+                return
+              }
+              const els = document.getElementsByClassName('chart-link')
+              for (i = 0; i < els.length; i++) {
+                const el = els[i]
+                el.classList.remove('marked')
+                if (window.watcherGetCookie('marked_charts').includes(el.id)) {
+                  el.classList.add('marked')
+                }
+              }
+            }
+
+
+
             window.watcherOnImageError = (img) => {
               img.src = "https://raw.githubusercontent.com/dominikduda/dominikduda.github.io/master/grandma.png";
             }
@@ -133,6 +149,10 @@ function setCookie(name,value,days = 9999) {
             history.scrollRestoration = "manual"
             window.addEventListener('load', () => {
               setTimeout(() => {
+                if (!window.watcherGetCookie('marked_charts')) {
+                  window.watcherSetCookie('marked_charts', '')
+                }
+                window.watcherRefreshMenu();
                 document.body.classList.remove('no-scroll')
                 window.scroll(0, getCookie('scrollPosition'))
                 document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
@@ -236,6 +256,10 @@ function setCookie(name,value,days = 9999) {
 }
 .divider-link:hover {
   color: #ffbf00;
+}
+
+.marked {
+  color: #009cff;
 }
 
 .darkMode > .divider {
@@ -633,6 +657,7 @@ CHARTS.each do |market_id|
         if (window.watcherLoaded) {
           document.getElementById('#{market_id}').scrollIntoView()
           window.current_index = window.list.indexOf('#{market_id}')
+          window.watcherLastSelectedChart = '#{market_id}';
         }
       })()"
     >
@@ -716,16 +741,16 @@ fav_btn << <<~FAV_BTN
   <div
     onClick="(function() {
       if (window.watcherLoaded) {
-        if (window.watcherGetCookie('mode') != 'dark') {
-          console.log('dark mode enabled')
-          const element = document.querySelector('.grid-container');
-          element.classList.add('darkMode');
-          window.watcherSetCookie('mode', 'dark')
+        if (window.watcherGetCookie('marked_charts').includes(window.watcherLastSelectedChart)) {
+          const prevCookie = window.watcherGetCookie('marked_charts')
+          const newCookie = prevCookie.replaceAll((window.watcherLastSelectedChart + ','), '')
+          window.watcherSetCookie('marked_charts', newCookie)
+          window.watcherRefreshMenu()
         } else {
-          console.log('white mode enabled')
-          const element = document.querySelector('.grid-container');
-          element.classList.remove('darkMode');
-          window.watcherSetCookie('mode', 'white')
+          const prevCookie = window.watcherGetCookie('marked_charts')
+          const newCookie = prevCookie + window.watcherLastSelectedChart + ','
+          window.watcherSetCookie('marked_charts', newCookie)
+          window.watcherRefreshMenu()
         }
       }
     })()"

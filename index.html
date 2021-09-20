@@ -1,6 +1,22 @@
           <html>
             <head>
             <script>
+            window.watcherRefreshMenu = function() {
+              if (!window.watcherGetCookie('marked_charts')) {
+                return
+              }
+              const els = document.getElementsByClassName('chart-link')
+              for (i = 0; i < els.length; i++) {
+                const el = els[i]
+                el.classList.remove('marked')
+                if (window.watcherGetCookie('marked_charts').includes(el.id)) {
+                  el.classList.add('marked')
+                }
+              }
+            }
+
+
+
             window.watcherOnImageError = (img) => {
               img.src = "https://raw.githubusercontent.com/dominikduda/dominikduda.github.io/master/grandma.png";
             }
@@ -34,6 +50,10 @@ function setCookie(name,value,days = 9999) {
             history.scrollRestoration = "manual"
             window.addEventListener('load', () => {
               setTimeout(() => {
+                if (!window.watcherGetCookie('marked_charts')) {
+                  window.watcherSetCookie('marked_charts', '')
+                }
+                window.watcherRefreshMenu();
                 document.body.classList.remove('no-scroll')
                 window.scroll(0, getCookie('scrollPosition'))
                 document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
@@ -137,6 +157,10 @@ function setCookie(name,value,days = 9999) {
 }
 .divider-link:hover {
   color: #ffbf00;
+}
+
+.marked {
+  color: #009cff;
 }
 
 .darkMode > .divider {
@@ -1004,6 +1028,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('-Indexes-').scrollIntoView()
       window.current_index = window.list.indexOf('-Indexes-')
+      window.watcherLastSelectedChart = '-Indexes-';
     }
   })()"
 >
@@ -1017,6 +1042,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('^DJT').scrollIntoView()
       window.current_index = window.list.indexOf('^DJT')
+      window.watcherLastSelectedChart = '^DJT';
     }
   })()"
 >
@@ -1030,6 +1056,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('^SPX').scrollIntoView()
       window.current_index = window.list.indexOf('^SPX')
+      window.watcherLastSelectedChart = '^SPX';
     }
   })()"
 >
@@ -1043,6 +1070,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('^DAX').scrollIntoView()
       window.current_index = window.list.indexOf('^DAX')
+      window.watcherLastSelectedChart = '^DAX';
     }
   })()"
 >
@@ -1056,6 +1084,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('-ETFs-').scrollIntoView()
       window.current_index = window.list.indexOf('-ETFs-')
+      window.watcherLastSelectedChart = '-ETFs-';
     }
   })()"
 >
@@ -1069,6 +1098,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('TLT.US').scrollIntoView()
       window.current_index = window.list.indexOf('TLT.US')
+      window.watcherLastSelectedChart = 'TLT.US';
     }
   })()"
 >
@@ -1082,6 +1112,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('LIT.US').scrollIntoView()
       window.current_index = window.list.indexOf('LIT.US')
+      window.watcherLastSelectedChart = 'LIT.US';
     }
   })()"
 >
@@ -1095,6 +1126,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('ARKG.US').scrollIntoView()
       window.current_index = window.list.indexOf('ARKG.US')
+      window.watcherLastSelectedChart = 'ARKG.US';
     }
   })()"
 >
@@ -1108,6 +1140,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('PBD.US').scrollIntoView()
       window.current_index = window.list.indexOf('PBD.US')
+      window.watcherLastSelectedChart = 'PBD.US';
     }
   })()"
 >
@@ -1121,6 +1154,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('DRIV.US').scrollIntoView()
       window.current_index = window.list.indexOf('DRIV.US')
+      window.watcherLastSelectedChart = 'DRIV.US';
     }
   })()"
 >
@@ -1134,6 +1168,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('ACES.US').scrollIntoView()
       window.current_index = window.list.indexOf('ACES.US')
+      window.watcherLastSelectedChart = 'ACES.US';
     }
   })()"
 >
@@ -1147,6 +1182,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('BUG.US').scrollIntoView()
       window.current_index = window.list.indexOf('BUG.US')
+      window.watcherLastSelectedChart = 'BUG.US';
     }
   })()"
 >
@@ -1160,6 +1196,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('IYE.US').scrollIntoView()
       window.current_index = window.list.indexOf('IYE.US')
+      window.watcherLastSelectedChart = 'IYE.US';
     }
   })()"
 >
@@ -1173,6 +1210,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('BATT.US').scrollIntoView()
       window.current_index = window.list.indexOf('BATT.US')
+      window.watcherLastSelectedChart = 'BATT.US';
     }
   })()"
 >
@@ -1186,6 +1224,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('XME.US').scrollIntoView()
       window.current_index = window.list.indexOf('XME.US')
+      window.watcherLastSelectedChart = 'XME.US';
     }
   })()"
 >
@@ -1199,6 +1238,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('AIQ.US').scrollIntoView()
       window.current_index = window.list.indexOf('AIQ.US')
+      window.watcherLastSelectedChart = 'AIQ.US';
     }
   })()"
 >
@@ -1212,6 +1252,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('SMH.US').scrollIntoView()
       window.current_index = window.list.indexOf('SMH.US')
+      window.watcherLastSelectedChart = 'SMH.US';
     }
   })()"
 >
@@ -1225,6 +1266,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('-Stocks-').scrollIntoView()
       window.current_index = window.list.indexOf('-Stocks-')
+      window.watcherLastSelectedChart = '-Stocks-';
     }
   })()"
 >
@@ -1238,6 +1280,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('CDR').scrollIntoView()
       window.current_index = window.list.indexOf('CDR')
+      window.watcherLastSelectedChart = 'CDR';
     }
   })()"
 >
@@ -1251,6 +1294,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('HUGE').scrollIntoView()
       window.current_index = window.list.indexOf('HUGE')
+      window.watcherLastSelectedChart = 'HUGE';
     }
   })()"
 >
@@ -1264,6 +1308,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('PLUG.US').scrollIntoView()
       window.current_index = window.list.indexOf('PLUG.US')
+      window.watcherLastSelectedChart = 'PLUG.US';
     }
   })()"
 >
@@ -1277,6 +1322,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('LTHM.US').scrollIntoView()
       window.current_index = window.list.indexOf('LTHM.US')
+      window.watcherLastSelectedChart = 'LTHM.US';
     }
   })()"
 >
@@ -1290,6 +1336,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('CDNA.US').scrollIntoView()
       window.current_index = window.list.indexOf('CDNA.US')
+      window.watcherLastSelectedChart = 'CDNA.US';
     }
   })()"
 >
@@ -1303,6 +1350,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('VRTX.US').scrollIntoView()
       window.current_index = window.list.indexOf('VRTX.US')
+      window.watcherLastSelectedChart = 'VRTX.US';
     }
   })()"
 >
@@ -1316,6 +1364,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('TWST.US').scrollIntoView()
       window.current_index = window.list.indexOf('TWST.US')
+      window.watcherLastSelectedChart = 'TWST.US';
     }
   })()"
 >
@@ -1329,6 +1378,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('REGN.US').scrollIntoView()
       window.current_index = window.list.indexOf('REGN.US')
+      window.watcherLastSelectedChart = 'REGN.US';
     }
   })()"
 >
@@ -1342,6 +1392,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('PACB.US').scrollIntoView()
       window.current_index = window.list.indexOf('PACB.US')
+      window.watcherLastSelectedChart = 'PACB.US';
     }
   })()"
 >
@@ -1355,6 +1406,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('NTLA.US').scrollIntoView()
       window.current_index = window.list.indexOf('NTLA.US')
+      window.watcherLastSelectedChart = 'NTLA.US';
     }
   })()"
 >
@@ -1368,6 +1420,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('EXAS.US').scrollIntoView()
       window.current_index = window.list.indexOf('EXAS.US')
+      window.watcherLastSelectedChart = 'EXAS.US';
     }
   })()"
 >
@@ -1381,6 +1434,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('TDOC.US').scrollIntoView()
       window.current_index = window.list.indexOf('TDOC.US')
+      window.watcherLastSelectedChart = 'TDOC.US';
     }
   })()"
 >
@@ -1394,6 +1448,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('PBE.US').scrollIntoView()
       window.current_index = window.list.indexOf('PBE.US')
+      window.watcherLastSelectedChart = 'PBE.US';
     }
   })()"
 >
@@ -1407,6 +1462,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('CRSP.US').scrollIntoView()
       window.current_index = window.list.indexOf('CRSP.US')
+      window.watcherLastSelectedChart = 'CRSP.US';
     }
   })()"
 >
@@ -1420,6 +1476,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('TSLA.US').scrollIntoView()
       window.current_index = window.list.indexOf('TSLA.US')
+      window.watcherLastSelectedChart = 'TSLA.US';
     }
   })()"
 >
@@ -1433,6 +1490,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('NVDA.US').scrollIntoView()
       window.current_index = window.list.indexOf('NVDA.US')
+      window.watcherLastSelectedChart = 'NVDA.US';
     }
   })()"
 >
@@ -1446,6 +1504,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('DIS.US').scrollIntoView()
       window.current_index = window.list.indexOf('DIS.US')
+      window.watcherLastSelectedChart = 'DIS.US';
     }
   })()"
 >
@@ -1459,6 +1518,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('MSFT.US').scrollIntoView()
       window.current_index = window.list.indexOf('MSFT.US')
+      window.watcherLastSelectedChart = 'MSFT.US';
     }
   })()"
 >
@@ -1472,6 +1532,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('AAPL.US').scrollIntoView()
       window.current_index = window.list.indexOf('AAPL.US')
+      window.watcherLastSelectedChart = 'AAPL.US';
     }
   })()"
 >
@@ -1485,6 +1546,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('PEP.US').scrollIntoView()
       window.current_index = window.list.indexOf('PEP.US')
+      window.watcherLastSelectedChart = 'PEP.US';
     }
   })()"
 >
@@ -1498,6 +1560,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('INTC.US').scrollIntoView()
       window.current_index = window.list.indexOf('INTC.US')
+      window.watcherLastSelectedChart = 'INTC.US';
     }
   })()"
 >
@@ -1511,6 +1574,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('AMZN.US').scrollIntoView()
       window.current_index = window.list.indexOf('AMZN.US')
+      window.watcherLastSelectedChart = 'AMZN.US';
     }
   })()"
 >
@@ -1524,6 +1588,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('KO.US').scrollIntoView()
       window.current_index = window.list.indexOf('KO.US')
+      window.watcherLastSelectedChart = 'KO.US';
     }
   })()"
 >
@@ -1537,6 +1602,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('BAC.US').scrollIntoView()
       window.current_index = window.list.indexOf('BAC.US')
+      window.watcherLastSelectedChart = 'BAC.US';
     }
   })()"
 >
@@ -1550,6 +1616,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('V.US').scrollIntoView()
       window.current_index = window.list.indexOf('V.US')
+      window.watcherLastSelectedChart = 'V.US';
     }
   })()"
 >
@@ -1563,6 +1630,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('SBUX.US').scrollIntoView()
       window.current_index = window.list.indexOf('SBUX.US')
+      window.watcherLastSelectedChart = 'SBUX.US';
     }
   })()"
 >
@@ -1576,6 +1644,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('ADBE.US').scrollIntoView()
       window.current_index = window.list.indexOf('ADBE.US')
+      window.watcherLastSelectedChart = 'ADBE.US';
     }
   })()"
 >
@@ -1589,6 +1658,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('FDX.US').scrollIntoView()
       window.current_index = window.list.indexOf('FDX.US')
+      window.watcherLastSelectedChart = 'FDX.US';
     }
   })()"
 >
@@ -1602,6 +1672,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('PYPL.US').scrollIntoView()
       window.current_index = window.list.indexOf('PYPL.US')
+      window.watcherLastSelectedChart = 'PYPL.US';
     }
   })()"
 >
@@ -1615,6 +1686,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('MCD.US').scrollIntoView()
       window.current_index = window.list.indexOf('MCD.US')
+      window.watcherLastSelectedChart = 'MCD.US';
     }
   })()"
 >
@@ -1628,6 +1700,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('SELB.US').scrollIntoView()
       window.current_index = window.list.indexOf('SELB.US')
+      window.watcherLastSelectedChart = 'SELB.US';
     }
   })()"
 >
@@ -1641,6 +1714,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('OSCR.US').scrollIntoView()
       window.current_index = window.list.indexOf('OSCR.US')
+      window.watcherLastSelectedChart = 'OSCR.US';
     }
   })()"
 >
@@ -1654,6 +1728,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('BYND.US').scrollIntoView()
       window.current_index = window.list.indexOf('BYND.US')
+      window.watcherLastSelectedChart = 'BYND.US';
     }
   })()"
 >
@@ -1667,6 +1742,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('EDIT.US').scrollIntoView()
       window.current_index = window.list.indexOf('EDIT.US')
+      window.watcherLastSelectedChart = 'EDIT.US';
     }
   })()"
 >
@@ -1680,6 +1756,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('CCJ.US').scrollIntoView()
       window.current_index = window.list.indexOf('CCJ.US')
+      window.watcherLastSelectedChart = 'CCJ.US';
     }
   })()"
 >
@@ -1693,6 +1770,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('WFC.US').scrollIntoView()
       window.current_index = window.list.indexOf('WFC.US')
+      window.watcherLastSelectedChart = 'WFC.US';
     }
   })()"
 >
@@ -1706,6 +1784,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('-Metals-').scrollIntoView()
       window.current_index = window.list.indexOf('-Metals-')
+      window.watcherLastSelectedChart = '-Metals-';
     }
   })()"
 >
@@ -1719,6 +1798,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('XAUUSD').scrollIntoView()
       window.current_index = window.list.indexOf('XAUUSD')
+      window.watcherLastSelectedChart = 'XAUUSD';
     }
   })()"
 >
@@ -1732,6 +1812,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('-Crypto-').scrollIntoView()
       window.current_index = window.list.indexOf('-Crypto-')
+      window.watcherLastSelectedChart = '-Crypto-';
     }
   })()"
 >
@@ -1745,6 +1826,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('ZEC.V').scrollIntoView()
       window.current_index = window.list.indexOf('ZEC.V')
+      window.watcherLastSelectedChart = 'ZEC.V';
     }
   })()"
 >
@@ -1758,6 +1840,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('DOGE.V').scrollIntoView()
       window.current_index = window.list.indexOf('DOGE.V')
+      window.watcherLastSelectedChart = 'DOGE.V';
     }
   })()"
 >
@@ -1771,6 +1854,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('XMR.V').scrollIntoView()
       window.current_index = window.list.indexOf('XMR.V')
+      window.watcherLastSelectedChart = 'XMR.V';
     }
   })()"
 >
@@ -1784,6 +1868,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('ETH.V').scrollIntoView()
       window.current_index = window.list.indexOf('ETH.V')
+      window.watcherLastSelectedChart = 'ETH.V';
     }
   })()"
 >
@@ -1797,6 +1882,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('AMPL.V').scrollIntoView()
       window.current_index = window.list.indexOf('AMPL.V')
+      window.watcherLastSelectedChart = 'AMPL.V';
     }
   })()"
 >
@@ -1810,6 +1896,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('BTCUSD').scrollIntoView()
       window.current_index = window.list.indexOf('BTCUSD')
+      window.watcherLastSelectedChart = 'BTCUSD';
     }
   })()"
 >
@@ -1823,6 +1910,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('-Forex-').scrollIntoView()
       window.current_index = window.list.indexOf('-Forex-')
+      window.watcherLastSelectedChart = '-Forex-';
     }
   })()"
 >
@@ -1836,6 +1924,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('eurusd').scrollIntoView()
       window.current_index = window.list.indexOf('eurusd')
+      window.watcherLastSelectedChart = 'eurusd';
     }
   })()"
 >
@@ -1849,6 +1938,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('gbpusd').scrollIntoView()
       window.current_index = window.list.indexOf('gbpusd')
+      window.watcherLastSelectedChart = 'gbpusd';
     }
   })()"
 >
@@ -1862,6 +1952,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('audcad').scrollIntoView()
       window.current_index = window.list.indexOf('audcad')
+      window.watcherLastSelectedChart = 'audcad';
     }
   })()"
 >
@@ -1875,6 +1966,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('audchf').scrollIntoView()
       window.current_index = window.list.indexOf('audchf')
+      window.watcherLastSelectedChart = 'audchf';
     }
   })()"
 >
@@ -1888,6 +1980,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('audjpy').scrollIntoView()
       window.current_index = window.list.indexOf('audjpy')
+      window.watcherLastSelectedChart = 'audjpy';
     }
   })()"
 >
@@ -1901,6 +1994,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('audnzd').scrollIntoView()
       window.current_index = window.list.indexOf('audnzd')
+      window.watcherLastSelectedChart = 'audnzd';
     }
   })()"
 >
@@ -1914,6 +2008,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('audusd').scrollIntoView()
       window.current_index = window.list.indexOf('audusd')
+      window.watcherLastSelectedChart = 'audusd';
     }
   })()"
 >
@@ -1927,6 +2022,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('cadchf').scrollIntoView()
       window.current_index = window.list.indexOf('cadchf')
+      window.watcherLastSelectedChart = 'cadchf';
     }
   })()"
 >
@@ -1940,6 +2036,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('cadjpy').scrollIntoView()
       window.current_index = window.list.indexOf('cadjpy')
+      window.watcherLastSelectedChart = 'cadjpy';
     }
   })()"
 >
@@ -1953,6 +2050,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('chfjpy').scrollIntoView()
       window.current_index = window.list.indexOf('chfjpy')
+      window.watcherLastSelectedChart = 'chfjpy';
     }
   })()"
 >
@@ -1966,6 +2064,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('chfsgd').scrollIntoView()
       window.current_index = window.list.indexOf('chfsgd')
+      window.watcherLastSelectedChart = 'chfsgd';
     }
   })()"
 >
@@ -1979,6 +2078,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('euraud').scrollIntoView()
       window.current_index = window.list.indexOf('euraud')
+      window.watcherLastSelectedChart = 'euraud';
     }
   })()"
 >
@@ -1992,6 +2092,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('eurchf').scrollIntoView()
       window.current_index = window.list.indexOf('eurchf')
+      window.watcherLastSelectedChart = 'eurchf';
     }
   })()"
 >
@@ -2005,6 +2106,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('eurgbp').scrollIntoView()
       window.current_index = window.list.indexOf('eurgbp')
+      window.watcherLastSelectedChart = 'eurgbp';
     }
   })()"
 >
@@ -2018,6 +2120,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('eurjpy').scrollIntoView()
       window.current_index = window.list.indexOf('eurjpy')
+      window.watcherLastSelectedChart = 'eurjpy';
     }
   })()"
 >
@@ -2031,6 +2134,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('eurnzd').scrollIntoView()
       window.current_index = window.list.indexOf('eurnzd')
+      window.watcherLastSelectedChart = 'eurnzd';
     }
   })()"
 >
@@ -2044,6 +2148,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('gbpaud').scrollIntoView()
       window.current_index = window.list.indexOf('gbpaud')
+      window.watcherLastSelectedChart = 'gbpaud';
     }
   })()"
 >
@@ -2057,6 +2162,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('gbpchf').scrollIntoView()
       window.current_index = window.list.indexOf('gbpchf')
+      window.watcherLastSelectedChart = 'gbpchf';
     }
   })()"
 >
@@ -2070,6 +2176,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('gbpjpy').scrollIntoView()
       window.current_index = window.list.indexOf('gbpjpy')
+      window.watcherLastSelectedChart = 'gbpjpy';
     }
   })()"
 >
@@ -2083,6 +2190,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('gbpnzd').scrollIntoView()
       window.current_index = window.list.indexOf('gbpnzd')
+      window.watcherLastSelectedChart = 'gbpnzd';
     }
   })()"
 >
@@ -2096,6 +2204,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('nzdcad').scrollIntoView()
       window.current_index = window.list.indexOf('nzdcad')
+      window.watcherLastSelectedChart = 'nzdcad';
     }
   })()"
 >
@@ -2109,6 +2218,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('nzdchf').scrollIntoView()
       window.current_index = window.list.indexOf('nzdchf')
+      window.watcherLastSelectedChart = 'nzdchf';
     }
   })()"
 >
@@ -2122,6 +2232,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('nzdjpy').scrollIntoView()
       window.current_index = window.list.indexOf('nzdjpy')
+      window.watcherLastSelectedChart = 'nzdjpy';
     }
   })()"
 >
@@ -2135,6 +2246,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('nzdusd').scrollIntoView()
       window.current_index = window.list.indexOf('nzdusd')
+      window.watcherLastSelectedChart = 'nzdusd';
     }
   })()"
 >
@@ -2148,6 +2260,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('usdcad').scrollIntoView()
       window.current_index = window.list.indexOf('usdcad')
+      window.watcherLastSelectedChart = 'usdcad';
     }
   })()"
 >
@@ -2161,6 +2274,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('usdchf').scrollIntoView()
       window.current_index = window.list.indexOf('usdchf')
+      window.watcherLastSelectedChart = 'usdchf';
     }
   })()"
 >
@@ -2174,6 +2288,7 @@ function setCookie(name,value,days = 9999) {
     if (window.watcherLoaded) {
       document.getElementById('usdjpy').scrollIntoView()
       window.current_index = window.list.indexOf('usdjpy')
+      window.watcherLastSelectedChart = 'usdjpy';
     }
   })()"
 >
@@ -2221,16 +2336,16 @@ function setCookie(name,value,days = 9999) {
 </div></div><div class="fav-button-container"><div class="fav-button-content"><div
   onClick="(function() {
     if (window.watcherLoaded) {
-      if (window.watcherGetCookie('mode') != 'dark') {
-        console.log('dark mode enabled')
-        const element = document.querySelector('.grid-container');
-        element.classList.add('darkMode');
-        window.watcherSetCookie('mode', 'dark')
+      if (window.watcherGetCookie('marked_charts').includes(window.watcherLastSelectedChart)) {
+        const prevCookie = window.watcherGetCookie('marked_charts')
+        const newCookie = prevCookie.replaceAll((window.watcherLastSelectedChart + ','), '')
+        window.watcherSetCookie('marked_charts', newCookie)
+        window.watcherRefreshMenu()
       } else {
-        console.log('white mode enabled')
-        const element = document.querySelector('.grid-container');
-        element.classList.remove('darkMode');
-        window.watcherSetCookie('mode', 'white')
+        const prevCookie = window.watcherGetCookie('marked_charts')
+        const newCookie = prevCookie + window.watcherLastSelectedChart + ','
+        window.watcherSetCookie('marked_charts', newCookie)
+        window.watcherRefreshMenu()
       }
     }
   })()"
