@@ -101,7 +101,7 @@ output << <<~PAGE_TOP
             <head>
             <script>
             window.watcherRefreshMenu = function() {
-              if (!window.watcherGetCookie('marked_charts') == null) {
+              if (window.watcherGetCookie('marked_charts') == null) {
                 return
               }
               const els = document.getElementsByClassName('chart-link')
