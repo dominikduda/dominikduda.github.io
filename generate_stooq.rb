@@ -227,8 +227,8 @@ function setCookie(name,value,days = 9999) {
             border: solid 1px #131313;
             padding-left: 5px;
             padding-right: 5px;
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding-top: 8px;
+            padding-bottom: 8px;
             margin-left: 0px;
             margin-top: 0px;
             cursor: pointer;
@@ -379,7 +379,7 @@ function setCookie(name,value,days = 9999) {
           .arrow {
             min-width: 92px;
             min-height: 92px;
-            font-size: 80;
+            font-size: 40;
             cursor: pointer;
             border: solid 1px #131313;
             background-color: fdf86c;
@@ -549,8 +549,8 @@ function setCookie(name,value,days = 9999) {
             border: solid 1px #131313;
             padding-left: 5px;
             padding-right: 5px;
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding-top: 8px;
+            padding-bottom: 8px;
             margin-left: 0px;
             margin-top: 0px;
             cursor: pointer;
