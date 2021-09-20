@@ -259,7 +259,7 @@ function setCookie(name,value,days = 9999) {
 }
 
 .marked {
-  color: #009cff;
+  color: #009cff !important;
 }
 
 .darkMode > .divider {
