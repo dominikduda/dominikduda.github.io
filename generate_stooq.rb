@@ -1,9 +1,11 @@
 TIMEFRAMES = %w[5d 5m 2y 10y 30y 100y].freeze
 AUTO_RELOAD_INTERVAL_MS = 300000
 CHARTS = [
+  '-Indexes-',
   '^DJT',
   '^SPX',
   '^DAX',
+  '-ETFs-',
   'TLT.US',
   'LIT.US',
   'ARKG.US',
@@ -16,7 +18,7 @@ CHARTS = [
   'XME.US',
   'AIQ.US',
   'SMH.US',
-  '------',
+  '-Stocks-',
   'CDR',
   'HUGE',
   'PLUG.US',
@@ -53,16 +55,16 @@ CHARTS = [
   'EDIT.US',
   'CCJ.US',
   'WFC.US',
-  '------',
+  '-Metals-',
   'XAUUSD',
-  '------',
+  '-Crypto-',
   'ZEC.V',
   'DOGE.V',
   'XMR.V',
   'ETH.V',
   'AMPL.V',
   'BTCUSD',
-  '------',
+  '-Forex-',
   'eurusd',
   'gbpusd',
   'audcad',
@@ -211,6 +213,40 @@ function setCookie(name,value,days = 9999) {
             </script>
               <style>
 
+.divider {
+  text-align: center;
+  background-color: #005880;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px;
+}
+.divider-link {
+            background-color: #2f2751;
+            color: white;
+            border: solid 1px #131313;
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 0px;
+            margin-top: 0px;
+            cursor: pointer;
+            font-size: 20px;
+}
+.divider-link:hover {
+  color: #ffbf00;
+}
+
+.darkMode > .divider {
+  filter: invert(1);
+}
+
+.section-divider {
+  font-size: 60px;
+  background-color: #00385f;
+}
+
 .darkMode {
   filter: invert(1);
   background-color: white;
@@ -341,17 +377,61 @@ function setCookie(name,value,days = 9999) {
       #{'  '}
         canvas {pointer-events:none;}
           .arrow {
+            min-width: 92px;
+            min-height: 92px;
             font-size: 80;
             cursor: pointer;
-            background-color: yellow;
+            border: solid 1px #131313;
+            background-color: fdf86c;
           }
+          .arrow:hover {
+            color: #ffbf00;
+          }
+
           .color-btn {
+            min-width: 92px;
+            min-height: 92px;
+            border: solid 1px #131313;
             font-size: 15;
             cursor: pointer;
-            background-color: yellow;
+            background-color: fdf86c;
             max-width: 40px;
             overflow-wrap: anywhere;
           }
+          .color-btn:hover {
+            color: #ffbf00;
+          }
+
+          .fav-button-container {
+            height: 20px;
+            margin-left: 94px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            max-width: 600px;
+            max-width: 90px;
+            max-height: 90px;
+          }
+          .fav-button-content {
+            font-size: 5;
+            position: relative;
+            text-align: center;
+            max-width: 200px;
+          }
+          .fav-btn {
+            min-width: 92px;
+            min-height: 92px;
+            border: solid 1px #131313;
+            font-size: 15;
+            cursor: pointer;
+            background-color: fdf86c;
+            max-width: 40px;
+            overflow-wrap: anywhere;
+          }
+          .fav-btn:hover {
+            color: #ffbf00;
+          }
+
           img {
             width: auto;
             flex: 100;
@@ -411,6 +491,8 @@ function setCookie(name,value,days = 9999) {
             top: 0;
             left: 0;
             max-width: 600px;
+            max-width: 90px;
+            max-height: 90px;
           }
           .color-button-content {
             font-size: 5;
@@ -422,12 +504,14 @@ function setCookie(name,value,days = 9999) {
 
 
           .down-arrow-container {
-            height: 20px;
-            margin-left: 135px;
+            min-width: 90px;
+            min-height: 90px;
+            margin-left: 282px;
             position: fixed;
             top: 0;
             left: 0;
-            max-width: 600px;
+            max-width: 90px;
+            max-height: 90px;
           }
           .down-arrow-content {
             position: relative;
@@ -436,11 +520,13 @@ function setCookie(name,value,days = 9999) {
           }
           .up-arrow-container {
             height: 20px;
-            margin-left: 85px;
+            height: 20px;
+            margin-left: 188px;
             position: fixed;
             top: 0;
             left: 0;
-            max-width: 600px;
+            max-width: 90px;
+            max-height: 90px;
           }
           .up-arrow-content {
             position: relative;
@@ -453,13 +539,14 @@ function setCookie(name,value,days = 9999) {
             flex-direction: column;
             position: relative;
             text-align: center;
-            top: 92px;
+            top: 94px;
             z-index: 5;
             height: 100%;
           }
           .chart-link {
-            background-color: blue;
+            background-color: #444055;
             color: white;
+            border: solid 1px #131313;
             padding-left: 5px;
             padding-right: 5px;
             padding-top: 5px;
@@ -470,7 +557,7 @@ function setCookie(name,value,days = 9999) {
             font-size: 20px;
           }
           .chart-link:hover {
-            color: red;
+            color: #ffbf00;
           }
           .chart-wrapper {
             display: flex;
@@ -496,13 +583,13 @@ function setCookie(name,value,days = 9999) {
             <div class='loaderWrapper'>
               <div class='loader'>Loading...</div>
               </div>
-              <div class="grid-container">
 PAGE_TOP
 
 $next_chart_render_delay = 0
 
 def chart(market_id, timeframe)
-  if market_id == '------'
+  if market_id.include?('-')
+    return ''
     return '<img class="clear-min-width" src="https://raw.githubusercontent.com/dominikduda/dominikduda.github.io/master/candle.jpeg"/>'
   end
   <<~CHART
@@ -510,26 +597,9 @@ def chart(market_id, timeframe)
   CHART
 end
 
-up_arr = ''
-up_arr << '<div class="up-arrow-container">'
-up_arr << '<div class="up-arrow-content">'
-up_arr << <<~UP_ARROW
-  <div
-    onClick="(function() {
-      if (window.current_index > 0 && window.watcherLoaded) {
-        document.getElementById(window.list[window.current_index - 1]).scrollIntoView()
-        window.current_index = window.current_index - 1
-      }
-    })()"
-  >
-    <div class="arrow">&#8593;</div>
-  </div>
-UP_ARROW
-up_arr << '</div>'
-up_arr << '</div>'
 menu_html = ''
 menu_html << '<div class="overlay">'
-menu_html << up_arr
+
 menu_html << '<div class="overlay-content">'
 output << <<~SPINNER
   <div class="timer">
@@ -539,18 +609,24 @@ output << "<div id='parentDiv'>"
 
 output << "<canvas id='canvas'></canvas>"
 output << '</div>'
+
+output << '<div class="grid-container">'
 CHARTS.each do |market_id|
-  output << "<div class='grid-item divider' style='visibility: hidden' id=#{market_id}>" + market_id + '</div>'
+  if (market_id.include?('-'))
+    output << "<div class='grid-item divider section-divider' id=#{market_id}>" + market_id + '</div>'
+  else
+    output << "<div class='grid-item divider' id=#{market_id}>" + market_id + '</div>'
+  end
   output << "<div class='chart-wrapper'>"
   TIMEFRAMES.each do |timeframe|
     output << chart(market_id, timeframe)
   end
   output << '</div>'
-  output << '<hr><hr><hr><hr><hr>'
+  output << ''
   first_divider_id = market_id + TIMEFRAMES.first
   menu_html << <<~MENU
     <div
-      class="chart-link"
+      class="#{market_id.include?('-') ? 'divider-link' : 'chart-link'}"
       tabindex="-1"
       id="#{market_id}"
       onClick="(function() {
@@ -564,6 +640,7 @@ CHARTS.each do |market_id|
     </div>
   MENU
 end
+output << '</div>'
 down_arr = ''
 down_arr << '<div class="down-arrow-container">'
 down_arr << '<div class="down-arrow-content">'
@@ -584,6 +661,25 @@ down_arr << '</div>'
 menu_html << '</div>'
 menu_html << down_arr
 
+up_arr = ''
+up_arr << '<div class="up-arrow-container">'
+up_arr << '<div class="up-arrow-content">'
+up_arr << <<~UP_ARROW
+  <div
+    onClick="(function() {
+      if (window.current_index > 0 && window.watcherLoaded) {
+        document.getElementById(window.list[window.current_index - 1]).scrollIntoView()
+        window.current_index = window.current_index - 1
+      }
+    })()"
+  >
+    <div class="arrow">&#8593;</div>
+  </div>
+UP_ARROW
+up_arr << '</div>'
+up_arr << '</div>'
+menu_html << up_arr
+
 
 color_btn = ''
 color_btn << '<div class="color-button-container">'
@@ -594,24 +690,52 @@ color_btn << <<~COLOR_BTN
       if (window.watcherLoaded) {
         if (window.watcherGetCookie('mode') != 'dark') {
           console.log('dark mode enabled')
-          const element = document.getElementsByTagName('html')[0];
+          const element = document.querySelector('.grid-container');
           element.classList.add('darkMode');
           window.watcherSetCookie('mode', 'dark')
         } else {
           console.log('white mode enabled')
-          const element = document.getElementsByTagName('html')[0];
+          const element = document.querySelector('.grid-container');
           element.classList.remove('darkMode');
           window.watcherSetCookie('mode', 'white')
         }
       }
     })()"
   >
-    <div class="color-btn">toggle colormode</div>
+    <div class="color-btn">Toggle color mode</div>
   </div>
 COLOR_BTN
 color_btn << '</div>'
 color_btn << '</div>'
 menu_html << color_btn
+
+fav_btn = ''
+fav_btn << '<div class="fav-button-container">'
+fav_btn << '<div class="fav-button-content">'
+fav_btn << <<~FAV_BTN
+  <div
+    onClick="(function() {
+      if (window.watcherLoaded) {
+        if (window.watcherGetCookie('mode') != 'dark') {
+          console.log('dark mode enabled')
+          const element = document.querySelector('.grid-container');
+          element.classList.add('darkMode');
+          window.watcherSetCookie('mode', 'dark')
+        } else {
+          console.log('white mode enabled')
+          const element = document.querySelector('.grid-container');
+          element.classList.remove('darkMode');
+          window.watcherSetCookie('mode', 'white')
+        }
+      }
+    })()"
+  >
+    <div class="fav-btn">Mark last selected chart</div>
+  </div>
+FAV_BTN
+fav_btn << '</div>'
+fav_btn << '</div>'
+menu_html << fav_btn
 
 menu_html << '</div>'
 
