@@ -153,7 +153,7 @@ function setCookie(name,value,days = 9999) {
                 window.scroll(0, getCookie('scrollPosition'))
                 document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
                 window.watcherLoaded = true;
-              }, 1000)
+              }, 500)
             })
             document.addEventListener('scroll', saveScrollPos);
             window.watcherSetCookie = setCookie;
@@ -172,7 +172,7 @@ function setCookie(name,value,days = 9999) {
                 window.watcherSetCookie('marked_charts', '')
               }
               window.watcherRefreshMenu();
-            },500)
+            },100)
 
 
 
