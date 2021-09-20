@@ -161,9 +161,6 @@ output << <<~PAGE_TOP
                     }
                     return null;
                 }
-                const saveScrollPos = () => {
-                  setCookie('scrollPosition', window.pageYOffset)
-                }
                 history.scrollRestoration = "manual"
   #{'  '}
   #{'  '}
@@ -178,7 +175,6 @@ output << <<~PAGE_TOP
                       current = section.getAttribute("id");
                     }
                   });
-  #{'  '}
                   window.watcherMenuElements.forEach((li) => {
                     li.classList.remove("active");
                     if (li.id == current) {
@@ -188,6 +184,7 @@ output << <<~PAGE_TOP
                   });
                   window.current_index = window.list.indexOf(current)
                   window.watcherLastSelectedChart = current;
+                  setCookie('scrollPosition', current.offsetTop)
                 }
   #{'  '}
                 document.addEventListener('scroll', highlightListItem);
@@ -209,7 +206,6 @@ output << <<~PAGE_TOP
                     window.watcherLoaded = true;
                   }, 500)
                 })
-                document.addEventListener('scroll', saveScrollPos);
   #{'  '}
   #{'  '}
   #{'  '}
