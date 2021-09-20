@@ -101,7 +101,7 @@ output << <<~PAGE_TOP
             <head>
             <script>
             window.watcherRefreshMenu = function() {
-              if (!window.watcherGetCookie('marked_charts')) {
+              if (!window.watcherGetCookie('marked_charts') == null) {
                 return
               }
               const els = document.getElementsByClassName('chart-link')
@@ -258,8 +258,8 @@ function setCookie(name,value,days = 9999) {
   color: #ffbf00;
 }
 
-.marked {
-  color: #009cff !important;
+.divider-link .marked {
+  color: #009cff;
 }
 
 .darkMode > .divider {
