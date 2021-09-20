@@ -48,21 +48,67 @@ function setCookie(name,value,days = 9999) {
               setCookie('scrollPosition', window.pageYOffset)
             }
             history.scrollRestoration = "manual"
+
+
+
+            const highlightListItem = () => {
+              if (!window.watcherDividers || !window.watcherMenuElements) { return }
+              let current = "";
+              window.watcherDividers.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - window.innerHeight / 4) {
+                  current = section.getAttribute("id");
+                }
+              });
+
+              window.watcherMenuElements.forEach((li) => {
+                li.classList.remove("active");
+                if (li.id == current) {
+                  console.log(li.id)
+                  li.classList.add("active");
+                }
+              });
+              window.current_index = window.list.indexOf(current)
+              window.watcherLastSelectedChart = current;
+            }
+
+            document.addEventListener('scroll', highlightListItem);
+
+
+
+
+
+
+
+
+
             window.addEventListener('load', () => {
               setTimeout(() => {
+                highlightListItem()
                 document.body.classList.remove('no-scroll')
                 window.scroll(0, getCookie('scrollPosition'))
                 document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
                 window.watcherLoaded = true;
-              }, 1000)
+              }, 500)
             })
             document.addEventListener('scroll', saveScrollPos);
+
+
+
+
+
+
+
+
             window.watcherSetCookie = setCookie;
             window.watcherGetCookie = getCookie;
 
 
-
-            setTimeout(() => {
+            const afterPageOpen = () => {
+              window.watcherDividers =  document.querySelectorAll(".divider");
+              window.watcherMenuElements =  document.querySelectorAll(".chart-link");
+              highlightListItem()
               if (window.watcherGetCookie('mode') == 'dark') {
                 console.log('dark mode enabled')
                 const element = document.querySelector('.grid-container');
@@ -73,7 +119,11 @@ function setCookie(name,value,days = 9999) {
                 window.watcherSetCookie('marked_charts', '')
               }
               window.watcherRefreshMenu();
-            },500)
+            }
+
+            setTimeout(afterPageOpen,50)
+            setTimeout(afterPageOpen,100)
+            setTimeout(afterPageOpen,500)
 
 
 
@@ -135,6 +185,9 @@ function setCookie(name,value,days = 9999) {
             }, 200)
             </script>
               <style>
+.active {
+  border-color: #99ed38 !important;
+}
 
 .divider {
   text-align: center;
@@ -174,6 +227,10 @@ function setCookie(name,value,days = 9999) {
 }
 
 .section-divider {
+  text-align: center;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
   font-size: 60px;
   background-color: #00385f;
 }
@@ -516,7 +573,7 @@ function setCookie(name,value,days = 9999) {
               </div>
 <div class="timer">
 </div>
-<div id='parentDiv'><canvas id='canvas'></canvas></div><div class="grid-container"><div class='grid-item divider section-divider' id=-Indexes->-Indexes-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=^DJT>^DJT</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=5d&t=c&a=lg&b&g&svg"/>
+<div id='parentDiv'><canvas id='canvas'></canvas></div><div class="grid-container"><div class='grid-item section-divider' id=-Indexes->-Indexes-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=^DJT>^DJT</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=5d&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=5m&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=2y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=10y&t=c&a=lg&b&g&svg"/>
@@ -534,7 +591,7 @@ function setCookie(name,value,days = 9999) {
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DAX&c=10y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DAX&c=30y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DAX&c=100y&t=c&a=lg&b&g&svg"/>
-</div><div class='grid-item divider section-divider' id=-ETFs->-ETFs-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=TLT.US>TLT.US</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TLT.US&c=5d&t=c&a=lg&b&g&svg"/>
+</div><div class='grid-item section-divider' id=-ETFs->-ETFs-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=TLT.US>TLT.US</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TLT.US&c=5d&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TLT.US&c=5m&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TLT.US&c=2y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TLT.US&c=10y&t=c&a=lg&b&g&svg"/>
@@ -606,7 +663,7 @@ function setCookie(name,value,days = 9999) {
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=10y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=30y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=100y&t=c&a=lg&b&g&svg"/>
-</div><div class='grid-item divider section-divider' id=-Stocks->-Stocks-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=CDR>CDR</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=5d&t=c&a=lg&b&g&svg"/>
+</div><div class='grid-item section-divider' id=-Stocks->-Stocks-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=CDR>CDR</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=5d&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=5m&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=2y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=10y&t=c&a=lg&b&g&svg"/>
@@ -822,13 +879,13 @@ function setCookie(name,value,days = 9999) {
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WFC.US&c=10y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WFC.US&c=30y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WFC.US&c=100y&t=c&a=lg&b&g&svg"/>
-</div><div class='grid-item divider section-divider' id=-Metals->-Metals-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=XAUUSD>XAUUSD</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=5d&t=c&a=lg&b&g&svg"/>
+</div><div class='grid-item section-divider' id=-Metals->-Metals-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=XAUUSD>XAUUSD</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=5d&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=5m&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=2y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=10y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=30y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=100y&t=c&a=lg&b&g&svg"/>
-</div><div class='grid-item divider section-divider' id=-Crypto->-Crypto-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=ZEC.V>ZEC.V</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ZEC.V&c=5d&t=c&a=lg&b&g&svg"/>
+</div><div class='grid-item section-divider' id=-Crypto->-Crypto-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=ZEC.V>ZEC.V</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ZEC.V&c=5d&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ZEC.V&c=5m&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ZEC.V&c=2y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ZEC.V&c=10y&t=c&a=lg&b&g&svg"/>
@@ -864,7 +921,7 @@ function setCookie(name,value,days = 9999) {
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BTCUSD&c=10y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BTCUSD&c=30y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BTCUSD&c=100y&t=c&a=lg&b&g&svg"/>
-</div><div class='grid-item divider section-divider' id=-Forex->-Forex-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=eurusd>eurusd</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=eurusd&c=5d&t=c&a=lg&b&g&svg"/>
+</div><div class='grid-item section-divider' id=-Forex->-Forex-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=eurusd>eurusd</div><div class='chart-wrapper'><img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=eurusd&c=5d&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=eurusd&c=5m&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=eurusd&c=2y&t=c&a=lg&b&g&svg"/>
 <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=eurusd&c=10y&t=c&a=lg&b&g&svg"/>

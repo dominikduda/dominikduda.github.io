@@ -147,8 +147,44 @@ function setCookie(name,value,days = 9999) {
               setCookie('scrollPosition', window.pageYOffset)
             }
             history.scrollRestoration = "manual"
+
+
+
+            const highlightListItem = () => {
+              if (!window.watcherDividers || !window.watcherMenuElements) { return }
+              let current = "";
+              window.watcherDividers.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - window.innerHeight / 4) {
+                  current = section.getAttribute("id");
+                }
+              });
+
+              window.watcherMenuElements.forEach((li) => {
+                li.classList.remove("active");
+                if (li.id == current) {
+                  console.log(li.id)
+                  li.classList.add("active");
+                }
+              });
+              window.current_index = window.list.indexOf(current)
+              window.watcherLastSelectedChart = current;
+            }
+
+            document.addEventListener('scroll', highlightListItem);
+
+
+
+
+
+
+
+
+
             window.addEventListener('load', () => {
               setTimeout(() => {
+                highlightListItem()
                 document.body.classList.remove('no-scroll')
                 window.scroll(0, getCookie('scrollPosition'))
                 document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
@@ -156,12 +192,22 @@ function setCookie(name,value,days = 9999) {
               }, 500)
             })
             document.addEventListener('scroll', saveScrollPos);
+
+
+
+
+
+
+
+
             window.watcherSetCookie = setCookie;
             window.watcherGetCookie = getCookie;
 
 
-
-            setTimeout(() => {
+            const afterPageOpen = () => {
+              window.watcherDividers =  document.querySelectorAll(".divider");
+              window.watcherMenuElements =  document.querySelectorAll(".chart-link");
+              highlightListItem()
               if (window.watcherGetCookie('mode') == 'dark') {
                 console.log('dark mode enabled')
                 const element = document.querySelector('.grid-container');
@@ -172,7 +218,11 @@ function setCookie(name,value,days = 9999) {
                 window.watcherSetCookie('marked_charts', '')
               }
               window.watcherRefreshMenu();
-            },100)
+            }
+
+            setTimeout(afterPageOpen,50)
+            setTimeout(afterPageOpen,100)
+            setTimeout(afterPageOpen,500)
 
 
 
@@ -234,6 +284,9 @@ function setCookie(name,value,days = 9999) {
             }, 200)
             </script>
               <style>
+.active {
+  border-color: #99ed38 !important;
+}
 
 .divider {
   text-align: center;
@@ -273,6 +326,10 @@ function setCookie(name,value,days = 9999) {
 }
 
 .section-divider {
+  text-align: center;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
   font-size: 60px;
   background-color: #00385f;
 }
@@ -643,7 +700,7 @@ output << '</div>'
 output << '<div class="grid-container">'
 CHARTS.each do |market_id|
   if (market_id.include?('-'))
-    output << "<div class='grid-item divider section-divider' id=#{market_id}>" + market_id + '</div>'
+    output << "<div class='grid-item section-divider' id=#{market_id}>" + market_id + '</div>'
   else
     output << "<div class='grid-item divider' id=#{market_id}>" + market_id + '</div>'
   end
