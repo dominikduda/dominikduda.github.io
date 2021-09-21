@@ -126,7 +126,7 @@ output << <<~PAGE_TOP
                   for (i = 0; i < els.length; i++) {
                     const el = els[i]
                     el.classList.remove('marked')
-                    if (window.watcherGetCookie('marked_charts').includes(el.id)) {
+                    if (window.watcherGetCookie('marked_charts').includes(el.id + ',')) {
                       el.classList.add('marked')
                     }
                   }
