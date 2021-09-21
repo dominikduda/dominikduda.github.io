@@ -72,14 +72,14 @@ CHARTS = [
   'XLM.V',
   'XMR.V',
   'ZEC.V',
-  '-FX majors-',
+  '-FX_majors-',
   'audusd',
   'eurusd',
   'gbpusd',
   'usdcad',
   'usdchf',
   'usdjpy',
-  '-FX minors-',
+  '-FX_minors-',
   'audcad',
   'audchf',
   'audjpy',
@@ -100,7 +100,7 @@ CHARTS = [
   'nzdchf',
   'nzdjpy',
   'nzdusd',
-  '-FX exotics-',
+  '-FX_exotics-',
   'audsgd',
   'chfsgd',
   'eursgd',
@@ -682,7 +682,7 @@ output << <<~PAGE_TOP
                   </style>
                   <script>
                     (() => {
-                      window.list = #{CHARTS};
+                      window.list = #{CHARTS.reject { |chart| chart.include?('-') }};
                       window.current_index = 0;
                     })()
                   </script>
