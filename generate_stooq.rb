@@ -168,6 +168,8 @@ output << <<~PAGE_TOP
   #{'  '}
   #{'  '}
                 const highlightListItem = () => {
+                  if (window.scrollIntervalId && !window.skipClearInterval) { clearInterval(window.scrollIntervalId) }
+                  window.skipClearInterval = false;
                   if (!window.watcherDividers || !window.watcherMenuElements) { return }
                   let current = "";
                   window.watcherDividers.forEach((section) => {
@@ -705,10 +707,9 @@ $next_chart_render_delay = 0
 def chart(market_id, timeframe)
   if market_id.include?('-')
     return ''
-    return '<img class="clear-min-width" src="https://raw.githubusercontent.com/dominikduda/dominikduda.github.io/master/candle.jpeg"/>'
   end
   <<~CHART
-    <img loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g&svg"/>
+    <img loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g"/>
   CHART
 end
 
@@ -746,7 +747,11 @@ CHARTS.each do |market_id|
       id="#{market_id}"
       onClick="(function() {
         if (window.watcherLoaded) {
-          document.getElementById('#{market_id}').scrollIntoView()
+          if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+          window.scrollIntervalId = setInterval(() => {
+            window.skipClearInterval = true;
+            document.getElementById('#{market_id}').scrollIntoView()
+          }, 33)
           window.current_index = window.list.indexOf('#{market_id}')
           window.watcherLastSelectedChart = '#{market_id}';
         }
@@ -764,7 +769,12 @@ down_arr << <<~DOWN_ARROW
   <div
     onClick="(function() {
       if (window.current_index + 1 < window.list.length && window.watcherLoaded) {
-        document.getElementById(window.list[window.current_index + 1]).scrollIntoView()
+        if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+        const el = document.getElementById(window.list[window.current_index + 1])
+        window.scrollIntervalId = setInterval(() => {
+          window.skipClearInterval = true;
+          el.scrollIntoView()
+        }, 33)
         window.current_index = window.current_index + 1
       }
     })()"
@@ -784,7 +794,12 @@ up_arr << <<~UP_ARROW
   <div
     onClick="(function() {
       if (window.current_index > 0 && window.watcherLoaded) {
-        document.getElementById(window.list[window.current_index - 1]).scrollIntoView()
+        if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+        const el = document.getElementById(window.list[window.current_index - 1])
+        window.scrollIntervalId = setInterval(() => {
+          window.skipClearInterval = true;
+          el.scrollIntoView()
+        }, 33)
         window.current_index = window.current_index - 1
       }
     })()"
