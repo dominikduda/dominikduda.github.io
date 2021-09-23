@@ -177,7 +177,7 @@ output << <<~PAGE_TOP
                     const sectionHeight = section.clientHeight;
                     if (pageYOffset >= sectionTop - window.innerHeight / 4) {
                       current = section.getAttribute("id");
-                      window.watcherSetCookie('scrollPosition', section.offsetTop)
+                      window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
                     }
                   });
                   window.watcherMenuElements.forEach((li) => {
@@ -203,14 +203,11 @@ output << <<~PAGE_TOP
                 window.addEventListener('load', () => {
                   setTimeout(() => {
                     document.body.classList.remove('no-scroll')
-                    window.initialScrollInterval = setInterval(() => {
-                      const position = getCookie('scrollPosition')
-                      if (window.pageYOffset == position) {
-                        clearInterval(window.initialScrollInterval)
-                        return
-                      }
-                      window.scroll(0, position)
-                    }, 33)
+                    const el = document.getElementById(getCookie('scrollPosition'))
+                    window.scrollIntervalId = setInterval(() => {
+                      window.skipClearInterval = true;
+                      el.scrollIntoView()
+                    }, 50)
                     document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
                     window.watcherLoaded = true;
                     highlightListItem()
@@ -758,7 +755,7 @@ CHARTS.each do |market_id|
           window.scrollIntervalId = setInterval(() => {
             window.skipClearInterval = true;
             document.getElementById('#{market_id}').scrollIntoView()
-          }, 33)
+          }, 50)
           window.current_index = window.list.indexOf('#{market_id}')
           window.watcherLastSelectedChart = '#{market_id}';
         }
@@ -781,7 +778,7 @@ down_arr << <<~DOWN_ARROW
         window.scrollIntervalId = setInterval(() => {
           window.skipClearInterval = true;
           el.scrollIntoView()
-        }, 33)
+        }, 50)
         window.current_index = window.current_index + 1
       }
     })()"
@@ -806,7 +803,7 @@ up_arr << <<~UP_ARROW
         window.scrollIntervalId = setInterval(() => {
           window.skipClearInterval = true;
           el.scrollIntoView()
-        }, 33)
+        }, 50)
         window.current_index = window.current_index - 1
       }
     })()"
