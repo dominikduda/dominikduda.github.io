@@ -72,7 +72,7 @@
                   window.watcherDividers.forEach((section) => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= sectionTop - window.innerHeight / 7) {
+                    if (pageYOffset >= sectionTop - window.innerHeight / 9) {
                       current = section.getAttribute("id");
                       window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
                     }
