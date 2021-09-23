@@ -203,9 +203,13 @@ output << <<~PAGE_TOP
                 window.addEventListener('load', () => {
                   setTimeout(() => {
                     document.body.classList.remove('no-scroll')
-                    window.scrollIntervalId = setInterval(() => {
-                      window.skipClearInterval = true;
-                      window.scroll(0, getCookie('scrollPosition'))
+                    window.initialScrollInterval = setInterval(() => {
+                      const position = getCookie('scrollPosition')
+                      if (window.pageYOffset == position) {
+                        clearInterval(window.initialScrollInterval)
+                        return
+                      }
+                      window.scroll(0, position)
                     }, 33)
                     document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
                     window.watcherLoaded = true;
