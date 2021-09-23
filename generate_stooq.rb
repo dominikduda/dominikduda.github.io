@@ -140,7 +140,6 @@ output << <<~PAGE_TOP
     if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
     window.skipClearInterval = true;
     window.scrollIntervalId = setInterval(() => {
-      console.log('siema')
       window.skipClearInterval = true;
       el.scrollIntoView()
     }, 50)
