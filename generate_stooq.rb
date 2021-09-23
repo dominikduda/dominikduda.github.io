@@ -189,7 +189,7 @@ output << <<~PAGE_TOP
                   window.watcherDividers.forEach((section) => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= sectionTop - window.innerHeight / 4) {
+                    if (pageYOffset >= sectionTop - window.innerHeight / 7) {
                       current = section.getAttribute("id");
                       window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
                     }
