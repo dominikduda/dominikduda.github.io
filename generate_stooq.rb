@@ -138,7 +138,7 @@ output << <<~PAGE_TOP
   #{'  '}
   window.watcherOnImageLoad = function() {
     const el = document.getElementById(getCookie('scrollPosition'))
-    const lastScrollSynthetic = !window.skipClearInterval
+    const lastScrollSynthetic = window.skipClearInterval
     if (lastScrollSynthetic) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.scrollIntervalId = setInterval(() => {
