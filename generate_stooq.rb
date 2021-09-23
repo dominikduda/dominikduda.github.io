@@ -203,7 +203,10 @@ output << <<~PAGE_TOP
                 window.addEventListener('load', () => {
                   setTimeout(() => {
                     document.body.classList.remove('no-scroll')
-                    window.scroll(0, getCookie('scrollPosition'))
+                    window.scrollIntervalId = setInterval(() => {
+                      window.skipClearInterval = true;
+                      window.scroll(0, getCookie('scrollPosition'))
+                    }, 33)
                     document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
                     window.watcherLoaded = true;
                     highlightListItem()
