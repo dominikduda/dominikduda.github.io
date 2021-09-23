@@ -119,6 +119,7 @@ output << <<~PAGE_TOP
                 <head>
                 <link rel="shortcut icon" type="image/png" href="favicon.png">
                 <script>
+                window.lastScrollSynthetic = false
                 window.watcherRefreshMenu = function() {
                   if (window.watcherGetCookie('marked_charts') == null) {
                     return
@@ -137,11 +138,14 @@ output << <<~PAGE_TOP
   #{'  '}
   window.watcherOnImageLoad = function() {
     const el = document.getElementById(getCookie('scrollPosition'))
-    if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-    window.scrollIntervalId = setInterval(() => {
-      window.skipClearInterval = true;
-      el.scrollIntoView()
-    }, 50)
+    const lastScrollSynthetic = !window.skipClearInterval
+    if (lastScrollSynthetic) {
+      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.scrollIntervalId = setInterval(() => {
+        window.skipClearInterval = true;
+        el.scrollIntoView()
+      }, 50)
+    }
   }
 
                 window.watcherOnImageError = (img) => {
@@ -289,6 +293,7 @@ output << <<~PAGE_TOP
                   }
           #{'  '}
                   parentDiv.addEventListener('mousedown', function(evt) {
+                        document.getElementsByClassName('overlay')[0].classList.add('hidden')
                         drawing = true; // you can draw now
                          let m = oMousePos(parentDiv, evt);
                          ctx.beginPath();
@@ -296,10 +301,11 @@ output << <<~PAGE_TOP
                   }, false);
           #{'  '}
                     parentDiv.addEventListener('mouseup', function(evt) {
+                        document.getElementsByClassName('overlay')[0].classList.remove('hidden')
                         drawing = false; // you can't draw anymore
-          #{'  '}
                   }, false);
                     parentDiv.addEventListener('mouseleave', function(evt) {
+                        document.getElementsByClassName('overlay')[0].classList.remove('hidden')
                         drawing = false; // you can't draw anymore
           #{'  '}
                   }, false);
@@ -582,6 +588,9 @@ output << <<~PAGE_TOP
               }
               .no-scroll {
                 overflow: hidden;
+              }
+              .hidden {
+                visibility: hidden;
               }
               body {
                 margin: 0px;
