@@ -708,7 +708,7 @@ def chart(market_id, timeframe)
     return '<img class="clear-min-width" src="https://raw.githubusercontent.com/dominikduda/dominikduda.github.io/master/candle.jpeg"/>'
   end
   <<~CHART
-    <img onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g&svg"/>
+    <img loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g&svg"/>
   CHART
 end
 
