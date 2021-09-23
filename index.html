@@ -86,6 +86,7 @@
                 window.addEventListener('load', () => {
                   setTimeout(() => {
                     document.body.classList.remove('no-scroll')
+                    window.skipClearInterval = true;
                     const el = document.getElementById(getCookie('scrollPosition'))
                     window.scrollIntervalId = setInterval(() => {
                       window.skipClearInterval = true;
@@ -1202,6 +1203,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-Indices-').scrollIntoView()
@@ -1220,6 +1222,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('^SPX').scrollIntoView()
@@ -1238,6 +1241,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('^DJT').scrollIntoView()
@@ -1256,6 +1260,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('^DAX').scrollIntoView()
@@ -1274,6 +1279,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('WIG').scrollIntoView()
@@ -1292,6 +1298,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('WIG20').scrollIntoView()
@@ -1310,6 +1317,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-ETFs-').scrollIntoView()
@@ -1328,6 +1336,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('ACES.US').scrollIntoView()
@@ -1346,6 +1355,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('AIQ.US').scrollIntoView()
@@ -1364,6 +1374,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('ARKG.US').scrollIntoView()
@@ -1382,6 +1393,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('BATT.US').scrollIntoView()
@@ -1400,6 +1412,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('BUG.US').scrollIntoView()
@@ -1418,6 +1431,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('DRIV.US').scrollIntoView()
@@ -1436,6 +1450,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('IYE.US').scrollIntoView()
@@ -1454,6 +1469,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('LIT.US').scrollIntoView()
@@ -1472,6 +1488,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('PBD.US').scrollIntoView()
@@ -1490,6 +1507,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('SMH.US').scrollIntoView()
@@ -1508,6 +1526,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('TLT.US').scrollIntoView()
@@ -1526,6 +1545,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('XME.US').scrollIntoView()
@@ -1544,6 +1564,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-Stocks-').scrollIntoView()
@@ -1562,6 +1583,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('AAPL.US').scrollIntoView()
@@ -1580,6 +1602,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('ADBE.US').scrollIntoView()
@@ -1598,6 +1621,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('AMZN.US').scrollIntoView()
@@ -1616,6 +1640,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('BAC.US').scrollIntoView()
@@ -1634,6 +1659,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('BYND.US').scrollIntoView()
@@ -1652,6 +1678,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('CCJ.US').scrollIntoView()
@@ -1670,6 +1697,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('CDNA.US').scrollIntoView()
@@ -1688,6 +1716,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('CDR').scrollIntoView()
@@ -1706,6 +1735,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('CRSP.US').scrollIntoView()
@@ -1724,6 +1754,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('DIS.US').scrollIntoView()
@@ -1742,6 +1773,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('EDIT.US').scrollIntoView()
@@ -1760,6 +1792,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('EXAS.US').scrollIntoView()
@@ -1778,6 +1811,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('FDX.US').scrollIntoView()
@@ -1796,6 +1830,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('HUGE').scrollIntoView()
@@ -1814,6 +1849,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('INTC.US').scrollIntoView()
@@ -1832,6 +1868,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('KO.US').scrollIntoView()
@@ -1850,6 +1887,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('LTHM.US').scrollIntoView()
@@ -1868,6 +1906,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('MCD.US').scrollIntoView()
@@ -1886,6 +1925,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('MSFT.US').scrollIntoView()
@@ -1904,6 +1944,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('NTLA.US').scrollIntoView()
@@ -1922,6 +1963,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('NVDA.US').scrollIntoView()
@@ -1940,6 +1982,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('OSCR.US').scrollIntoView()
@@ -1958,6 +2001,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('PACB.US').scrollIntoView()
@@ -1976,6 +2020,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('PBE.US').scrollIntoView()
@@ -1994,6 +2039,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('PEP.US').scrollIntoView()
@@ -2012,6 +2058,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('PLUG.US').scrollIntoView()
@@ -2030,6 +2077,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('PYPL.US').scrollIntoView()
@@ -2048,6 +2096,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('REGN.US').scrollIntoView()
@@ -2066,6 +2115,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('SBUX.US').scrollIntoView()
@@ -2084,6 +2134,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('SELB.US').scrollIntoView()
@@ -2102,6 +2153,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('TDOC.US').scrollIntoView()
@@ -2120,6 +2172,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('TSLA.US').scrollIntoView()
@@ -2138,6 +2191,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('TWST.US').scrollIntoView()
@@ -2156,6 +2210,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('V.US').scrollIntoView()
@@ -2174,6 +2229,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('VRTX.US').scrollIntoView()
@@ -2192,6 +2248,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('WFC.US').scrollIntoView()
@@ -2210,6 +2267,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-Metals-').scrollIntoView()
@@ -2228,6 +2286,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('XAGUSD').scrollIntoView()
@@ -2246,6 +2305,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('XAUUSD').scrollIntoView()
@@ -2264,6 +2324,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('XPDUSD').scrollIntoView()
@@ -2282,6 +2343,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('XPTUSD').scrollIntoView()
@@ -2300,6 +2362,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-Cryptos-').scrollIntoView()
@@ -2318,6 +2381,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('AMPL.V').scrollIntoView()
@@ -2336,6 +2400,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('BNB.V').scrollIntoView()
@@ -2354,6 +2419,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('BTCUSD').scrollIntoView()
@@ -2372,6 +2438,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('DOGE.V').scrollIntoView()
@@ -2390,6 +2457,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('ETH.V').scrollIntoView()
@@ -2408,6 +2476,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('SC.V').scrollIntoView()
@@ -2426,6 +2495,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('XLM.V').scrollIntoView()
@@ -2444,6 +2514,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('XMR.V').scrollIntoView()
@@ -2462,6 +2533,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('ZEC.V').scrollIntoView()
@@ -2480,6 +2552,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-FX_majors-').scrollIntoView()
@@ -2498,6 +2571,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('audusd').scrollIntoView()
@@ -2516,6 +2590,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('eurusd').scrollIntoView()
@@ -2534,6 +2609,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('gbpusd').scrollIntoView()
@@ -2552,6 +2628,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('usdcad').scrollIntoView()
@@ -2570,6 +2647,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('usdchf').scrollIntoView()
@@ -2588,6 +2666,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('usdjpy').scrollIntoView()
@@ -2606,6 +2685,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-FX_minors-').scrollIntoView()
@@ -2624,6 +2704,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('audcad').scrollIntoView()
@@ -2642,6 +2723,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('audchf').scrollIntoView()
@@ -2660,6 +2742,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('audjpy').scrollIntoView()
@@ -2678,6 +2761,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('audnzd').scrollIntoView()
@@ -2696,6 +2780,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('cadchf').scrollIntoView()
@@ -2714,6 +2799,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('cadjpy').scrollIntoView()
@@ -2732,6 +2818,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('chfjpy').scrollIntoView()
@@ -2750,6 +2837,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('euraud').scrollIntoView()
@@ -2768,6 +2856,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('eurchf').scrollIntoView()
@@ -2786,6 +2875,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('eurgbp').scrollIntoView()
@@ -2804,6 +2894,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('eurjpy').scrollIntoView()
@@ -2822,6 +2913,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('eurnzd').scrollIntoView()
@@ -2840,6 +2932,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('gbpaud').scrollIntoView()
@@ -2858,6 +2951,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('gbpchf').scrollIntoView()
@@ -2876,6 +2970,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('gbpjpy').scrollIntoView()
@@ -2894,6 +2989,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('gbpnzd').scrollIntoView()
@@ -2912,6 +3008,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('nzdcad').scrollIntoView()
@@ -2930,6 +3027,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('nzdchf').scrollIntoView()
@@ -2948,6 +3046,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('nzdjpy').scrollIntoView()
@@ -2966,6 +3065,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('nzdusd').scrollIntoView()
@@ -2984,6 +3084,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-FX_exotics-').scrollIntoView()
@@ -3002,6 +3103,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('audsgd').scrollIntoView()
@@ -3020,6 +3122,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('chfsgd').scrollIntoView()
@@ -3038,6 +3141,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('eursgd').scrollIntoView()
@@ -3056,6 +3160,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('gbpsgd').scrollIntoView()
@@ -3074,6 +3179,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('nokjpy').scrollIntoView()
@@ -3092,6 +3198,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('sekjpy').scrollIntoView()
@@ -3110,6 +3217,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('sgdjpy').scrollIntoView()
@@ -3128,6 +3236,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('usdhkd').scrollIntoView()
@@ -3146,6 +3255,7 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('usdsgd').scrollIntoView()
@@ -3162,6 +3272,7 @@
     if (window.current_index + 1 < window.list.length && window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       const el = document.getElementById(window.list[window.current_index + 1])
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         el.scrollIntoView()
@@ -3177,6 +3288,7 @@
     if (window.current_index > 0 && window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       const el = document.getElementById(window.list[window.current_index - 1])
+      window.skipClearInterval = true;
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         el.scrollIntoView()

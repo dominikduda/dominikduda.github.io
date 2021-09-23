@@ -203,6 +203,7 @@ output << <<~PAGE_TOP
                 window.addEventListener('load', () => {
                   setTimeout(() => {
                     document.body.classList.remove('no-scroll')
+                    window.skipClearInterval = true;
                     const el = document.getElementById(getCookie('scrollPosition'))
                     window.scrollIntervalId = setInterval(() => {
                       window.skipClearInterval = true;
@@ -752,6 +753,7 @@ CHARTS.each do |market_id|
       onClick="(function() {
         if (window.watcherLoaded) {
           if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+          window.skipClearInterval = true;
           window.scrollIntervalId = setInterval(() => {
             window.skipClearInterval = true;
             document.getElementById('#{market_id}').scrollIntoView()
@@ -775,6 +777,7 @@ down_arr << <<~DOWN_ARROW
       if (window.current_index + 1 < window.list.length && window.watcherLoaded) {
         if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
         const el = document.getElementById(window.list[window.current_index + 1])
+        window.skipClearInterval = true;
         window.scrollIntervalId = setInterval(() => {
           window.skipClearInterval = true;
           el.scrollIntoView()
@@ -800,6 +803,7 @@ up_arr << <<~UP_ARROW
       if (window.current_index > 0 && window.watcherLoaded) {
         if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
         const el = document.getElementById(window.list[window.current_index - 1])
+        window.skipClearInterval = true;
         window.scrollIntervalId = setInterval(() => {
           window.skipClearInterval = true;
           el.scrollIntoView()
