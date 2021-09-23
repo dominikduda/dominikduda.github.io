@@ -20,8 +20,9 @@
     
   window.watcherOnImageLoad = function() {
     const el = document.getElementById(getCookie('scrollPosition'))
-    const lastScrollSynthetic = window.skipClearInterval
-    if (lastScrollSynthetic) {
+    window.skipClearInterval = true;
+    window.lastScrollByProgram = true;
+    if (window.lastScrollByProgram) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -64,7 +65,13 @@
     
     
                 const highlightListItem = () => {
-                  if (window.scrollIntervalId && !window.skipClearInterval) { clearInterval(window.scrollIntervalId) }
+                  if (window.scrollIntervalId && !window.skipClearInterval && !window.lastScrollByProgram) {
+                    clearInterval(window.scrollIntervalId)
+                  }
+                  if (window.scrollIntervalId && !window.skipClearInterval) {
+                    window.lastScrollByProgram = false;
+                  }
+
                   const lastScrollSynthetic = window.skipClearInterval
                   window.skipClearInterval = false;
                   if (!window.watcherDividers || !window.watcherMenuElements) { return }
@@ -103,6 +110,7 @@
                   setTimeout(() => {
                     document.body.classList.remove('no-scroll')
                     window.skipClearInterval = true;
+                    window.lastScrollByProgram = true;
                     const el = document.getElementById(getCookie('scrollPosition'))
                     if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
                     window.scrollIntervalId = setInterval(() => {
@@ -1221,6 +1229,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', '-Indices-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1242,6 +1251,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', '^SPX');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1263,6 +1273,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', '^DJT');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1284,6 +1295,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', '^DAX');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1305,6 +1317,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'WIG');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1326,6 +1339,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'WIG20');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1347,6 +1361,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', '-ETFs-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1368,6 +1383,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'ACES.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1389,6 +1405,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'AIQ.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1410,6 +1427,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'ARKG.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1431,6 +1449,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'BATT.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1452,6 +1471,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'BUG.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1473,6 +1493,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'DRIV.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1494,6 +1515,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'IYE.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1515,6 +1537,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'LIT.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1536,6 +1559,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'PBD.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1557,6 +1581,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'SMH.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1578,6 +1603,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'TLT.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1599,6 +1625,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'XME.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1620,6 +1647,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', '-Stocks-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1641,6 +1669,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'AAPL.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1662,6 +1691,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'ADBE.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1683,6 +1713,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'AMZN.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1704,6 +1735,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'BAC.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1725,6 +1757,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'BYND.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1746,6 +1779,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'CCJ.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1767,6 +1801,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'CDNA.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1788,6 +1823,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'CDR');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1809,6 +1845,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'CRSP.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1830,6 +1867,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'DIS.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1851,6 +1889,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'EDIT.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1872,6 +1911,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'EXAS.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1893,6 +1933,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'FDX.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1914,6 +1955,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'HUGE');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1935,6 +1977,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'INTC.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1956,6 +1999,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'KO.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1977,6 +2021,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'LTHM.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -1998,6 +2043,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'MCD.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2019,6 +2065,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'MSFT.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2040,6 +2087,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'NTLA.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2061,6 +2109,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'NVDA.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2082,6 +2131,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'OSCR.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2103,6 +2153,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'PACB.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2124,6 +2175,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'PBE.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2145,6 +2197,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'PEP.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2166,6 +2219,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'PLUG.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2187,6 +2241,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'PYPL.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2208,6 +2263,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'REGN.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2229,6 +2285,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'SBUX.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2250,6 +2307,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'SELB.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2271,6 +2329,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'TDOC.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2292,6 +2351,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'TSLA.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2313,6 +2373,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'TWST.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2334,6 +2395,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'V.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2355,6 +2417,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'VRTX.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2376,6 +2439,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'WFC.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2397,6 +2461,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', '-Metals-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2418,6 +2483,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'XAGUSD');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2439,6 +2505,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'XAUUSD');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2460,6 +2527,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'XPDUSD');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2481,6 +2549,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'XPTUSD');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2502,6 +2571,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', '-Cryptos-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2523,6 +2593,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'AMPL.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2544,6 +2615,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'BNB.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2565,6 +2637,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'BTCUSD');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2586,6 +2659,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'DOGE.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2607,6 +2681,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'ETH.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2628,6 +2703,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'SC.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2649,6 +2725,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'XLM.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2670,6 +2747,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'XMR.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2691,6 +2769,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'ZEC.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2712,6 +2791,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', '-FX_majors-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2733,6 +2813,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'audusd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2754,6 +2835,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'eurusd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2775,6 +2857,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'gbpusd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2796,6 +2879,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'usdcad');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2817,6 +2901,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'usdchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2838,6 +2923,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'usdjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2859,6 +2945,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', '-FX_minors-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2880,6 +2967,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'audcad');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2901,6 +2989,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'audchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2922,6 +3011,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'audjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2943,6 +3033,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'audnzd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2964,6 +3055,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'cadchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -2985,6 +3077,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'cadjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3006,6 +3099,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'chfjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3027,6 +3121,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'euraud');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3048,6 +3143,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'eurchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3069,6 +3165,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'eurgbp');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3090,6 +3187,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'eurjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3111,6 +3209,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'eurnzd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3132,6 +3231,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'gbpaud');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3153,6 +3253,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'gbpchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3174,6 +3275,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'gbpjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3195,6 +3297,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'gbpnzd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3216,6 +3319,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'nzdcad');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3237,6 +3341,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'nzdchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3258,6 +3363,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'nzdjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3279,6 +3385,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'nzdusd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3300,6 +3407,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', '-FX_exotics-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3321,6 +3429,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'audsgd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3342,6 +3451,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'chfsgd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3363,6 +3473,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'eursgd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3384,6 +3495,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'gbpsgd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3405,6 +3517,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'nokjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3426,6 +3539,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'sekjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3447,6 +3561,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'sgdjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3468,6 +3583,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'usdhkd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3489,6 +3605,7 @@
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', 'usdsgd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3508,6 +3625,7 @@
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       const el = document.getElementById(window.list[window.current_index + 1])
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', el.id)
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -3525,6 +3643,7 @@
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       const el = document.getElementById(window.list[window.current_index - 1])
       window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
       window.watcherSetCookie('scrollPosition', el.id)
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;

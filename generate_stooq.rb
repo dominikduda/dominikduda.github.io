@@ -137,8 +137,9 @@ output << <<~PAGE_TOP
   #{'  '}
   window.watcherOnImageLoad = function() {
     const el = document.getElementById(getCookie('scrollPosition'))
-    const lastScrollSynthetic = window.skipClearInterval
-    if (lastScrollSynthetic) {
+    window.skipClearInterval = true;
+    window.lastScrollByProgram = true;
+    if (window.lastScrollByProgram) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
@@ -181,7 +182,13 @@ output << <<~PAGE_TOP
   #{'  '}
   #{'  '}
                 const highlightListItem = () => {
-                  if (window.scrollIntervalId && !window.skipClearInterval) { clearInterval(window.scrollIntervalId) }
+                  if (window.scrollIntervalId && !window.skipClearInterval && !window.lastScrollByProgram) {
+                    clearInterval(window.scrollIntervalId)
+                  }
+                  if (window.scrollIntervalId && !window.skipClearInterval) {
+                    window.lastScrollByProgram = false;
+                  }
+
                   const lastScrollSynthetic = window.skipClearInterval
                   window.skipClearInterval = false;
                   if (!window.watcherDividers || !window.watcherMenuElements) { return }
@@ -220,6 +227,7 @@ output << <<~PAGE_TOP
                   setTimeout(() => {
                     document.body.classList.remove('no-scroll')
                     window.skipClearInterval = true;
+                    window.lastScrollByProgram = true;
                     const el = document.getElementById(getCookie('scrollPosition'))
                     if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
                     window.scrollIntervalId = setInterval(() => {
@@ -771,6 +779,7 @@ CHARTS.each do |market_id|
         if (window.watcherLoaded) {
           if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
           window.skipClearInterval = true;
+          window.lastScrollByProgram = true;
           window.watcherSetCookie('scrollPosition', '#{market_id}');
           window.scrollIntervalId = setInterval(() => {
             window.skipClearInterval = true;
@@ -797,6 +806,7 @@ down_arr << <<~DOWN_ARROW
         if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
         const el = document.getElementById(window.list[window.current_index + 1])
         window.skipClearInterval = true;
+        window.lastScrollByProgram = true;
         window.watcherSetCookie('scrollPosition', el.id)
         window.scrollIntervalId = setInterval(() => {
           window.skipClearInterval = true;
@@ -824,6 +834,7 @@ up_arr << <<~UP_ARROW
         if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
         const el = document.getElementById(window.list[window.current_index - 1])
         window.skipClearInterval = true;
+        window.lastScrollByProgram = true;
         window.watcherSetCookie('scrollPosition', el.id)
         window.scrollIntervalId = setInterval(() => {
           window.skipClearInterval = true;
