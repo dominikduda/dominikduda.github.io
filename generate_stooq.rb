@@ -117,6 +117,8 @@ output = ''
 output << <<~PAGE_TOP
               <html>
                 <head>
+
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
                 <script>
                 window.watcherRefreshMenu = function() {
                   if (window.watcherGetCookie('marked_charts') == null) {
