@@ -706,6 +706,9 @@ output << <<~PAGE_TOP
                 flex-wrap: wrap;
                 width: 100%;
               }
+              .bottom-margin {
+                min-height: 3500px;
+              }
                   </style>
                   <script>
                     (() => {
@@ -898,6 +901,8 @@ menu_html << fav_btn
 menu_html << '</div>'
 
 output << menu_html
+
+output << '<div class="bottom-margin"></div>'
 
 output << <<~PAGE_BOTTOM
       </div>
