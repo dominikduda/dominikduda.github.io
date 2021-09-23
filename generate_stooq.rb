@@ -117,8 +117,7 @@ output = ''
 output << <<~PAGE_TOP
               <html>
                 <head>
-
-    <link rel="shortcut icon" type="image/png" href="favicon.png">
+                <link rel="shortcut icon" type="image/png" href="favicon.png">
                 <script>
                 window.watcherRefreshMenu = function() {
                   if (window.watcherGetCookie('marked_charts') == null) {
@@ -136,6 +135,16 @@ output << <<~PAGE_TOP
   #{'  '}
   #{'  '}
   #{'  '}
+  window.watcherOnImageLoad = () => {
+    const el = document.getElementById(getCookie('scrollPosition'))
+    if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+    window.skipClearInterval = true;
+    window.scrollIntervalId = setInterval(() => {
+      window.skipClearInterval = true;
+      el.scrollIntoView()
+    }, 50)
+  }
+
                 window.watcherOnImageError = (img) => {
                   img.src = "https://raw.githubusercontent.com/dominikduda/dominikduda.github.io/master/grandma.png";
                 }
@@ -716,7 +725,7 @@ def chart(market_id, timeframe)
     return ''
   end
   <<~CHART
-    <img loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g"/>
+    <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g"/>
   CHART
 end
 
