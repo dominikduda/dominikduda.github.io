@@ -140,7 +140,7 @@ output << <<~PAGE_TOP
     if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
     window.skipClearInterval = true;
     window.scrollIntervalId = setInterval(() => {
-    console.log('siema')
+      console.log('siema')
       window.skipClearInterval = true;
       el.scrollIntoView()
     }, 50)
@@ -217,6 +217,7 @@ output << <<~PAGE_TOP
                     document.body.classList.remove('no-scroll')
                     window.skipClearInterval = true;
                     const el = document.getElementById(getCookie('scrollPosition'))
+                    if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
                     window.scrollIntervalId = setInterval(() => {
                       window.skipClearInterval = true;
                       el.scrollIntoView()
