@@ -707,6 +707,7 @@ output << <<~PAGE_TOP
                 width: 100%;
               }
               .bottom-margin {
+                background-color: #00385f;
                 min-height: 3500px;
               }
                   </style>
