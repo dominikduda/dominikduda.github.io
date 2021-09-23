@@ -135,11 +135,12 @@ output << <<~PAGE_TOP
   #{'  '}
   #{'  '}
   #{'  '}
-  window.watcherOnImageLoad = () => {
+  window.watcherOnImageLoad = function() {
     const el = document.getElementById(getCookie('scrollPosition'))
     if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
     window.skipClearInterval = true;
     window.scrollIntervalId = setInterval(() => {
+    console.log('siema')
       window.skipClearInterval = true;
       el.scrollIntoView()
     }, 50)
