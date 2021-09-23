@@ -590,7 +590,7 @@ output << <<~PAGE_TOP
                 overflow: hidden;
               }
               .hidden {
-                visibility: hidden;
+                display: none;
               }
               body {
                 margin: 0px;
@@ -606,15 +606,6 @@ output << <<~PAGE_TOP
               }
               .overlay:hover {
                 opacity: 1;
-              }
-              .overlay{animation: 2s ease-out 0s 1 FadeIn;}
-              @keyframes FadeIn {
-                0% {
-                  opacity:1;
-                }
-                100% {
-                  opacity:0;
-                }
               }
               .overlay:hover{animation: 0s ease-out 0s 1 FadeIn;}
               @keyframes FadeIn {
