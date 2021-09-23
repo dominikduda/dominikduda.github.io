@@ -119,7 +119,6 @@ output << <<~PAGE_TOP
                 <head>
                 <link rel="shortcut icon" type="image/png" href="favicon.png">
                 <script>
-                window.lastScrollSynthetic = false
                 window.watcherRefreshMenu = function() {
                   if (window.watcherGetCookie('marked_charts') == null) {
                     return
@@ -183,15 +182,18 @@ output << <<~PAGE_TOP
   #{'  '}
                 const highlightListItem = () => {
                   if (window.scrollIntervalId && !window.skipClearInterval) { clearInterval(window.scrollIntervalId) }
+                  const lastScrollSynthetic = window.skipClearInterval
                   window.skipClearInterval = false;
                   if (!window.watcherDividers || !window.watcherMenuElements) { return }
                   let current = "";
                   window.watcherDividers.forEach((section) => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= sectionTop - window.innerHeight / 9) {
+                    if (pageYOffset >= sectionTop - window.innerHeight / 5) {
                       current = section.getAttribute("id");
-                      window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
+                      if (!lastScrollSynthetic) {
+                        window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
+                      }
                     }
                   });
                   window.watcherMenuElements.forEach((li) => {
@@ -729,7 +731,7 @@ def chart(market_id, timeframe)
     return ''
   end
   <<~CHART
-    <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g"/>
+    <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g&svg"/>
   CHART
 end
 
@@ -769,6 +771,7 @@ CHARTS.each do |market_id|
         if (window.watcherLoaded) {
           if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
           window.skipClearInterval = true;
+          window.watcherSetCookie('scrollPosition', '#{market_id}');
           window.scrollIntervalId = setInterval(() => {
             window.skipClearInterval = true;
             document.getElementById('#{market_id}').scrollIntoView()
@@ -793,6 +796,7 @@ down_arr << <<~DOWN_ARROW
         if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
         const el = document.getElementById(window.list[window.current_index + 1])
         window.skipClearInterval = true;
+        window.watcherSetCookie('scrollPosition', el.id)
         window.scrollIntervalId = setInterval(() => {
           window.skipClearInterval = true;
           el.scrollIntoView()
@@ -819,6 +823,7 @@ up_arr << <<~UP_ARROW
         if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
         const el = document.getElementById(window.list[window.current_index - 1])
         window.skipClearInterval = true;
+        window.watcherSetCookie('scrollPosition', el.id)
         window.scrollIntervalId = setInterval(() => {
           window.skipClearInterval = true;
           el.scrollIntoView()
