@@ -531,6 +531,9 @@ output << <<~PAGE_TOP
           #{'  '}
             canvas {pointer-events:none;}
               .arrow {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 min-width: 92px;
                 min-height: 92px;
                 font-size: 40;
@@ -543,6 +546,9 @@ output << <<~PAGE_TOP
               }
   #{'  '}
               .color-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 min-width: 92px;
                 min-height: 92px;
                 border: solid 1px #131313;
@@ -575,6 +581,9 @@ output << <<~PAGE_TOP
                 max-width: 200px;
               }
               .menu-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 min-width: 92px;
                 min-height: 92px;
                 border: solid 1px #131313;
@@ -612,6 +621,9 @@ output << <<~PAGE_TOP
                 max-width: 200px;
               }
               .fav-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 min-width: 92px;
                 min-height: 92px;
                 border: solid 1px #131313;
