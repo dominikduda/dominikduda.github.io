@@ -779,7 +779,13 @@ CHARTS.each do |market_id|
           if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
           window.skipClearInterval = true;
           window.lastScrollByProgram = true;
-          window.watcherSetCookie('scrollPosition', '#{market_id}');
+          #{
+            if (market_id.include?('-'))
+              "window.watcherSetCookie('scrollPosition', '#{CHARTS[CHARTS.index(market_id) + 1]}');"
+            else
+              "window.watcherSetCookie('scrollPosition', '#{market_id}');"
+            end
+          }
           window.scrollIntervalId = setInterval(() => {
             window.skipClearInterval = true;
             document.getElementById('#{market_id}').scrollIntoView()
