@@ -182,7 +182,6 @@ setTimeout(() => {
   }, false);
 
   const overlayEl = document.getElementsByClassName('overlay')[0]
-  console.log(overlayEl)
   overlayEl.addEventListener('mouseleave', function(evt) {
     document.getElementsByClassName('overlay')[0].classList.remove('maximized')
     document.getElementsByClassName('overlay')[0].classList.add('minimized')
@@ -191,12 +190,13 @@ setTimeout(() => {
     }, 310)
   }, false);
 
-  setTimeout(() => {
-    document.getElementsByClassName('overlay')[0].classList.remove('initial-overlay')
-  }, 310)
 
 
 }, 200)
+
+setTimeout(() => {
+  document.getElementsByClassName('overlay')[0].classList.remove('initial-overlay')
+}, 300)
 
 
 history.scrollRestoration = "manual"
