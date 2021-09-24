@@ -310,11 +310,9 @@ output << <<~PAGE_TOP
                   }, false);
           #{'  '}
                     parentDiv.addEventListener('mouseup', function(evt) {
-                        document.getElementsByClassName('overlay')[0].classList.remove('hidden')
                         drawing = false; // you can't draw anymore
                   }, false);
                     parentDiv.addEventListener('mouseleave', function(evt) {
-                        document.getElementsByClassName('overlay')[0].classList.remove('hidden')
                         drawing = false; // you can't draw anymore
           #{'  '}
                   }, false);
@@ -484,7 +482,8 @@ output << <<~PAGE_TOP
   #{'  '}
   #{'  '}
         .timer {
-          z-index: 1;
+          cursor: pointer;
+          z-index: 3;
           margin-left: 15px;
           margin-top: 50px;
           position: fixed;
@@ -498,6 +497,13 @@ output << <<~PAGE_TOP
           background-image: url('https://raw.githubusercontent.com/dominikduda/config_files/master/dd_logo_blue_bg.png');
           background-size: auto 100%;
           background-position: center;
+
+  border-radius: 50px;/* specify the radius */
+        }
+        .timer:hover {
+      -moz-box-shadow: 0 0 10px 5px #ccc;
+      -webkit-box-shadow: 0 0 10px 5px #ccc;
+      box-shadow: 0 0 10px 5px #ccc;
         }
       #{'  '}
         @keyframes spin {
@@ -549,10 +555,49 @@ output << <<~PAGE_TOP
               .color-btn:hover {
                 color: #005ef7;
               }
+
+
+
+              .menu-button-container {
+                height: 20px;
+                margin-left: 0px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                max-width: 600px;
+                max-width: 90px;
+                max-height: 90px;
+              }
+              .menu-button-content {
+                font-size: 5;
+                position: relative;
+                text-align: center;
+                max-width: 200px;
+              }
+              .menu-btn {
+                min-width: 92px;
+                min-height: 92px;
+                border: solid 1px #131313;
+                font-size: 15;
+                cursor: pointer;
+                background-color: fdf86c;
+                max-width: 40px;
+                overflow-wrap: anywhere;
+              }
+              .menu-btn:hover {
+                color: #005ef7;
+              }
+
+
+
+
+
+
+
   #{'  '}
               .fav-button-container {
                 height: 20px;
-                margin-left: 94px;
+                margin-left: 188px;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -608,7 +653,7 @@ output << <<~PAGE_TOP
                 height: 80%;
                 width: auto;
                 position: fixed;
-                z-index: 3;
+                z-index: 4;
                 top: 0;
                 left: 0;
                 opacity: 0;
@@ -628,7 +673,7 @@ output << <<~PAGE_TOP
   #{'  '}
               .color-button-container {
                 height: 20px;
-                margin-left: 0px;
+                margin-left: 94px;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -648,7 +693,7 @@ output << <<~PAGE_TOP
               .down-arrow-container {
                 min-width: 90px;
                 min-height: 90px;
-                margin-left: 282px;
+                margin-left: 376px;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -663,7 +708,7 @@ output << <<~PAGE_TOP
               .up-arrow-container {
                 height: 20px;
                 height: 20px;
-                margin-left: 188px;
+                margin-left: 282px;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -682,7 +727,7 @@ output << <<~PAGE_TOP
                 position: relative;
                 text-align: center;
                 top: 94px;
-                z-index: 5;
+                z-index: 6;
                 height: 100%;
               }
               .chart-link {
@@ -747,7 +792,12 @@ menu_html << '<div class="overlay">'
 
 menu_html << '<div class="overlay-content">'
 output << <<~SPINNER
-  <div class="timer">
+  <div class="timer"
+    onClick="(function() {
+      if (window.watcherLoaded) {
+        document.getElementsByClassName('overlay')[0].classList.remove('hidden')
+      }
+    })()">
   </div>
 SPINNER
 output << "<div id='parentDiv'>"
@@ -910,6 +960,24 @@ FAV_BTN
 fav_btn << '</div>'
 fav_btn << '</div>'
 menu_html << fav_btn
+
+menu_btn = ''
+menu_btn << '<div class="menu-button-container">'
+menu_btn << '<div class="menu-button-content noselect">'
+menu_btn << <<~MENU_BTN
+  <div
+    onClick="(function() {
+      if (window.watcherLoaded) {
+        document.getElementsByClassName('overlay')[0].classList.add('hidden')
+      }
+    })()"
+  >
+    <div class="menu-btn">Hide menu (revert on duck)</div>
+  </div>
+MENU_BTN
+menu_btn << '</div>'
+menu_btn << '</div>'
+menu_html << menu_btn
 
 menu_html << '</div>'
 

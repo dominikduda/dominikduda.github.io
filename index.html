@@ -193,11 +193,9 @@
                   }, false);
             
                     parentDiv.addEventListener('mouseup', function(evt) {
-                        document.getElementsByClassName('overlay')[0].classList.remove('hidden')
                         drawing = false; // you can't draw anymore
                   }, false);
                     parentDiv.addEventListener('mouseleave', function(evt) {
-                        document.getElementsByClassName('overlay')[0].classList.remove('hidden')
                         drawing = false; // you can't draw anymore
             
                   }, false);
@@ -367,7 +365,8 @@
     
     
         .timer {
-          z-index: 1;
+          cursor: pointer;
+          z-index: 3;
           margin-left: 15px;
           margin-top: 50px;
           position: fixed;
@@ -381,6 +380,13 @@
           background-image: url('https://raw.githubusercontent.com/dominikduda/config_files/master/dd_logo_blue_bg.png');
           background-size: auto 100%;
           background-position: center;
+
+  border-radius: 50px;/* specify the radius */
+        }
+        .timer:hover {
+      -moz-box-shadow: 0 0 10px 5px #ccc;
+      -webkit-box-shadow: 0 0 10px 5px #ccc;
+      box-shadow: 0 0 10px 5px #ccc;
         }
         
         @keyframes spin {
@@ -432,10 +438,49 @@
               .color-btn:hover {
                 color: #005ef7;
               }
+
+
+
+              .menu-button-container {
+                height: 20px;
+                margin-left: 0px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                max-width: 600px;
+                max-width: 90px;
+                max-height: 90px;
+              }
+              .menu-button-content {
+                font-size: 5;
+                position: relative;
+                text-align: center;
+                max-width: 200px;
+              }
+              .menu-btn {
+                min-width: 92px;
+                min-height: 92px;
+                border: solid 1px #131313;
+                font-size: 15;
+                cursor: pointer;
+                background-color: fdf86c;
+                max-width: 40px;
+                overflow-wrap: anywhere;
+              }
+              .menu-btn:hover {
+                color: #005ef7;
+              }
+
+
+
+
+
+
+
     
               .fav-button-container {
                 height: 20px;
-                margin-left: 94px;
+                margin-left: 188px;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -491,7 +536,7 @@
                 height: 80%;
                 width: auto;
                 position: fixed;
-                z-index: 3;
+                z-index: 4;
                 top: 0;
                 left: 0;
                 opacity: 0;
@@ -511,7 +556,7 @@
     
               .color-button-container {
                 height: 20px;
-                margin-left: 0px;
+                margin-left: 94px;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -531,7 +576,7 @@
               .down-arrow-container {
                 min-width: 90px;
                 min-height: 90px;
-                margin-left: 282px;
+                margin-left: 376px;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -546,7 +591,7 @@
               .up-arrow-container {
                 height: 20px;
                 height: 20px;
-                margin-left: 188px;
+                margin-left: 282px;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -565,7 +610,7 @@
                 position: relative;
                 text-align: center;
                 top: 94px;
-                z-index: 5;
+                z-index: 6;
                 height: 100%;
               }
               .chart-link {
@@ -612,7 +657,12 @@
                 <div class='loaderWrapper'>
                   <div class='loader'>Loading...</div>
                   </div>
-<div class="timer">
+<div class="timer"
+  onClick="(function() {
+    if (window.watcherLoaded) {
+      document.getElementsByClassName('overlay')[0].classList.remove('hidden')
+    }
+  })()">
 </div>
 <div id='parentDiv'><canvas id='canvas'></canvas></div><div class="grid-container"><div class='grid-item section-divider' id=-Indices->-Indices-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=^SPX>^SPX</div><div class='chart-wrapper'><img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^SPX&c=5d&t=c&a=lg&b&g&svg"/>
 <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^SPX&c=5m&t=c&a=lg&b&g&svg"/>
@@ -3582,6 +3632,15 @@
   })()"
 >
   <div class="fav-btn">Mark last selected chart</div>
+</div>
+</div></div><div class="menu-button-container"><div class="menu-button-content noselect"><div
+  onClick="(function() {
+    if (window.watcherLoaded) {
+      document.getElementsByClassName('overlay')[0].classList.add('hidden')
+    }
+  })()"
+>
+  <div class="menu-btn">Hide menu (revert on duck)</div>
 </div>
 </div></div></div><div class="bottom-margin"></div>    </div>
   </body>
