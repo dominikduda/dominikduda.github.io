@@ -191,13 +191,13 @@ output << <<~PAGE_TOP
                   const lastScrollSynthetic = window.skipClearInterval
                   window.skipClearInterval = false;
                   if (!window.watcherDividers || !window.watcherMenuElements) { return }
-                  let current = "";
+                  let current = window.watcherGetCookie('scrollPosition');
                   window.watcherDividers.forEach((section) => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
                     if (pageYOffset >= sectionTop - window.innerHeight / 5) {
-                      current = section.getAttribute("id");
                       if (!window.lastScrollByProgram) {
+                        current = section.getAttribute("id");
                         window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
                       }
                     }
