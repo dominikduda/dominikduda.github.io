@@ -68,7 +68,7 @@
                   if (window.scrollIntervalId && !window.skipClearInterval && !window.lastScrollByProgram) {
                     clearInterval(window.scrollIntervalId)
                   }
-                  if (window.scrollIntervalId && !window.skipClearInterval) {
+                  if (!window.skipClearInterval) {
                     window.lastScrollByProgram = false;
                   }
 
@@ -81,9 +81,7 @@
                     const sectionHeight = section.clientHeight;
                     if (pageYOffset >= sectionTop - window.innerHeight / 5) {
                       current = section.getAttribute("id");
-                      if (!lastScrollSynthetic) {
-                        window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
-                      }
+                      window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
                     }
                   });
                   window.watcherMenuElements.forEach((li) => {
@@ -597,7 +595,7 @@
                   </style>
                   <script>
                     (() => {
-                      window.list = ["^SPX", "^DJT", "^DAX", "WIG", "WIG20", "ACES.US", "AIQ.US", "ARKG.US", "BATT.US", "BUG.US", "DRIV.US", "IYE.US", "LIT.US", "PBD.US", "SMH.US", "TLT.US", "XME.US", "AAPL.US", "ADBE.US", "AMZN.US", "BAC.US", "BYND.US", "CCJ.US", "CDNA.US", "CDR", "CRSP.US", "DIS.US", "EDIT.US", "EXAS.US", "FDX.US", "HUGE", "INTC.US", "KO.US", "LTHM.US", "MCD.US", "MSFT.US", "NTLA.US", "NVDA.US", "OSCR.US", "PACB.US", "PBE.US", "PEP.US", "PLUG.US", "PYPL.US", "REGN.US", "SBUX.US", "SELB.US", "TDOC.US", "TSLA.US", "TWST.US", "V.US", "VRTX.US", "WFC.US", "XAGUSD", "XAUUSD", "XPDUSD", "XPTUSD", "AMPL.V", "BNB.V", "BTCUSD", "DOGE.V", "ETH.V", "SC.V", "XLM.V", "XMR.V", "ZEC.V", "audusd", "eurusd", "gbpusd", "usdcad", "usdchf", "usdjpy", "audcad", "audchf", "audjpy", "audnzd", "cadchf", "cadjpy", "chfjpy", "euraud", "eurchf", "eurgbp", "eurjpy", "eurnzd", "gbpaud", "gbpchf", "gbpjpy", "gbpnzd", "nzdcad", "nzdchf", "nzdjpy", "nzdusd", "audsgd", "chfsgd", "eursgd", "gbpsgd", "nokjpy", "sekjpy", "sgdjpy", "usdhkd", "usdsgd"];
+                      window.list = ["^SPX", "^DJT", "^DAX", "WIG", "WIG20", "ACES.US", "AIQ.US", "ARKG.US", "BATT.US", "BUG.US", "DRIV.US", "IYE.US", "LIT.US", "PBD.US", "SMH.US", "TLT.US", "XME.US", "AAPL.US", "ADBE.US", "BAC.US", "AMZN.US", "BYND.US", "CCJ.US", "CDNA.US", "CDR", "CRSP.US", "DIS.US", "EDIT.US", "EXAS.US", "FDX.US", "HUGE", "INTC.US", "KO.US", "LTHM.US", "MCD.US", "MSFT.US", "NTLA.US", "NVDA.US", "OSCR.US", "PACB.US", "PBE.US", "PEP.US", "PLUG.US", "PYPL.US", "REGN.US", "SBUX.US", "SELB.US", "TDOC.US", "TSLA.US", "TWST.US", "V.US", "VRTX.US", "WFC.US", "XAGUSD", "XAUUSD", "XPDUSD", "XPTUSD", "AMPL.V", "BNB.V", "BTCUSD", "DOGE.V", "ETH.V", "SC.V", "XLM.V", "XMR.V", "ZEC.V", "audusd", "eurusd", "gbpusd", "usdcad", "usdchf", "usdjpy", "audcad", "audchf", "audjpy", "audnzd", "cadchf", "cadjpy", "chfjpy", "euraud", "eurchf", "eurgbp", "eurjpy", "eurnzd", "gbpaud", "gbpchf", "gbpjpy", "gbpnzd", "nzdcad", "nzdchf", "nzdjpy", "nzdusd", "audsgd", "chfsgd", "eursgd", "gbpsgd", "nokjpy", "sekjpy", "sgdjpy", "usdhkd", "usdsgd"];
                       window.current_index = 0;
                     })()
                   </script>
@@ -729,18 +727,18 @@
 <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=10y&t=c&a=lg&b&g&svg"/>
 <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=30y&t=c&a=lg&b&g&svg"/>
 <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=100y&t=c&a=lg&b&g&svg"/>
-</div><div class='grid-item divider' id=AMZN.US>AMZN.US</div><div class='chart-wrapper'><img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=5d&t=c&a=lg&b&g&svg"/>
-<img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=5m&t=c&a=lg&b&g&svg"/>
-<img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=2y&t=c&a=lg&b&g&svg"/>
-<img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=10y&t=c&a=lg&b&g&svg"/>
-<img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=30y&t=c&a=lg&b&g&svg"/>
-<img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=100y&t=c&a=lg&b&g&svg"/>
 </div><div class='grid-item divider' id=BAC.US>BAC.US</div><div class='chart-wrapper'><img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=5d&t=c&a=lg&b&g&svg"/>
 <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=5m&t=c&a=lg&b&g&svg"/>
 <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=2y&t=c&a=lg&b&g&svg"/>
 <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=10y&t=c&a=lg&b&g&svg"/>
 <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=30y&t=c&a=lg&b&g&svg"/>
 <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=100y&t=c&a=lg&b&g&svg"/>
+</div><div class='grid-item divider' id=AMZN.US>AMZN.US</div><div class='chart-wrapper'><img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=5d&t=c&a=lg&b&g&svg"/>
+<img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=5m&t=c&a=lg&b&g&svg"/>
+<img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=2y&t=c&a=lg&b&g&svg"/>
+<img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=10y&t=c&a=lg&b&g&svg"/>
+<img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=30y&t=c&a=lg&b&g&svg"/>
+<img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=100y&t=c&a=lg&b&g&svg"/>
 </div><div class='grid-item divider' id=BYND.US>BYND.US</div><div class='chart-wrapper'><img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=5d&t=c&a=lg&b&g&svg"/>
 <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=5m&t=c&a=lg&b&g&svg"/>
 <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=2y&t=c&a=lg&b&g&svg"/>
@@ -1233,7 +1231,6 @@
       window.watcherSetCookie('scrollPosition', '-Indices-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('-Indices-').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('-Indices-')
@@ -1255,7 +1252,6 @@
       window.watcherSetCookie('scrollPosition', '^SPX');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('^SPX').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('^SPX')
@@ -1277,7 +1273,6 @@
       window.watcherSetCookie('scrollPosition', '^DJT');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('^DJT').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('^DJT')
@@ -1299,7 +1294,6 @@
       window.watcherSetCookie('scrollPosition', '^DAX');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('^DAX').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('^DAX')
@@ -1321,7 +1315,6 @@
       window.watcherSetCookie('scrollPosition', 'WIG');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('WIG').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('WIG')
@@ -1343,7 +1336,6 @@
       window.watcherSetCookie('scrollPosition', 'WIG20');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('WIG20').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('WIG20')
@@ -1365,7 +1357,6 @@
       window.watcherSetCookie('scrollPosition', '-ETFs-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('-ETFs-').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('-ETFs-')
@@ -1387,7 +1378,6 @@
       window.watcherSetCookie('scrollPosition', 'ACES.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('ACES.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('ACES.US')
@@ -1409,7 +1399,6 @@
       window.watcherSetCookie('scrollPosition', 'AIQ.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('AIQ.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('AIQ.US')
@@ -1431,7 +1420,6 @@
       window.watcherSetCookie('scrollPosition', 'ARKG.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('ARKG.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('ARKG.US')
@@ -1453,7 +1441,6 @@
       window.watcherSetCookie('scrollPosition', 'BATT.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('BATT.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('BATT.US')
@@ -1475,7 +1462,6 @@
       window.watcherSetCookie('scrollPosition', 'BUG.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('BUG.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('BUG.US')
@@ -1497,7 +1483,6 @@
       window.watcherSetCookie('scrollPosition', 'DRIV.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('DRIV.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('DRIV.US')
@@ -1519,7 +1504,6 @@
       window.watcherSetCookie('scrollPosition', 'IYE.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('IYE.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('IYE.US')
@@ -1541,7 +1525,6 @@
       window.watcherSetCookie('scrollPosition', 'LIT.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('LIT.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('LIT.US')
@@ -1563,7 +1546,6 @@
       window.watcherSetCookie('scrollPosition', 'PBD.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('PBD.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('PBD.US')
@@ -1585,7 +1567,6 @@
       window.watcherSetCookie('scrollPosition', 'SMH.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('SMH.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('SMH.US')
@@ -1607,7 +1588,6 @@
       window.watcherSetCookie('scrollPosition', 'TLT.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('TLT.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('TLT.US')
@@ -1629,7 +1609,6 @@
       window.watcherSetCookie('scrollPosition', 'XME.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('XME.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('XME.US')
@@ -1651,7 +1630,6 @@
       window.watcherSetCookie('scrollPosition', '-Stocks-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('-Stocks-').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('-Stocks-')
@@ -1673,7 +1651,6 @@
       window.watcherSetCookie('scrollPosition', 'AAPL.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('AAPL.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('AAPL.US')
@@ -1695,7 +1672,6 @@
       window.watcherSetCookie('scrollPosition', 'ADBE.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('ADBE.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('ADBE.US')
@@ -1704,28 +1680,6 @@
   })()"
 >
   <span>ADBE.US</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
-  id="AMZN.US"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', 'AMZN.US');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        console.log('siema')
-        document.getElementById('AMZN.US').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('AMZN.US')
-      window.watcherLastSelectedChart = 'AMZN.US';
-    }
-  })()"
->
-  <span>AMZN.US</span>
 </div>
 <div
   class="chart-link noselect"
@@ -1739,7 +1693,6 @@
       window.watcherSetCookie('scrollPosition', 'BAC.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('BAC.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('BAC.US')
@@ -1748,6 +1701,27 @@
   })()"
 >
   <span>BAC.US</span>
+</div>
+<div
+  class="chart-link noselect"
+  tabindex="-1"
+  id="AMZN.US"
+  onClick="(function() {
+    if (window.watcherLoaded) {
+      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
+      window.watcherSetCookie('scrollPosition', 'AMZN.US');
+      window.scrollIntervalId = setInterval(() => {
+        window.skipClearInterval = true;
+        document.getElementById('AMZN.US').scrollIntoView()
+      }, 50)
+      window.current_index = window.list.indexOf('AMZN.US')
+      window.watcherLastSelectedChart = 'AMZN.US';
+    }
+  })()"
+>
+  <span>AMZN.US</span>
 </div>
 <div
   class="chart-link noselect"
@@ -1761,7 +1735,6 @@
       window.watcherSetCookie('scrollPosition', 'BYND.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('BYND.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('BYND.US')
@@ -1783,7 +1756,6 @@
       window.watcherSetCookie('scrollPosition', 'CCJ.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('CCJ.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('CCJ.US')
@@ -1805,7 +1777,6 @@
       window.watcherSetCookie('scrollPosition', 'CDNA.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('CDNA.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('CDNA.US')
@@ -1827,7 +1798,6 @@
       window.watcherSetCookie('scrollPosition', 'CDR');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('CDR').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('CDR')
@@ -1849,7 +1819,6 @@
       window.watcherSetCookie('scrollPosition', 'CRSP.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('CRSP.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('CRSP.US')
@@ -1871,7 +1840,6 @@
       window.watcherSetCookie('scrollPosition', 'DIS.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('DIS.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('DIS.US')
@@ -1893,7 +1861,6 @@
       window.watcherSetCookie('scrollPosition', 'EDIT.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('EDIT.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('EDIT.US')
@@ -1915,7 +1882,6 @@
       window.watcherSetCookie('scrollPosition', 'EXAS.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('EXAS.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('EXAS.US')
@@ -1937,7 +1903,6 @@
       window.watcherSetCookie('scrollPosition', 'FDX.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('FDX.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('FDX.US')
@@ -1959,7 +1924,6 @@
       window.watcherSetCookie('scrollPosition', 'HUGE');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('HUGE').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('HUGE')
@@ -1981,7 +1945,6 @@
       window.watcherSetCookie('scrollPosition', 'INTC.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('INTC.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('INTC.US')
@@ -2003,7 +1966,6 @@
       window.watcherSetCookie('scrollPosition', 'KO.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('KO.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('KO.US')
@@ -2025,7 +1987,6 @@
       window.watcherSetCookie('scrollPosition', 'LTHM.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('LTHM.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('LTHM.US')
@@ -2047,7 +2008,6 @@
       window.watcherSetCookie('scrollPosition', 'MCD.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('MCD.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('MCD.US')
@@ -2069,7 +2029,6 @@
       window.watcherSetCookie('scrollPosition', 'MSFT.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('MSFT.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('MSFT.US')
@@ -2091,7 +2050,6 @@
       window.watcherSetCookie('scrollPosition', 'NTLA.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('NTLA.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('NTLA.US')
@@ -2113,7 +2071,6 @@
       window.watcherSetCookie('scrollPosition', 'NVDA.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('NVDA.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('NVDA.US')
@@ -2135,7 +2092,6 @@
       window.watcherSetCookie('scrollPosition', 'OSCR.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('OSCR.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('OSCR.US')
@@ -2157,7 +2113,6 @@
       window.watcherSetCookie('scrollPosition', 'PACB.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('PACB.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('PACB.US')
@@ -2179,7 +2134,6 @@
       window.watcherSetCookie('scrollPosition', 'PBE.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('PBE.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('PBE.US')
@@ -2201,7 +2155,6 @@
       window.watcherSetCookie('scrollPosition', 'PEP.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('PEP.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('PEP.US')
@@ -2223,7 +2176,6 @@
       window.watcherSetCookie('scrollPosition', 'PLUG.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('PLUG.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('PLUG.US')
@@ -2245,7 +2197,6 @@
       window.watcherSetCookie('scrollPosition', 'PYPL.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('PYPL.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('PYPL.US')
@@ -2267,7 +2218,6 @@
       window.watcherSetCookie('scrollPosition', 'REGN.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('REGN.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('REGN.US')
@@ -2289,7 +2239,6 @@
       window.watcherSetCookie('scrollPosition', 'SBUX.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('SBUX.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('SBUX.US')
@@ -2311,7 +2260,6 @@
       window.watcherSetCookie('scrollPosition', 'SELB.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('SELB.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('SELB.US')
@@ -2333,7 +2281,6 @@
       window.watcherSetCookie('scrollPosition', 'TDOC.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('TDOC.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('TDOC.US')
@@ -2355,7 +2302,6 @@
       window.watcherSetCookie('scrollPosition', 'TSLA.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('TSLA.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('TSLA.US')
@@ -2377,7 +2323,6 @@
       window.watcherSetCookie('scrollPosition', 'TWST.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('TWST.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('TWST.US')
@@ -2399,7 +2344,6 @@
       window.watcherSetCookie('scrollPosition', 'V.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('V.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('V.US')
@@ -2421,7 +2365,6 @@
       window.watcherSetCookie('scrollPosition', 'VRTX.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('VRTX.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('VRTX.US')
@@ -2443,7 +2386,6 @@
       window.watcherSetCookie('scrollPosition', 'WFC.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('WFC.US').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('WFC.US')
@@ -2465,7 +2407,6 @@
       window.watcherSetCookie('scrollPosition', '-Metals-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('-Metals-').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('-Metals-')
@@ -2487,7 +2428,6 @@
       window.watcherSetCookie('scrollPosition', 'XAGUSD');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('XAGUSD').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('XAGUSD')
@@ -2509,7 +2449,6 @@
       window.watcherSetCookie('scrollPosition', 'XAUUSD');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('XAUUSD').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('XAUUSD')
@@ -2531,7 +2470,6 @@
       window.watcherSetCookie('scrollPosition', 'XPDUSD');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('XPDUSD').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('XPDUSD')
@@ -2553,7 +2491,6 @@
       window.watcherSetCookie('scrollPosition', 'XPTUSD');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('XPTUSD').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('XPTUSD')
@@ -2575,7 +2512,6 @@
       window.watcherSetCookie('scrollPosition', '-Cryptos-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('-Cryptos-').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('-Cryptos-')
@@ -2597,7 +2533,6 @@
       window.watcherSetCookie('scrollPosition', 'AMPL.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('AMPL.V').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('AMPL.V')
@@ -2619,7 +2554,6 @@
       window.watcherSetCookie('scrollPosition', 'BNB.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('BNB.V').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('BNB.V')
@@ -2641,7 +2575,6 @@
       window.watcherSetCookie('scrollPosition', 'BTCUSD');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('BTCUSD').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('BTCUSD')
@@ -2663,7 +2596,6 @@
       window.watcherSetCookie('scrollPosition', 'DOGE.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('DOGE.V').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('DOGE.V')
@@ -2685,7 +2617,6 @@
       window.watcherSetCookie('scrollPosition', 'ETH.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('ETH.V').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('ETH.V')
@@ -2707,7 +2638,6 @@
       window.watcherSetCookie('scrollPosition', 'SC.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('SC.V').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('SC.V')
@@ -2729,7 +2659,6 @@
       window.watcherSetCookie('scrollPosition', 'XLM.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('XLM.V').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('XLM.V')
@@ -2751,7 +2680,6 @@
       window.watcherSetCookie('scrollPosition', 'XMR.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('XMR.V').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('XMR.V')
@@ -2773,7 +2701,6 @@
       window.watcherSetCookie('scrollPosition', 'ZEC.V');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('ZEC.V').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('ZEC.V')
@@ -2795,7 +2722,6 @@
       window.watcherSetCookie('scrollPosition', '-FX_majors-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('-FX_majors-').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('-FX_majors-')
@@ -2817,7 +2743,6 @@
       window.watcherSetCookie('scrollPosition', 'audusd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('audusd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('audusd')
@@ -2839,7 +2764,6 @@
       window.watcherSetCookie('scrollPosition', 'eurusd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('eurusd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('eurusd')
@@ -2861,7 +2785,6 @@
       window.watcherSetCookie('scrollPosition', 'gbpusd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('gbpusd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('gbpusd')
@@ -2883,7 +2806,6 @@
       window.watcherSetCookie('scrollPosition', 'usdcad');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('usdcad').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('usdcad')
@@ -2905,7 +2827,6 @@
       window.watcherSetCookie('scrollPosition', 'usdchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('usdchf').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('usdchf')
@@ -2927,7 +2848,6 @@
       window.watcherSetCookie('scrollPosition', 'usdjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('usdjpy').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('usdjpy')
@@ -2949,7 +2869,6 @@
       window.watcherSetCookie('scrollPosition', '-FX_minors-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('-FX_minors-').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('-FX_minors-')
@@ -2971,7 +2890,6 @@
       window.watcherSetCookie('scrollPosition', 'audcad');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('audcad').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('audcad')
@@ -2993,7 +2911,6 @@
       window.watcherSetCookie('scrollPosition', 'audchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('audchf').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('audchf')
@@ -3015,7 +2932,6 @@
       window.watcherSetCookie('scrollPosition', 'audjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('audjpy').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('audjpy')
@@ -3037,7 +2953,6 @@
       window.watcherSetCookie('scrollPosition', 'audnzd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('audnzd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('audnzd')
@@ -3059,7 +2974,6 @@
       window.watcherSetCookie('scrollPosition', 'cadchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('cadchf').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('cadchf')
@@ -3081,7 +2995,6 @@
       window.watcherSetCookie('scrollPosition', 'cadjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('cadjpy').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('cadjpy')
@@ -3103,7 +3016,6 @@
       window.watcherSetCookie('scrollPosition', 'chfjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('chfjpy').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('chfjpy')
@@ -3125,7 +3037,6 @@
       window.watcherSetCookie('scrollPosition', 'euraud');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('euraud').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('euraud')
@@ -3147,7 +3058,6 @@
       window.watcherSetCookie('scrollPosition', 'eurchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('eurchf').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('eurchf')
@@ -3169,7 +3079,6 @@
       window.watcherSetCookie('scrollPosition', 'eurgbp');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('eurgbp').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('eurgbp')
@@ -3191,7 +3100,6 @@
       window.watcherSetCookie('scrollPosition', 'eurjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('eurjpy').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('eurjpy')
@@ -3213,7 +3121,6 @@
       window.watcherSetCookie('scrollPosition', 'eurnzd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('eurnzd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('eurnzd')
@@ -3235,7 +3142,6 @@
       window.watcherSetCookie('scrollPosition', 'gbpaud');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('gbpaud').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('gbpaud')
@@ -3257,7 +3163,6 @@
       window.watcherSetCookie('scrollPosition', 'gbpchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('gbpchf').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('gbpchf')
@@ -3279,7 +3184,6 @@
       window.watcherSetCookie('scrollPosition', 'gbpjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('gbpjpy').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('gbpjpy')
@@ -3301,7 +3205,6 @@
       window.watcherSetCookie('scrollPosition', 'gbpnzd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('gbpnzd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('gbpnzd')
@@ -3323,7 +3226,6 @@
       window.watcherSetCookie('scrollPosition', 'nzdcad');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('nzdcad').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('nzdcad')
@@ -3345,7 +3247,6 @@
       window.watcherSetCookie('scrollPosition', 'nzdchf');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('nzdchf').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('nzdchf')
@@ -3367,7 +3268,6 @@
       window.watcherSetCookie('scrollPosition', 'nzdjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('nzdjpy').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('nzdjpy')
@@ -3389,7 +3289,6 @@
       window.watcherSetCookie('scrollPosition', 'nzdusd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('nzdusd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('nzdusd')
@@ -3411,7 +3310,6 @@
       window.watcherSetCookie('scrollPosition', '-FX_exotics-');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('-FX_exotics-').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('-FX_exotics-')
@@ -3433,7 +3331,6 @@
       window.watcherSetCookie('scrollPosition', 'audsgd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('audsgd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('audsgd')
@@ -3455,7 +3352,6 @@
       window.watcherSetCookie('scrollPosition', 'chfsgd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('chfsgd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('chfsgd')
@@ -3477,7 +3373,6 @@
       window.watcherSetCookie('scrollPosition', 'eursgd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('eursgd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('eursgd')
@@ -3499,7 +3394,6 @@
       window.watcherSetCookie('scrollPosition', 'gbpsgd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('gbpsgd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('gbpsgd')
@@ -3521,7 +3415,6 @@
       window.watcherSetCookie('scrollPosition', 'nokjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('nokjpy').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('nokjpy')
@@ -3543,7 +3436,6 @@
       window.watcherSetCookie('scrollPosition', 'sekjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('sekjpy').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('sekjpy')
@@ -3565,7 +3457,6 @@
       window.watcherSetCookie('scrollPosition', 'sgdjpy');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('sgdjpy').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('sgdjpy')
@@ -3587,7 +3478,6 @@
       window.watcherSetCookie('scrollPosition', 'usdhkd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('usdhkd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('usdhkd')
@@ -3609,7 +3499,6 @@
       window.watcherSetCookie('scrollPosition', 'usdsgd');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        console.log('siema')
         document.getElementById('usdsgd').scrollIntoView()
       }, 50)
       window.current_index = window.list.indexOf('usdsgd')

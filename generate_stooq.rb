@@ -23,8 +23,8 @@ CHARTS = [
   '-Stocks-',
   'AAPL.US',
   'ADBE.US',
-  'AMZN.US',
   'BAC.US',
+  'AMZN.US',
   'BYND.US',
   'CCJ.US',
   'CDNA.US',
@@ -185,7 +185,7 @@ output << <<~PAGE_TOP
                   if (window.scrollIntervalId && !window.skipClearInterval && !window.lastScrollByProgram) {
                     clearInterval(window.scrollIntervalId)
                   }
-                  if (window.scrollIntervalId && !window.skipClearInterval) {
+                  if (!window.skipClearInterval) {
                     window.lastScrollByProgram = false;
                   }
 
@@ -198,9 +198,7 @@ output << <<~PAGE_TOP
                     const sectionHeight = section.clientHeight;
                     if (pageYOffset >= sectionTop - window.innerHeight / 5) {
                       current = section.getAttribute("id");
-                      if (!lastScrollSynthetic) {
-                        window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
-                      }
+                      window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
                     }
                   });
                   window.watcherMenuElements.forEach((li) => {
