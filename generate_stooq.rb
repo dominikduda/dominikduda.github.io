@@ -497,6 +497,9 @@ output << <<~PAGE_TOP
                 top: 0;
                 left: 0;
               }
+              .initial-overlay {
+              animation-duration: 0s;
+              }
   #{'  '}
               .color-button-container {
                 height: 20px;
@@ -615,7 +618,7 @@ def chart(market_id, timeframe)
 end
 
 menu_html = ''
-menu_html << '<div class="overlay">'
+menu_html << '<div class="overlay minimized initial-overlay">'
 
 menu_html << '<div class="overlay-content">'
 output << <<~SPINNER

@@ -173,23 +173,28 @@ setTimeout(() => {
 
 
 
-const timerEl = document.getElementsByClassName('timer')[0]
-console.log(timerEl)
-timerEl.addEventListener('mouseenter', function(evt) {
-  document.getElementsByClassName('overlay')[0].classList.add('maximized')
-  document.getElementsByClassName('timer')[0].classList.add('force-non-opaque')
-  document.getElementsByClassName('overlay')[0].classList.remove('minimized')
-}, false);
+  const timerEl = document.getElementsByClassName('timer')[0]
+  console.log(timerEl)
+  timerEl.addEventListener('mouseenter', function(evt) {
+    document.getElementsByClassName('overlay')[0].classList.add('maximized')
+    document.getElementsByClassName('timer')[0].classList.add('force-non-opaque')
+    document.getElementsByClassName('overlay')[0].classList.remove('minimized')
+  }, false);
 
-const overlayEl = document.getElementsByClassName('overlay')[0]
-console.log(overlayEl)
-overlayEl.addEventListener('mouseleave', function(evt) {
-  document.getElementsByClassName('overlay')[0].classList.remove('maximized')
-  document.getElementsByClassName('overlay')[0].classList.add('minimized')
+  const overlayEl = document.getElementsByClassName('overlay')[0]
+  console.log(overlayEl)
+  overlayEl.addEventListener('mouseleave', function(evt) {
+    document.getElementsByClassName('overlay')[0].classList.remove('maximized')
+    document.getElementsByClassName('overlay')[0].classList.add('minimized')
     setTimeout(() => {
-  document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
+      document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
     }, 310)
-}, false);
+  }, false);
+
+  setTimeout(() => {
+    document.getElementsByClassName('overlay')[0].classList.remove('initial-overlay')
+  }, 310)
+
 
 }, 200)
 
