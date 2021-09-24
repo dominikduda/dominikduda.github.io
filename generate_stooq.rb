@@ -197,7 +197,9 @@ output << <<~PAGE_TOP
                     const sectionHeight = section.clientHeight;
                     if (pageYOffset >= sectionTop - window.innerHeight / 5) {
                       current = section.getAttribute("id");
-                      window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
+                      if (!window.lastScrollByProgram) {
+                        window.watcherSetCookie('scrollPosition', section.getAttribute("id"))
+                      }
                     }
                   });
                   window.watcherMenuElements.forEach((li) => {
