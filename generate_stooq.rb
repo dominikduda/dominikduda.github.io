@@ -783,7 +783,6 @@ CHARTS.each do |market_id|
           window.watcherSetCookie('scrollPosition', '#{market_id}');
           window.scrollIntervalId = setInterval(() => {
             window.skipClearInterval = true;
-            console.log('siema')
             document.getElementById('#{market_id}').scrollIntoView()
           }, 50)
           window.current_index = window.list.indexOf('#{market_id}')
