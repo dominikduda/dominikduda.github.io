@@ -199,7 +199,7 @@
           width: 93px;
           height: 93px;
           animation-name: spin;
-          animation-duration: 300000ms;
+          animation-duration: 600000ms;
           animation-iteration-count: infinite;
           animation-timing-function: linear;
           background-image: url('https://raw.githubusercontent.com/dominikduda/config_files/master/dd_logo_blue_bg.png');
@@ -483,7 +483,7 @@
                 <script >
                   (
                     () => {
-                        setTimeout('window.location.reload()', 300000);
+                        setTimeout('window.location.reload()', 600000);
                     }
                   )()
                 </script>
@@ -3434,12 +3434,10 @@
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.watcherGetCookie('mode') != 'dark') {
-        console.log('dark mode enabled')
         const element = document.querySelector('.grid-container');
         element.classList.add('darkMode');
         window.watcherSetCookie('mode', 'dark')
       } else {
-        console.log('white mode enabled')
         const element = document.querySelector('.grid-container');
         element.classList.remove('darkMode');
         window.watcherSetCookie('mode', 'white')

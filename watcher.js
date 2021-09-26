@@ -110,7 +110,6 @@ const afterPageOpen = () => {
   window.watcherDividers =  document.querySelectorAll(".divider");
   window.watcherMenuElements =  document.querySelectorAll(".chart-link");
   if (window.watcherGetCookie('mode') == 'dark') {
-    console.log('dark mode enabled')
     const element = document.querySelector('.grid-container');
     element.classList.add('darkMode');
     window.watcherSetCookie('mode', 'dark')
@@ -182,7 +181,6 @@ setTimeout(() => {
 
 
   const timerEl = document.getElementsByClassName('timer')[0]
-  console.log(timerEl)
   if (!isMobile()) {
     timerEl.addEventListener('mouseenter', function(evt) {
       document.getElementsByClassName('overlay')[0].classList.add('maximized')
@@ -227,7 +225,6 @@ setTimeout(() => {
     } else {
       window.menuDisappearTimeout = setTimeout(
         () => {
-          console.log("[watcher.js:228] DEBUGGING STRING ==> 2");
           document.getElementsByClassName('overlay')[0].classList.remove('maximized')
           document.getElementsByClassName('overlay')[0].classList.add('minimized')
           window.menuDisappearTimeout = setTimeout(() => {

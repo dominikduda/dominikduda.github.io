@@ -1,5 +1,5 @@
 TIMEFRAMES = %w[5d 5m 2y 10y 30y 100y].freeze
-AUTO_RELOAD_INTERVAL_MS = 300_000
+AUTO_RELOAD_INTERVAL_MS = 600_000
 CHARTS = [
   '-Indices-',
   '^SPX',
@@ -748,12 +748,10 @@ color_btn << <<~COLOR_BTN
     onClick="(function() {
       if (window.watcherLoaded) {
         if (window.watcherGetCookie('mode') != 'dark') {
-          console.log('dark mode enabled')
           const element = document.querySelector('.grid-container');
           element.classList.add('darkMode');
           window.watcherSetCookie('mode', 'dark')
         } else {
-          console.log('white mode enabled')
           const element = document.querySelector('.grid-container');
           element.classList.remove('darkMode');
           window.watcherSetCookie('mode', 'white')
