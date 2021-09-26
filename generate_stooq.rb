@@ -624,7 +624,7 @@ menu_html << '<div class="overlay-content">'
 output << <<~SPINNER
   <div class="timer"
     onClick="(function() {
-      if (window.watcherLoaded) {
+      if (window.watcherLoaded && isMobile()) {
         document.getElementsByClassName('overlay')[0].classList.toggle('maximized')
         document.getElementsByClassName('overlay')[0].classList.toggle('minimized')
         document.getElementsByClassName('timer')[0].classList.toggle('force-non-opaque')
@@ -640,7 +640,7 @@ output << '</div>'
 output << '<div class="grid-container">'
 CHARTS.each do |market_id|
   output << if market_id.include?('-')
-              "<div class='grid-item section-divider' id=#{market_id}>" + market_id + '</div>'
+              "<div class='grid-item section-divider' id=#{market_id}>" + market_id.gsub('_', ' ') + '</div>'
             else
               "<div class='grid-item divider' id=#{market_id}>" + market_id + '</div>'
             end
@@ -677,7 +677,7 @@ CHARTS.each do |market_id|
         }
       })()"
     >
-      <span>#{market_id}</span>
+      <span>#{market_id.gsub('_', ' ')}</span>
     </div>
   MENU
 end
