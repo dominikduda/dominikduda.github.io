@@ -204,7 +204,7 @@ setTimeout(() => {
             document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
           }, 310)
         },
-        1500
+        900
       )
     }
   }, false);
@@ -222,14 +222,20 @@ setTimeout(() => {
             document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
           }, 310)
         },
-        1500
+        900
       )
     } else {
-      document.getElementsByClassName('overlay')[0].classList.remove('maximized')
-      document.getElementsByClassName('overlay')[0].classList.add('minimized')
-      setTimeout(() => {
-        document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
-      }, 310)
+      window.menuDisappearTimeout = setTimeout(
+        () => {
+          console.log("[watcher.js:228] DEBUGGING STRING ==> 2");
+          document.getElementsByClassName('overlay')[0].classList.remove('maximized')
+          document.getElementsByClassName('overlay')[0].classList.add('minimized')
+          window.menuDisappearTimeout = setTimeout(() => {
+            document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
+          }, 310)
+        },
+        20
+      )
     }
   }, false);
 
