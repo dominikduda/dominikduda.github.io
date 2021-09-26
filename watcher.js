@@ -191,6 +191,26 @@ setTimeout(() => {
     }, false);
   }
 
+  timerEl.addEventListener('mouseenter', function(evt) {
+    clearTimeout(window.menuDisappearTimeout)
+  })
+  timerEl.addEventListener('mouseleave', function(evt) {
+    if (!isMobile()) {
+      window.menuDisappearTimeout = setTimeout(
+        () => {
+          document.getElementsByClassName('overlay')[0].classList.remove('maximized')
+          document.getElementsByClassName('overlay')[0].classList.add('minimized')
+          setTimeout(() => {
+            document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
+          }, 310)
+        },
+        1500
+      )
+    }
+  }, false);
+
+
+
   const overlayEl = document.getElementsByClassName('overlay')[0]
   overlayEl.addEventListener('mouseleave', function(evt) {
     if (!isMobile()) {

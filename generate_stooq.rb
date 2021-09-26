@@ -308,7 +308,6 @@ output << <<~PAGE_TOP
   #{'  '}
         .timer {
           opacity: 0.8;
-          cursor: pointer;
           z-index: 4;
           margin-left: 1px;
           margin-top: 1px;
