@@ -103,7 +103,7 @@ window.addEventListener('load', () => {
     document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
     window.watcherLoaded = true;
     handleScroll()
-  }, 500)
+  }, 200)
 })
 
 const afterPageOpen = () => {

@@ -365,11 +365,12 @@ output << <<~PAGE_TOP
                 min-height: 92px;
                 font-size: 40;
                 cursor: pointer;
-                border: solid 1px #131313;
-                background-color: fdf86c;
+                border: solid 1px #4174c8;
+                background-color: #001138;
+                color: #b8b6b4;
               }
               .arrow:hover {
-                color: #005ef7;
+                color: white;
               }
   #{'  '}
               .color-btn {
@@ -378,15 +379,16 @@ output << <<~PAGE_TOP
                 align-items: center;
                 min-width: 92px;
                 min-height: 92px;
-                border: solid 1px #131313;
+                border: solid 1px #4174c8;
                 font-size: 15;
                 cursor: pointer;
-                background-color: fdf86c;
+                background-color: #001138;
+                color: #b8b6b4;
                 max-width: 40px;
                 overflow-wrap: anywhere;
               }
               .color-btn:hover {
-                color: #005ef7;
+                color: white;
               }
 
 
@@ -433,6 +435,7 @@ output << <<~PAGE_TOP
 
   #{'  '}
               .fav-button-container {
+
                 height: 20px;
                 margin-left: 188px;
                 position: fixed;
@@ -454,15 +457,16 @@ output << <<~PAGE_TOP
                 align-items: center;
                 min-width: 92px;
                 min-height: 92px;
-                border: solid 1px #131313;
+                border: solid 1px #4174c8;
                 font-size: 15;
                 cursor: pointer;
-                background-color: fdf86c;
+                background-color: #001138;
+                color: #b8b6b4;
                 max-width: 40px;
                 overflow-wrap: anywhere;
               }
               .fav-btn:hover {
-                color: #005ef7;
+                color: white;
               }
   #{'  '}
               img {
