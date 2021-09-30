@@ -106,7 +106,7 @@ setTimeout(() => {
   document.body.classList.remove('no-scroll')
   const currentHash = window.location.hash
   if (currentHash.includes('#')) {
-    const symbolName = current.substr(1)
+    const symbolName = currentHash.substr(1)
     if (window.list.includes(symbolName)) {
       setCookie('scrollPosition', symbolName)
     }
