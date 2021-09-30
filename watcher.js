@@ -24,8 +24,21 @@ window.watcherOnImageLoad = function() {
   }
 }
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 window.watcherOnImageError = (img) => {
+  const initialSrc = img.src
+  if (!initialSrc.includes('grandma.png')) {
+    img.initialSrc = initialSrc;
+  }
   img.src = "https://raw.githubusercontent.com/dominikduda/dominikduda.github.io/master/grandma.png";
+  setTimeout(() => {
+    img.src = img.initialSrc;
+  }, getRandomInt(2000, 5000))
 }
 
 function setCookie(name,value,days = 9999) {
