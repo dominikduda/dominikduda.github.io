@@ -102,22 +102,28 @@ const handleScroll = () => {
   window.watcherLastSelectedChart = current;
 }
 
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.body.classList.remove('no-scroll')
+setTimeout(() => {
+  document.body.classList.remove('no-scroll')
+  const currentHash = window.location.hash
+  if (currentHash.includes('#')) {
+    const symbolName = current.substr(1)
+    if (window.list.includes(symbolName)) {
+      setCookie('scrollPosition', symbolName)
+    }
+    window.location.hash = ''
+  }
+  window.skipClearInterval = true;
+  window.lastScrollByProgram = true;
+  const el = document.getElementById(getCookie('scrollPosition'))
+  if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+  window.scrollIntervalId = setInterval(() => {
     window.skipClearInterval = true;
-    window.lastScrollByProgram = true;
-    const el = document.getElementById(getCookie('scrollPosition'))
-    if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-    window.scrollIntervalId = setInterval(() => {
-      window.skipClearInterval = true;
-      el.scrollIntoView()
-    }, 50)
-    document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
-    window.watcherLoaded = true;
-    handleScroll()
-  }, 200)
-})
+    el.scrollIntoView()
+  }, 50)
+  document.getElementsByClassName('loaderWrapper')[0].classList.add('fade-out')
+  window.watcherLoaded = true;
+  handleScroll()
+}, 200)
 
 const afterPageOpen = () => {
   window.watcherDividers =  document.querySelectorAll(".divider");

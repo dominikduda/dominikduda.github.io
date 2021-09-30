@@ -120,6 +120,10 @@ output << <<~PAGE_TOP
                 <link rel="shortcut icon" type="image/png" href="favicon.png">
                 <script src="watcher.js"> </script>
                   <style>
+h4 {
+  margin: 0;
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -645,7 +649,7 @@ CHARTS.each do |market_id|
   output << if market_id.include?('-')
               "<div class='grid-item section-divider' id=#{market_id}>" + market_id.gsub('_', ' ') + '</div>'
             else
-              "<div class='grid-item divider' id=#{market_id}>" + market_id + '</div>'
+              "<div class='grid-item divider' id=#{market_id}><h4>" + market_id + '</h4></div>'
             end
   output << "<div class='chart-wrapper'>"
   TIMEFRAMES.each do |timeframe|
