@@ -820,7 +820,7 @@ menu_html << '</div>'
 
 output << menu_html
 output << "<div class='grid-item section-divider' >About</div>"
-output << "<div class='grid-item divider'><br>All charts come from stooq.com<br><br>You can create a link to a specific chart like this: https://dominikduda.github.io/#MSFT.US<br><br>Drawings disappearing when scrolling is intentional behavior. Make a screenshot of the page to save them.<br><br>Drawing is disabled on mobile devices.<br><br>Marked charts, color mode, and last selected chart will persist over page close.<br><br></div>"
+output << "<div class='grid-item divider'><br>All charts come from stooq.com<br><br>You can create a link to a specific chart like this: https://dominikduda.github.io/#MSFT.US<br><br>Drawings disappearing when scrolling is intentional behavior. Make a screenshot of the page to save them.<br><br>Drawing is disabled on mobile devices.<br><br>Marked charts, color mode, and last selected chart will persist over page close.<br><br>You can generate such a static page for yourself. Check out the readme of the following repository: https://github.com/dominikduda/dominikduda.github.io<br>Note that stuff persisting over browser close won't work on localhost.<br><br></div>"
 
 output << '<div class="bottom-margin"></div>'
 
