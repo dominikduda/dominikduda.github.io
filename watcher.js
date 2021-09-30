@@ -111,7 +111,7 @@ setTimeout(() => {
   }
   if (currentHash.includes('#')) {
     const symbolName = currentHash.substr(1)
-    if (window.list.includes(symbolName)) {
+    if (window.list.includes(symbolName) || symbolName === 'About') {
       setCookie('scrollPosition', symbolName)
     }
     window.location.hash = ''
