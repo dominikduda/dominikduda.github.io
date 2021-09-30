@@ -105,6 +105,10 @@ const handleScroll = () => {
 setTimeout(() => {
   document.body.classList.remove('no-scroll')
   const currentHash = window.location.hash
+  const isFirstVisit = getCookie('notFirstVisit') === null
+  if (isFirstVisit && window.location.hash === '') {
+    setCookie('scrollPosition', 'About')
+  }
   if (currentHash.includes('#')) {
     const symbolName = currentHash.substr(1)
     if (window.list.includes(symbolName)) {
@@ -112,6 +116,7 @@ setTimeout(() => {
     }
     window.location.hash = ''
   }
+  setCookie('notFirstVisit', true)
   window.skipClearInterval = true;
   window.lastScrollByProgram = true;
   const el = document.getElementById(getCookie('scrollPosition'))
