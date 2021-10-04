@@ -1,4 +1,5 @@
 TIMEFRAMES = %w[5d 5m 2y 10y 30y 100y].freeze
+TIMEFRAMES_NAMES = %w[1h D W M Q Y].freeze
 AUTO_RELOAD_INTERVAL_MS = 600_000
 CHARTS = [
   '-Indices-',
@@ -115,519 +116,544 @@ CHART_RENDER_DELAY_INCREMENT = 2000
 
 output = ''
 output << <<~PAGE_TOP
-              <html>
-                <head>
-                <link rel="shortcut icon" type="image/png" href="favicon.png">
-                <script src="watcher.js"> </script>
-                  <style>
-h4, h3 {
-  margin: 0;
-}
+                  <html>
+                    <head>
 
-.about-content {
-  padding-left: 15%;
-  padding-right: 15%;
-  width: 70%;
-  overflow-wrap: anywhere;
-}
-
-.noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-}
-
-.minimized {
-    animation: enters 0.3s ease-in-out;
-    transform-origin: 46px 46px;
-    opacity: 0;
-    transform: scale(0.1);
-}
-
-.maximized {
-    animation: leaves 0.3s ease-in-out;
-    transform-origin: 46px 46px;
-    transform: scale(1);
-    opacity: 1;
-}
-
-@keyframes leaves {
-    0% {
-        transform: scale(0.01);
-        opacity: 0;
+      <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+                    <link rel="shortcut icon" type="image/png" href="favicon.png">
+                    <script src="watcher.js"> </script>
+                      <style>
+    h4, h3 {
+      margin: 0;
     }
-    100% {
-        transform: scale(1.0);
+  #{'  '}
+    .about-content {
+      padding-left: 15%;
+      padding-right: 15%;
+      width: 70%;
+      overflow-wrap: anywhere;
+    }
+  #{'  '}
+    .noselect {
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome, Edge, Opera and Firefox */
+    }
+  #{'  '}
+    .minimized {
+        animation: enters 0.3s ease-in-out;
+        transform-origin: 46px 46px;
+        opacity: 0;
+        transform: scale(0.1);
+    }
+  #{'  '}
+    .maximized {
+        animation: leaves 0.3s ease-in-out;
+        transform-origin: 46px 46px;
+        transform: scale(1);
         opacity: 1;
     }
-}
-@keyframes enters {
-    0% {
-        transform: scale(1.0);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(0.01);
-        opacity: 0;
-    }
-}
-
-    .active {
-      border-color: #99ed38 !important;
-    }
   #{'  '}
-    .divider {
-      text-align: center;
-      background-color: #005880;
-      color: white;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      font-size: 20px;
-    }
-    .divider-link {
-                background-color: #2f2751;
-                color: white;
-                border: solid 1px #131313;
-                padding-left: 5px;
-                padding-right: 5px;
-                padding-top: 8px;
-                padding-bottom: 8px;
-                margin-left: 0px;
-                margin-top: 0px;
-                cursor: pointer;
-                font-size: 20px;
-    }
-  #{'  '}
-    .marked {
-      color: #009cff !important;
-    }
-  #{'  '}
-    .marked:hover {
-      color: #ffbf00 !important;
-    }
-  #{'  '}
-    .darkMode > .divider {
-      filter: invert(1);
-    }
-  #{'  '}
-    .darkMode > .section-divider {
-      filter: invert(1);
-    }
-  #{'  '}
-    .section-divider {
-      text-align: center;
-      color: white;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      font-size: 60px;
-      background-color: #00385f;
-    }
-  #{'  '}
-    .darkMode {
-      filter: invert(1);
-      background-color: white;
-    }
-  #{'  '}
-    .loaderWrapper {
-    top: 40%;
-      z-index: 1;
-      position: fixed;
-      left: 0;
-      right: 0;
-    }
-    .fade-out {
-      animation: fade 1s;
-      -webkit-animation: fade 1s;
-      -moz-animation: fade 1s;
-      opacity: 0;
-    }
-  #{'  '}
-    /* Animate opacity */
-    @keyframes fade {
-      from { opacity: 1 }
-      to { opacity: 0 }
-    }
-    @-moz-keyframes fade {
-      from { opacity: 1 }
-      to { opacity: 0 }
-    }
-    @-webkit-keyframes fade {
-      from { opacity: 1 }
-      to { opacity: 0 }
-    }
-  #{'  '}
-  #{'  '}
-  #{'  '}
-  #{'  '}
-    .loader,
-    .loader:after {
-      border-radius: 50%;
-      width: 10em;
-      height: 10em;
-    }
-    .loader {
-      margin: 60px auto;
-      font-size: 10px;
-      position: relative;
-      text-indent: -9999em;
-      border-top: 1.1em solid rgba(30,22,141, 0.2);
-      border-right: 1.1em solid rgba(30,22,141, 0.2);
-      border-bottom: 1.1em solid rgba(30,22,141, 0.2);
-      border-left: 1.1em solid #1e168d;
-      -webkit-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-      transform: translateZ(0);
-      -webkit-animation: load8 1.1s infinite linear;
-      animation: load8 1.1s infinite linear;
-    }
-    @-webkit-keyframes load8 {
-      0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
-    }
-    @keyframes load8 {
-      0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
-    }
-  #{'  '}
-  #{'  '}
-  #{'  '}
-  #{'  '}
-  #{'  '}
-  #{'  '}
-  #{'  '}
-  #{'  '}
-  #{'  '}
-  #{'  '}
-  #{'  '}
-  #{'  '}
-  #{'  '}
-        .timer {
-          opacity: 0.8;
-          z-index: 4;
-          margin-left: 1px;
-          margin-top: 1px;
-          position: fixed;
-          left: 0;
-          width: 93px;
-          height: 93px;
-          animation-name: spin;
-          animation-duration: #{AUTO_RELOAD_INTERVAL_MS}ms;
-          animation-iteration-count: infinite;
-          animation-timing-function: linear;
-          background-image: url('https://raw.githubusercontent.com/dominikduda/config_files/master/dd_logo_blue_bg.png');
-          background-size: auto 100%;
-          background-position: center;
-
-  border-radius: 50px;/* specify the radius */
+    @keyframes leaves {
+        0% {
+            transform: scale(0.01);
+            opacity: 0;
         }
-        .force-non-opaque {
-          opacity: 1;
+        100% {
+            transform: scale(1.0);
+            opacity: 1;
         }
-        .timer:hover {
-          opacity: 1;
+    }
+    @keyframes enters {
+        0% {
+            transform: scale(1.0);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0.01);
+            opacity: 0;
+        }
+    }
+  #{'  '}
+        .active {
+          border-color: #99ed38 !important;
         }
       #{'  '}
-        @keyframes spin {
-            from {
-                transform:rotate(0deg);
-            }
-            to {
-                transform:rotate(360deg);
-            }
+        .divider {
+          text-align: center;
+          background-color: #005880;
+          color: white;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          font-size: 20px;
         }
-            canvas {
-                width:100%;
-                height:100%;
-                position: fixed;
-                z-index: 2;
-                top: 0;
+        .divider-link {
+                    background-color: #2f2751;
+                    color: white;
+                    border: solid 1px #131313;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                    margin-left: 0px;
+                    margin-top: 0px;
+                    cursor: pointer;
+                    font-size: 20px;
+        }
+      #{'  '}
+        .marked {
+          color: #009cff !important;
+        }
+      #{'  '}
+        .marked:hover {
+          color: #ffbf00 !important;
+        }
+      #{'  '}
+        .darkMode > .divider {
+          filter: invert(1);
+        }
+      #{'  '}
+        .darkMode > .section-divider {
+          filter: invert(1);
+        }
+      #{'  '}
+        .section-divider {
+          text-align: center;
+          color: white;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          font-size: 60px;
+          background-color: #00385f;
+        }
+      #{'  '}
+        .darkMode {
+          filter: invert(1);
+          background-color: white;
+        }
+      #{'  '}
+        .loaderWrapper {
+          top: 40%;
+          position: fixed;
+          left: 0;
+          right: 0;
+        }
+        .fade-out {
+          animation: fade 1s;
+          -webkit-animation: fade 1s;
+          -moz-animation: fade 1s;
+          opacity: 0;
+        }
+      #{'  '}
+        /* Animate opacity */
+        @keyframes fade {
+          from { opacity: 1 }
+          to { opacity: 0 }
+        }
+        @-moz-keyframes fade {
+          from { opacity: 1 }
+          to { opacity: 0 }
+        }
+        @-webkit-keyframes fade {
+          from { opacity: 1 }
+          to { opacity: 0 }
+        }
+      #{'  '}
+      #{'  '}
+      #{'  '}
+      #{'  '}
+        .loader,
+        .loader:after {
+          border-radius: 50%;
+          width: 10em;
+          height: 10em;
+        }
+        .loader {
+          margin: 60px auto;
+          font-size: 10px;
+          position: relative;
+          text-indent: -9999em;
+          border-top: 1.1em solid rgba(30,22,141, 0.2);
+          border-right: 1.1em solid rgba(30,22,141, 0.2);
+          border-bottom: 1.1em solid rgba(30,22,141, 0.2);
+          border-left: 1.1em solid #1e168d;
+          -webkit-transform: translateZ(0);
+          -ms-transform: translateZ(0);
+          transform: translateZ(0);
+          -webkit-animation: load8 1.1s infinite linear;
+          animation: load8 1.1s infinite linear;
+        }
+        @-webkit-keyframes load8 {
+          0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+          100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes load8 {
+          0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+          100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+      #{'  '}
+      #{'  '}
+      #{'  '}
+      #{'  '}
+      #{'  '}
+      #{'  '}
+      #{'  '}
+      #{'  '}
+      #{'  '}
+      #{'  '}
+      #{'  '}
+      #{'  '}
+      #{'  '}
+            .timer {
+              opacity: 0.8;
+              z-index: 5;
+              margin-left: 1px;
+              margin-top: 1px;
+              position: fixed;
+              left: 0;
+              width: 93px;
+              height: 93px;
+              animation-name: spin;
+              animation-duration: #{AUTO_RELOAD_INTERVAL_MS}ms;
+              animation-iteration-count: infinite;
+              animation-timing-function: linear;
+              background-image: url('https://raw.githubusercontent.com/dominikduda/config_files/master/dd_logo_blue_bg.png');
+              background-size: auto 100%;
+              background-position: center;
+  #{'  '}
+      border-radius: 50px;/* specify the radius */
             }
-            #parentDiv {
-                width:100%;
-                height:100%;
-                position: fixed;
-                z-index: 2;
-                top: 0;
+            .force-non-opaque {
+              opacity: 1;
+            }
+            .timer:hover {
+              opacity: 1;
             }
           #{'  '}
-            canvas {pointer-events:none;}
-              .arrow {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-width: 92px;
-                min-height: 92px;
-                font-size: 40;
-                cursor: pointer;
-                border: solid 1px #4174c8;
-                background-color: #001138;
-                color: #b8b6b4;
-              }
-              .arrow:hover {
-                color: white;
-              }
-  #{'  '}
-              .color-btn {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-width: 92px;
-                min-height: 92px;
-                border: solid 1px #4174c8;
-                font-size: 15;
-                cursor: pointer;
-                background-color: #001138;
-                color: #b8b6b4;
-                max-width: 40px;
-                overflow-wrap: anywhere;
-              }
-              .color-btn:hover {
-                color: white;
-              }
-
-
-
-              .menu-button-container {
-                height: 20px;
-                margin-left: 0px;
-                position: fixed;
-                top: 0;
-                left: 0;
-                max-width: 600px;
-                max-width: 90px;
-                max-height: 90px;
-              }
-              .menu-button-content {
-                font-size: 5;
-                position: relative;
-                text-align: center;
-                max-width: 200px;
-              }
-              .menu-btn {
-
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-width: 92px;
-                min-height: 92px;
-                border: solid 1px #444055;
-                font-size: 15;
-                cursor: pointer;
-                background-color: #444055;
-                max-width: 40px;
-                overflow-wrap: anywhere;
-              }
-              .menu-btn:hover {
-                color: #005ef7;
-              }
-
-
-
-
-
-
-
-  #{'  '}
-              .fav-button-container {
-
-                height: 20px;
-                margin-left: 188px;
-                position: fixed;
-                top: 0;
-                left: 0;
-                max-width: 600px;
-                max-width: 90px;
-                max-height: 90px;
-              }
-              .fav-button-content {
-                font-size: 5;
-                position: relative;
-                text-align: center;
-                max-width: 200px;
-              }
-              .fav-btn {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-width: 92px;
-                min-height: 92px;
-                border: solid 1px #4174c8;
-                font-size: 15;
-                cursor: pointer;
-                background-color: #001138;
-                color: #b8b6b4;
-                max-width: 40px;
-                overflow-wrap: anywhere;
-              }
-              .fav-btn:hover {
-                color: white;
-              }
-  #{'  '}
-              img {
-                width: auto;
-                flex: 100;
-                min-width: 800px;
-                min-height: 550px;
-              }
-              .clear-min-width {
-                min-width: 0px;
-                min-height: 0px;
-              }
-              .chart {
-                height: 1920px;
-              }
-              .chart_title {
-              }
-              .no-scroll {
-                overflow: hidden;
-              }
-              .hidden {
-                display: none;
-              }
-              body {
-                margin: 0px;
-              }
-              .overlay {
-                height: 80%;
-                width: auto;
-                position: fixed;
-                z-index: 3;
-                top: 0;
-                left: 0;
-              }
-              .initial-overlay {
-              animation-duration: 0s;
-              }
-  #{'  '}
-              .color-button-container {
-                height: 20px;
-                margin-left: 94px;
-                position: fixed;
-                top: 0;
-                left: 0;
-                max-width: 600px;
-                max-width: 90px;
-                max-height: 90px;
-              }
-              .color-button-content {
-                font-size: 5;
-                position: relative;
-                text-align: center;
-                max-width: 200px;
-              }
+            @keyframes spin {
+                from {
+                    transform:rotate(0deg);
+                }
+                to {
+                    transform:rotate(360deg);
+                }
+            }
+                canvas {
+                    width:100%;
+                    height:100%;
+                    position: fixed;
+                    z-index: 3;
+                    top: 0;
+                }
+                #parentDiv {
+                    width:100%;
+                    height:100%;
+                    position: fixed;
+                    z-index: 3;
+                    top: 0;
+                }
+              #{'  '}
+                  .arrow {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 92px;
+                    min-height: 92px;
+                    font-size: 40;
+                    cursor: pointer;
+                    border: solid 1px #4174c8;
+                    background-color: #001138;
+                    color: #b8b6b4;
+                  }
+                  .arrow:hover {
+                    color: white;
+                  }
+      #{'  '}
+                  .color-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 92px;
+                    min-height: 92px;
+                    border: solid 1px #4174c8;
+                    font-size: 15;
+                    cursor: pointer;
+                    background-color: #001138;
+                    color: #b8b6b4;
+                    max-width: 40px;
+                    overflow-wrap: anywhere;
+                  }
+                  .color-btn:hover {
+                    color: white;
+                  }
   #{'  '}
   #{'  '}
   #{'  '}
-              .down-arrow-container {
-                min-width: 90px;
-                min-height: 90px;
-                margin-left: 376px;
-                position: fixed;
-                top: 0;
-                left: 0;
-                max-width: 90px;
-                max-height: 90px;
-              }
-              .down-arrow-content {
-                position: relative;
-                text-align: center;
-                max-width: 200px;
-              }
-              .up-arrow-container {
-                height: 20px;
-                height: 20px;
-                margin-left: 282px;
-                position: fixed;
-                top: 0;
-                left: 0;
-                max-width: 90px;
-                max-height: 90px;
-              }
-              .up-arrow-content {
-                position: relative;
-                text-align: center;
-                max-width: 200px;
-              }
-              .overlay-content {
-                display: flex;
-                flex-wrap: wrap;
-                flex-direction: column;
-                position: relative;
-                text-align: center;
-                top: 94px;
-                z-index: 6;
-                height: 100%;
-              }
-              .chart-link {
-                background-color: #444055;
-                color: white;
-                border: solid 1px #131313;
-                padding-left: 5px;
-                padding-right: 5px;
-                padding-top: 8px;
-                padding-bottom: 8px;
-                margin-left: 0px;
-                margin-top: 0px;
-                cursor: pointer;
-                font-size: 20px;
-              }
-              .chart-link:hover {
-                color: #ffbf00;
-              }
-              .chart-wrapper {
-                display: flex;
-                flex-wrap: wrap;
-                width: 100%;
-              }
-              .bottom-margin {
-                background-color: #00385f;
-                min-height: 3500px;
-              }
-                  </style>
-                  <script>
-                    (() => {
-                      window.list = #{CHARTS.reject { |chart| chart.include?('-') }};
-                      window.current_index = 0;
-                    })()
-                  </script>
-                </head>
-                <body class="no-scroll noselect">
-                <script >
-                  (
-                    () => {
-                        setTimeout('window.location.reload()', #{AUTO_RELOAD_INTERVAL_MS});
-                    }
-                  )()
-                </script>
-                <div class='loaderWrapper'>
-                  <div class='loader'>Loading...</div>
-                  </div>
+                  .menu-button-container {
+                    height: 20px;
+                    margin-left: 0px;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    max-width: 600px;
+                    max-width: 90px;
+                    max-height: 90px;
+                  }
+                  .menu-button-content {
+                    font-size: 5;
+                    position: relative;
+                    text-align: center;
+                    max-width: 200px;
+                  }
+                  .menu-btn {
+  #{'  '}
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 92px;
+                    min-height: 92px;
+                    border: solid 1px #444055;
+                    font-size: 15;
+                    cursor: pointer;
+                    background-color: #444055;
+                    max-width: 40px;
+                    overflow-wrap: anywhere;
+                  }
+                  .menu-btn:hover {
+                    color: #005ef7;
+                  }
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+  #{'  '}
+      #{'  '}
+                  .fav-button-container {
+  #{'  '}
+                    height: 20px;
+                    margin-left: 188px;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    max-width: 600px;
+                    max-width: 90px;
+                    max-height: 90px;
+                  }
+                  .fav-button-content {
+                    font-size: 5;
+                    position: relative;
+                    text-align: center;
+                    max-width: 200px;
+                  }
+                  .fav-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 92px;
+                    min-height: 92px;
+                    border: solid 1px #4174c8;
+                    font-size: 15;
+                    cursor: pointer;
+                    background-color: #001138;
+                    color: #b8b6b4;
+                    max-width: 40px;
+                    overflow-wrap: anywhere;
+                  }
+                  .fav-btn:hover {
+                    color: white;
+                  }
+      #{'  '}
+                  img {
+                    width: 100%;
+                    height: 100%;
+                    min-width: 800px;
+                    min-height: 550px;
+                    flex: 100;
+                  }
+                  .img-wrapper {
+                    position: relative;
+                    flex: 100;
+                    width: auto;
+                  }
+                  .chart-info {
+                    font-family: 'Roboto';
+                    font-weight: normal;
+                    font-style: normal;
+                    top: 0;
+                    opacity: 0.08;
+                    font-size: 350;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    position:absolute;
+                    left: 0;
+                    z-index: 2;
+                  }
+  #{'  '}
+                  .clear-min-width {
+                    min-width: 0px;
+                    min-height: 0px;
+                  }
+                  .chart {
+                    height: 1920px;
+                  }
+                  .chart_title {
+                  }
+                  .no-scroll {
+                    overflow: hidden;
+                  }
+                  .hidden {
+                    display: none;
+                  }
+                  body {
+                    margin: 0px;
+                  }
+                  .overlay {
+                    height: 80%;
+                    width: auto;
+                    position: fixed;
+                    z-index: 4;
+                    top: 0;
+                    left: 0;
+                  }
+                  .initial-overlay {
+                  animation-duration: 0s;
+                  }
+      #{'  '}
+                  .color-button-container {
+                    height: 20px;
+                    margin-left: 94px;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    max-width: 600px;
+                    max-width: 90px;
+                    max-height: 90px;
+                  }
+                  .color-button-content {
+                    font-size: 5;
+                    position: relative;
+                    text-align: center;
+                    max-width: 200px;
+                  }
+      #{'  '}
+      #{'  '}
+      #{'  '}
+                  .down-arrow-container {
+                    min-width: 90px;
+                    min-height: 90px;
+                    margin-left: 376px;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    max-width: 90px;
+                    max-height: 90px;
+                  }
+                  .down-arrow-content {
+                    position: relative;
+                    text-align: center;
+                    max-width: 200px;
+                  }
+                  .up-arrow-container {
+                    height: 20px;
+                    height: 20px;
+                    margin-left: 282px;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    max-width: 90px;
+                    max-height: 90px;
+                  }
+                  .up-arrow-content {
+                    position: relative;
+                    text-align: center;
+                    max-width: 200px;
+                  }
+                  .overlay-content {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    position: relative;
+                    text-align: center;
+                    top: 94px;
+                    z-index: 7;
+                    height: 100%;
+                  }
+                  .chart-link {
+                    background-color: #444055;
+                    color: white;
+                    border: solid 1px #131313;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                    margin-left: 0px;
+                    margin-top: 0px;
+                    cursor: pointer;
+                    font-size: 20px;
+                  }
+                  .chart-link:hover {
+                    color: #ffbf00;
+                  }
+                  .chart-wrapper {
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 100%;
+                  }
+                  .bottom-margin {
+                    background-color: #00385f;
+                    min-height: 3500px;
+                  }
+                      </style>
+                      <script>
+                        (() => {
+                          window.list = #{CHARTS.reject { |chart| chart.include?('-') }};
+                          window.current_index = 0;
+                        })()
+                      </script>
+                    </head>
+                    <body class="no-scroll noselect">
+                    <script >
+                      (
+                        () => {
+                            setTimeout('window.location.reload()', #{AUTO_RELOAD_INTERVAL_MS});
+                        }
+                      )()
+                    </script>
+                    <div class='loaderWrapper'>
+                      <div class='loader'>Loading...</div>
+                      </div>
 PAGE_TOP
 
 $next_chart_render_delay = 0
 
 def chart(market_id, timeframe)
-  if market_id.include?('-')
-    return ''
-  end
+  return '' if market_id.include?('-')
+
   <<~CHART
-    <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g&svg"/>
+
+    <div class="img-wrapper">
+      <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g&svg"> <div class="chart-info">#{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}</div></img>
+    </div>
   CHART
 end
 
@@ -676,7 +702,7 @@ CHARTS.each do |market_id|
           window.skipClearInterval = true;
           window.lastScrollByProgram = true;
           #{
-            if (market_id.include?('-'))
+            if market_id.include?('-')
               "window.watcherSetCookie('scrollPosition', '#{CHARTS[CHARTS.index(market_id) + 1]}');"
             else
               "window.watcherSetCookie('scrollPosition', '#{market_id}');"
