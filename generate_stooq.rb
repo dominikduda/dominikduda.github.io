@@ -119,10 +119,10 @@ output << <<~PAGE_TOP
                   <html>
                     <head>
 
-      <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
                     <link rel="shortcut icon" type="image/png" href="favicon.png">
                     <script src="watcher.js"> </script>
                       <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
     h4, h3 {
       margin: 0;
     }
