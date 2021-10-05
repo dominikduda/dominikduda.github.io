@@ -72,6 +72,7 @@ function isMobile() {
 const handleScroll = () => {
   if (window.initialRightClick) {
     window.initialRightClick = false
+    window.drawing = false;
     ctx.strokeStyle = "#FF0000";
   }
   if (window.scrollIntervalId && !window.skipClearInterval && !window.lastScrollByProgram) {
@@ -165,7 +166,7 @@ setTimeout(() => {
   document.addEventListener('scroll', onResize);
   window.addEventListener('resize', onResize);
 
-  let drawing = false;
+  window.drawing = false;
 
   // a function to detect the mouse position
   function oMousePos(element, evt) {
@@ -187,7 +188,7 @@ setTimeout(() => {
       }, 310)
       if (window.initialRightClick) {
         ctx.strokeStyle = "#00C51A";
-        drawing = true;
+        window.drawing = true;
         let m = oMousePos(parentDiv, evt);
         ctx.lineTo(m.x, m.y);
         ctx.stroke();
@@ -200,7 +201,7 @@ setTimeout(() => {
       ctx.beginPath();
       ctx.strokeStyle = "#D500FF";
       let m = oMousePos(parentDiv, evt);
-      drawing = true;
+      window.drawing = true;
       ctx.moveTo(m.x,m.y);
       ctx.lineTo(m.x + 25, m.y + 5);
       ctx.stroke();
@@ -213,7 +214,7 @@ setTimeout(() => {
       ctx.lineTo(m.x + 40, m.y + 40);
       ctx.stroke();
       ctx.strokeStyle = "#FF0000";
-      drawing = false;
+      window.drawing = false;
     }
     if (evt.which === 3 || evt.button === 2) {
       console.log('Right mouse button at ' + evt.clientX + 'x' + evt.clientY);
@@ -223,7 +224,7 @@ setTimeout(() => {
         document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
       }, 310)
       if (window.initialRightClick) {
-        drawing = true;
+        window.drawing = true;
         ctx.strokeStyle = "#00C51A";
         let m = oMousePos(parentDiv, evt);
         ctx.lineTo(m.x, m.y);
@@ -238,18 +239,18 @@ setTimeout(() => {
         ctx.strokeStyle = "#00C51A";
         ctx.beginPath();
         window.initialRightClick = true;
-        drawing = true;
+        window.drawing = true;
         let m = oMousePos(parentDiv, evt);
         ctx.lineTo(m.x, m.y - 4);
         ctx.stroke();
         ctx.lineTo(m.x, m.y + 4);
         ctx.stroke();
-        drawing = false;
+        window.drawing = false;
         ctx.strokeStyle = "#FF0000";
       }
 
 
-      drawing = true;
+      window.drawing = true;
       let m = oMousePos(parentDiv, evt);
       ctx.moveTo(m.x,m.y);
     }
@@ -257,7 +258,7 @@ setTimeout(() => {
 
       if (window.initialRightClick) {
         ctx.strokeStyle = "#00C51A";
-        drawing = true;
+        window.drawing = true;
         let m = oMousePos(parentDiv, evt);
         ctx.lineTo(m.x, m.y);
         ctx.stroke();
@@ -275,7 +276,7 @@ setTimeout(() => {
       setTimeout(() => {
         document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
       }, 310)
-      drawing = true; // you can draw now
+      window.drawing = true; // you can draw now
       let m = oMousePos(parentDiv, evt);
       ctx.beginPath();
       ctx.moveTo(m.x,m.y);
@@ -285,14 +286,14 @@ setTimeout(() => {
   }, false);
 
   parentDiv.addEventListener('mouseup', function(evt) {
-    drawing = false; // you can't draw anymore
+    window.drawing = false; // you can't draw anymore
   }, false);
   parentDiv.addEventListener('mouseleave', function(evt) {
-    drawing = false; // you can't draw anymore
+    window.drawing = false; // you can't draw anymore
   }, false);
 
   parentDiv.addEventListener("mousemove", function(evt) {
-    if (drawing) {
+    if (window.drawing) {
       if (evt.which === 3 || evt.button === 2) {
         return
       }
