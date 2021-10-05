@@ -70,6 +70,7 @@ function isMobile() {
 }
 
 const handleScroll = () => {
+  window.initialRightClick = false
   if (window.scrollIntervalId && !window.skipClearInterval && !window.lastScrollByProgram) {
     clearInterval(window.scrollIntervalId)
   }
