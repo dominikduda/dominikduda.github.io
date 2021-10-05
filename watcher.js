@@ -153,8 +153,8 @@ setTimeout(() => {
       cx = cw / 2;
     let ch = canvas.height = parentDiv.clientHeight,
       cy = ch / 2;
-    ctx.strokeStyle = "#FF0000";
     ctx.lineWidth = 2;
+    ctx.strokeStyle = "#FF0000";
   }
   onResize();
   window.myCustomOnResize = onResize;
@@ -172,16 +172,112 @@ setTimeout(() => {
     }
   }
 
+  window.initialRightClick = false
   parentDiv.addEventListener('mousedown', function(evt) {
-    document.getElementsByClassName('overlay')[0].classList.remove('maximized')
-    document.getElementsByClassName('overlay')[0].classList.add('minimized')
-    setTimeout(() => {
-      document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
-    }, 310)
-    drawing = true; // you can draw now
-    let m = oMousePos(parentDiv, evt);
-    ctx.beginPath();
-    ctx.moveTo(m.x,m.y);
+    if (evt.which === 2 || evt.button === 1) {
+      console.log('Middle mouse button at ' + evt.clientX + 'x' + evt.clientY);
+      document.getElementsByClassName('overlay')[0].classList.remove('maximized')
+      document.getElementsByClassName('overlay')[0].classList.add('minimized')
+      setTimeout(() => {
+        document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
+      }, 310)
+      if (window.initialRightClick) {
+        ctx.strokeStyle = "#00C51A";
+        drawing = true;
+        let m = oMousePos(parentDiv, evt);
+        ctx.lineTo(m.x, m.y);
+        ctx.stroke();
+        ctx.lineTo(m.x, m.y + 4);
+        ctx.stroke();
+        ctx.lineTo(m.x, m.y - 4);
+        ctx.stroke();
+        window.initialRightClick = false;
+      }
+      ctx.beginPath();
+      ctx.strokeStyle = "#D500FF";
+      let m = oMousePos(parentDiv, evt);
+      drawing = true;
+      ctx.moveTo(m.x,m.y);
+      ctx.lineTo(m.x + 25, m.y + 5);
+      ctx.stroke();
+      ctx.lineTo(m.x, m.y);
+      ctx.stroke();
+      ctx.lineTo(m.x + 5, m.y + 25);
+      ctx.stroke();
+      ctx.lineTo(m.x, m.y);
+      ctx.stroke();
+      ctx.lineTo(m.x + 40, m.y + 40);
+      ctx.stroke();
+      ctx.strokeStyle = "#FF0000";
+      drawing = false;
+    }
+    if (evt.which === 3 || evt.button === 2) {
+      console.log('Right mouse button at ' + evt.clientX + 'x' + evt.clientY);
+      document.getElementsByClassName('overlay')[0].classList.remove('maximized')
+      document.getElementsByClassName('overlay')[0].classList.add('minimized')
+      setTimeout(() => {
+        document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
+      }, 310)
+      if (window.initialRightClick) {
+        drawing = true;
+        ctx.strokeStyle = "#00C51A";
+        let m = oMousePos(parentDiv, evt);
+        ctx.lineTo(m.x, m.y);
+        ctx.stroke();
+        ctx.lineTo(m.x, m.y + 4);
+        ctx.stroke();
+        ctx.lineTo(m.x, m.y - 4);
+        ctx.stroke();
+        window.initialRightClick = false;
+        ctx.strokeStyle = "#FF0000";
+      } else {
+        ctx.strokeStyle = "#00C51A";
+        ctx.beginPath();
+        window.initialRightClick = true;
+        drawing = true;
+        let m = oMousePos(parentDiv, evt);
+        ctx.lineTo(m.x, m.y - 4);
+        ctx.stroke();
+        ctx.lineTo(m.x, m.y + 4);
+        ctx.stroke();
+        drawing = false;
+        ctx.strokeStyle = "#FF0000";
+      }
+
+
+      drawing = true;
+      let m = oMousePos(parentDiv, evt);
+      ctx.moveTo(m.x,m.y);
+    }
+    if (evt.which === 1 || evt.button === 0) {
+
+      if (window.initialRightClick) {
+        ctx.strokeStyle = "#00C51A";
+        drawing = true;
+        let m = oMousePos(parentDiv, evt);
+        ctx.lineTo(m.x, m.y);
+        ctx.stroke();
+        ctx.lineTo(m.x, m.y + 4);
+        ctx.stroke();
+        ctx.lineTo(m.x, m.y - 4);
+        ctx.stroke();
+        window.initialRightClick = false;
+        ctx.strokeStyle = "#FF0000";
+      }
+        ctx.beginPath();
+      console.log('Left mouse button at ' + evt.clientX + 'x' + evt.clientY);
+      document.getElementsByClassName('overlay')[0].classList.remove('maximized')
+      document.getElementsByClassName('overlay')[0].classList.add('minimized')
+      setTimeout(() => {
+        document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
+      }, 310)
+      drawing = true; // you can draw now
+      let m = oMousePos(parentDiv, evt);
+      ctx.beginPath();
+      ctx.moveTo(m.x,m.y);
+    }
+
+
   }, false);
 
   parentDiv.addEventListener('mouseup', function(evt) {
@@ -193,6 +289,9 @@ setTimeout(() => {
 
   parentDiv.addEventListener("mousemove", function(evt) {
     if (drawing) {
+      if (evt.which === 3 || evt.button === 2) {
+        return
+      }
       let m = oMousePos(parentDiv, evt);
       ctx.lineTo(m.x, m.y);
       ctx.stroke();
