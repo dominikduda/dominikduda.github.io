@@ -497,7 +497,7 @@ output << <<~PAGE_TOP
                     font-weight: normal;
                     font-style: normal;
                     top: 0;
-                    opacity: 0.08;
+                    opacity: 0.14;
                     font-size: 350;
                     display: flex;
                     justify-content: center;
