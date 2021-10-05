@@ -70,7 +70,10 @@ function isMobile() {
 }
 
 const handleScroll = () => {
-  window.initialRightClick = false
+  if (window.initialRightClick) {
+    window.initialRightClick = false
+    ctx.strokeStyle = "#FF0000";
+  }
   if (window.scrollIntervalId && !window.skipClearInterval && !window.lastScrollByProgram) {
     clearInterval(window.scrollIntervalId)
   }
