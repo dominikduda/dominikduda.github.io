@@ -1,5 +1,5 @@
-TIMEFRAMES = %w[5d 5m 10y 30y 100y].freeze
-TIMEFRAMES_NAMES = %w[I D M Q Y].freeze
+TIMEFRAMES = %w[1d 5d 5m 10y 30y 100y].freeze
+TIMEFRAMES_NAMES = %w[I1D I5D D M Q Y].freeze
 AUTO_RELOAD_INTERVAL_MS = 600_000
 CHARTS = [
   '-Indices-',
