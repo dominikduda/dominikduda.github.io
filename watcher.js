@@ -413,6 +413,13 @@ document.onkeydown = function(e) {
   }
 };
 
+document.body.onmousedown = function(e) {
+    if(e.button == 1) {
+        e.preventDefault();
+        return false;
+    }
+}
+
 
 history.scrollRestoration = "manual"
 window.watcherSetCookie = setCookie;
