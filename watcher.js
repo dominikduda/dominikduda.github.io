@@ -179,9 +179,8 @@ setTimeout(() => {
 
   window.initialRightClick = false
   parentDiv.addEventListener('mousedown', function(evt) {
-    if(e.button == 1) {
-        e.preventDefault();
-        return false;
+    if(evt.button == 1) {
+        evt.preventDefault();
     }
     if (evt.which === 2 || evt.button === 1) {
       console.log('Middle mouse button at ' + evt.clientX + 'x' + evt.clientY);
