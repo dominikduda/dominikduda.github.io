@@ -1,5 +1,5 @@
-TIMEFRAMES = %w[5d 5m 2y 10y 30y 100y].freeze
-TIMEFRAMES_NAMES = %w[1h D W M Q Y].freeze
+TIMEFRAMES = %w[5d 5m 10y 30y 100y].freeze
+TIMEFRAMES_NAMES = %w[I D M Q Y].freeze
 AUTO_RELOAD_INTERVAL_MS = 600_000
 CHARTS = [
   '-Indices-',
@@ -214,11 +214,11 @@ output << <<~PAGE_TOP
         }
       #{'  '}
         .darkMode > .divider {
-          filter: invert(1);
+          filter: invert(1) hue-rotate(215deg);
         }
       #{'  '}
         .darkMode > .section-divider {
-          filter: invert(1);
+          filter: invert(1) hue-rotate(215deg);
         }
       #{'  '}
         .section-divider {
@@ -231,7 +231,7 @@ output << <<~PAGE_TOP
         }
       #{'  '}
         .darkMode {
-          filter: invert(1);
+          filter: invert(1) hue-rotate(145deg);
           background-color: white;
         }
       #{'  '}
@@ -448,9 +448,9 @@ output << <<~PAGE_TOP
                   .fav-button-container {
   #{'  '}
                     height: 20px;
-                    margin-left: 188px;
                     position: fixed;
                     top: 0;
+                    margin-left: 282px;
                     left: 0;
                     max-width: 600px;
                     max-width: 90px;
@@ -497,7 +497,8 @@ output << <<~PAGE_TOP
                     font-weight: normal;
                     font-style: normal;
                     top: 0;
-                    opacity: 0.14;
+                    opacity: 0.05;
+                    color: blue;
                     font-size: 350;
                     display: flex;
                     justify-content: center;
@@ -541,7 +542,7 @@ output << <<~PAGE_TOP
       #{'  '}
                   .color-button-container {
                     height: 20px;
-                    margin-left: 94px;
+                    margin-left: 376px;
                     position: fixed;
                     top: 0;
                     left: 0;
@@ -561,7 +562,7 @@ output << <<~PAGE_TOP
                   .down-arrow-container {
                     min-width: 90px;
                     min-height: 90px;
-                    margin-left: 376px;
+                    margin-left: 94px;
                     position: fixed;
                     top: 0;
                     left: 0;
@@ -576,7 +577,7 @@ output << <<~PAGE_TOP
                   .up-arrow-container {
                     height: 20px;
                     height: 20px;
-                    margin-left: 282px;
+                    margin-left: 188px;
                     position: fixed;
                     top: 0;
                     left: 0;
