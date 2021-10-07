@@ -381,34 +381,10 @@ document.onkeydown = function(e) {
     case 'ArrowLeft':
       str = 'Left Key pressed!';
       console.log(str)
-      if (window.current_index > 0 && window.watcherLoaded) {
-        if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-        const el = document.getElementById(window.list[window.current_index - 1])
-        window.skipClearInterval = true;
-        window.lastScrollByProgram = true;
-        window.watcherSetCookie('scrollPosition', el.id)
-        window.scrollIntervalId = setInterval(() => {
-          window.skipClearInterval = true;
-          el.scrollIntoView()
-        }, 50)
-        window.current_index = window.current_index - 1
-      }
       break;
     case 'ArrowRight':
       str = 'Right Key pressed!';
       console.log(str)
-      if (window.current_index + 1 < window.list.length && window.watcherLoaded) {
-        if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-        const el = document.getElementById(window.list[window.current_index + 1])
-        window.skipClearInterval = true;
-        window.lastScrollByProgram = true;
-        window.watcherSetCookie('scrollPosition', el.id)
-        window.scrollIntervalId = setInterval(() => {
-          window.skipClearInterval = true;
-          el.scrollIntoView()
-        }, 50)
-        window.current_index = window.current_index + 1
-      }
       break;
   }
 };
