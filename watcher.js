@@ -179,6 +179,10 @@ setTimeout(() => {
 
   window.initialRightClick = false
   parentDiv.addEventListener('mousedown', function(evt) {
+    if(e.button == 1) {
+        e.preventDefault();
+        return false;
+    }
     if (evt.which === 2 || evt.button === 1) {
       console.log('Middle mouse button at ' + evt.clientX + 'x' + evt.clientY);
       document.getElementsByClassName('overlay')[0].classList.remove('maximized')
@@ -413,12 +417,6 @@ document.onkeydown = function(e) {
   }
 };
 
-document.body.onmousedown = function(e) {
-    if(e.button == 1) {
-        e.preventDefault();
-        return false;
-    }
-}
 
 
 history.scrollRestoration = "manual"
