@@ -488,8 +488,8 @@ output << <<~PAGE_TOP
                     flex: 100;
                   }
                   .img-wrapper {
+                    flex: 1 1 50%;
                     position: relative;
-                    flex: 100;
                     width: auto;
                   }
                   .chart-info {
