@@ -333,7 +333,7 @@ setTimeout(() => {
             document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
           }, 310)
         },
-        900
+        5000
       )
     }
   }, false);
@@ -351,7 +351,7 @@ setTimeout(() => {
             document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
           }, 310)
         },
-        900
+        5000
       )
     } else {
       window.menuDisappearTimeout = setTimeout(
@@ -362,7 +362,7 @@ setTimeout(() => {
             document.getElementsByClassName('timer')[0].classList.remove('force-non-opaque')
           }, 310)
         },
-        20
+        2000
       )
     }
   }, false);
