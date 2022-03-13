@@ -1,103 +1,97 @@
 TIMEFRAMES = %w[5d 5m 10y 30y 100y].freeze
 TIMEFRAMES_NAMES = %w[I5D D M Q Y].freeze
-AUTO_RELOAD_INTERVAL_MS = 240_000
+AUTO_RELOAD_INTERVAL_MS = 120_000
 CHARTS = [
-  '-INDICES-',
+  '-Indices-',
   '^SPX',
   '^DJT',
-  '-(20+ year treasury usa treasury bond)-',
-  'IDTL.UK',
   '^DAX',
   'WIG',
-  '-ETF-',
-  'QQQ.US',
-  '-(semiconductor)-',
-  'SMH.US',
-  '-(metals and mining etf)-',
-  'XME.US',
+  '-ETFs-',
   'AIQ.US',
-  '-STOCKS-',
+  'QQQ.US',
+  'IDTL.UK(20+tresury)',
+  '-Stocks-',
   'AAPL.US',
   'ADBE.US',
-  'ALB.US',
-  'AMZN.US',
-  'BABA.US',
   'BAC.US',
-  'BGNE.US',
-  '-(food)-',
+  'AMZN.US',
   'BYND.US',
   'CCJ.US',
+  'BABA.US',
+  'CDNA.US',
   'CDR',
-  'CMCSA.US',
-  'CMG.US',
   'CRSP.US',
-  'DBI.US',
   'DIS.US',
-  '-(food)-',
-  'DNUT.US',
   'EDIT.US',
   'EXAS.US',
   'FDX.US',
-  'GTLB.US',
-  'IEA.US',
+  'HUGE',
   'INTC.US',
-  'JPM.US',
   'KO.US',
-  'LSXMA.US',
   'LTHM.US',
-  '-(food)-',
   'MCD.US',
   'MSFT.US',
+  'NTLA.US',
   'NVDA.US',
   'OSCR.US',
+  'PACB.US',
   'PBE.US',
-  '-(food)-',
   'PEP.US',
   'PLUG.US',
-  '-(food)-',
-  'PZZA.US',
+  'PYPL.US',
   'REGN.US',
-  '-(Gold mining stock)-',
-  'RGLD.US',
-  '-(food)-',
   'SBUX.US',
-  'SUI.US',
+  'SELB.US',
   'TDOC.US',
   'TSLA.US',
+  'TWST.US',
   'V.US',
   'VRTX.US',
   'WFC.US',
-  'WMT.US',
-  '-METALS-',
-  '-(Gold)-',
-  'XAUUSD',
-  '-(Silver)-',
+  '-Metals-',
   'XAGUSD',
-  '-(Palladium)-',
+  'XAUUSD',
   'XPDUSD',
-  '-(Platinum)-',
   'XPTUSD',
-  '-CRYPTOS-',
+  '-Cryptos-',
+  'AMPL.V',
+  'BNB.V',
   'BTCUSD',
-  'XMR.V',
+  'DOGE.V',
   'ETH.V',
   'SC.V',
   'XLM.V',
+  'XMR.V',
   'ZEC.V',
-  '-FX_MAJORS-',
-  'eurusd',
+  '-FX_majors-',
   'audusd',
+  'eurusd',
   'gbpusd',
   'usdcad',
   'usdchf',
   'usdjpy',
-  '-FX_MINORS-',
-  'nzdusd',
+  '-FX_minors-',
   'audcad',
   'audchf',
   'audjpy',
   'audnzd',
+  'cadchf',
   'cadjpy',
+  'chfjpy',
+  'euraud',
+  'eurchf',
+  'eurgbp',
+  'eurjpy',
+  'eurnzd',
+  'gbpaud',
+  'gbpchf',
+  'gbpjpy',
+  'gbpnzd',
+  'nzdcad',
+  'nzdchf',
+  'nzdjpy',
+  'nzdusd',
 ].freeze
 CHART_RENDER_DELAY_INCREMENT = 2000
 
@@ -475,7 +469,7 @@ output << <<~PAGE_TOP
                     flex: 100;
                   }
                   .img-wrapper {
-                    flex: 1 1 32%;
+                    flex: 1 1 50%;
                     position: relative;
                     width: auto;
                   }
@@ -547,7 +541,6 @@ output << <<~PAGE_TOP
       #{'  '}
       #{'  '}
                   .down-arrow-container {
-                    z-index: 99;
                     min-width: 90px;
                     min-height: 90px;
                     margin-left: 94px;
@@ -563,7 +556,6 @@ output << <<~PAGE_TOP
                     max-width: 200px;
                   }
                   .up-arrow-container {
-                    z-index: 99;
                     height: 20px;
                     height: 20px;
                     margin-left: 188px;
@@ -738,8 +730,7 @@ DOWN_ARROW
 down_arr << '</div>'
 down_arr << '</div>'
 menu_html << '</div>'
-output << down_arr
-# menu_html << down_arr
+menu_html << down_arr
 
 up_arr = ''
 up_arr << '<div class="up-arrow-container">'
@@ -766,8 +757,7 @@ up_arr << <<~UP_ARROW
 UP_ARROW
 up_arr << '</div>'
 up_arr << '</div>'
-output << up_arr
-# menu_html << up_arr
+menu_html << up_arr
 
 color_btn = ''
 color_btn << '<div class="color-button-container">'
