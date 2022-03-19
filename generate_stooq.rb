@@ -616,7 +616,7 @@ output << <<~PAGE_TOP
                           </style>
                           <script>
                             (() => {
-                              window.list = #{CHARTS.reject { |chart| chart.include?('-') }.map { |chart| chart.split(',').first }};
+                              window.list = #{CHARTS.reject { |chart| chart.include?('|') }.map { |chart| chart.split(',').first }};
                               window.current_index = 0;
                             })()
                           </script>
@@ -692,7 +692,7 @@ CHARTS.each do |market_id|
           window.lastScrollByProgram = true;
           #{
             if market_id.include?('|')
-              "window.watcherSetCookie('scrollPosition', '#{CHARTS[CHARTS.index(market_id) + 1]}');"
+              "window.watcherSetCookie('scrollPosition', '#{CHARTS[CHARTS.index(stooq_id) + 1]}');"
             else
               "window.watcherSetCookie('scrollPosition', '#{stooq_id}');"
             end
