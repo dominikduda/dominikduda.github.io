@@ -3,101 +3,101 @@ TIMEFRAMES_NAMES = %w[D M Q Y].freeze
 AUTO_RELOAD_INTERVAL_MS = 240_000
 CHARTS = [
   '-|||| INDICES ||||-',
-  '^SPX',
-  '^DJT',
+  '^SPX,,',
+  '^DJT,,',
   '-(20+ year treasury usa treasury bond)-',
-  'IDTL.UK',
-  '^DAX',
-  'WIG',
+  'IDTL.UK,,',
+  '^DAX,,',
+  'WIG,,',
   '-|||| ETF ||||-',
-  'QQQ.US',
+  'QQQ.US,,',
   '-(semiconductor)-',
-  'SMH.US',
+  'SMH.US,,',
   '-(metals and mining etf)-',
-  'XME.US',
-  'AIQ.US',
+  'XME.US,,',
+  'AIQ.US,,',
   '-|||| STOCKS ||||-',
-  'AAPL.US',
-  'ADBE.US',
-  'ALB.US',
-  'AMZN.US',
-  'BABA.US',
-  'BAC.US',
-  'BGNE.US',
+  'AAPL.US,https://companiesmarketcap.com/apple/marketcap/,The fanboy company.',
+  'ADBE.US,,',
+  'ALB.US,,',
+  'AMZN.US,,',
+  'BABA.US,,',
+  'BAC.US,,',
+  'BGNE.US,,',
   '-(food)-',
-  'BYND.US',
-  'CCJ.US',
-  'CDR',
-  'CMCSA.US',
-  'CMG.US',
-  'CRSP.US',
-  'DBI.US',
-  'DIS.US',
+  'BYND.US,,',
+  'CCJ.US,,',
+  'CDR,,',
+  'CMCSA.US,,',
+  'CMG.US,,',
+  'CRSP.US,,',
+  'DBI.US,,',
+  'DIS.US,,',
   '-(food)-',
-  'DNUT.US',
-  'EDIT.US',
-  'EXAS.US',
-  'FDX.US',
-  'GTLB.US',
-  'IEA.US',
-  'INTC.US',
-  'JPM.US',
-  'KO.US',
-  'LSXMA.US',
-  'LTHM.US',
+  'DNUT.US,,',
+  'EDIT.US,,',
+  'EXAS.US,,',
+  'FDX.US,,',
+  'GTLB.US,,',
+  'IEA.US,,',
+  'INTC.US,,',
+  'JPM.US,,',
+  'KO.US,,',
+  'LSXMA.US,,',
+  'LTHM.US,,',
   '-(food)-',
-  'MCD.US',
-  'MSFT.US',
-  'NVDA.US',
-  'OSCR.US',
-  'PBE.US',
+  'MCD.US,,',
+  'MSFT.US,,',
+  'NVDA.US,,',
+  'OSCR.US,,',
+  'PBE.US,,',
   '-(food)-',
-  'PEP.US',
-  'PLUG.US',
+  'PEP.US,,',
+  'PLUG.US,,',
   '-(food)-',
-  'PZZA.US',
-  'REGN.US',
+  'PZZA.US,,',
+  'REGN.US,,',
   '-(gold mining stock)-',
-  'RGLD.US',
+  'RGLD.US,royal-gold,Gold mining stock',
   '-(food)-',
-  'SBUX.US',
-  'SUI.US',
-  'TDOC.US',
-  'TSLA.US',
-  'V.US',
-  'VRTX.US',
-  'WFC.US',
-  'WMT.US',
+  'SBUX.US,,',
+  'SUI.US,,',
+  'TDOC.US,,',
+  'TSLA.US,,',
+  'V.US,,',
+  'VRTX.US,,',
+  'WFC.US,,',
+  'WMT.US,,',
   '-|||| METALS ||||-',
   '-(gold)-',
-  'XAUUSD',
+  'XAUUSD,,',
   '-(silver)-',
-  'XAGUSD',
+  'XAGUSD,,',
   '-(palladium)-',
-  'XPDUSD',
+  'XPDUSD,,',
   '-(platinum)-',
-  'XPTUSD',
+  'XPTUSD,,',
   '-|||| CRYPTOS ||||-',
-  'BTCUSD',
-  'XMR.V',
-  'ETH.V',
-  'SC.V',
-  'XLM.V',
-  'ZEC.V',
+  'BTCUSD,,',
+  'XMR.V,,',
+  'ETH.V,,',
+  'SC.V,,',
+  'XLM.V,,',
+  'ZEC.V,,',
   '-|||| FX_MAJORS ||||-',
-  'eurusd',
-  'audusd',
-  'gbpusd',
-  'usdcad',
-  'usdchf',
-  'usdjpy',
+  'eurusd,,',
+  'audusd,,',
+  'gbpusd,,',
+  'usdcad,,',
+  'usdchf,,',
+  'usdjpy,,',
   '-|||| FX_MINORS ||||-',
-  'nzdusd',
-  'audcad',
-  'audchf',
-  'audjpy',
-  'audnzd',
-  'cadjpy',
+  'nzdusd,,',
+  'audcad,,',
+  'audchf,,',
+  'audjpy,,',
+  'audnzd,,',
+  'cadjpy,,',
 ].freeze
 CHART_RENDER_DELAY_INCREMENT = 2000
 
@@ -171,6 +171,8 @@ output << <<~PAGE_TOP
         }
       #{'  '}
         .divider {
+        position: relative;
+          z-index: 4;
           text-align: center;
           background-color: #005880;
           color: white;
@@ -637,12 +639,13 @@ PAGE_TOP
 $next_chart_render_delay = 0
 
 def chart(market_id, timeframe)
-  return '' if market_id.include?('-')
+  return '' if market_id.include?('|')
+
+  stooq_id, info_link, description = market_id.split(',')
 
   <<~CHART
-
     <div class="img-wrapper">
-      <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{market_id}&c=#{timeframe}&t=c&a=lg&b&g&svg"> <div class="chart-info">#{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}</div></img>
+      <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{stooq_id}&c=#{timeframe}&t=c&a=lg&b&g&svg"> <div class="chart-info">#{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}</div></img>
     </div>
   CHART
 end
@@ -662,55 +665,57 @@ output << <<~SPINNER
     })()">
   </div>
 SPINNER
-output << "<div id='parentDiv'>"
-
-output << "<canvas id='canvas'></canvas>"
-output << '</div>'
 
 output << '<div class="grid-container">'
 CHARTS.each do |market_id|
-  output << if market_id.include?('-')
+  stooq_id, info_link, description = market_id.split(',')
+
+  output << if market_id.include?('|')
               "<div class='grid-item section-divider' id=#{market_id}>" + market_id.gsub('_', ' ') + '</div>'
             else
-              "<div class='grid-item divider' id=#{market_id}><h4>" + market_id + '</h4></div>'
+              "<div class='grid-item divider' id=#{stooq_id}><a href='google.com'><h4>" + stooq_id + '</h4></a></div>'
             end
   output << "<div class='chart-wrapper'>"
   TIMEFRAMES.each do |timeframe|
-    output << chart(market_id, timeframe)
+    output << chart(stooq_id, timeframe)
   end
   output << '</div>'
   output << ''
-  first_divider_id = market_id + TIMEFRAMES.first
+  first_divider_id = stooq_id + TIMEFRAMES.first
   menu_html << <<~MENU
     <div
-      class="#{market_id.include?('-') ? 'divider-link' : 'chart-link'} noselect"
+      class="#{stooq_id.include?('|') ? 'divider-link' : 'chart-link'} noselect"
       tabindex="-1"
-      id="#{market_id}"
+      id="#{stooq_id}"
       onClick="(function() {
         if (window.watcherLoaded) {
           if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
           window.skipClearInterval = true;
           window.lastScrollByProgram = true;
           #{
-            if market_id.include?('-')
+            if market_id.include?('|')
               "window.watcherSetCookie('scrollPosition', '#{CHARTS[CHARTS.index(market_id) + 1]}');"
             else
-              "window.watcherSetCookie('scrollPosition', '#{market_id}');"
+              "window.watcherSetCookie('scrollPosition', '#{stooq_id}');"
             end
           }
           window.scrollIntervalId = setInterval(() => {
             window.skipClearInterval = true;
-            document.getElementById('#{market_id}').scrollIntoView()
+            document.getElementById('#{stooq_id}').scrollIntoView()
           }, 50)
-          window.current_index = window.list.indexOf('#{market_id}')
-          window.watcherLastSelectedChart = '#{market_id}';
+          window.current_index = window.list.indexOf('#{stooq_id}')
+          window.watcherLastSelectedChart = '#{stooq_id}';
         }
       })()"
     >
-      <span>#{market_id.gsub('_', ' ')}</span>
+      <span>#{stooq_id.gsub('_', ' ')}</span>
     </div>
   MENU
 end
+output << '</div>'
+output << "<div id='parentDiv'>"
+
+output << "<canvas id='canvas'></canvas>"
 output << '</div>'
 down_arr = ''
 down_arr << '<div class="down-arrow-container">'
