@@ -112,6 +112,7 @@ output << <<~PAGE_TOP
       }
       #{'  '}
         .about-content {
+          z-index: 0 !important;
           padding-left: 15%;
           padding-right: 15%;
           width: 70%;
@@ -847,7 +848,7 @@ menu_html << '</div>'
 
 output << menu_html
 output << "<div class='grid-item section-divider'><h3 id='About'>About</h3></div>"
-output << "<div class='grid-item divider about-content'><br>Use the button in the top left corner to open the menu.<br><br>You can draw on charts. Left mouse click to stroke with the cursor. Two right mouse clicks to draw a straight line from point A to point B. The scroll (middle) button click to insert an arrow.<br><br>Drawings disappearing when scrolling is intentional behavior. Make a screenshot of the page to save them.<br><br>Drawing is disabled on mobile devices.<br><br>Marked charts, color mode, and last selected chart will persist over page close.<br><br>You can create a link to a specific chart like this: <b>https://dominikduda.github.io/#MSFT.US</b><br><br>The page will automatically refresh every 10 minutes. You can keep the tab open, and the charts will always be up to date.<br><br>All charts come from stooq.com<br><br>You can generate such a static page for yourself. Check out the readme of the following repository: <b>https://github.com/dominikduda/dominikduda.github.io</b><br>Note that stuff persisting over browser close won't work on localhost.<br><br></div>"
+output << "<div class='grid-item divider about-content'><br>Use the button in the top left corner to open the menu.<br><br>You can draw on charts. Left mouse click to stroke with the cursor. Two right mouse clicks to draw a straight line from point A to point B. The scroll (middle) button click to insert an arrow.<br><br>Drawings disappearing when scrolling is intentional behavior. Make a screenshot of the page to save them.<br><br>Drawing is disabled on mobile devices.<br><br>You can scroll through the symbols using left/right arrow buttons.<br><br>Marked charts, color mode, and last selected chart will persist over page close.<br><br>You can create a link to a specific chart like this: <b>https://dominikduda.github.io/#MSFT.US</b><br><br>The page will automatically refresh every 10 minutes. You can keep the tab open, and the charts will always be up to date.<br><br>All charts come from stooq.com<br><br>You can generate such a static page for yourself. Check out the readme of the following repository: <b>https://github.com/dominikduda/dominikduda.github.io</b><br>Note that stuff persisting over browser close won't work on localhost.<br><br></div>"
 
 output << '<div class="bottom-margin"></div>'
 
