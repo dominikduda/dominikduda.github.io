@@ -615,7 +615,7 @@ output << <<~PAGE_TOP
                           </style>
                           <script>
                             (() => {
-                              window.list = #{CHARTS.reject { |chart| chart.include?('-') }};
+                              window.list = #{CHARTS.reject { |chart| chart.include?('-') }.map { |chart| chart.split(',').first }};
                               window.current_index = 0;
                             })()
                           </script>
