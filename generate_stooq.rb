@@ -670,7 +670,7 @@ CHARTS.each do |market_id|
   output << if market_id.include?('|')
               "<div class='grid-item section-divider' id=#{market_id}>" + market_id.gsub('_', ' ') + '</div>'
             else
-              "<div class='grid-item divider' id=#{stooq_id}><h4 class='no-margin'><a href='##{stooq_id}'>" + stooq_id + "</a></h4>#{info_link ? "<h4><a href=#{info_link}>Symbol info</a></h4>" : ''}#{description ? "<p>#{description}</p>" : ''}</div>"
+              "<div class='grid-item divider' id=#{stooq_id}><h4 class='no-margin'><a href='##{stooq_id}'>" + stooq_id + "</a></h4>#{info_link && !info_link.empty? ? "<h4><a href=#{info_link}>Symbol info</a></h4>" : ''}#{description && !description.empty? ? "<p>#{description}</p>" : ''}</div>"
             end
   output << "<div class='chart-wrapper'>"
   TIMEFRAMES.each do |timeframe|
