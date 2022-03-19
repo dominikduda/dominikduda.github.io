@@ -1,22 +1,22 @@
-TIMEFRAMES = %w[5d 5m 10y 30y 100y].freeze
-TIMEFRAMES_NAMES = %w[I5D D M Q Y].freeze
+TIMEFRAMES = %w[5m 10y 30y 100y].freeze
+TIMEFRAMES_NAMES = %w[D M Q Y].freeze
 AUTO_RELOAD_INTERVAL_MS = 240_000
 CHARTS = [
-  '-INDICES-',
+  '-|||| INDICES ||||-',
   '^SPX',
   '^DJT',
   '-(20+ year treasury usa treasury bond)-',
   'IDTL.UK',
   '^DAX',
   'WIG',
-  '-ETF-',
+  '-|||| ETF ||||-',
   'QQQ.US',
   '-(semiconductor)-',
   'SMH.US',
   '-(metals and mining etf)-',
   'XME.US',
   'AIQ.US',
-  '-STOCKS-',
+  '-|||| STOCKS ||||-',
   'AAPL.US',
   'ADBE.US',
   'ALB.US',
@@ -57,7 +57,7 @@ CHARTS = [
   '-(food)-',
   'PZZA.US',
   'REGN.US',
-  '-(Gold mining stock)-',
+  '-(gold mining stock)-',
   'RGLD.US',
   '-(food)-',
   'SBUX.US',
@@ -68,30 +68,30 @@ CHARTS = [
   'VRTX.US',
   'WFC.US',
   'WMT.US',
-  '-METALS-',
-  '-(Gold)-',
+  '-|||| METALS ||||-',
+  '-(gold)-',
   'XAUUSD',
-  '-(Silver)-',
+  '-(silver)-',
   'XAGUSD',
-  '-(Palladium)-',
+  '-(palladium)-',
   'XPDUSD',
-  '-(Platinum)-',
+  '-(platinum)-',
   'XPTUSD',
-  '-CRYPTOS-',
+  '-|||| CRYPTOS ||||-',
   'BTCUSD',
   'XMR.V',
   'ETH.V',
   'SC.V',
   'XLM.V',
   'ZEC.V',
-  '-FX_MAJORS-',
+  '-|||| FX_MAJORS ||||-',
   'eurusd',
   'audusd',
   'gbpusd',
   'usdcad',
   'usdchf',
   'usdjpy',
-  '-FX_MINORS-',
+  '-|||| FX_MINORS ||||-',
   'nzdusd',
   'audcad',
   'audchf',
@@ -475,7 +475,7 @@ output << <<~PAGE_TOP
                     flex: 100;
                   }
                   .img-wrapper {
-                    flex: 1 1 32%;
+                    flex: 1 1 49%;
                     position: relative;
                     width: auto;
                   }
