@@ -1,534 +1,546 @@
-                  <html>
-                    <head>
-
-                    <link rel="shortcut icon" type="image/png" href="favicon.png">
-                    <script src="watcher.js"> </script>
-                      <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-    h4, h3 {
+                    <html>
+                      <head>
+  
+                      <link rel="shortcut icon" type="image/png" href="favicon.png">
+                      <script src="watcher.js"> </script>
+                        <style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+      h4, h3 {
+      display: inline-block;
+        margin: 0;
+        margin-left: 50px;
+      }
+  
+    a{ color: white }
+    a:visited{ color: white }
+    p {
       margin: 0;
+      margin-top: 15px;
     }
-    
-    .about-content {
-      padding-left: 15%;
-      padding-right: 15%;
-      width: 70%;
-      overflow-wrap: anywhere;
+    .no-margin {
+    margin: 0;
     }
-    
-    .noselect {
-      -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-         -khtml-user-select: none; /* Konqueror HTML */
-           -moz-user-select: none; /* Old versions of Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-                user-select: none; /* Non-prefixed version, currently
-                                      supported by Chrome, Edge, Opera and Firefox */
-    }
-    
-    .minimized {
-        animation: enters 0.3s ease-in-out;
-        transform-origin: 46px 46px;
-        opacity: 0;
-        transform: scale(0.1);
-    }
-    
-    .maximized {
-        animation: leaves 0.3s ease-in-out;
-        transform-origin: 46px 46px;
-        transform: scale(1);
-        opacity: 1;
-    }
-    
-    @keyframes leaves {
-        0% {
-            transform: scale(0.01);
-            opacity: 0;
-        }
-        100% {
-            transform: scale(1.0);
-            opacity: 1;
-        }
-    }
-    @keyframes enters {
-        0% {
-            transform: scale(1.0);
-            opacity: 1;
-        }
-        100% {
-            transform: scale(0.01);
-            opacity: 0;
-        }
-    }
-    
-        .active {
-          border-color: #99ed38 !important;
-        }
-        
-        .divider {
-        position: relative;
-          z-index: 4;
-          text-align: center;
-          background-color: #005880;
-          color: white;
-          padding-top: 5px;
-          padding-bottom: 5px;
-          font-size: 20px;
-        }
-        .divider-link {
-                    background-color: #2f2751;
-                    color: white;
-                    border: solid 1px #131313;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    padding-top: 8px;
-                    padding-bottom: 8px;
-                    margin-left: 0px;
-                    margin-top: 0px;
-                    cursor: pointer;
-                    font-size: 20px;
-        }
-        
-        .marked {
-          color: #009cff !important;
-        }
-        
-        .marked:hover {
-          color: #ffbf00 !important;
-        }
-        
-        .darkMode > .divider {
-          filter: invert(1) hue-rotate(215deg);
-        }
-        
-        .darkMode > .section-divider {
-          filter: invert(1) hue-rotate(215deg);
-        }
-        
-        .section-divider {
-          text-align: center;
-          color: white;
-          padding-top: 5px;
-          padding-bottom: 5px;
-          font-size: 60px;
-          background-color: #00385f;
-        }
-        
-        .darkMode {
-          filter: invert(1) hue-rotate(145deg);
-          background-color: white;
-        }
-        
-        .loaderWrapper {
-          top: 40%;
-          position: fixed;
-          left: 0;
-          right: 0;
-        }
-        .fade-out {
-          animation: fade 1s;
-          -webkit-animation: fade 1s;
-          -moz-animation: fade 1s;
+      
+      .about-content {
+        padding-left: 15%;
+        padding-right: 15%;
+        width: 70%;
+        overflow-wrap: anywhere;
+      }
+      
+      .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+           -khtml-user-select: none; /* Konqueror HTML */
+             -moz-user-select: none; /* Old versions of Firefox */
+              -ms-user-select: none; /* Internet Explorer/Edge */
+                  user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */
+      }
+      
+      .minimized {
+          animation: enters 0.3s ease-in-out;
+          transform-origin: 46px 46px;
           opacity: 0;
-        }
-        
-        /* Animate opacity */
-        @keyframes fade {
-          from { opacity: 1 }
-          to { opacity: 0 }
-        }
-        @-moz-keyframes fade {
-          from { opacity: 1 }
-          to { opacity: 0 }
-        }
-        @-webkit-keyframes fade {
-          from { opacity: 1 }
-          to { opacity: 0 }
-        }
-        
-        
-        
-        
-        .loader,
-        .loader:after {
-          border-radius: 50%;
-          width: 10em;
-          height: 10em;
-        }
-        .loader {
-          margin: 60px auto;
-          font-size: 10px;
+          transform: scale(0.1);
+      }
+      
+      .maximized {
+          animation: leaves 0.3s ease-in-out;
+          transform-origin: 46px 46px;
+          transform: scale(1);
+          opacity: 1;
+      }
+      
+      @keyframes leaves {
+          0% {
+              transform: scale(0.01);
+              opacity: 0;
+          }
+          100% {
+              transform: scale(1.0);
+              opacity: 1;
+          }
+      }
+      @keyframes enters {
+          0% {
+              transform: scale(1.0);
+              opacity: 1;
+          }
+          100% {
+              transform: scale(0.01);
+              opacity: 0;
+          }
+      }
+      
+          .active {
+            border-color: #99ed38 !important;
+          }
+          
+          .divider {
           position: relative;
-          text-indent: -9999em;
-          border-top: 1.1em solid rgba(30,22,141, 0.2);
-          border-right: 1.1em solid rgba(30,22,141, 0.2);
-          border-bottom: 1.1em solid rgba(30,22,141, 0.2);
-          border-left: 1.1em solid #1e168d;
-          -webkit-transform: translateZ(0);
-          -ms-transform: translateZ(0);
-          transform: translateZ(0);
-          -webkit-animation: load8 1.1s infinite linear;
-          animation: load8 1.1s infinite linear;
-        }
-        @-webkit-keyframes load8 {
-          0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+            z-index: 4;
+            text-align: center;
+            background-color: #005880;
+            color: white;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 20px;
           }
-          100% {
-            -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+          .divider-link {
+                      background-color: #2f2751;
+                      color: white;
+                      border: solid 1px #131313;
+                      padding-left: 5px;
+                      padding-right: 5px;
+                      padding-top: 8px;
+                      padding-bottom: 8px;
+                      margin-left: 0px;
+                      margin-top: 0px;
+                      cursor: pointer;
+                      font-size: 20px;
           }
-        }
-        @keyframes load8 {
-          0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+          
+          .marked {
+            color: #009cff !important;
           }
-          100% {
-            -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+          
+          .marked:hover {
+            color: #ffbf00 !important;
           }
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-            .timer {
-              opacity: 0.8;
-              z-index: 5;
-              margin-left: 1px;
-              margin-top: 1px;
-              position: fixed;
-              left: 0;
-              width: 93px;
-              height: 93px;
-              animation-name: spin;
-              animation-duration: 240000ms;
-              animation-iteration-count: infinite;
-              animation-timing-function: linear;
-              background-image: url('https://raw.githubusercontent.com/dominikduda/config_files/master/dd_logo_blue_bg.png');
-              background-size: auto 100%;
-              background-position: center;
-    
-      border-radius: 50px;/* specify the radius */
+          
+          .darkMode > .divider {
+            filter: invert(1) hue-rotate(215deg);
+          }
+          
+          .darkMode > .section-divider {
+            filter: invert(1) hue-rotate(215deg);
+          }
+          
+          .section-divider {
+            text-align: center;
+            color: white;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 60px;
+            background-color: #00385f;
+          }
+          
+          .darkMode {
+            filter: invert(1) hue-rotate(145deg);
+            background-color: white;
+          }
+          
+          .loaderWrapper {
+            top: 40%;
+            position: fixed;
+            left: 0;
+            right: 0;
+          }
+          .fade-out {
+            animation: fade 1s;
+            -webkit-animation: fade 1s;
+            -moz-animation: fade 1s;
+            opacity: 0;
+          }
+          
+          /* Animate opacity */
+          @keyframes fade {
+            from { opacity: 1 }
+            to { opacity: 0 }
+          }
+          @-moz-keyframes fade {
+            from { opacity: 1 }
+            to { opacity: 0 }
+          }
+          @-webkit-keyframes fade {
+            from { opacity: 1 }
+            to { opacity: 0 }
+          }
+          
+          
+          
+          
+          .loader,
+          .loader:after {
+            border-radius: 50%;
+            width: 10em;
+            height: 10em;
+          }
+          .loader {
+            margin: 60px auto;
+            font-size: 10px;
+            position: relative;
+            text-indent: -9999em;
+            border-top: 1.1em solid rgba(30,22,141, 0.2);
+            border-right: 1.1em solid rgba(30,22,141, 0.2);
+            border-bottom: 1.1em solid rgba(30,22,141, 0.2);
+            border-left: 1.1em solid #1e168d;
+            -webkit-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-animation: load8 1.1s infinite linear;
+            animation: load8 1.1s infinite linear;
+          }
+          @-webkit-keyframes load8 {
+            0% {
+              -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
             }
-            .force-non-opaque {
-              opacity: 1;
+            100% {
+              -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
             }
-            .timer:hover {
-              opacity: 1;
+          }
+          @keyframes load8 {
+            0% {
+              -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
             }
-            
-            @keyframes spin {
-                from {
-                    transform:rotate(0deg);
-                }
-                to {
-                    transform:rotate(360deg);
-                }
+            100% {
+              -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
             }
-                canvas {
-                    width:100%;
-                    height:100%;
-                    position: fixed;
-                    z-index: 3;
-                    top: 0;
-                }
-                #parentDiv {
-                    width:100%;
-                    height:100%;
-                    position: fixed;
-                    z-index: 3;
-                    top: 0;
-                }
-                
-                  .arrow {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    min-width: 92px;
-                    min-height: 92px;
-                    font-size: 40;
-                    cursor: pointer;
-                    border: solid 1px #4174c8;
-                    background-color: #001138;
-                    color: #b8b6b4;
+          }
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+              .timer {
+                opacity: 0.8;
+                z-index: 5;
+                margin-left: 1px;
+                margin-top: 1px;
+                position: fixed;
+                left: 0;
+                width: 93px;
+                height: 93px;
+                animation-name: spin;
+                animation-duration: 240000ms;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                background-image: url('https://raw.githubusercontent.com/dominikduda/config_files/master/dd_logo_blue_bg.png');
+                background-size: auto 100%;
+                background-position: center;
+      
+        border-radius: 50px;/* specify the radius */
+              }
+              .force-non-opaque {
+                opacity: 1;
+              }
+              .timer:hover {
+                opacity: 1;
+              }
+              
+              @keyframes spin {
+                  from {
+                      transform:rotate(0deg);
                   }
-                  .arrow:hover {
-                    color: white;
+                  to {
+                      transform:rotate(360deg);
                   }
-        
-                  .color-btn {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    min-width: 92px;
-                    min-height: 92px;
-                    border: solid 1px #4174c8;
-                    font-size: 15;
-                    cursor: pointer;
-                    background-color: #001138;
-                    color: #b8b6b4;
-                    max-width: 40px;
-                    overflow-wrap: anywhere;
+              }
+                  canvas {
+                      width:100%;
+                      height:100%;
+                      position: fixed;
+                      z-index: 3;
+                      top: 0;
                   }
-                  .color-btn:hover {
-                    color: white;
+                  #parentDiv {
+                      width:100%;
+                      height:100%;
+                      position: fixed;
+                      z-index: 3;
+                      top: 0;
                   }
-    
-    
-    
-                  .menu-button-container {
-                    height: 20px;
-                    margin-left: 0px;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    max-width: 600px;
-                    max-width: 90px;
-                    max-height: 90px;
-                  }
-                  .menu-button-content {
-                    font-size: 5;
-                    position: relative;
-                    text-align: center;
-                    max-width: 200px;
-                  }
-                  .menu-btn {
-    
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    min-width: 92px;
-                    min-height: 92px;
-                    border: solid 1px #444055;
-                    font-size: 15;
-                    cursor: pointer;
-                    background-color: #444055;
-                    max-width: 40px;
-                    overflow-wrap: anywhere;
-                  }
-                  .menu-btn:hover {
-                    color: #005ef7;
-                  }
-    
-    
-    
-    
-    
-    
-    
-        
-                  .fav-button-container {
-    
-                    height: 20px;
-                    position: fixed;
-                    top: 0;
-                    margin-left: 282px;
-                    left: 0;
-                    max-width: 600px;
-                    max-width: 90px;
-                    max-height: 90px;
-                  }
-                  .fav-button-content {
-                    font-size: 5;
-                    position: relative;
-                    text-align: center;
-                    max-width: 200px;
-                  }
-                  .fav-btn {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    min-width: 92px;
-                    min-height: 92px;
-                    border: solid 1px #4174c8;
-                    font-size: 15;
-                    cursor: pointer;
-                    background-color: #001138;
-                    color: #b8b6b4;
-                    max-width: 40px;
-                    overflow-wrap: anywhere;
-                  }
-                  .fav-btn:hover {
-                    color: white;
-                  }
-        
-                  img {
-                    width: 100%;
-                    height: 100%;
-                    min-width: 800px;
-                    min-height: 550px;
-                    flex: 100;
-                  }
-                  .img-wrapper {
-                    flex: 1 1 49%;
-                    position: relative;
-                    width: auto;
-                  }
-                  .chart-info {
-                    font-family: 'Roboto';
-                    font-weight: normal;
-                    font-style: normal;
-                    top: 0;
-                    opacity: 0.05;
-                    color: blue;
-                    font-size: 350;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 100%;
-                    height: 100%;
-                    position:absolute;
-                    left: 0;
-                    z-index: 2;
-                  }
-    
-                  .clear-min-width {
-                    min-width: 0px;
-                    min-height: 0px;
-                  }
-                  .chart {
-                    height: 1920px;
-                  }
-                  .chart_title {
-                  }
-                  .no-scroll {
-                    overflow: hidden;
-                  }
-                  .hidden {
-                    display: none;
-                  }
-                  body {
-                    margin: 0px;
-                  }
-                  .overlay {
-                    height: 80%;
-                    width: auto;
-                    position: fixed;
-                    z-index: 4;
-                    top: 0;
-                    left: 0;
-                  }
-                  .initial-overlay {
-                  animation-duration: 0s;
-                  }
-        
-                  .color-button-container {
-                    height: 20px;
-                    margin-left: 376px;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    max-width: 600px;
-                    max-width: 90px;
-                    max-height: 90px;
-                  }
-                  .color-button-content {
-                    font-size: 5;
-                    position: relative;
-                    text-align: center;
-                    max-width: 200px;
-                  }
-        
-        
-        
-                  .down-arrow-container {
-                    z-index: 99;
-                    min-width: 90px;
-                    min-height: 90px;
-                    margin-left: 94px;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    max-width: 90px;
-                    max-height: 90px;
-                  }
-                  .down-arrow-content {
-                    position: relative;
-                    text-align: center;
-                    max-width: 200px;
-                  }
-                  .up-arrow-container {
-                    z-index: 99;
-                    height: 20px;
-                    height: 20px;
-                    margin-left: 188px;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    max-width: 90px;
-                    max-height: 90px;
-                  }
-                  .up-arrow-content {
-                    position: relative;
-                    text-align: center;
-                    max-width: 200px;
-                  }
-                  .overlay-content {
-                    display: flex;
-                    flex-wrap: wrap;
-                    flex-direction: column;
-                    position: relative;
-                    text-align: center;
-                    top: 94px;
-                    z-index: 7;
-                    height: 100%;
-                  }
-                  .chart-link {
-                    background-color: #444055;
-                    color: white;
-                    border: solid 1px #131313;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    padding-top: 8px;
-                    padding-bottom: 8px;
-                    margin-left: 0px;
-                    margin-top: 0px;
-                    cursor: pointer;
-                    font-size: 20px;
-                  }
-                  .chart-link:hover {
-                    color: #ffbf00;
-                  }
-                  .chart-wrapper {
-                    display: flex;
-                    flex-wrap: wrap;
-                    width: 100%;
-                  }
-                  .bottom-margin {
-                    background-color: #00385f;
-                    min-height: 3500px;
-                  }
-                      </style>
-                      <script>
-                        (() => {
-                          window.list = ["^SPX,,", "^DJT,,", "IDTL.UK,,", "^DAX,,", "WIG,,", "QQQ.US,,", "SMH.US,,", "XME.US,,", "AIQ.US,,", "AAPL.US,https://companiesmarketcap.com/apple/marketcap/,The fanboy company.", "ADBE.US,,", "ALB.US,,", "AMZN.US,,", "BABA.US,,", "BAC.US,,", "BGNE.US,,", "BYND.US,,", "CCJ.US,,", "CDR,,", "CMCSA.US,,", "CMG.US,,", "CRSP.US,,", "DBI.US,,", "DIS.US,,", "DNUT.US,,", "EDIT.US,,", "EXAS.US,,", "FDX.US,,", "GTLB.US,,", "IEA.US,,", "INTC.US,,", "JPM.US,,", "KO.US,,", "LSXMA.US,,", "LTHM.US,,", "MCD.US,,", "MSFT.US,,", "NVDA.US,,", "OSCR.US,,", "PBE.US,,", "PEP.US,,", "PLUG.US,,", "PZZA.US,,", "REGN.US,,", "SBUX.US,,", "SUI.US,,", "TDOC.US,,", "TSLA.US,,", "V.US,,", "VRTX.US,,", "WFC.US,,", "WMT.US,,", "XAUUSD,,", "XAGUSD,,", "XPDUSD,,", "XPTUSD,,", "BTCUSD,,", "XMR.V,,", "ETH.V,,", "SC.V,,", "XLM.V,,", "ZEC.V,,", "eurusd,,", "audusd,,", "gbpusd,,", "usdcad,,", "usdchf,,", "usdjpy,,", "nzdusd,,", "audcad,,", "audchf,,", "audjpy,,", "audnzd,,", "cadjpy,,"];
-                          window.current_index = 0;
-                        })()
+                  
+                    .arrow {
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      min-width: 92px;
+                      min-height: 92px;
+                      font-size: 40;
+                      cursor: pointer;
+                      border: solid 1px #4174c8;
+                      background-color: #001138;
+                      color: #b8b6b4;
+                    }
+                    .arrow:hover {
+                      color: white;
+                    }
+          
+                    .color-btn {
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      min-width: 92px;
+                      min-height: 92px;
+                      border: solid 1px #4174c8;
+                      font-size: 15;
+                      cursor: pointer;
+                      background-color: #001138;
+                      color: #b8b6b4;
+                      max-width: 40px;
+                      overflow-wrap: anywhere;
+                    }
+                    .color-btn:hover {
+                      color: white;
+                    }
+      
+      
+      
+                    .menu-button-container {
+                      height: 20px;
+                      margin-left: 0px;
+                      position: fixed;
+                      top: 0;
+                      left: 0;
+                      max-width: 600px;
+                      max-width: 90px;
+                      max-height: 90px;
+                    }
+                    .menu-button-content {
+                      font-size: 5;
+                      position: relative;
+                      text-align: center;
+                      max-width: 200px;
+                    }
+                    .menu-btn {
+      
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      min-width: 92px;
+                      min-height: 92px;
+                      border: solid 1px #444055;
+                      font-size: 15;
+                      cursor: pointer;
+                      background-color: #444055;
+                      max-width: 40px;
+                      overflow-wrap: anywhere;
+                    }
+                    .menu-btn:hover {
+                      color: #005ef7;
+                    }
+      
+      
+      
+      
+      
+      
+      
+          
+                    .fav-button-container {
+      
+                      height: 20px;
+                      position: fixed;
+                      top: 0;
+                      margin-left: 282px;
+                      left: 0;
+                      max-width: 600px;
+                      max-width: 90px;
+                      max-height: 90px;
+                    }
+                    .fav-button-content {
+                      font-size: 5;
+                      position: relative;
+                      text-align: center;
+                      max-width: 200px;
+                    }
+                    .fav-btn {
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      min-width: 92px;
+                      min-height: 92px;
+                      border: solid 1px #4174c8;
+                      font-size: 15;
+                      cursor: pointer;
+                      background-color: #001138;
+                      color: #b8b6b4;
+                      max-width: 40px;
+                      overflow-wrap: anywhere;
+                    }
+                    .fav-btn:hover {
+                      color: white;
+                    }
+          
+                    img {
+                      width: 100%;
+                      height: 100%;
+                      min-width: 800px;
+                      min-height: 550px;
+                      flex: 100;
+                    }
+                    .img-wrapper {
+                      flex: 1 1 49%;
+                      position: relative;
+                      width: auto;
+                    }
+                    .chart-info {
+                      font-family: 'Roboto';
+                      font-weight: normal;
+                      font-style: normal;
+                      top: 0;
+                      opacity: 0.05;
+                      color: blue;
+                      font-size: 350;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      width: 100%;
+                      height: 100%;
+                      position:absolute;
+                      left: 0;
+                      z-index: 2;
+                    }
+      
+                    .clear-min-width {
+                      min-width: 0px;
+                      min-height: 0px;
+                    }
+                    .chart {
+                      height: 1920px;
+                    }
+                    .chart_title {
+                    }
+                    .no-scroll {
+                      overflow: hidden;
+                    }
+                    .hidden {
+                      display: none;
+                    }
+                    body {
+                      margin: 0px;
+                    }
+                    .overlay {
+                      height: 80%;
+                      width: auto;
+                      position: fixed;
+                      z-index: 4;
+                      top: 0;
+                      left: 0;
+                    }
+                    .initial-overlay {
+                    animation-duration: 0s;
+                    }
+          
+                    .color-button-container {
+                      height: 20px;
+                      margin-left: 376px;
+                      position: fixed;
+                      top: 0;
+                      left: 0;
+                      max-width: 600px;
+                      max-width: 90px;
+                      max-height: 90px;
+                    }
+                    .color-button-content {
+                      font-size: 5;
+                      position: relative;
+                      text-align: center;
+                      max-width: 200px;
+                    }
+          
+          
+          
+                    .down-arrow-container {
+                      z-index: 99;
+                      min-width: 90px;
+                      min-height: 90px;
+                      margin-left: 94px;
+                      position: fixed;
+                      top: 0;
+                      left: 0;
+                      max-width: 90px;
+                      max-height: 90px;
+                    }
+                    .down-arrow-content {
+                      position: relative;
+                      text-align: center;
+                      max-width: 200px;
+                    }
+                    .up-arrow-container {
+                      z-index: 99;
+                      height: 20px;
+                      height: 20px;
+                      margin-left: 188px;
+                      position: fixed;
+                      top: 0;
+                      left: 0;
+                      max-width: 90px;
+                      max-height: 90px;
+                    }
+                    .up-arrow-content {
+                      position: relative;
+                      text-align: center;
+                      max-width: 200px;
+                    }
+                    .overlay-content {
+                      display: flex;
+                      flex-wrap: wrap;
+                      flex-direction: column;
+                      position: relative;
+                      text-align: center;
+                      top: 94px;
+                      z-index: 7;
+                      height: 100%;
+                    }
+                    .chart-link {
+                      background-color: #444055;
+                      color: white;
+                      border: solid 1px #131313;
+                      padding-left: 5px;
+                      padding-right: 5px;
+                      padding-top: 8px;
+                      padding-bottom: 8px;
+                      margin-left: 0px;
+                      margin-top: 0px;
+                      cursor: pointer;
+                      font-size: 20px;
+                    }
+                    .chart-link:hover {
+                      color: #ffbf00;
+                    }
+                    .chart-wrapper {
+                      display: flex;
+                      flex-wrap: wrap;
+                      width: 100%;
+                    }
+                    .bottom-margin {
+                      background-color: #00385f;
+                      min-height: 3500px;
+                    }
+                        </style>
+                        <script>
+                          (() => {
+                            window.list = ["^SPX,https://en.wikipedia.org/wiki/S%26P_500,", "^DJT,https://en.wikipedia.org/wiki/Dow_Jones_Transportation_Average,", "^DAX,https://en.wikipedia.org/wiki/DAX,", "WIG,https://pl.wikipedia.org/wiki/Warszawski_Indeks_Gie%C5%82dowy,", "QQQ.US,https://www.etf.com/QQQ,", "SMH.US,https://www.etf.com/SMH,Semiconducotrs", "XME.US,https://www.etf.com/XME,Metals and mining", "AIQ.US,https://www.etf.com/AIQ,Artificial intelligence", "PBE.US,https://www.etf.com/PBE,Biotech/Genome", "AAPL.US,https://companiesmarketcap.com/apple/marketcap/,The fanboy company.", "ADBE.US,https://companiesmarketcap.com/adobe/marketcap/,", "ALB.US,https://companiesmarketcap.com/albemarle/marketcap/,Chemicals", "AMZN.US,https://companiesmarketcap.com/amazon/marketcap/,", "BABA.US,https://companiesmarketcap.com/alibaba/marketcap/,", "BGNE.US,https://companiesmarketcap.com/beigene/marketcap/,Pharmaceuticals", "CCJ.US,https://companiesmarketcap.com/cameco/marketcap/,Uranium mining", "CMCSA.US,https://companiesmarketcap.com/comcast/marketcap/,Media/Press", "FDX.US,https://companiesmarketcap.com/fedex/marketcap/,Courier/Transportation", "GTLB.US,https://companiesmarketcap.com/gitlab/marketcap/,Software craft", "INTC.US,https://companiesmarketcap.com/intel/marketcap/,Intel", "LTHM.US,https://companiesmarketcap.com/livent/marketcap/,Chemicals", "MCD.US,https://companiesmarketcap.com/mcdonald/marketcap/,Fast food", "MSFT.US,https://companiesmarketcap.com/microsoft/marketcap/,", "NVDA.US,https://companiesmarketcap.com/nvidia/marketcap/,", "PEP.US,https://companiesmarketcap.com/pepsico/marketcap/,Pepsi", "SBUX.US,https://companiesmarketcap.com/starbucks/marketcap/,Starbucks", "TSLA.US,https://companiesmarketcap.com/tesla/marketcap/,Tesla", "V.US,https://companiesmarketcap.com/visa/marketcap/,VISA", "WMT.US,https://companiesmarketcap.com/walmart/marketcap/,Supermarket chain", "XAUUSD,,Gold", "XAGUSD,,Silver", "XPDUSD,,Palladium", "XPTUSD,,Platinum", "BTCUSD,https://coinmarketcap.com/currencies/bitcoin/,Bitcoin", "XMR.V,https://coinmarketcap.com/currencies/monero/,Monero", "ETH.V,https://coinmarketcap.com/currencies/ethereum/,Etherum", "SC.V,https://coinmarketcap.com/currencies/siacoin/,Siacoin", "XLM.V,https://coinmarketcap.com/currencies/stellar/,Stellar", "ZEC.V,https://coinmarketcap.com/currencies/zcash/,Zcash", "eurusd,,", "audusd,,", "gbpusd,,", "usdcad,,", "usdchf,,", "usdjpy,,", "nzdusd,,", "audcad,,", "audchf,,", "audjpy,,", "audnzd,,", "cadjpy,,"];
+                            window.current_index = 0;
+                          })()
+                        </script>
+                      </head>
+                      <body oncontextmenu="return false;" class="no-scroll noselect">
+                      <script >
+                        (
+                          () => {
+                              setTimeout('window.location.reload()', 240000);
+                          }
+                        )()
                       </script>
-                    </head>
-                    <body oncontextmenu="return false;" class="no-scroll noselect">
-                    <script >
-                      (
-                        () => {
-                            setTimeout('window.location.reload()', 240000);
-                        }
-                      )()
-                    </script>
-                    <div class='loaderWrapper'>
-                      <div class='loader'>Loading...</div>
-                      </div>
+                      <div class='loaderWrapper'>
+                        <div class='loader'>Loading...</div>
+                        </div>
 <div class="timer"
   onClick="(function() {
     if (window.watcherLoaded && isMobile()) {
@@ -538,7 +550,7 @@
     }
   })()">
 </div>
-<div class="grid-container"><div class='grid-item section-divider' id=-|||| INDICES ||||->-|||| INDICES ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=^SPX><a href='google.com'><h4>^SPX</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+<div class="grid-container"><div class='grid-item section-divider' id=-|||| INDICES ||||->-|||| INDICES ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=^SPX><h4 class='no-margin'><a href='#^SPX'>^SPX</a></h4><h4><a href=https://en.wikipedia.org/wiki/S%26P_500>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^SPX&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -550,7 +562,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^SPX&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=^DJT><a href='google.com'><h4>^DJT</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=^DJT><h4 class='no-margin'><a href='#^DJT'>^DJT</a></h4><h4><a href=https://en.wikipedia.org/wiki/Dow_Jones_Transportation_Average>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -562,31 +574,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=-(20+ year treasury usa treasury bond)-><a href='google.com'><h4>-(20+ year treasury usa treasury bond)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(20+ year treasury usa treasury bond)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(20+ year treasury usa treasury bond)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(20+ year treasury usa treasury bond)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(20+ year treasury usa treasury bond)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=IDTL.UK><a href='google.com'><h4>IDTL.UK</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=^DAX><a href='google.com'><h4>^DAX</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=^DAX><h4 class='no-margin'><a href='#^DAX'>^DAX</a></h4><h4><a href=https://en.wikipedia.org/wiki/DAX>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DAX&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -598,7 +586,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DAX&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=WIG><a href='google.com'><h4>WIG</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=WIG><h4 class='no-margin'><a href='#WIG'>WIG</a></h4><h4><a href=https://pl.wikipedia.org/wiki/Warszawski_Indeks_Gie%C5%82dowy>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WIG&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -610,7 +598,19 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WIG&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item section-divider' id=-|||| ETF ||||->-|||| ETF ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=QQQ.US><a href='google.com'><h4>QQQ.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item section-divider' id=-|||| ETF ||||->-|||| ETF ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=IDTL.UK><h4 class='no-margin'><a href='#IDTL.UK'>IDTL.UK</a></h4><h4><a href=https://www.ishares.com/uk/individual/en/products/272124/ishares-usd-treasury-bond-20-yr-ucits-etf>Symbol info</a></h4><p>20+ year USA treasury bond</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=QQQ.US><h4 class='no-margin'><a href='#QQQ.US'>QQQ.US</a></h4><h4><a href=https://www.etf.com/QQQ>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=QQQ.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -622,19 +622,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=QQQ.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=-(semiconductor)-><a href='google.com'><h4>-(semiconductor)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(semiconductor)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(semiconductor)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(semiconductor)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(semiconductor)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=SMH.US><a href='google.com'><h4>SMH.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=SMH.US><h4 class='no-margin'><a href='#SMH.US'>SMH.US</a></h4><h4><a href=https://www.etf.com/SMH>Symbol info</a></h4><p>Semiconducotrs</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -646,19 +634,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=-(metals and mining etf)-><a href='google.com'><h4>-(metals and mining etf)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(metals and mining etf)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(metals and mining etf)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(metals and mining etf)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(metals and mining etf)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=XME.US><a href='google.com'><h4>XME.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=XME.US><h4 class='no-margin'><a href='#XME.US'>XME.US</a></h4><h4><a href=https://www.etf.com/XME>Symbol info</a></h4><p>Metals and mining</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XME.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -670,7 +646,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XME.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=AIQ.US><a href='google.com'><h4>AIQ.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=AIQ.US><h4 class='no-margin'><a href='#AIQ.US'>AIQ.US</a></h4><h4><a href=https://www.etf.com/AIQ>Symbol info</a></h4><p>Artificial intelligence</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AIQ.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -682,403 +658,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AIQ.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item section-divider' id=-|||| STOCKS ||||->-|||| STOCKS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=AAPL.US><a href='google.com'><h4>AAPL.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=ADBE.US><a href='google.com'><h4>ADBE.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=ALB.US><a href='google.com'><h4>ALB.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=AMZN.US><a href='google.com'><h4>AMZN.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=BABA.US><a href='google.com'><h4>BABA.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=BAC.US><a href='google.com'><h4>BAC.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=BGNE.US><a href='google.com'><h4>BGNE.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=-(food)-><a href='google.com'><h4>-(food)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=BYND.US><a href='google.com'><h4>BYND.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=CCJ.US><a href='google.com'><h4>CCJ.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=CDR><a href='google.com'><h4>CDR</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=CMCSA.US><a href='google.com'><h4>CMCSA.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=CMG.US><a href='google.com'><h4>CMG.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=CRSP.US><a href='google.com'><h4>CRSP.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=DBI.US><a href='google.com'><h4>DBI.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=DIS.US><a href='google.com'><h4>DIS.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=-(food)-><a href='google.com'><h4>-(food)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=DNUT.US><a href='google.com'><h4>DNUT.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=EDIT.US><a href='google.com'><h4>EDIT.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=EXAS.US><a href='google.com'><h4>EXAS.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=FDX.US><a href='google.com'><h4>FDX.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=GTLB.US><a href='google.com'><h4>GTLB.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=IEA.US><a href='google.com'><h4>IEA.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IEA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IEA.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IEA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IEA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=INTC.US><a href='google.com'><h4>INTC.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=JPM.US><a href='google.com'><h4>JPM.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=KO.US><a href='google.com'><h4>KO.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=LSXMA.US><a href='google.com'><h4>LSXMA.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=LTHM.US><a href='google.com'><h4>LTHM.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=-(food)-><a href='google.com'><h4>-(food)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=MCD.US><a href='google.com'><h4>MCD.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=MSFT.US><a href='google.com'><h4>MSFT.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=NVDA.US><a href='google.com'><h4>NVDA.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=OSCR.US><a href='google.com'><h4>OSCR.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=PBE.US><a href='google.com'><h4>PBE.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=PBE.US><h4 class='no-margin'><a href='#PBE.US'>PBE.US</a></h4><h4><a href=https://www.etf.com/PBE>Symbol info</a></h4><p>Biotech/Genome</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PBE.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1090,19 +670,355 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PBE.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=-(food)-><a href='google.com'><h4>-(food)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div><div class='grid-item section-divider' id=-|||| STOCKS ||||->-|||| STOCKS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=AAPL.US><h4 class='no-margin'><a href='#AAPL.US'>AAPL.US</a></h4><h4><a href=https://companiesmarketcap.com/apple/marketcap/>Symbol info</a></h4><p>The fanboy company.</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
 </div>
 <div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
 </div>
 <div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=PEP.US><a href='google.com'><h4>PEP.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=ADBE.US><h4 class='no-margin'><a href='#ADBE.US'>ADBE.US</a></h4><h4><a href=https://companiesmarketcap.com/adobe/marketcap/>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=ALB.US><h4 class='no-margin'><a href='#ALB.US'>ALB.US</a></h4><h4><a href=https://companiesmarketcap.com/albemarle/marketcap/>Symbol info</a></h4><p>Chemicals</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=AMZN.US><h4 class='no-margin'><a href='#AMZN.US'>AMZN.US</a></h4><h4><a href=https://companiesmarketcap.com/amazon/marketcap/>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=BABA.US><h4 class='no-margin'><a href='#BABA.US'>BABA.US</a></h4><h4><a href=https://companiesmarketcap.com/alibaba/marketcap/>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=BAC.US><h4 class='no-margin'><a href='#BAC.US'>BAC.US</a></h4><h4><a href=https://companiesmarketcap.com/bank-of-america/marketcap/>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=BGNE.US><h4 class='no-margin'><a href='#BGNE.US'>BGNE.US</a></h4><h4><a href=https://companiesmarketcap.com/beigene/marketcap/>Symbol info</a></h4><p>Pharmaceuticals</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=BYND.US><h4 class='no-margin'><a href='#BYND.US'>BYND.US</a></h4><h4><a href=https://companiesmarketcap.com/beyond-meat/marketcap/>Symbol info</a></h4><p>Food</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=CCJ.US><h4 class='no-margin'><a href='#CCJ.US'>CCJ.US</a></h4><h4><a href=https://companiesmarketcap.com/cameco/marketcap/>Symbol info</a></h4><p>Uranium mining</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=CDR><h4 class='no-margin'><a href='#CDR'>CDR</a></h4><h4><a href=https://companiesmarketcap.com/cd-projekt/marketcap/>Symbol info</a></h4><p>Game studio</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=CMCSA.US><h4 class='no-margin'><a href='#CMCSA.US'>CMCSA.US</a></h4><h4><a href=https://companiesmarketcap.com/comcast/marketcap/>Symbol info</a></h4><p>Media/Press</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=CMG.US><h4 class='no-margin'><a href='#CMG.US'>CMG.US</a></h4><h4><a href=https://companiesmarketcap.com/chipotle-mexican-grill/marketcap/>Symbol info</a></h4><p>Fast food</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=CRSP.US><h4 class='no-margin'><a href='#CRSP.US'>CRSP.US</a></h4><h4><a href=https://companiesmarketcap.com/crispr-therapeutics/marketcap/>Symbol info</a></h4><p>CRISPR/Biotech</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=DBI.US><h4 class='no-margin'><a href='#DBI.US'>DBI.US</a></h4><h4><a href=https://companiesmarketcap.com/designer-brands/marketcap/>Symbol info</a></h4><p>Footwear</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=DIS.US><h4 class='no-margin'><a href='#DIS.US'>DIS.US</a></h4><h4><a href=https://companiesmarketcap.com/walt-disney/marketcap/>Symbol info</a></h4><p>Disney</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=DNUT.US><h4 class='no-margin'><a href='#DNUT.US'>DNUT.US</a></h4><h4><a href=https://companiesmarketcap.com/krispy-kreme/marketcap/>Symbol info</a></h4><p>Food</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=EDIT.US><h4 class='no-margin'><a href='#EDIT.US'>EDIT.US</a></h4><h4><a href=https://companiesmarketcap.com/editas-medicine/marketcap/>Symbol info</a></h4><p>CRISPR/Biotech</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=EXAS.US><h4 class='no-margin'><a href='#EXAS.US'>EXAS.US</a></h4><h4><a href=https://companiesmarketcap.com/exact-sciences/marketcap/>Symbol info</a></h4><p>Biotech/Diagnostics</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=FDX.US><h4 class='no-margin'><a href='#FDX.US'>FDX.US</a></h4><h4><a href=https://companiesmarketcap.com/fedex/marketcap/>Symbol info</a></h4><p>Courier/Transportation</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=GTLB.US><h4 class='no-margin'><a href='#GTLB.US'>GTLB.US</a></h4><h4><a href=https://companiesmarketcap.com/gitlab/marketcap/>Symbol info</a></h4><p>Software craft</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=INTC.US><h4 class='no-margin'><a href='#INTC.US'>INTC.US</a></h4><h4><a href=https://companiesmarketcap.com/intel/marketcap/>Symbol info</a></h4><p>Intel</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=JPM.US><h4 class='no-margin'><a href='#JPM.US'>JPM.US</a></h4><h4><a href=https://companiesmarketcap.com/jp-morgan-chase/marketcap/>Symbol info</a></h4><p>Bank/Financial services</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=KO.US><h4 class='no-margin'><a href='#KO.US'>KO.US</a></h4><h4><a href=https://companiesmarketcap.com/coca-cola/marketcap/>Symbol info</a></h4><p>Coca-Cola</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=LSXMA.US><h4 class='no-margin'><a href='#LSXMA.US'>LSXMA.US</a></h4><h4><a href=https://companiesmarketcap.com/liberty-media/marketcap/>Symbol info</a></h4><p>Media/Press</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=LTHM.US><h4 class='no-margin'><a href='#LTHM.US'>LTHM.US</a></h4><h4><a href=https://companiesmarketcap.com/livent/marketcap/>Symbol info</a></h4><p>Chemicals</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=MCD.US><h4 class='no-margin'><a href='#MCD.US'>MCD.US</a></h4><h4><a href=https://companiesmarketcap.com/mcdonald/marketcap/>Symbol info</a></h4><p>Fast food</p></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=MSFT.US><h4 class='no-margin'><a href='#MSFT.US'>MSFT.US</a></h4><h4><a href=https://companiesmarketcap.com/microsoft/marketcap/>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=NVDA.US><h4 class='no-margin'><a href='#NVDA.US'>NVDA.US</a></h4><h4><a href=https://companiesmarketcap.com/nvidia/marketcap/>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=OSCR.US><h4 class='no-margin'><a href='#OSCR.US'>OSCR.US</a></h4><h4><a href=https://companiesmarketcap.com/oscar-health/marketcap/>Symbol info</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
+</div>
+</div><div class='grid-item divider' id=PEP.US><h4 class='no-margin'><a href='#PEP.US'>PEP.US</a></h4><h4><a href=https://companiesmarketcap.com/pepsico/marketcap/>Symbol info</a></h4><p>Pepsi</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PEP.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1114,7 +1030,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PEP.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=PLUG.US><a href='google.com'><h4>PLUG.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=PLUG.US><h4 class='no-margin'><a href='#PLUG.US'>PLUG.US</a></h4><h4><a href=https://companiesmarketcap.com/plug-power/marketcap/>Symbol info</a></h4><p>Hydrogen fuel cell/Renewable energy</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PLUG.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1126,19 +1042,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PLUG.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=-(food)-><a href='google.com'><h4>-(food)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=PZZA.US><a href='google.com'><h4>PZZA.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=PZZA.US><h4 class='no-margin'><a href='#PZZA.US'>PZZA.US</a></h4><h4><a href=https://companiesmarketcap.com/papa-johns-pizza/marketcap/>Symbol info</a></h4><p>Pizza chain</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PZZA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1150,7 +1054,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PZZA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=REGN.US><a href='google.com'><h4>REGN.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=REGN.US><h4 class='no-margin'><a href='#REGN.US'>REGN.US</a></h4><h4><a href=https://companiesmarketcap.com/regeneron-pharmaceuticals/marketcap/>Symbol info</a></h4><p>Biotech/Pharmaceuticals</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=REGN.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1162,19 +1066,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=REGN.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=-(gold mining stock)-><a href='google.com'><h4>-(gold mining stock)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(gold mining stock)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(gold mining stock)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(gold mining stock)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(gold mining stock)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=RGLD.US><a href='google.com'><h4>RGLD.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=RGLD.US><h4 class='no-margin'><a href='#RGLD.US'>RGLD.US</a></h4><h4><a href=https://companiesmarketcap.com/royal-gold/marketcap/>Symbol info</a></h4><p>Gold mining stock</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=RGLD.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1186,19 +1078,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=RGLD.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=-(food)-><a href='google.com'><h4>-(food)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(food)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=SBUX.US><a href='google.com'><h4>SBUX.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=SBUX.US><h4 class='no-margin'><a href='#SBUX.US'>SBUX.US</a></h4><h4><a href=https://companiesmarketcap.com/starbucks/marketcap/>Symbol info</a></h4><p>Starbucks</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SBUX.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1210,7 +1090,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SBUX.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=SUI.US><a href='google.com'><h4>SUI.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=SUI.US><h4 class='no-margin'><a href='#SUI.US'>SUI.US</a></h4><h4><a href=https://companiesmarketcap.com/sun-communities/marketcap/>Symbol info</a></h4><p>Real estate/Investment</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SUI.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1222,7 +1102,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SUI.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=TDOC.US><a href='google.com'><h4>TDOC.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=TDOC.US><h4 class='no-margin'><a href='#TDOC.US'>TDOC.US</a></h4><h4><a href=https://companiesmarketcap.com/teladoc-health/marketcap/>Symbol info</a></h4><p>Telehealth</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TDOC.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1234,7 +1114,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TDOC.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=TSLA.US><a href='google.com'><h4>TSLA.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=TSLA.US><h4 class='no-margin'><a href='#TSLA.US'>TSLA.US</a></h4><h4><a href=https://companiesmarketcap.com/tesla/marketcap/>Symbol info</a></h4><p>Tesla</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TSLA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1246,7 +1126,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TSLA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=V.US><a href='google.com'><h4>V.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=V.US><h4 class='no-margin'><a href='#V.US'>V.US</a></h4><h4><a href=https://companiesmarketcap.com/visa/marketcap/>Symbol info</a></h4><p>VISA</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=V.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1258,7 +1138,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=V.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=VRTX.US><a href='google.com'><h4>VRTX.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=VRTX.US><h4 class='no-margin'><a href='#VRTX.US'>VRTX.US</a></h4><h4><a href=https://companiesmarketcap.com/vertex-pharmaceuticals/marketcap/>Symbol info</a></h4><p>Biotech/Pharmaceuticals</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=VRTX.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1270,7 +1150,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=VRTX.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=WFC.US><a href='google.com'><h4>WFC.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=WFC.US><h4 class='no-margin'><a href='#WFC.US'>WFC.US</a></h4><h4><a href=https://companiesmarketcap.com/wells-fargo/marketcap/>Symbol info</a></h4><p>Bank/Financial services</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WFC.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1282,7 +1162,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WFC.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=WMT.US><a href='google.com'><h4>WMT.US</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=WMT.US><h4 class='no-margin'><a href='#WMT.US'>WMT.US</a></h4><h4><a href=https://companiesmarketcap.com/walmart/marketcap/>Symbol info</a></h4><p>Supermarket chain</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WMT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1294,19 +1174,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WMT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item section-divider' id=-|||| METALS ||||->-|||| METALS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=-(gold)-><a href='google.com'><h4>-(gold)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(gold)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(gold)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(gold)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(gold)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=XAUUSD><a href='google.com'><h4>XAUUSD</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item section-divider' id=-|||| METALS ||||->-|||| METALS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=XAUUSD><h4 class='no-margin'><a href='#XAUUSD'>XAUUSD</a></h4><h4><a href=>Symbol info</a></h4><p>Gold</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1318,19 +1186,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=-(silver)-><a href='google.com'><h4>-(silver)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(silver)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(silver)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(silver)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(silver)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=XAGUSD><a href='google.com'><h4>XAGUSD</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=XAGUSD><h4 class='no-margin'><a href='#XAGUSD'>XAGUSD</a></h4><h4><a href=>Symbol info</a></h4><p>Silver</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAGUSD&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1342,19 +1198,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAGUSD&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=-(palladium)-><a href='google.com'><h4>-(palladium)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(palladium)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(palladium)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(palladium)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(palladium)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=XPDUSD><a href='google.com'><h4>XPDUSD</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=XPDUSD><h4 class='no-margin'><a href='#XPDUSD'>XPDUSD</a></h4><h4><a href=>Symbol info</a></h4><p>Palladium</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPDUSD&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1366,19 +1210,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPDUSD&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=-(platinum)-><a href='google.com'><h4>-(platinum)-</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(platinum)-&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(platinum)-&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(platinum)-&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=-(platinum)-&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
-</div>
-</div><div class='grid-item divider' id=XPTUSD><a href='google.com'><h4>XPTUSD</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=XPTUSD><h4 class='no-margin'><a href='#XPTUSD'>XPTUSD</a></h4><h4><a href=>Symbol info</a></h4><p>Platinum</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPTUSD&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1390,7 +1222,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPTUSD&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item section-divider' id=-|||| CRYPTOS ||||->-|||| CRYPTOS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=BTCUSD><a href='google.com'><h4>BTCUSD</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item section-divider' id=-|||| CRYPTOS ||||->-|||| CRYPTOS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=BTCUSD><h4 class='no-margin'><a href='#BTCUSD'>BTCUSD</a></h4><h4><a href=https://coinmarketcap.com/currencies/bitcoin/>Symbol info</a></h4><p>Bitcoin</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BTCUSD&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1402,7 +1234,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BTCUSD&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=XMR.V><a href='google.com'><h4>XMR.V</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=XMR.V><h4 class='no-margin'><a href='#XMR.V'>XMR.V</a></h4><h4><a href=https://coinmarketcap.com/currencies/monero/>Symbol info</a></h4><p>Monero</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XMR.V&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1414,7 +1246,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XMR.V&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=ETH.V><a href='google.com'><h4>ETH.V</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=ETH.V><h4 class='no-margin'><a href='#ETH.V'>ETH.V</a></h4><h4><a href=https://coinmarketcap.com/currencies/ethereum/>Symbol info</a></h4><p>Etherum</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ETH.V&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1426,7 +1258,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ETH.V&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=SC.V><a href='google.com'><h4>SC.V</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=SC.V><h4 class='no-margin'><a href='#SC.V'>SC.V</a></h4><h4><a href=https://coinmarketcap.com/currencies/siacoin/>Symbol info</a></h4><p>Siacoin</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SC.V&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1438,7 +1270,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SC.V&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=XLM.V><a href='google.com'><h4>XLM.V</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=XLM.V><h4 class='no-margin'><a href='#XLM.V'>XLM.V</a></h4><h4><a href=https://coinmarketcap.com/currencies/stellar/>Symbol info</a></h4><p>Stellar</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XLM.V&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1450,7 +1282,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XLM.V&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=ZEC.V><a href='google.com'><h4>ZEC.V</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=ZEC.V><h4 class='no-margin'><a href='#ZEC.V'>ZEC.V</a></h4><h4><a href=https://coinmarketcap.com/currencies/zcash/>Symbol info</a></h4><p>Zcash</p></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ZEC.V&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1462,7 +1294,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ZEC.V&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item section-divider' id=-|||| FX_MAJORS ||||->-|||| FX MAJORS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=eurusd><a href='google.com'><h4>eurusd</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item section-divider' id=-|||| FX_MAJORS ||||->-|||| FX MAJORS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=eurusd><h4 class='no-margin'><a href='#eurusd'>eurusd</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=eurusd&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1474,7 +1306,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=eurusd&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=audusd><a href='google.com'><h4>audusd</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=audusd><h4 class='no-margin'><a href='#audusd'>audusd</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audusd&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1486,7 +1318,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audusd&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=gbpusd><a href='google.com'><h4>gbpusd</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=gbpusd><h4 class='no-margin'><a href='#gbpusd'>gbpusd</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=gbpusd&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1498,7 +1330,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=gbpusd&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=usdcad><a href='google.com'><h4>usdcad</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=usdcad><h4 class='no-margin'><a href='#usdcad'>usdcad</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdcad&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1510,7 +1342,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdcad&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=usdchf><a href='google.com'><h4>usdchf</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=usdchf><h4 class='no-margin'><a href='#usdchf'>usdchf</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdchf&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1522,7 +1354,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdchf&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=usdjpy><a href='google.com'><h4>usdjpy</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=usdjpy><h4 class='no-margin'><a href='#usdjpy'>usdjpy</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdjpy&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1534,7 +1366,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdjpy&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item section-divider' id=-|||| FX_MINORS ||||->-|||| FX MINORS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=nzdusd><a href='google.com'><h4>nzdusd</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item section-divider' id=-|||| FX_MINORS ||||->-|||| FX MINORS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=nzdusd><h4 class='no-margin'><a href='#nzdusd'>nzdusd</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=nzdusd&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1546,7 +1378,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=nzdusd&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=audcad><a href='google.com'><h4>audcad</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=audcad><h4 class='no-margin'><a href='#audcad'>audcad</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audcad&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1558,7 +1390,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audcad&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=audchf><a href='google.com'><h4>audchf</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=audchf><h4 class='no-margin'><a href='#audchf'>audchf</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audchf&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1570,7 +1402,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audchf&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=audjpy><a href='google.com'><h4>audjpy</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=audjpy><h4 class='no-margin'><a href='#audjpy'>audjpy</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audjpy&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1582,7 +1414,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audjpy&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=audnzd><a href='google.com'><h4>audnzd</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=audnzd><h4 class='no-margin'><a href='#audnzd'>audnzd</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audnzd&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1594,7 +1426,7 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audnzd&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info">Y</div></img>
 </div>
-</div><div class='grid-item divider' id=cadjpy><a href='google.com'><h4>cadjpy</h4></a></div><div class='chart-wrapper'><div class="img-wrapper">
+</div><div class='grid-item divider' id=cadjpy><h4 class='no-margin'><a href='#cadjpy'>cadjpy</a></h4></div><div class='chart-wrapper'><div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=cadjpy&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info">D</div></img>
 </div>
 <div class="img-wrapper">
@@ -1651,7 +1483,7 @@
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
       window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '^SPX,,');
+      window.watcherSetCookie('scrollPosition', '^SPX,https://en.wikipedia.org/wiki/S%26P_500,');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-|||| INDICES ||||-').scrollIntoView()
@@ -1708,48 +1540,6 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
-  id="-(20+ year treasury usa treasury bond)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(20+ year treasury usa treasury bond)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(20+ year treasury usa treasury bond)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(20+ year treasury usa treasury bond)-')
-      window.watcherLastSelectedChart = '-(20+ year treasury usa treasury bond)-';
-    }
-  })()"
->
-  <span>-(20+ year treasury usa treasury bond)-</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
-  id="IDTL.UK"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', 'IDTL.UK');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('IDTL.UK').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('IDTL.UK')
-      window.watcherLastSelectedChart = 'IDTL.UK';
-    }
-  })()"
->
-  <span>IDTL.UK</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
   id="^DAX"
   onClick="(function() {
     if (window.watcherLoaded) {
@@ -1798,7 +1588,7 @@
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
       window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', 'QQQ.US,,');
+      window.watcherSetCookie('scrollPosition', 'IDTL.UK,https://www.ishares.com/uk/individual/en/products/272124/ishares-usd-treasury-bond-20-yr-ucits-etf,20+ year USA treasury bond');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-|||| ETF ||||-').scrollIntoView()
@@ -1809,6 +1599,27 @@
   })()"
 >
   <span>-|||| ETF ||||-</span>
+</div>
+<div
+  class="chart-link noselect"
+  tabindex="-1"
+  id="IDTL.UK"
+  onClick="(function() {
+    if (window.watcherLoaded) {
+      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
+      window.watcherSetCookie('scrollPosition', 'IDTL.UK');
+      window.scrollIntervalId = setInterval(() => {
+        window.skipClearInterval = true;
+        document.getElementById('IDTL.UK').scrollIntoView()
+      }, 50)
+      window.current_index = window.list.indexOf('IDTL.UK')
+      window.watcherLastSelectedChart = 'IDTL.UK';
+    }
+  })()"
+>
+  <span>IDTL.UK</span>
 </div>
 <div
   class="chart-link noselect"
@@ -1834,27 +1645,6 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
-  id="-(semiconductor)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(semiconductor)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(semiconductor)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(semiconductor)-')
-      window.watcherLastSelectedChart = '-(semiconductor)-';
-    }
-  })()"
->
-  <span>-(semiconductor)-</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
   id="SMH.US"
   onClick="(function() {
     if (window.watcherLoaded) {
@@ -1872,27 +1662,6 @@
   })()"
 >
   <span>SMH.US</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
-  id="-(metals and mining etf)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(metals and mining etf)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(metals and mining etf)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(metals and mining etf)-')
-      window.watcherLastSelectedChart = '-(metals and mining etf)-';
-    }
-  })()"
->
-  <span>-(metals and mining etf)-</span>
 </div>
 <div
   class="chart-link noselect"
@@ -1935,6 +1704,27 @@
   })()"
 >
   <span>AIQ.US</span>
+</div>
+<div
+  class="chart-link noselect"
+  tabindex="-1"
+  id="PBE.US"
+  onClick="(function() {
+    if (window.watcherLoaded) {
+      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
+      window.watcherSetCookie('scrollPosition', 'PBE.US');
+      window.scrollIntervalId = setInterval(() => {
+        window.skipClearInterval = true;
+        document.getElementById('PBE.US').scrollIntoView()
+      }, 50)
+      window.current_index = window.list.indexOf('PBE.US')
+      window.watcherLastSelectedChart = 'PBE.US';
+    }
+  })()"
+>
+  <span>PBE.US</span>
 </div>
 <div
   class="divider-link noselect"
@@ -2107,27 +1897,6 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
-  id="-(food)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(food)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(food)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(food)-')
-      window.watcherLastSelectedChart = '-(food)-';
-    }
-  })()"
->
-  <span>-(food)-</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
   id="BYND.US"
   onClick="(function() {
     if (window.watcherLoaded) {
@@ -2296,27 +2065,6 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
-  id="-(food)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(food)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(food)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(food)-')
-      window.watcherLastSelectedChart = '-(food)-';
-    }
-  })()"
->
-  <span>-(food)-</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
   id="DNUT.US"
   onClick="(function() {
     if (window.watcherLoaded) {
@@ -2418,27 +2166,6 @@
   })()"
 >
   <span>GTLB.US</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
-  id="IEA.US"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', 'IEA.US');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('IEA.US').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('IEA.US')
-      window.watcherLastSelectedChart = 'IEA.US';
-    }
-  })()"
->
-  <span>IEA.US</span>
 </div>
 <div
   class="chart-link noselect"
@@ -2548,27 +2275,6 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
-  id="-(food)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(food)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(food)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(food)-')
-      window.watcherLastSelectedChart = '-(food)-';
-    }
-  })()"
->
-  <span>-(food)-</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
   id="MCD.US"
   onClick="(function() {
     if (window.watcherLoaded) {
@@ -2653,48 +2359,6 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
-  id="PBE.US"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', 'PBE.US');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('PBE.US').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('PBE.US')
-      window.watcherLastSelectedChart = 'PBE.US';
-    }
-  })()"
->
-  <span>PBE.US</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
-  id="-(food)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(food)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(food)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(food)-')
-      window.watcherLastSelectedChart = '-(food)-';
-    }
-  })()"
->
-  <span>-(food)-</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
   id="PEP.US"
   onClick="(function() {
     if (window.watcherLoaded) {
@@ -2733,27 +2397,6 @@
   })()"
 >
   <span>PLUG.US</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
-  id="-(food)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(food)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(food)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(food)-')
-      window.watcherLastSelectedChart = '-(food)-';
-    }
-  })()"
->
-  <span>-(food)-</span>
 </div>
 <div
   class="chart-link noselect"
@@ -2800,27 +2443,6 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
-  id="-(gold mining stock)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(gold mining stock)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(gold mining stock)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(gold mining stock)-')
-      window.watcherLastSelectedChart = '-(gold mining stock)-';
-    }
-  })()"
->
-  <span>-(gold mining stock)-</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
   id="RGLD.US"
   onClick="(function() {
     if (window.watcherLoaded) {
@@ -2838,27 +2460,6 @@
   })()"
 >
   <span>RGLD.US</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
-  id="-(food)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(food)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(food)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(food)-')
-      window.watcherLastSelectedChart = '-(food)-';
-    }
-  })()"
->
-  <span>-(food)-</span>
 </div>
 <div
   class="chart-link noselect"
@@ -3037,7 +2638,7 @@
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
       window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(gold)-');
+      window.watcherSetCookie('scrollPosition', 'XAUUSD,,Gold');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-|||| METALS ||||-').scrollIntoView()
@@ -3048,27 +2649,6 @@
   })()"
 >
   <span>-|||| METALS ||||-</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
-  id="-(gold)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(gold)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(gold)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(gold)-')
-      window.watcherLastSelectedChart = '-(gold)-';
-    }
-  })()"
->
-  <span>-(gold)-</span>
 </div>
 <div
   class="chart-link noselect"
@@ -3094,27 +2674,6 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
-  id="-(silver)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(silver)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(silver)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(silver)-')
-      window.watcherLastSelectedChart = '-(silver)-';
-    }
-  })()"
->
-  <span>-(silver)-</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
   id="XAGUSD"
   onClick="(function() {
     if (window.watcherLoaded) {
@@ -3136,27 +2695,6 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
-  id="-(palladium)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(palladium)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(palladium)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(palladium)-')
-      window.watcherLastSelectedChart = '-(palladium)-';
-    }
-  })()"
->
-  <span>-(palladium)-</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
   id="XPDUSD"
   onClick="(function() {
     if (window.watcherLoaded) {
@@ -3174,27 +2712,6 @@
   })()"
 >
   <span>XPDUSD</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
-  id="-(platinum)-"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', '-(platinum)-');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('-(platinum)-').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('-(platinum)-')
-      window.watcherLastSelectedChart = '-(platinum)-';
-    }
-  })()"
->
-  <span>-(platinum)-</span>
 </div>
 <div
   class="chart-link noselect"
@@ -3226,7 +2743,7 @@
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
       window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', 'BTCUSD,,');
+      window.watcherSetCookie('scrollPosition', 'BTCUSD,https://coinmarketcap.com/currencies/bitcoin/,Bitcoin');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-|||| CRYPTOS ||||-').scrollIntoView()
