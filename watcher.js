@@ -442,7 +442,7 @@ window.addEventListener('blur', function() {
 history.scrollRestoration = "manual"
 window.watcherSetCookie = setCookie;
 window.watcherGetCookie = getCookie;
-document.addEventListener('scroll', handleScroll);
 setTimeout(afterPageOpen,50)
 setTimeout(afterPageOpen,100)
-setTimeout(afterPageOpen,500)
+setTimeout(afterPageOpen,400)
+setTimeout(() => { document.addEventListener('scroll', handleScroll) }, 500)
