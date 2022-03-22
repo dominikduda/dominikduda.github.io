@@ -416,7 +416,28 @@ document.onkeydown = function(e) {
   }
 };
 
+// fix searching (disable auto scroll when search menu open detected)
+let lastKeydownTime = null;
+window.addEventListener('keydown', function(e) {
+  if (( e.keyCode == 70 && ( e.ctrlKey || e.metaKey )) ||
+    (e.keyCode == 191) ) {
+    lastKeydownTime = new Date().getTime();
+  }
 
+  return true;
+})
+window.addEventListener('blur', function() {
+  if (lastKeydownTime !== null) {
+    var delta = new Date().getTime() - lastKeydownTime;
+    if (delta > 0 && delta < 1000) {
+      window.skipClearInterval = false;
+      window.lastScrollByProgram = false;
+      handleScroll()
+      console.log('Find on page panel detected');
+    }
+    lastKeydownTime = null;
+  }
+})
 
 history.scrollRestoration = "manual"
 window.watcherSetCookie = setCookie;
