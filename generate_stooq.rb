@@ -30,6 +30,7 @@ CHARTS = [
   'CDR,https://companiesmarketcap.com/cd-projekt/marketcap/,Game studio',
   'CMCSA.US,https://companiesmarketcap.com/comcast/marketcap/,Media/Press',
   'CMG.US,https://companiesmarketcap.com/chipotle-mexican-grill/marketcap/,Fast food',
+  'COST.US,https://companiesmarketcap.com/costco/marketcap/,Supermarket chains, Supply intermediate',
   'CRSP.US,https://companiesmarketcap.com/crispr-therapeutics/marketcap/,CRISPR/Biotech',
   'DBI.US,https://companiesmarketcap.com/designer-brands/marketcap/,Footwear',
   'DIS.US,https://companiesmarketcap.com/walt-disney/marketcap/,Disney',
