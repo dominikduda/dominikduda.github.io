@@ -45,6 +45,7 @@ CHARTS = [
   'GTLB.US,https://companiesmarketcap.com/gitlab/marketcap/,Software craft',
   'INTC.US,https://companiesmarketcap.com/intel/marketcap/,Intel',
   'JPM.US,https://companiesmarketcap.com/jp-morgan-chase/marketcap/,Bank/Financial services',
+  'JTKWY.US,https://en.wikipedia.org/wiki/Just_Eat_Takeaway,Pyszne.pl (international)',
   'KO.US,https://companiesmarketcap.com/coca-cola/marketcap/,Coca-Cola',
   'LSXMA.US,https://companiesmarketcap.com/liberty-media/marketcap/,Media/Press',
   'LTHM.US,https://companiesmarketcap.com/livent/marketcap/,Chemicals',
