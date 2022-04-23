@@ -498,19 +498,31 @@ output << <<~PAGE_TOP
                         font-weight: normal;
                         font-style: normal;
                         top: 0;
-                        opacity: 0.05;
+                        opacity: 0.40;
                         color: blue;
-                        font-size: 350;
+                        font-size: 250;
+                        flex-direction: row-reverse;
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         width: 100%;
-                        height: 100%;
+                        height: 90%;
                         position:absolute;
                         left: 0;
                         z-index: 2;
                       }
-      #{'  '}
+                      .D {
+                        color: #000080 !important;
+                      }
+                      .Q {
+                      color: #FF8C00 !important;
+                      }
+                      .Y {
+                        color: #B22222 !important;
+                      }
+                      .M {
+                        color: #228B22 !important;
+                      }
                       .clear-min-width {
                         min-width: 0px;
                         min-height: 0px;
@@ -621,7 +633,9 @@ output << <<~PAGE_TOP
                       .chart-wrapper {
                         display: flex;
                         flex-wrap: wrap;
-                        width: 100%;
+                        width: 92%;
+                        margin-left: 4%;
+                        margin-right: 4%;
                       }
                       .bottom-margin {
                         background-color: #00385f;
@@ -657,7 +671,7 @@ def chart(market_id, timeframe)
 
   <<~CHART
     <div class="img-wrapper">
-      <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{stooq_id}&c=#{timeframe}&t=c&a=lg&b&g&svg"> <div class="chart-info">#{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}</div></img>
+      <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{stooq_id}&c=#{timeframe}&t=c&a=lg&b&g&svg"> <div class="chart-info #{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}">#{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}</div></img>
     </div>
   CHART
 end
