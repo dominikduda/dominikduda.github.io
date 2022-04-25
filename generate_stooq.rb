@@ -633,9 +633,9 @@ output << <<~PAGE_TOP
                       .chart-wrapper {
                         display: flex;
                         flex-wrap: wrap;
-                        width: 92%;
-                        margin-left: 4%;
-                        margin-right: 4%;
+                        width: 80%;
+                        margin-left: 10%;
+                        margin-right: 10%;
                       }
                       .bottom-margin {
                         background-color: #00385f;
