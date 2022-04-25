@@ -183,14 +183,20 @@ output << <<~PAGE_TOP
             }
           #{'  '}
             .divider {
-            position: relative;
+              margin-top: 40px;
+              position: relative;
               z-index: 4;
+            }
+            .inside-divider {
               text-align: center;
+              font-size: 20px;
               background-color: #005880;
               color: white;
               padding-top: 5px;
               padding-bottom: 5px;
-              font-size: 20px;
+              width: 80%;
+              margin-left: 10%;
+              margin-right:10%;
             }
             .divider-link {
                         background-color: #2f2751;
@@ -484,8 +490,8 @@ output << <<~PAGE_TOP
                       img {
                         width: 100%;
                         height: 100%;
-                        min-width: 800px;
-                        min-height: 550px;
+                        min-width: 400px;
+                        min-height: 275px;
                         flex: 100;
                       }
                       .img-wrapper {
@@ -699,7 +705,8 @@ CHARTS.each do |market_id|
   output << if market_id.include?('|')
               "<div class='grid-item section-divider' id=#{market_id}>" + market_id.gsub('_', ' ') + '</div>'
             else
-              "<div class='grid-item divider' id=#{stooq_id}><h4 class='no-margin'><a href='##{stooq_id}'>" + stooq_id + "</a></h4>#{info_link && !info_link.empty? ? "<h4><a href=#{info_link}>Symbol info</a></h4>" : ''}#{description && !description.empty? ? "<p>#{description}</p>" : ''}</div>"
+              "<div class='grid-item divider' id=#{stooq_id}><div class='inside-divider'><h4 class='no-margin'><a href='##{stooq_id}'>" + stooq_id + "</a></h4>#{info_link && !info_link.empty? ? "<h4><a href=#{info_link}>Symbol info</a></h4>" : ''}#{description && !description.empty? ? "<p>#{description}</p>" : ''}</div></div>"
+            # .inside-divider {
             end
   output << "<div class='chart-wrapper'>"
   TIMEFRAMES.each do |timeframe|
