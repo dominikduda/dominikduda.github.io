@@ -1,6 +1,6 @@
 TIMEFRAMES = %w[100y 30y 10y 5m].freeze
 TIMEFRAMES_NAMES = %w[Y Q M D].freeze
-AUTO_RELOAD_INTERVAL_MS = 240_000
+AUTO_RELOAD_INTERVAL_MS = 600_000
 CHARTS = [
   '-|||| INDICES ||||-',
   '^SPX,https://en.wikipedia.org/wiki/S%26P_500,',
@@ -132,6 +132,10 @@ output << <<~PAGE_TOP
           z-index: 0 !important;
           padding-left: 15%;
           padding-right: 15%;
+          margin-bottom: 40px;
+          margin-top: 40px;
+          font-size: 21;
+          color: #00385f;
           width: 70%;
           overflow-wrap: anywhere;
         }
