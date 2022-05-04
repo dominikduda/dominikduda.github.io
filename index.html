@@ -420,11 +420,12 @@
                     .D {
                       color: #000080 !important;
                     }
-                    .Q {
-                    color: #FF8C00 !important;
-                    }
-                    .Y {
+                    .Max {
+                      flex: 1;
                       color: #B22222 !important;
+                    }
+                    .Q {
+                      color: #FF8C00 !important;
                     }
                     .M {
                       color: #228B22 !important;
@@ -550,7 +551,7 @@
                         </style>
                         <script>
                           (() => {
-                            window.list = ["^SPX", "^DJT", "^DAX", "WIG", "AIQ.US", "IDTL.UK", "CLOU.US", "LIT.US", "PBE.US", "QQQ.US", "SMH.US", "XME.US", "BKCH.US", "BUG.US", "AAPL.US", "ADBE.US", "ALB.US", "AMZN.US", "BA.US", "BABA.US", "BAC.US", "BGNE.US", "BHG.US", "BMO.US", "BRK-A.US", "BYND.US", "CAG.US", "CCJ.US", "CDR", "CLH.US", "CMCSA.US", "CMG.US", "COST.US", "CRSP.US", "DBI.US", "DIS.US", "DNUT.US", "EDIT.US", "EXAS.US", "FDX.US", "GTLB.US", "INTC.US", "JPM.US", "JTKWY.US", "KO.US", "LSXMA.US", "LTHM.US", "MCD.US", "MSFT.US", "NRGV.US", "NVDA.US", "OSCR.US", "PACB.US", "PEP.US", "PLUG.US", "PZZA.US", "REGN.US", "RGLD.US", "RY.US", "SBUX.US", "SELB.US", "SUI.US", "TDOC.US", "TSLA.US", "V.US", "VRTX.US", "WFC.US", "WM.US", "WMT.US", "XAUUSD", "XAGUSD", "XPDUSD", "XPTUSD", "BTCUSD", "XMR.V", "ETH.V", "SC.V", "XLM.V", "ZEC.V", "eurusd", "audusd", "gbpusd", "usdcad", "usdchf", "usdjpy", "nzdusd", "audcad", "audchf", "audjpy", "audnzd", "cadjpy"];
+                            window.list = ["^SPX", "^DJT", "^DAX", "WIG", "AIQ.US", "BKCH.US", "BUG.US", "CLOU.US", "IBTA.UK", "IDTL.UK", "LIT.US", "PBE.US", "QQQ.US", "SMH.US", "XME.US", "AAPL.US", "ADBE.US", "ALB.US", "AMZN.US", "BA.US", "BABA.US", "BAC.US", "BGNE.US", "BHG.US", "BMO.US", "BRK-A.US", "BYND.US", "CAG.US", "CCJ.US", "CDR", "CLH.US", "CMCSA.US", "CMG.US", "COST.US", "CRSP.US", "DBI.US", "DIS.US", "DNUT.US", "EDIT.US", "EXAS.US", "FB.US", "FDX.US", "GOOGL.US", "INTC.US", "JPM.US", "JTKWY.US", "KO.US", "LSXMA.US", "LTHM.US", "MCD.US", "MSFT.US", "NRGV.US", "NVDA.US", "OSCR.US", "PACB.US", "PEP.US", "PLUG.US", "PZZA.US", "REGN.US", "RGLD.US", "RY.US", "SBUX.US", "SELB.US", "SUI.US", "TDOC.US", "TSLA.US", "TSM.US", "V.US", "VRTX.US", "WFC.US", "WM.US", "WMT.US", "XAUUSD", "XAGUSD", "XPDUSD", "XPTUSD", "BTCUSD", "XMR.V", "ETH.V", "SC.V", "XLM.V", "ZEC.V", "eurusd", "audusd", "gbpusd", "usdcad", "usdchf", "usdjpy", "nzdusd", "audcad", "audchf", "audjpy", "audnzd", "cadjpy"];
                             window.current_index = 0;
                           })()
                         </script>
@@ -576,7 +577,7 @@
   })()">
 </div>
 <div class="grid-container"><div class='grid-item section-divider' id=-|||| INDICES ||||->-|||| INDICES ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=^SPX><div class='inside-divider'><h4 class='no-margin'><a href='#^SPX'>^SPX</a></h4><h4><a href=https://en.wikipedia.org/wiki/S%26P_500>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^SPX&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^SPX&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^SPX&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -588,7 +589,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^SPX&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=^DJT><div class='inside-divider'><h4 class='no-margin'><a href='#^DJT'>^DJT</a></h4><h4><a href=https://en.wikipedia.org/wiki/Dow_Jones_Transportation_Average>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -600,7 +601,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DJT&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=^DAX><div class='inside-divider'><h4 class='no-margin'><a href='#^DAX'>^DAX</a></h4><h4><a href=https://en.wikipedia.org/wiki/DAX>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DAX&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DAX&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DAX&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -612,7 +613,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=^DAX&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=WIG><div class='inside-divider'><h4 class='no-margin'><a href='#WIG'>WIG</a></h4><h4><a href=https://pl.wikipedia.org/wiki/Warszawski_Indeks_Gie%C5%82dowy>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WIG&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WIG&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WIG&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -624,7 +625,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WIG&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item section-divider' id=-|||| ETF ||||->-|||| ETF ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=AIQ.US><div class='inside-divider'><h4 class='no-margin'><a href='#AIQ.US'>AIQ.US</a></h4><h4><a href=https://www.etf.com/AIQ>Symbol info</a></h4><p>Artificial intelligence</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AIQ.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AIQ.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AIQ.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -635,92 +636,8 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AIQ.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
-</div><div class='grid-item divider' id=IDTL.UK><div class='inside-divider'><h4 class='no-margin'><a href='#IDTL.UK'>IDTL.UK</a></h4><h4><a href=https://www.ishares.com/uk/individual/en/products/272124/ishares-usd-treasury-bond-20-yr-ucits-etf>Symbol info</a></h4><p>20+ year USA treasury bond</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
-</div>
-</div><div class='grid-item divider' id=CLOU.US><div class='inside-divider'><h4 class='no-margin'><a href='#CLOU.US'>CLOU.US</a></h4><h4><a href=https://www.globalxetfs.com/funds/clou/#holdings>Symbol info</a></h4><p>Global Cloud Computing ETF</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLOU.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLOU.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLOU.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLOU.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
-</div>
-</div><div class='grid-item divider' id=LIT.US><div class='inside-divider'><h4 class='no-margin'><a href='#LIT.US'>LIT.US</a></h4><h4><a href=https://www.etf.com/LIT>Symbol info</a></h4><p>Global Lithium & Battery Tech ETF</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LIT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LIT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LIT.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LIT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
-</div>
-</div><div class='grid-item divider' id=PBE.US><div class='inside-divider'><h4 class='no-margin'><a href='#PBE.US'>PBE.US</a></h4><h4><a href=https://www.etf.com/PBE>Symbol info</a></h4><p>Biotech/Genome</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PBE.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PBE.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PBE.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PBE.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
-</div>
-</div><div class='grid-item divider' id=QQQ.US><div class='inside-divider'><h4 class='no-margin'><a href='#QQQ.US'>QQQ.US</a></h4><h4><a href=https://www.etf.com/QQQ>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=QQQ.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=QQQ.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=QQQ.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=QQQ.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
-</div>
-</div><div class='grid-item divider' id=SMH.US><div class='inside-divider'><h4 class='no-margin'><a href='#SMH.US'>SMH.US</a></h4><h4><a href=https://www.etf.com/SMH>Symbol info</a></h4><p>Semiconducotrs</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
-</div>
-</div><div class='grid-item divider' id=XME.US><div class='inside-divider'><h4 class='no-margin'><a href='#XME.US'>XME.US</a></h4><h4><a href=https://www.etf.com/XME>Symbol info</a></h4><p>Metals and mining</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XME.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XME.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XME.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
-</div>
-<div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XME.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
-</div>
 </div><div class='grid-item divider' id=BKCH.US><div class='inside-divider'><h4 class='no-margin'><a href='#BKCH.US'>BKCH.US</a></h4><h4><a href=https://www.globalxetfs.com/funds/bkch/#holdings>Symbol info</a></h4><p>Global blockchain ETF</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BKCH.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BKCH.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BKCH.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -732,7 +649,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BKCH.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=BUG.US><div class='inside-divider'><h4 class='no-margin'><a href='#BUG.US'>BUG.US</a></h4><h4><a href=https://www.globalxetfs.com/funds/bug/#holdings>Symbol info</a></h4><p>Global cybersecurity ETF</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BUG.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BUG.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BUG.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -743,8 +660,104 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BUG.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
-</div><div class='grid-item section-divider' id=-|||| STOCKS ||||->-|||| STOCKS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=AAPL.US><div class='inside-divider'><h4 class='no-margin'><a href='#AAPL.US'>AAPL.US</a></h4><h4><a href=https://companiesmarketcap.com/apple/marketcap/>Symbol info</a></h4><p>The fanboy company.</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+</div><div class='grid-item divider' id=CLOU.US><div class='inside-divider'><h4 class='no-margin'><a href='#CLOU.US'>CLOU.US</a></h4><h4><a href=https://www.globalxetfs.com/funds/clou/#holdings>Symbol info</a></h4><p>Global Cloud Computing ETF</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLOU.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLOU.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLOU.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLOU.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
+</div>
+</div><div class='grid-item divider' id=IBTA.UK><div class='inside-divider'><h4 class='no-margin'><a href='#IBTA.UK'>IBTA.UK</a></h4><h4><a href=https://www.ishares.com/uk/individual/en/products/287340/>Symbol info</a></h4><p>1-3 year USA goverment treasury bond</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IBTA.UK&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IBTA.UK&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IBTA.UK&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IBTA.UK&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
+</div>
+</div><div class='grid-item divider' id=IDTL.UK><div class='inside-divider'><h4 class='no-margin'><a href='#IDTL.UK'>IDTL.UK</a></h4><h4><a href=https://www.ishares.com/uk/individual/en/products/272124/ishares-usd-treasury-bond-20-yr-ucits-etf>Symbol info</a></h4><p>20+ year USA goverment treasury bond</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=IDTL.UK&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
+</div>
+</div><div class='grid-item divider' id=LIT.US><div class='inside-divider'><h4 class='no-margin'><a href='#LIT.US'>LIT.US</a></h4><h4><a href=https://www.etf.com/LIT>Symbol info</a></h4><p>Global Lithium & Battery Tech ETF</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LIT.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LIT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LIT.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LIT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
+</div>
+</div><div class='grid-item divider' id=PBE.US><div class='inside-divider'><h4 class='no-margin'><a href='#PBE.US'>PBE.US</a></h4><h4><a href=https://www.etf.com/PBE>Symbol info</a></h4><p>Biotech/Genome</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PBE.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PBE.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PBE.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PBE.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
+</div>
+</div><div class='grid-item divider' id=QQQ.US><div class='inside-divider'><h4 class='no-margin'><a href='#QQQ.US'>QQQ.US</a></h4><h4><a href=https://www.etf.com/QQQ>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=QQQ.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=QQQ.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=QQQ.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=QQQ.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
+</div>
+</div><div class='grid-item divider' id=SMH.US><div class='inside-divider'><h4 class='no-margin'><a href='#SMH.US'>SMH.US</a></h4><h4><a href=https://www.etf.com/SMH>Symbol info</a></h4><p>Semiconducotrs</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SMH.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
+</div>
+</div><div class='grid-item divider' id=XME.US><div class='inside-divider'><h4 class='no-margin'><a href='#XME.US'>XME.US</a></h4><h4><a href=https://www.etf.com/XME>Symbol info</a></h4><p>Metals and mining</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XME.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XME.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XME.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XME.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
+</div>
+</div><div class='grid-item section-divider' id=-|||| STOCKS ||||->-|||| STOCKS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=AAPL.US><div class='inside-divider'><h4 class='no-margin'><a href='#AAPL.US'>AAPL.US</a></h4><h4><a href=https://companiesmarketcap.com/apple/marketcap/>Symbol info</a></h4><p>The fanboy company</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -755,8 +768,8 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AAPL.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
-</div><div class='grid-item divider' id=ADBE.US><div class='inside-divider'><h4 class='no-margin'><a href='#ADBE.US'>ADBE.US</a></h4><h4><a href=https://companiesmarketcap.com/adobe/marketcap/>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+</div><div class='grid-item divider' id=ADBE.US><div class='inside-divider'><h4 class='no-margin'><a href='#ADBE.US'>ADBE.US</a></h4><h4><a href=https://companiesmarketcap.com/adobe/marketcap/>Symbol info</a></h4><p>Adobe - software</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -768,7 +781,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ADBE.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=ALB.US><div class='inside-divider'><h4 class='no-margin'><a href='#ALB.US'>ALB.US</a></h4><h4><a href=https://companiesmarketcap.com/albemarle/marketcap/>Symbol info</a></h4><p>Chemicals</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -779,8 +792,8 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ALB.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
-</div><div class='grid-item divider' id=AMZN.US><div class='inside-divider'><h4 class='no-margin'><a href='#AMZN.US'>AMZN.US</a></h4><h4><a href=https://companiesmarketcap.com/amazon/marketcap/>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+</div><div class='grid-item divider' id=AMZN.US><div class='inside-divider'><h4 class='no-margin'><a href='#AMZN.US'>AMZN.US</a></h4><h4><a href=https://companiesmarketcap.com/amazon/marketcap/>Symbol info</a></h4><p>Amazon</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -792,7 +805,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=AMZN.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=BA.US><div class='inside-divider'><h4 class='no-margin'><a href='#BA.US'>BA.US</a></h4><h4><a href=https://companiesmarketcap.com/boeing/marketcap/>Symbol info</a></h4><p>Boeing</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BA.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -803,8 +816,8 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
-</div><div class='grid-item divider' id=BABA.US><div class='inside-divider'><h4 class='no-margin'><a href='#BABA.US'>BABA.US</a></h4><h4><a href=https://companiesmarketcap.com/alibaba/marketcap/>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+</div><div class='grid-item divider' id=BABA.US><div class='inside-divider'><h4 class='no-margin'><a href='#BABA.US'>BABA.US</a></h4><h4><a href=https://companiesmarketcap.com/alibaba/marketcap/>Symbol info</a></h4><p>Internet retail shop</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -815,8 +828,8 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BABA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
-</div><div class='grid-item divider' id=BAC.US><div class='inside-divider'><h4 class='no-margin'><a href='#BAC.US'>BAC.US</a></h4><h4><a href=https://companiesmarketcap.com/bank-of-america/marketcap/>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+</div><div class='grid-item divider' id=BAC.US><div class='inside-divider'><h4 class='no-margin'><a href='#BAC.US'>BAC.US</a></h4><h4><a href=https://companiesmarketcap.com/bank-of-america/marketcap/>Symbol info</a></h4><p>Bank of america</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -828,7 +841,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BAC.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=BGNE.US><div class='inside-divider'><h4 class='no-margin'><a href='#BGNE.US'>BGNE.US</a></h4><h4><a href=https://companiesmarketcap.com/beigene/marketcap/>Symbol info</a></h4><p>Pharmaceuticals</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -840,7 +853,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BGNE.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=BHG.US><div class='inside-divider'><h4 class='no-margin'><a href='#BHG.US'>BHG.US</a></h4><h4><a href=https://companiesmarketcap.com/bright-health/marketcap/>Symbol info</a></h4><p>Healthcare/Insurance</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BHG.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BHG.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BHG.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -852,7 +865,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BHG.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=BMO.US><div class='inside-divider'><h4 class='no-margin'><a href='#BMO.US'>BMO.US</a></h4><h4><a href=https://companiesmarketcap.com/bank-of-montreal/marketcap/>Symbol info</a></h4><p>Canadian bank</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BMO.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BMO.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BMO.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -863,8 +876,8 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BMO.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
-</div><div class='grid-item divider' id=BRK-A.US><div class='inside-divider'><h4 class='no-margin'><a href='#BRK-A.US'>BRK-A.US</a></h4><h4><a href=https://companiesmarketcap.com/berkshire-hathaway/marketcap/>Symbol info</a></h4><p>Investment</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BRK-A.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+</div><div class='grid-item divider' id=BRK-A.US><div class='inside-divider'><h4 class='no-margin'><a href='#BRK-A.US'>BRK-A.US</a></h4><h4><a href=https://companiesmarketcap.com/berkshire-hathaway/marketcap/>Symbol info</a></h4><p>Buffet investment</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BRK-A.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BRK-A.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -876,7 +889,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BRK-A.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=BYND.US><div class='inside-divider'><h4 class='no-margin'><a href='#BYND.US'>BYND.US</a></h4><h4><a href=https://companiesmarketcap.com/beyond-meat/marketcap/>Symbol info</a></h4><p>Food</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -888,7 +901,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BYND.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=CAG.US><div class='inside-divider'><h4 class='no-margin'><a href='#CAG.US'>CAG.US</a></h4><h4><a href=https://companiesmarketcap.com/conagra-brands/marketcap/>Symbol info</a></h4><p>Food</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CAG.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CAG.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CAG.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -900,7 +913,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CAG.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=CCJ.US><div class='inside-divider'><h4 class='no-margin'><a href='#CCJ.US'>CCJ.US</a></h4><h4><a href=https://companiesmarketcap.com/cameco/marketcap/>Symbol info</a></h4><p>Uranium mining</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -912,7 +925,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CCJ.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=CDR><div class='inside-divider'><h4 class='no-margin'><a href='#CDR'>CDR</a></h4><h4><a href=https://companiesmarketcap.com/cd-projekt/marketcap/>Symbol info</a></h4><p>Game studio</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -924,7 +937,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CDR&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=CLH.US><div class='inside-divider'><h4 class='no-margin'><a href='#CLH.US'>CLH.US</a></h4><h4><a href=https://companiesmarketcap.com/clean-harbors/marketcap/>Symbol info</a></h4><p>Waste management</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLH.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLH.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLH.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -936,7 +949,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CLH.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=CMCSA.US><div class='inside-divider'><h4 class='no-margin'><a href='#CMCSA.US'>CMCSA.US</a></h4><h4><a href=https://companiesmarketcap.com/comcast/marketcap/>Symbol info</a></h4><p>Media/Press</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -948,7 +961,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMCSA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=CMG.US><div class='inside-divider'><h4 class='no-margin'><a href='#CMG.US'>CMG.US</a></h4><h4><a href=https://companiesmarketcap.com/chipotle-mexican-grill/marketcap/>Symbol info</a></h4><p>Fast food</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -960,7 +973,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CMG.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=COST.US><div class='inside-divider'><h4 class='no-margin'><a href='#COST.US'>COST.US</a></h4><h4><a href=https://companiesmarketcap.com/costco/marketcap/>Symbol info</a></h4><p>Supermarket chains</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=COST.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=COST.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=COST.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -972,7 +985,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=COST.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=CRSP.US><div class='inside-divider'><h4 class='no-margin'><a href='#CRSP.US'>CRSP.US</a></h4><h4><a href=https://companiesmarketcap.com/crispr-therapeutics/marketcap/>Symbol info</a></h4><p>CRISPR/Biotech</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -984,7 +997,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=CRSP.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=DBI.US><div class='inside-divider'><h4 class='no-margin'><a href='#DBI.US'>DBI.US</a></h4><h4><a href=https://companiesmarketcap.com/designer-brands/marketcap/>Symbol info</a></h4><p>Footwear</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -996,7 +1009,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DBI.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=DIS.US><div class='inside-divider'><h4 class='no-margin'><a href='#DIS.US'>DIS.US</a></h4><h4><a href=https://companiesmarketcap.com/walt-disney/marketcap/>Symbol info</a></h4><p>Disney</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1008,7 +1021,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DIS.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=DNUT.US><div class='inside-divider'><h4 class='no-margin'><a href='#DNUT.US'>DNUT.US</a></h4><h4><a href=https://companiesmarketcap.com/krispy-kreme/marketcap/>Symbol info</a></h4><p>Food</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1020,7 +1033,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=DNUT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=EDIT.US><div class='inside-divider'><h4 class='no-margin'><a href='#EDIT.US'>EDIT.US</a></h4><h4><a href=https://companiesmarketcap.com/editas-medicine/marketcap/>Symbol info</a></h4><p>CRISPR/Biotech</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1032,7 +1045,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EDIT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=EXAS.US><div class='inside-divider'><h4 class='no-margin'><a href='#EXAS.US'>EXAS.US</a></h4><h4><a href=https://companiesmarketcap.com/exact-sciences/marketcap/>Symbol info</a></h4><p>Biotech/Diagnostics</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1043,8 +1056,20 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=EXAS.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
+</div><div class='grid-item divider' id=FB.US><div class='inside-divider'><h4 class='no-margin'><a href='#FB.US'>FB.US</a></h4><h4><a href=https://companiesmarketcap.com/facebook/marketcap/>Symbol info</a></h4><p>Facebook & Metaverse</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FB.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FB.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FB.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FB.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
+</div>
 </div><div class='grid-item divider' id=FDX.US><div class='inside-divider'><h4 class='no-margin'><a href='#FDX.US'>FDX.US</a></h4><h4><a href=https://companiesmarketcap.com/fedex/marketcap/>Symbol info</a></h4><p>Courier/Transportation</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1055,20 +1080,20 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=FDX.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
-</div><div class='grid-item divider' id=GTLB.US><div class='inside-divider'><h4 class='no-margin'><a href='#GTLB.US'>GTLB.US</a></h4><h4><a href=https://companiesmarketcap.com/gitlab/marketcap/>Symbol info</a></h4><p>Software craft</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+</div><div class='grid-item divider' id=GOOGL.US><div class='inside-divider'><h4 class='no-margin'><a href='#GOOGL.US'>GOOGL.US</a></h4><h4><a href=https://companiesmarketcap.com/alphabet-google/marketcap/>Symbol info</a></h4><p>Google</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GOOGL.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GOOGL.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
 </div>
 <div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GOOGL.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
 </div>
 <div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GTLB.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=GOOGL.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=INTC.US><div class='inside-divider'><h4 class='no-margin'><a href='#INTC.US'>INTC.US</a></h4><h4><a href=https://companiesmarketcap.com/intel/marketcap/>Symbol info</a></h4><p>Intel</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1080,7 +1105,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=INTC.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=JPM.US><div class='inside-divider'><h4 class='no-margin'><a href='#JPM.US'>JPM.US</a></h4><h4><a href=https://companiesmarketcap.com/jp-morgan-chase/marketcap/>Symbol info</a></h4><p>Bank/Financial services</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1092,7 +1117,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JPM.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=JTKWY.US><div class='inside-divider'><h4 class='no-margin'><a href='#JTKWY.US'>JTKWY.US</a></h4><h4><a href=https://en.wikipedia.org/wiki/Just_Eat_Takeaway>Symbol info</a></h4><p>Pyszne.pl (international)</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JTKWY.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JTKWY.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JTKWY.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1104,7 +1129,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=JTKWY.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=KO.US><div class='inside-divider'><h4 class='no-margin'><a href='#KO.US'>KO.US</a></h4><h4><a href=https://companiesmarketcap.com/coca-cola/marketcap/>Symbol info</a></h4><p>Coca-Cola</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1116,7 +1141,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=KO.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=LSXMA.US><div class='inside-divider'><h4 class='no-margin'><a href='#LSXMA.US'>LSXMA.US</a></h4><h4><a href=https://companiesmarketcap.com/liberty-media/marketcap/>Symbol info</a></h4><p>Media/Press</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1128,7 +1153,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LSXMA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=LTHM.US><div class='inside-divider'><h4 class='no-margin'><a href='#LTHM.US'>LTHM.US</a></h4><h4><a href=https://companiesmarketcap.com/livent/marketcap/>Symbol info</a></h4><p>Chemicals</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1140,7 +1165,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=LTHM.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=MCD.US><div class='inside-divider'><h4 class='no-margin'><a href='#MCD.US'>MCD.US</a></h4><h4><a href=https://companiesmarketcap.com/mcdonald/marketcap/>Symbol info</a></h4><p>Fast food</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1152,7 +1177,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MCD.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=MSFT.US><div class='inside-divider'><h4 class='no-margin'><a href='#MSFT.US'>MSFT.US</a></h4><h4><a href=https://companiesmarketcap.com/microsoft/marketcap/>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1163,8 +1188,8 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=MSFT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
-</div><div class='grid-item divider' id=NRGV.US><div class='inside-divider'><h4 class='no-margin'><a href='#NRGV.US'>NRGV.US</a></h4><h4><a href=https://en.wikipedia.org/wiki/Energy_Vault>Symbol info</a></h4><p>"Gravity battery" energy storage</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NRGV.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+</div><div class='grid-item divider' id=NRGV.US><div class='inside-divider'><h4 class='no-margin'><a href='#NRGV.US'>NRGV.US</a></h4><h4><a href=https://en.wikipedia.org/wiki/Energy_Vault>Symbol info</a></h4><p>"Gravity battery" energy storage - waiting for first project of second version</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NRGV.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NRGV.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1176,7 +1201,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NRGV.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=NVDA.US><div class='inside-divider'><h4 class='no-margin'><a href='#NVDA.US'>NVDA.US</a></h4><h4><a href=https://companiesmarketcap.com/nvidia/marketcap/>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1188,7 +1213,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=NVDA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=OSCR.US><div class='inside-divider'><h4 class='no-margin'><a href='#OSCR.US'>OSCR.US</a></h4><h4><a href=https://companiesmarketcap.com/oscar-health/marketcap/>Symbol info</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1200,7 +1225,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=OSCR.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=PACB.US><div class='inside-divider'><h4 class='no-margin'><a href='#PACB.US'>PACB.US</a></h4><h4><a href=https://companiesmarketcap.com/pacific-biosciences/marketcap/>Symbol info</a></h4><p>Biotech/Gene sequencing</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PACB.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PACB.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PACB.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1212,7 +1237,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PACB.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=PEP.US><div class='inside-divider'><h4 class='no-margin'><a href='#PEP.US'>PEP.US</a></h4><h4><a href=https://companiesmarketcap.com/pepsico/marketcap/>Symbol info</a></h4><p>Pepsi</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PEP.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PEP.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PEP.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1224,7 +1249,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PEP.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=PLUG.US><div class='inside-divider'><h4 class='no-margin'><a href='#PLUG.US'>PLUG.US</a></h4><h4><a href=https://companiesmarketcap.com/plug-power/marketcap/>Symbol info</a></h4><p>Hydrogen fuel cell/Renewable energy</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PLUG.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PLUG.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PLUG.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1236,7 +1261,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PLUG.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=PZZA.US><div class='inside-divider'><h4 class='no-margin'><a href='#PZZA.US'>PZZA.US</a></h4><h4><a href=https://companiesmarketcap.com/papa-johns-pizza/marketcap/>Symbol info</a></h4><p>Pizza chain</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PZZA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PZZA.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PZZA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1248,7 +1273,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=PZZA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=REGN.US><div class='inside-divider'><h4 class='no-margin'><a href='#REGN.US'>REGN.US</a></h4><h4><a href=https://companiesmarketcap.com/regeneron-pharmaceuticals/marketcap/>Symbol info</a></h4><p>Biotech/Pharmaceuticals</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=REGN.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=REGN.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=REGN.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1260,7 +1285,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=REGN.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=RGLD.US><div class='inside-divider'><h4 class='no-margin'><a href='#RGLD.US'>RGLD.US</a></h4><h4><a href=https://companiesmarketcap.com/royal-gold/marketcap/>Symbol info</a></h4><p>Gold mining stock</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=RGLD.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=RGLD.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=RGLD.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1272,7 +1297,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=RGLD.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=RY.US><div class='inside-divider'><h4 class='no-margin'><a href='#RY.US'>RY.US</a></h4><h4><a href=https://companiesmarketcap.com/royal-bank-of-canada/marketcap/>Symbol info</a></h4><p>Canadian bank</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=RY.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=RY.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=RY.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1284,7 +1309,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=RY.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=SBUX.US><div class='inside-divider'><h4 class='no-margin'><a href='#SBUX.US'>SBUX.US</a></h4><h4><a href=https://companiesmarketcap.com/starbucks/marketcap/>Symbol info</a></h4><p>Starbucks</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SBUX.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SBUX.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SBUX.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1296,7 +1321,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SBUX.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=SELB.US><div class='inside-divider'><h4 class='no-margin'><a href='#SELB.US'>SELB.US</a></h4><h4><a href=https://companiesmarketcap.com/selecta-biosciences/marketcap/>Symbol info</a></h4><p>Biotech/Pharmaceuticals</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SELB.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SELB.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SELB.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1308,7 +1333,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SELB.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=SUI.US><div class='inside-divider'><h4 class='no-margin'><a href='#SUI.US'>SUI.US</a></h4><h4><a href=https://companiesmarketcap.com/sun-communities/marketcap/>Symbol info</a></h4><p>Real estate/Investment</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SUI.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SUI.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SUI.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1320,7 +1345,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SUI.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=TDOC.US><div class='inside-divider'><h4 class='no-margin'><a href='#TDOC.US'>TDOC.US</a></h4><h4><a href=https://companiesmarketcap.com/teladoc-health/marketcap/>Symbol info</a></h4><p>Telehealth</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TDOC.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TDOC.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TDOC.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1332,7 +1357,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TDOC.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=TSLA.US><div class='inside-divider'><h4 class='no-margin'><a href='#TSLA.US'>TSLA.US</a></h4><h4><a href=https://companiesmarketcap.com/tesla/marketcap/>Symbol info</a></h4><p>Tesla</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TSLA.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TSLA.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TSLA.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1343,8 +1368,20 @@
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TSLA.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
+</div><div class='grid-item divider' id=TSM.US><div class='inside-divider'><h4 class='no-margin'><a href='#TSM.US'>TSM.US</a></h4><h4><a href=https://companiesmarketcap.com/tsmc/marketcap/>Symbol info</a></h4><p>Taiwan Semiconductor Manufacturing Company</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TSM.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TSM.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TSM.US&c=10y&t=c&a=lg&b&g&svg"> <div class="chart-info M">M</div></img>
+</div>
+<div class="img-wrapper">
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=TSM.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
+</div>
 </div><div class='grid-item divider' id=V.US><div class='inside-divider'><h4 class='no-margin'><a href='#V.US'>V.US</a></h4><h4><a href=https://companiesmarketcap.com/visa/marketcap/>Symbol info</a></h4><p>VISA</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=V.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=V.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=V.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1356,7 +1393,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=V.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=VRTX.US><div class='inside-divider'><h4 class='no-margin'><a href='#VRTX.US'>VRTX.US</a></h4><h4><a href=https://companiesmarketcap.com/vertex-pharmaceuticals/marketcap/>Symbol info</a></h4><p>Biotech/Pharmaceuticals</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=VRTX.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=VRTX.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=VRTX.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1368,7 +1405,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=VRTX.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=WFC.US><div class='inside-divider'><h4 class='no-margin'><a href='#WFC.US'>WFC.US</a></h4><h4><a href=https://companiesmarketcap.com/wells-fargo/marketcap/>Symbol info</a></h4><p>Bank/Financial services</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WFC.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WFC.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WFC.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1380,7 +1417,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WFC.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=WM.US><div class='inside-divider'><h4 class='no-margin'><a href='#WM.US'>WM.US</a></h4><h4><a href=https://companiesmarketcap.com/waste-management/marketcap/>Symbol info</a></h4><p>Waste management</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WM.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WM.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WM.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1392,7 +1429,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WM.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=WMT.US><div class='inside-divider'><h4 class='no-margin'><a href='#WMT.US'>WMT.US</a></h4><h4><a href=https://companiesmarketcap.com/walmart/marketcap/>Symbol info</a></h4><p>Supermarket chain</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WMT.US&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WMT.US&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WMT.US&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1404,7 +1441,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=WMT.US&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item section-divider' id=-|||| METALS ||||->-|||| METALS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=XAUUSD><div class='inside-divider'><h4 class='no-margin'><a href='#XAUUSD'>XAUUSD</a></h4><p>Gold</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1416,7 +1453,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAUUSD&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=XAGUSD><div class='inside-divider'><h4 class='no-margin'><a href='#XAGUSD'>XAGUSD</a></h4><p>Silver</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAGUSD&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAGUSD&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAGUSD&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1428,7 +1465,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XAGUSD&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=XPDUSD><div class='inside-divider'><h4 class='no-margin'><a href='#XPDUSD'>XPDUSD</a></h4><p>Palladium</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPDUSD&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPDUSD&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPDUSD&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1440,7 +1477,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPDUSD&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=XPTUSD><div class='inside-divider'><h4 class='no-margin'><a href='#XPTUSD'>XPTUSD</a></h4><p>Platinum</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPTUSD&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPTUSD&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPTUSD&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1452,7 +1489,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XPTUSD&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item section-divider' id=-|||| CRYPTOS ||||->-|||| CRYPTOS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=BTCUSD><div class='inside-divider'><h4 class='no-margin'><a href='#BTCUSD'>BTCUSD</a></h4><h4><a href=https://coinmarketcap.com/currencies/bitcoin/>Symbol info</a></h4><p>Bitcoin</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BTCUSD&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BTCUSD&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BTCUSD&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1464,7 +1501,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=BTCUSD&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=XMR.V><div class='inside-divider'><h4 class='no-margin'><a href='#XMR.V'>XMR.V</a></h4><h4><a href=https://coinmarketcap.com/currencies/monero/>Symbol info</a></h4><p>Monero</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XMR.V&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XMR.V&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XMR.V&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1476,7 +1513,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XMR.V&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=ETH.V><div class='inside-divider'><h4 class='no-margin'><a href='#ETH.V'>ETH.V</a></h4><h4><a href=https://coinmarketcap.com/currencies/ethereum/>Symbol info</a></h4><p>Etherum</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ETH.V&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ETH.V&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ETH.V&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1488,7 +1525,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ETH.V&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=SC.V><div class='inside-divider'><h4 class='no-margin'><a href='#SC.V'>SC.V</a></h4><h4><a href=https://coinmarketcap.com/currencies/siacoin/>Symbol info</a></h4><p>Siacoin</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SC.V&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SC.V&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SC.V&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1500,7 +1537,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=SC.V&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=XLM.V><div class='inside-divider'><h4 class='no-margin'><a href='#XLM.V'>XLM.V</a></h4><h4><a href=https://coinmarketcap.com/currencies/stellar/>Symbol info</a></h4><p>Stellar</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XLM.V&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XLM.V&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XLM.V&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1512,7 +1549,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=XLM.V&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=ZEC.V><div class='inside-divider'><h4 class='no-margin'><a href='#ZEC.V'>ZEC.V</a></h4><h4><a href=https://coinmarketcap.com/currencies/zcash/>Symbol info</a></h4><p>Zcash</p></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ZEC.V&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ZEC.V&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ZEC.V&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1524,7 +1561,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=ZEC.V&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item section-divider' id=-|||| FX_MAJORS ||||->-|||| FX MAJORS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=eurusd><div class='inside-divider'><h4 class='no-margin'><a href='#eurusd'>eurusd</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=eurusd&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=eurusd&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=eurusd&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1536,7 +1573,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=eurusd&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=audusd><div class='inside-divider'><h4 class='no-margin'><a href='#audusd'>audusd</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audusd&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audusd&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audusd&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1548,7 +1585,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audusd&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=gbpusd><div class='inside-divider'><h4 class='no-margin'><a href='#gbpusd'>gbpusd</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=gbpusd&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=gbpusd&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=gbpusd&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1560,7 +1597,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=gbpusd&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=usdcad><div class='inside-divider'><h4 class='no-margin'><a href='#usdcad'>usdcad</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdcad&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdcad&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdcad&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1572,7 +1609,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdcad&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=usdchf><div class='inside-divider'><h4 class='no-margin'><a href='#usdchf'>usdchf</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdchf&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdchf&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdchf&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1584,7 +1621,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdchf&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=usdjpy><div class='inside-divider'><h4 class='no-margin'><a href='#usdjpy'>usdjpy</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdjpy&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdjpy&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdjpy&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1596,7 +1633,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=usdjpy&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item section-divider' id=-|||| FX_MINORS ||||->-|||| FX MINORS ||||-</div><div class='chart-wrapper'></div><div class='grid-item divider' id=nzdusd><div class='inside-divider'><h4 class='no-margin'><a href='#nzdusd'>nzdusd</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=nzdusd&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=nzdusd&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=nzdusd&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1608,7 +1645,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=nzdusd&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=audcad><div class='inside-divider'><h4 class='no-margin'><a href='#audcad'>audcad</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audcad&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audcad&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audcad&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1620,7 +1657,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audcad&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=audchf><div class='inside-divider'><h4 class='no-margin'><a href='#audchf'>audchf</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audchf&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audchf&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audchf&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1632,7 +1669,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audchf&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=audjpy><div class='inside-divider'><h4 class='no-margin'><a href='#audjpy'>audjpy</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audjpy&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audjpy&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audjpy&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1644,7 +1681,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audjpy&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=audnzd><div class='inside-divider'><h4 class='no-margin'><a href='#audnzd'>audnzd</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audnzd&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audnzd&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audnzd&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1656,7 +1693,7 @@
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=audnzd&c=5m&t=c&a=lg&b&g&svg"> <div class="chart-info D">D</div></img>
 </div>
 </div><div class='grid-item divider' id=cadjpy><div class='inside-divider'><h4 class='no-margin'><a href='#cadjpy'>cadjpy</a></h4></div></div><div class='chart-wrapper'><div class="img-wrapper">
-  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=cadjpy&c=100y&t=c&a=lg&b&g&svg"> <div class="chart-info Y">Y</div></img>
+  <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=cadjpy&c=mx&t=c&a=lg&b&g&svg"> <div class="chart-info Max">Max</div></img>
 </div>
 <div class="img-wrapper">
   <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=cadjpy&c=30y&t=c&a=lg&b&g&svg"> <div class="chart-info Q">Q</div></img>
@@ -1853,23 +1890,44 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
-  id="IDTL.UK"
+  id="BKCH.US"
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
       window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', 'IDTL.UK');
+      window.watcherSetCookie('scrollPosition', 'BKCH.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        document.getElementById('IDTL.UK').scrollIntoView()
+        document.getElementById('BKCH.US').scrollIntoView()
       }, 50)
-      window.current_index = window.list.indexOf('IDTL.UK')
-      window.watcherLastSelectedChart = 'IDTL.UK';
+      window.current_index = window.list.indexOf('BKCH.US')
+      window.watcherLastSelectedChart = 'BKCH.US';
     }
   })()"
 >
-  <span>IDTL.UK</span>
+  <span>BKCH.US</span>
+</div>
+<div
+  class="chart-link noselect"
+  tabindex="-1"
+  id="BUG.US"
+  onClick="(function() {
+    if (window.watcherLoaded) {
+      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
+      window.watcherSetCookie('scrollPosition', 'BUG.US');
+      window.scrollIntervalId = setInterval(() => {
+        window.skipClearInterval = true;
+        document.getElementById('BUG.US').scrollIntoView()
+      }, 50)
+      window.current_index = window.list.indexOf('BUG.US')
+      window.watcherLastSelectedChart = 'BUG.US';
+    }
+  })()"
+>
+  <span>BUG.US</span>
 </div>
 <div
   class="chart-link noselect"
@@ -1891,6 +1949,48 @@
   })()"
 >
   <span>CLOU.US</span>
+</div>
+<div
+  class="chart-link noselect"
+  tabindex="-1"
+  id="IBTA.UK"
+  onClick="(function() {
+    if (window.watcherLoaded) {
+      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
+      window.watcherSetCookie('scrollPosition', 'IBTA.UK');
+      window.scrollIntervalId = setInterval(() => {
+        window.skipClearInterval = true;
+        document.getElementById('IBTA.UK').scrollIntoView()
+      }, 50)
+      window.current_index = window.list.indexOf('IBTA.UK')
+      window.watcherLastSelectedChart = 'IBTA.UK';
+    }
+  })()"
+>
+  <span>IBTA.UK</span>
+</div>
+<div
+  class="chart-link noselect"
+  tabindex="-1"
+  id="IDTL.UK"
+  onClick="(function() {
+    if (window.watcherLoaded) {
+      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
+      window.watcherSetCookie('scrollPosition', 'IDTL.UK');
+      window.scrollIntervalId = setInterval(() => {
+        window.skipClearInterval = true;
+        document.getElementById('IDTL.UK').scrollIntoView()
+      }, 50)
+      window.current_index = window.list.indexOf('IDTL.UK')
+      window.watcherLastSelectedChart = 'IDTL.UK';
+    }
+  })()"
+>
+  <span>IDTL.UK</span>
 </div>
 <div
   class="chart-link noselect"
@@ -1998,48 +2098,6 @@
   <span>XME.US</span>
 </div>
 <div
-  class="chart-link noselect"
-  tabindex="-1"
-  id="BKCH.US"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', 'BKCH.US');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('BKCH.US').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('BKCH.US')
-      window.watcherLastSelectedChart = 'BKCH.US';
-    }
-  })()"
->
-  <span>BKCH.US</span>
-</div>
-<div
-  class="chart-link noselect"
-  tabindex="-1"
-  id="BUG.US"
-  onClick="(function() {
-    if (window.watcherLoaded) {
-      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
-      window.skipClearInterval = true;
-      window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', 'BUG.US');
-      window.scrollIntervalId = setInterval(() => {
-        window.skipClearInterval = true;
-        document.getElementById('BUG.US').scrollIntoView()
-      }, 50)
-      window.current_index = window.list.indexOf('BUG.US')
-      window.watcherLastSelectedChart = 'BUG.US';
-    }
-  })()"
->
-  <span>BUG.US</span>
-</div>
-<div
   class="divider-link noselect"
   tabindex="-1"
   id="-|||| STOCKS ||||-"
@@ -2048,7 +2106,7 @@
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
       window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', 'AAPL.US,https://companiesmarketcap.com/apple/marketcap/,The fanboy company.');
+      window.watcherSetCookie('scrollPosition', 'AAPL.US,https://companiesmarketcap.com/apple/marketcap/,The fanboy company');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
         document.getElementById('-|||| STOCKS ||||-').scrollIntoView()
@@ -2588,6 +2646,27 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
+  id="FB.US"
+  onClick="(function() {
+    if (window.watcherLoaded) {
+      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
+      window.watcherSetCookie('scrollPosition', 'FB.US');
+      window.scrollIntervalId = setInterval(() => {
+        window.skipClearInterval = true;
+        document.getElementById('FB.US').scrollIntoView()
+      }, 50)
+      window.current_index = window.list.indexOf('FB.US')
+      window.watcherLastSelectedChart = 'FB.US';
+    }
+  })()"
+>
+  <span>FB.US</span>
+</div>
+<div
+  class="chart-link noselect"
+  tabindex="-1"
   id="FDX.US"
   onClick="(function() {
     if (window.watcherLoaded) {
@@ -2609,23 +2688,23 @@
 <div
   class="chart-link noselect"
   tabindex="-1"
-  id="GTLB.US"
+  id="GOOGL.US"
   onClick="(function() {
     if (window.watcherLoaded) {
       if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
       window.skipClearInterval = true;
       window.lastScrollByProgram = true;
-      window.watcherSetCookie('scrollPosition', 'GTLB.US');
+      window.watcherSetCookie('scrollPosition', 'GOOGL.US');
       window.scrollIntervalId = setInterval(() => {
         window.skipClearInterval = true;
-        document.getElementById('GTLB.US').scrollIntoView()
+        document.getElementById('GOOGL.US').scrollIntoView()
       }, 50)
-      window.current_index = window.list.indexOf('GTLB.US')
-      window.watcherLastSelectedChart = 'GTLB.US';
+      window.current_index = window.list.indexOf('GOOGL.US')
+      window.watcherLastSelectedChart = 'GOOGL.US';
     }
   })()"
 >
-  <span>GTLB.US</span>
+  <span>GOOGL.US</span>
 </div>
 <div
   class="chart-link noselect"
@@ -3109,6 +3188,27 @@
   })()"
 >
   <span>TSLA.US</span>
+</div>
+<div
+  class="chart-link noselect"
+  tabindex="-1"
+  id="TSM.US"
+  onClick="(function() {
+    if (window.watcherLoaded) {
+      if (window.scrollIntervalId) { clearInterval(window.scrollIntervalId) }
+      window.skipClearInterval = true;
+      window.lastScrollByProgram = true;
+      window.watcherSetCookie('scrollPosition', 'TSM.US');
+      window.scrollIntervalId = setInterval(() => {
+        window.skipClearInterval = true;
+        document.getElementById('TSM.US').scrollIntoView()
+      }, 50)
+      window.current_index = window.list.indexOf('TSM.US')
+      window.watcherLastSelectedChart = 'TSM.US';
+    }
+  })()"
+>
+  <span>TSM.US</span>
 </div>
 <div
   class="chart-link noselect"

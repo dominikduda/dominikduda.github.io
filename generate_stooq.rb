@@ -1,5 +1,5 @@
-TIMEFRAMES = %w[100y 30y 10y 5m].freeze
-TIMEFRAMES_NAMES = %w[Y Q M D].freeze
+TIMEFRAMES = %w[mx 30y 10y 5m].freeze
+TIMEFRAMES_NAMES = %w[Max Q M D].freeze
 AUTO_RELOAD_INTERVAL_MS = 600_000
 CHARTS = [
   '-|||| INDICES ||||-',
@@ -9,27 +9,28 @@ CHARTS = [
   'WIG,https://pl.wikipedia.org/wiki/Warszawski_Indeks_Gie%C5%82dowy,',
   '-|||| ETF ||||-',
   'AIQ.US,https://www.etf.com/AIQ,Artificial intelligence',
-  'IDTL.UK,https://www.ishares.com/uk/individual/en/products/272124/ishares-usd-treasury-bond-20-yr-ucits-etf,20+ year USA treasury bond',
+  'BKCH.US,https://www.globalxetfs.com/funds/bkch/#holdings,Global blockchain ETF',
+  'BUG.US,https://www.globalxetfs.com/funds/bug/#holdings,Global cybersecurity ETF',
   'CLOU.US,https://www.globalxetfs.com/funds/clou/#holdings,Global Cloud Computing ETF',
+  'IBTA.UK,https://www.ishares.com/uk/individual/en/products/287340/,1-3 year USA goverment treasury bond',
+  'IDTL.UK,https://www.ishares.com/uk/individual/en/products/272124/ishares-usd-treasury-bond-20-yr-ucits-etf,20+ year USA goverment treasury bond',
   'LIT.US,https://www.etf.com/LIT,Global Lithium & Battery Tech ETF',
   'PBE.US,https://www.etf.com/PBE,Biotech/Genome',
   'QQQ.US,https://www.etf.com/QQQ,',
   'SMH.US,https://www.etf.com/SMH,Semiconducotrs',
   'XME.US,https://www.etf.com/XME,Metals and mining',
-  'BKCH.US,https://www.globalxetfs.com/funds/bkch/#holdings,Global blockchain ETF',
-  'BUG.US,https://www.globalxetfs.com/funds/bug/#holdings,Global cybersecurity ETF',
   '-|||| STOCKS ||||-',
-  'AAPL.US,https://companiesmarketcap.com/apple/marketcap/,The fanboy company.',
-  'ADBE.US,https://companiesmarketcap.com/adobe/marketcap/,',
+  'AAPL.US,https://companiesmarketcap.com/apple/marketcap/,The fanboy company',
+  'ADBE.US,https://companiesmarketcap.com/adobe/marketcap/,Adobe - software',
   'ALB.US,https://companiesmarketcap.com/albemarle/marketcap/,Chemicals',
-  'AMZN.US,https://companiesmarketcap.com/amazon/marketcap/,',
+  'AMZN.US,https://companiesmarketcap.com/amazon/marketcap/,Amazon',
   'BA.US,https://companiesmarketcap.com/boeing/marketcap/,Boeing',
-  'BABA.US,https://companiesmarketcap.com/alibaba/marketcap/,',
-  'BAC.US,https://companiesmarketcap.com/bank-of-america/marketcap/,',
+  'BABA.US,https://companiesmarketcap.com/alibaba/marketcap/,Internet retail shop',
+  'BAC.US,https://companiesmarketcap.com/bank-of-america/marketcap/,Bank of america',
   'BGNE.US,https://companiesmarketcap.com/beigene/marketcap/,Pharmaceuticals',
   'BHG.US,https://companiesmarketcap.com/bright-health/marketcap/,Healthcare/Insurance',
   'BMO.US,https://companiesmarketcap.com/bank-of-montreal/marketcap/,Canadian bank',
-  'BRK-A.US,https://companiesmarketcap.com/berkshire-hathaway/marketcap/,Investment',
+  'BRK-A.US,https://companiesmarketcap.com/berkshire-hathaway/marketcap/,Buffet investment',
   'BYND.US,https://companiesmarketcap.com/beyond-meat/marketcap/,Food, meat-like products',
   'CAG.US,https://companiesmarketcap.com/conagra-brands/marketcap/,Food',
   'CCJ.US,https://companiesmarketcap.com/cameco/marketcap/,Uranium mining',
@@ -44,8 +45,9 @@ CHARTS = [
   'DNUT.US,https://companiesmarketcap.com/krispy-kreme/marketcap/,Food',
   'EDIT.US,https://companiesmarketcap.com/editas-medicine/marketcap/,CRISPR/Biotech',
   'EXAS.US,https://companiesmarketcap.com/exact-sciences/marketcap/,Biotech/Diagnostics',
+  'FB.US,https://companiesmarketcap.com/facebook/marketcap/,Facebook & Metaverse',
   'FDX.US,https://companiesmarketcap.com/fedex/marketcap/,Courier/Transportation',
-  'GTLB.US,https://companiesmarketcap.com/gitlab/marketcap/,Software craft',
+  'GOOGL.US,https://companiesmarketcap.com/alphabet-google/marketcap/,Google',
   'INTC.US,https://companiesmarketcap.com/intel/marketcap/,Intel',
   'JPM.US,https://companiesmarketcap.com/jp-morgan-chase/marketcap/,Bank/Financial services',
   'JTKWY.US,https://en.wikipedia.org/wiki/Just_Eat_Takeaway,Pyszne.pl (international)',
@@ -54,7 +56,7 @@ CHARTS = [
   'LTHM.US,https://companiesmarketcap.com/livent/marketcap/,Chemicals',
   'MCD.US,https://companiesmarketcap.com/mcdonald/marketcap/,Fast food',
   'MSFT.US,https://companiesmarketcap.com/microsoft/marketcap/,',
-  'NRGV.US,https://en.wikipedia.org/wiki/Energy_Vault,"Gravity battery" energy storage',
+  'NRGV.US,https://en.wikipedia.org/wiki/Energy_Vault,"Gravity battery" energy storage - waiting for first project of second version',
   'NVDA.US,https://companiesmarketcap.com/nvidia/marketcap/,',
   'OSCR.US,https://companiesmarketcap.com/oscar-health/marketcap/,',
   'PACB.US,https://companiesmarketcap.com/pacific-biosciences/marketcap/,Biotech/Gene sequencing',
@@ -69,6 +71,7 @@ CHARTS = [
   'SUI.US,https://companiesmarketcap.com/sun-communities/marketcap/,Real estate/Investment',
   'TDOC.US,https://companiesmarketcap.com/teladoc-health/marketcap/,Telehealth',
   'TSLA.US,https://companiesmarketcap.com/tesla/marketcap/,Tesla',
+  'TSM.US,https://companiesmarketcap.com/tsmc/marketcap/,Taiwan Semiconductor Manufacturing Company',
   'V.US,https://companiesmarketcap.com/visa/marketcap/,VISA',
   'VRTX.US,https://companiesmarketcap.com/vertex-pharmaceuticals/marketcap/,Biotech/Pharmaceuticals',
   'WFC.US,https://companiesmarketcap.com/wells-fargo/marketcap/,Bank/Financial services',
@@ -527,11 +530,12 @@ output << <<~PAGE_TOP
                       .D {
                         color: #000080 !important;
                       }
-                      .Q {
-                      color: #FF8C00 !important;
-                      }
-                      .Y {
+                      .Max {
+                        flex: 1;
                         color: #B22222 !important;
+                      }
+                      .Q {
+                        color: #FF8C00 !important;
                       }
                       .M {
                         color: #228B22 !important;
@@ -713,7 +717,7 @@ CHARTS.each do |market_id|
               "<div class='grid-item section-divider' id=#{market_id}>" + market_id.gsub('_', ' ') + '</div>'
             else
               "<div class='grid-item divider' id=#{stooq_id}><div class='inside-divider'><h4 class='no-margin'><a href='##{stooq_id}'>" + stooq_id + "</a></h4>#{info_link && !info_link.empty? ? "<h4><a href=#{info_link}>Symbol info</a></h4>" : ''}#{description && !description.empty? ? "<p>#{description}</p>" : ''}</div></div>"
-            # .inside-divider {
+              # .inside-divider {
             end
   output << "<div class='chart-wrapper'>"
   TIMEFRAMES.each do |timeframe|
