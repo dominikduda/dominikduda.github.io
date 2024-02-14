@@ -514,9 +514,9 @@ output << <<~PAGE_TOP
                         font-weight: normal;
                         font-style: normal;
                         top: 0;
-                        opacity: 0.40;
+                        opacity: 0.20;
                         color: blue;
-                        font-size: 250;
+                        font-size: 170;
                         flex-direction: row-reverse;
                         display: flex;
                         justify-content: center;
