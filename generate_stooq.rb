@@ -650,6 +650,7 @@ output << <<~PAGE_TOP
                       .chart-wrapper {
                         display: flex;
                         flex-wrap: wrap;
+                        height: 95%;
                       }
                       .bottom-margin {
                         background-color: #00385f;
@@ -685,7 +686,7 @@ def chart(market_id, timeframe)
 
   <<~CHART
     <div class="img-wrapper">
-      <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{stooq_id}&c=#{timeframe}&t=c&a=lg&b&g&svg"> <div class="chart-info #{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}">#{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}</div></img>
+      <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{stooq_id}&c=#{timeframe}&t=c&a=lg&b&g"> <div class="chart-info #{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}">#{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}</div></img>
     </div>
   CHART
 end
