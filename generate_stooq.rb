@@ -1,5 +1,5 @@
-TIMEFRAMES = %w[100y 30y 10y 5m].freeze
-TIMEFRAMES_NAMES = %w[Y Q M D].freeze
+TIMEFRAMES = %w[2y 10d].freeze
+TIMEFRAMES_NAMES = %w[W D].freeze
 AUTO_RELOAD_INTERVAL_MS = 600_000
 CHARTS = [
   '-|||| INDICES ||||-',
@@ -650,9 +650,6 @@ output << <<~PAGE_TOP
                       .chart-wrapper {
                         display: flex;
                         flex-wrap: wrap;
-                        width: 80%;
-                        margin-left: 10%;
-                        margin-right: 10%;
                       }
                       .bottom-margin {
                         background-color: #00385f;
