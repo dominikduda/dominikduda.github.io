@@ -656,6 +656,20 @@ output << <<~PAGE_TOP
                         background-color: #00385f;
                         min-height: 3500px;
                       }
+
+
+#iframe_main {
+    height: 136px;
+    width: 614px;
+}
+
+#idiv {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
                           </style>
                           <script>
                             (() => {
@@ -665,6 +679,10 @@ output << <<~PAGE_TOP
                           </script>
                         </head>
                         <body oncontextmenu="return false;" class="no-scroll noselect">
+
+
+
+
                         <script >
                           (
                             () => {
@@ -898,6 +916,9 @@ output << '<div class="bottom-margin"></div>'
 
 output << <<~PAGE_BOTTOM
       </div>
+<div id='idiv'>
+     <iframe scrolling="no" src="https://www.forexmarkethours.com/markethours.php" id="iframe_main">
+</div>
     </body>
   </html>
 PAGE_BOTTOM
