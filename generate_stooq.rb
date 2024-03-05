@@ -1,5 +1,5 @@
-TIMEFRAMES = %w[2y 1m].freeze
-TIMEFRAMES_NAMES = %w[W 4H].freeze
+TIMEFRAMES = %w[3m 1m].freeze
+TIMEFRAMES_NAMES = %w[D 4H].freeze
 AUTO_RELOAD_INTERVAL_MS = 600_000
 CHARTS = [
   '-|||| INDICES ||||-',
@@ -509,6 +509,11 @@ output << <<~PAGE_TOP
                         position: relative;
                         width: auto;
                       }
+                      .thin-img-wrapper{
+                        flex: 0.33 0.33 33%;
+                        position: relative;
+                        width: auto;
+                      }
                       .chart-info {
                         font-family: 'Roboto';
                         font-weight: normal;
@@ -703,7 +708,7 @@ def chart(market_id, timeframe)
   stooq_id, info_link, description = market_id.split(',')
 
   <<~CHART
-    <div class="img-wrapper">
+    <div class="#{timeframe == "3m" ? 'thin-img-wrapper' : 'img-wrapper'}">
       <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{stooq_id}&c=#{timeframe}&t=c&a=lg&b&g"> <div class="chart-info #{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}">#{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}</div></img>
     </div>
   CHART
