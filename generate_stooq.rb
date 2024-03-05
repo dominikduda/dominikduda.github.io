@@ -1,6 +1,6 @@
 TIMEFRAMES = %w[3m 1m].freeze
 TIMEFRAMES_NAMES = %w[D 4H].freeze
-AUTO_RELOAD_INTERVAL_MS = 600_000
+AUTO_RELOAD_INTERVAL_MS = 240_000
 CHARTS = [
   '-|||| INDICES ||||-',
   '^SPX,https://en.wikipedia.org/wiki/S%26P_500,',
