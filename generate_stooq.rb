@@ -1,5 +1,5 @@
-TIMEFRAMES = %w[3m 1m].freeze
-TIMEFRAMES_NAMES = %w[D 4H].freeze
+TIMEFRAMES = %w[5d 5m].freeze
+TIMEFRAMES_NAMES = %w[H D].freeze
 AUTO_RELOAD_INTERVAL_MS = 240_000
 CHARTS = [
   '-|||| INDICES ||||-',
@@ -510,7 +510,7 @@ output << <<~PAGE_TOP
                         width: auto;
                       }
                       .thin-img-wrapper{
-                        flex: 0.33 0.33 33%;
+                        flex: 1 1 49%;
                         position: relative;
                         width: auto;
                       }
@@ -738,8 +738,8 @@ CHARTS.each do |market_id|
               "<div class='grid-item section-divider' id=#{market_id}>" + market_id.gsub('_', ' ') + '</div>'
             else
               "<div class='grid-item divider' id=#{stooq_id}><div class='inside-divider'><h4 class='no-margin'><a href='##{stooq_id}'>" + stooq_id + "</a></h4>#{info_link && !info_link.empty? ? "<h4><a href=#{info_link}>Symbol info</a></h4>" : ''}#{description && !description.empty? ? "<p>#{description}</p>" : ''}</div></div>"
-              # .inside-divider {
             end
+  next if market_id.include?('|')
   output << "<div class='chart-wrapper'>"
   TIMEFRAMES.each do |timeframe|
     output << chart(stooq_id, timeframe)
