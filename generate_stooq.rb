@@ -1,5 +1,5 @@
-TIMEFRAMES = %w[5m 5d].freeze
-TIMEFRAMES_NAMES = %w[D I].freeze
+TIMEFRAMES = %w[5d 5m].freeze
+TIMEFRAMES_NAMES = %w[I D].freeze
 AUTO_RELOAD_INTERVAL_MS = 240_000
 CHARTS = [
   '-|||| METALS ||||-',
