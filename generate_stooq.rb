@@ -432,7 +432,7 @@ output << <<~PAGE_TOP
                           width: auto;
                         }
                         .thin-img-wrapper{
-                          flex: 1 1 49%;
+                          flex: 0.38 0.38 38%;
                           position: relative;
                           width: auto;
                         }
@@ -577,7 +577,7 @@ output << <<~PAGE_TOP
                         .chart-wrapper {
                           display: flex;
                           flex-wrap: wrap;
-                          height: 95%;
+                          height: 92%;
                         }
                         .bottom-margin {
                           background-color: #00385f;
@@ -630,7 +630,7 @@ def chart(market_id, timeframe)
   stooq_id, = market_id.split(',')
 
   <<~CHART
-    <div class="#{timeframe == '3m' ? 'thin-img-wrapper' : 'img-wrapper'}">
+    <div class="#{timeframe == '5m' ? 'thin-img-wrapper' : 'img-wrapper'}">
       <img onload="window.watcherOnImageLoad()" loading="lazy" onerror="window.watcherOnImageError(this)" src="https://stooq.com/c/?s=#{stooq_id}&c=#{timeframe}&t=c&a=lg&b&g"> <div class="chart-info #{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}">#{TIMEFRAMES_NAMES[TIMEFRAMES.index(timeframe)]}</div></img>
     </div>
   CHART
